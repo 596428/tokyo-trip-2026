@@ -122,6 +122,7 @@ body[data-view="review"] .workspace{display:block;max-width:980px}
 .review-selection select{flex:1;max-width:200px}
 .review-note{font-size:12px;margin:12px 0}.review-note summary{cursor:pointer;color:var(--green)}
 .review-card>small{color:var(--muted);font-size:11px}.review-pagination{justify-content:space-between;margin:18px 0;font-size:12px}
+.review-card .place-card-top b{overflow-wrap:anywhere;flex:1 1 130px}.review-source-videos{margin:14px 0;font-size:12px}.review-source-videos summary{cursor:pointer;color:var(--green)}.review-source-video{border-top:1px solid var(--line);padding:10px 0;overflow-wrap:anywhere}.review-source-video a{color:var(--green)}.review-source-video small{display:block;color:var(--muted);margin-top:4px}
 .review-pagination button:disabled{opacity:.4}.review-pagination .button-link{margin:0}
 @media(min-width:761px) and (max-height:800px){.sidebar{padding-top:22px;padding-bottom:20px;overflow-y:auto}.sidebar-trip{margin:25px 0 18px;padding-bottom:18px}.main-nav{gap:4px}.nav-item{padding:9px 14px}.sidebar-note{display:none}.sidebar-bottom{padding-top:18px}}
 @media(max-width:760px){.mobile-nav{grid-template-columns:repeat(5,1fr)}.review-grid{grid-template-columns:minmax(0,1fr)}.review-card{padding:15px}.review-tools{gap:8px}.review-tools select,.review-selection select{font-size:16px}.review-tools .button-link{font-size:12px}body[data-view="review"] .workspace{margin-top:22px}.review-progress span{line-height:1.8}}

@@ -9,7 +9,7 @@ const dayColors = {fri:'#b94936',sat:'#3c6256',sun:'#476a94'};
 const state = {view:'map',day:'all',showFood:true,showFabric:false,foodScope:'route',foodMeal:'all',foodQuery:'',mapStyle:'simple',kind:'all',query:'',includeUnreviewed:false,listTab:'food',radiusKm:1,center:null,anchorId:'route',centerLabel:'전체 방문권역',includeUnknownHours:false,categories:['picked','unreviewed','recommended'],showRecommendations:true,showRoute:true,userPosition:null};
 Object.assign(state,{reviewFilter:'all',reviewStatus:'all',reviewQuery:'',reviewPage:0});
 let data, places, records={}, map, mapLayer, foodLayer, baseLayer, dialogPlace, focusLayer;
-let videoReviews={},reviewVideoMap=new Map();
+let videoReviews={},reviewVideoMap=new Map(),reviewGroups=[];
 let dialogBackPending=false;
 const DIALOG_HISTORY_KEY='tokyoTripPlace';
 const markers=new Map();
@@ -67,28 +67,30 @@ function applyReviewSelections(){
   }
 }
 function setVideoReview(id,change){
-  const video=reviewVideoMap.get(id);if(!video)return;
-  videoReviews[id]={selection:TripReview.selection(video,videoReviews),note:videoReviews[id]?.note||'',...change,reviewedAt:new Date().toISOString()};
+  const group=reviewGroups.find(g=>g.id===id);if(!group)return;
+  videoReviews=TripReview.updateGroup(group,videoReviews,change,new Date().toISOString());
   const saved=saveVideoReviews();applyReviewSelections();
   if($('#review-save-status'))$('#review-save-status').textContent=saved?'이 브라우저에 저장됨':'저장 실패 · 내보내기로 보관해 주세요';
 }
 function reviewCard(v){
-  const current=TripReview.selection(v,videoReviews);
-  const related=!v.isCompilation&&data.places.find(p=>p.kind==='food'&&!p.duplicateOf&&p.videoIds?.includes(v.id));
-  return `<article class="review-card" data-review-card="${esc(v.id)}"><div class="place-card-top"><b>${esc(v.id)}</b><span>${esc(v.area)}${v.isCompilation?' · 모음 영상':''}</span>${badge(TripReview.labels[current],current==='가고 싶음'?'':'soft')}</div><h3>${esc(v.restaurant||v.title)}</h3><p>${esc(v.menu||v.title)}</p><div class="review-actions">${link(v.url,'Shorts 보기 ↗','button-link')}${related?`<button class="button-link" data-place="${esc(related.id)}">메뉴·지도 상세</button>`:''}</div>${v.isCompilation?`<details><summary>영상 속 장소 ${v.restaurantNames.length}곳</summary><p>${esc(v.restaurantNames.join(' / '))}</p></details>`:''}<label class="review-selection">검토 결과<select data-video-review="${esc(v.id)}" aria-label="${esc(v.id)} 검토 결과">${TripReview.statuses.map(s=>`<option value="${esc(s)}" ${current===s?'selected':''}>${esc(TripReview.labels[s])}</option>`).join('')}</select></label><details class="review-note" ${videoReviews[v.id]?.note?'open':''}><summary>내 검토 메모${videoReviews[v.id]?.note?' · 작성됨':''}</summary><textarea data-video-note="${esc(v.id)}" aria-label="${esc(v.id)} 검토 메모" maxlength="4000" placeholder="먹고 싶은 메뉴, 고민하는 이유…">${esc(videoReviews[v.id]?.note||'')}</textarea></details><small>엑셀 원본: ${esc(TripReview.labels[v.selection]||v.selection)}${videoReviews[v.id]?' · 웹 검토 기록 있음':''}</small></article>`;
+  const current=TripReview.groupSelection(v,videoReviews),note=TripReview.groupNote(v,videoReviews);
+  const related=v.placeId&&places.get(v.placeId);
+  const sources=v.videos.length>1?`<details class="review-source-videos"><summary>관련 Shorts ${v.videos.length}개 · 엑셀 번호·이전 메모</summary>${v.videos.map(x=>`<div class="review-source-video">${link(x.url,x.id+' · '+x.title)}<small>엑셀 원본: ${esc(TripReview.labels[x.selection]||x.selection)}</small>${videoReviews[x.id]?.note&&x.id!==v.id?`<p>${esc(x.id+' 메모: '+videoReviews[x.id].note)}</p>`:''}</div>`).join('')}</details>`:'';
+  const original=[...new Set(v.videos.map(x=>TripReview.labels[x.selection]||x.selection))].join(' / ');
+  return `<article class="review-card" data-review-card="${esc(v.id)}"><div class="place-card-top"><b>${esc(v.videoIds.join(' · '))}</b><span>${esc(v.area)}${v.isCompilation?' · 모음 영상':''}</span>${badge(TripReview.labels[current],current==='가고 싶음'?'':'soft')}</div><h3>${esc(v.restaurant||v.title)}</h3><p>${esc(v.menu||v.title)}</p><div class="review-actions">${link(v.url,'Shorts 보기 ↗','button-link')}${related?`<button class="button-link" data-place="${esc(related.id)}">메뉴·지도 상세</button>`:''}</div>${sources}${v.isCompilation?`<details><summary>영상 속 장소 ${v.restaurantNames.length}곳</summary><p>${esc(v.restaurantNames.join(' / '))}</p></details>`:''}<label class="review-selection">검토 결과<select data-video-review="${esc(v.id)}" aria-label="${esc(v.id)} 검토 결과">${TripReview.statuses.map(s=>`<option value="${esc(s)}" ${current===s?'selected':''}>${esc(TripReview.labels[s])}</option>`).join('')}</select></label><details class="review-note" ${note?'open':''}><summary>내 검토 메모${note?' · 작성됨':''}</summary><textarea data-video-note="${esc(v.id)}" aria-label="${esc(v.id)} 검토 메모" maxlength="4000" placeholder="먹고 싶은 메뉴, 고민하는 이유…">${esc(note)}</textarea></details><small>엑셀 원본: ${esc(original)}${v.videos.some(x=>videoReviews[x.id])?' · 웹 검토 기록 있음':''}${v.videos.length>1?' · 결과 변경 시 연결된 엑셀 항목에 함께 반영':''}</small></article>`;
 }
 function renderReviewResults(){
-  const all=data.reviewVideos||[],stats=TripReview.stats(all,videoReviews);
+  const all=reviewGroups,stats=TripReview.stats(all,videoReviews);
   const list=TripReview.filter(all,videoReviews,state.reviewStatus,state.reviewQuery);
   const pages=Math.max(1,Math.ceil(list.length/REVIEW_PAGE_SIZE));state.reviewPage=Math.min(state.reviewPage,pages-1);
   const start=state.reviewPage*REVIEW_PAGE_SIZE;
-  $('#review-progress').innerHTML=`<b>${stats.reviewed} / ${stats.total}개 검토</b><progress value="${stats.reviewed}" max="${stats.total}" aria-label="엑셀 영상 검토 진행률"></progress><span>${TripReview.statuses.map(s=>esc(TripReview.labels[s])+' '+stats[s]).join(' · ')}</span>`;
+  $('#review-progress').innerHTML=`<b>${stats.reviewed} / ${stats.total}개 항목 검토</b><small>같은 가게는 한 번만 표시 · 원본 영상 ${data.reviewVideos.length}개${all.some(g=>g.isCompilation)?' · 모음 영상은 별도 항목':''}</small><progress value="${stats.reviewed}" max="${stats.total}" aria-label="맛집 검토 진행률"></progress><span>${TripReview.statuses.map(s=>esc(TripReview.labels[s])+' '+stats[s]).join(' · ')}</span>`;
   const pager=`<div class="review-pagination"><button class="button-link" data-review-page="${state.reviewPage-1}" ${state.reviewPage===0?'disabled':''}>이전 20개</button><span>${state.reviewPage+1} / ${pages}쪽 · ${list.length}개</span><button class="button-link" data-review-page="${state.reviewPage+1}" ${state.reviewPage>=pages-1?'disabled':''}>다음 20개</button></div>`;
   $('#review-results').innerHTML=pager+`<div class="review-grid">${list.slice(start,start+REVIEW_PAGE_SIZE).map(reviewCard).join('')||'<div class="empty-state">이 조건에 해당하는 영상이 없습니다.</div>'}</div>`+pager;
   saveReviewUI();
 }
 function renderReview(){
-  $('#left-pane').innerHTML=`<div class="section-heading"><div><span class="eyebrow">REVIEW YOUR EXCEL LIST</span><h2>엑셀 목록 검토</h2></div></div><p class="section-intro">엑셀 번호순으로 영상을 보고 결과를 고르세요. 기존 엑셀 선택을 초기값으로 사용하며 변경은 자동 저장됩니다. 같은 가게의 영상과 모음 영상도 번호별로 따로 검토합니다.</p><div id="review-progress" class="review-progress" role="status"></div><div class="review-tools"><label>검토 상태<select id="review-status">${['all',...TripReview.statuses].map(s=>`<option value="${esc(s)}" ${state.reviewStatus===s?'selected':''}>${s==='all'?'전체':esc(TripReview.labels[s])}</option>`).join('')}</select></label><button class="button-link" data-action="review-unreviewed">미검토부터 이어 보기</button><button class="button-link" data-action="review-map-wanted">가고 싶은 곳 지도</button><button class="button-link" data-action="export">검토·메모 내보내기</button></div><label class="search-box"><span aria-hidden="true">⌕</span><input id="review-search" type="search" aria-label="엑셀 영상 검색" placeholder="T051, 가게·지역·메뉴 검색" value="${esc(state.reviewQuery)}"></label><p id="review-save-status" class="review-save-status" role="status">이 브라우저에 자동 저장 · 다른 기기로 옮길 때는 내보내기</p><p class="section-intro">‘가고 싶음’은 지도 검토 필터에 반영됩니다. 별표 관심은 별도로 유지합니다. 모음 영상 속 장소는 개별 핀으로 자동 추가되지 않습니다.</p><div id="review-results"></div>`;
+  $('#left-pane').innerHTML=`<div class="section-heading"><div><span class="eyebrow">REVIEW YOUR EXCEL LIST</span><h2>엑셀 목록 검토</h2></div></div><p class="section-intro">같은 가게의 Shorts를 한 카드로 묶었습니다. 관련 영상을 골라 보고 가게별로 검토하세요. 결과를 변경하면 연결된 엑셀 항목에 함께 반영되며 자동 저장됩니다.</p><div id="review-progress" class="review-progress" role="status"></div><div class="review-tools"><label>검토 상태<select id="review-status">${['all',...TripReview.statuses].map(s=>`<option value="${esc(s)}" ${state.reviewStatus===s?'selected':''}>${s==='all'?'전체':esc(TripReview.labels[s])}</option>`).join('')}</select></label><button class="button-link" data-action="review-unreviewed">미검토부터 이어 보기</button><button class="button-link" data-action="review-map-wanted">가고 싶은 곳 지도</button><button class="button-link" data-action="export">검토·메모 내보내기</button></div><label class="search-box"><span aria-hidden="true">⌕</span><input id="review-search" type="search" aria-label="엑셀 영상 검색" placeholder="T051, 가게·지역·메뉴 검색" value="${esc(state.reviewQuery)}"></label><p id="review-save-status" class="review-save-status" role="status">이 브라우저에 자동 저장 · 다른 기기로 옮길 때는 내보내기</p><p class="section-intro">‘가고 싶음’은 지도 검토 필터에 반영됩니다. 별표 관심은 별도로 유지합니다. 모음 영상 속 장소는 개별 핀으로 자동 추가되지 않습니다.</p><div id="review-results"></div>`;
   renderReviewResults();
 }
 function selectedDays(){return data.days.filter(d=>state.day==='all'||d.id===state.day);}
@@ -393,7 +395,8 @@ function openPlace(id,syncHistory=true){
 }
 function exportRecords(){
   const reviewRows=(data.reviewVideos||[]).map(v=>({id:v.id,restaurant:v.restaurant,videoUrl:v.url,excelSelection:v.selection,selection:TripReview.selection(v,videoReviews),note:videoReviews[v.id]?.note||'',reviewedAt:videoReviews[v.id]?.reviewedAt||'',source:videoReviews[v.id]?'web':'excel'}));
-  const content=JSON.stringify({format:'tokyo-trip-records',version:2,trip:'2026-10-30',exportedAt:new Date().toISOString(),records,videoReviews,reviewRows},null,2);
+  const groupedReviews=reviewGroups.map(g=>({placeId:g.placeId,videoIds:g.videoIds,restaurant:g.restaurant,selection:TripReview.groupSelection(g,videoReviews),note:TripReview.groupNote(g,videoReviews)}));
+  const content=JSON.stringify({format:'tokyo-trip-records',version:2,trip:'2026-10-30',exportedAt:new Date().toISOString(),records,videoReviews,reviewRows,groupedReviews},null,2);
   const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([content],{type:'application/json'}));a.download='tokyo-trip-records.json';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000);message('검토 결과·방문 체크·관심·메모를 내보냈습니다. 다운로드한 파일을 보관해 주세요.');
 }
 
@@ -468,6 +471,7 @@ async function start(){
   const response=await fetch('./trip-data.json?v=20261025-review',{cache:'no-cache'});if(!response.ok)throw new Error('데이터 불러오기');
   data=await response.json();places=new Map(data.places.map(p=>[p.id,p]));
   reviewVideoMap=new Map((data.reviewVideos||[]).map(v=>[v.id,v]));
+  reviewGroups=TripReview.groups(data.reviewVideos||[],data.places);
   state.center=places.get(data.routePlan.hotelId).coords;loadRecords();loadVideoReviews();applyReviewSelections();initMap();render();renderProgress();updateMap(true);
   if(places.has(history.state?.[DIALOG_HISTORY_KEY]))openPlace(history.state[DIALOG_HISTORY_KEY],false);
 }
