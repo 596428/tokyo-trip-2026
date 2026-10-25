@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#f6f3ed">
+  <meta name="description" content="2026년 10월 30일–11월 1일, 도쿄 여행 일정과 쇼핑·맛집 후보 지도">
+  <title>도쿄 여행 노트 · 10.30–11.01</title>
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./vendor/leaflet.css">
+  <link rel="stylesheet" href="./vendor/MarkerCluster.css">
+  <link rel="stylesheet" href="./vendor/maplibre-gl.css">
+  <link rel="stylesheet" href="./style.css?v=20261025-explore">
+  <script defer src="./vendor/leaflet.js"></script>
+  <script defer src="./vendor/leaflet.markercluster.js"></script>
+  <script defer src="./vendor/maplibre-gl.js"></script>
+  <script defer src="./vendor/leaflet-maplibre-gl.js"></script>
+  <script defer src="./explore-model.js?v=20261025-explore"></script>
+  <script defer src="./app.js?v=20261025-explore"></script>
+</head>
+<body data-view="map">
+  <a class="skip-link" href="#content">본문으로 이동</a>
+  <aside class="sidebar">
+    <a class="brand" href="./" aria-label="도쿄 여행 노트 처음"><span class="brand-mark">東</span><span>여행 노트<small>TOKYO / AUTUMN 2026</small></span></a>
+    <div class="sidebar-trip"><span class="eyebrow">다음 여행</span><strong>도쿄, 2박 3일</strong><span>10월 30일 — 11월 1일 · 혼자</span></div>
+    <nav class="main-nav" aria-label="주 메뉴">
+      <button class="nav-item active" data-view="today"><span>◷</span> 날짜별 일정</button>
+      <button class="nav-item" data-view="map"><span>⌖</span> 전체 지도</button>
+      <button class="nav-item" data-view="places"><span>▦</span> 장소 보관함</button>
+      <button class="nav-item" data-view="prepare"><span>☑</span> 예약과 준비</button>
+    </nav>
+    <div class="sidebar-note"><span class="little-dot"></span> 아직 여유가 있는 계획<p>장소를 먼저 고르고,<br>그 주변에서 한 끼를 채우기.</p></div>
+    <div class="sidebar-bottom"><button class="text-button" data-action="export">체크·메모 내보내기 ↗</button><button class="text-button" data-action="import">저장한 기록 가져오기</button><small>기록은 현재 브라우저에 저장됩니다.</small></div>
+  </aside>
+  <main>
+    <header class="topbar"><span>MY TRAVEL JOURNAL <i>/</i> JAPAN</span><span class="draft-label">유동적인 동선 <span>·</span> 10.25 갱신</span></header>
+    <section class="hero" aria-labelledby="trip-title">
+      <div class="hero-copy"><span class="eyebrow">2026.10.30 FRI — 11.01 SUN</span><h1 id="trip-title">도쿄, 취향을 담는 3일<span class="red-period">.</span></h1><p>한정 굿즈와 카드, 캐주얼한 신발.<br class="mobile-only"> APA 우에노 히로코지를 거점으로 잇는 쇼핑 동선.</p><div class="hero-tags"><span>성인 1명</span><span>나리타 왕복</span><span>APA 숙소 예약 완료</span></div></div>
+      <div class="hero-ticket" aria-hidden="true"><span class="ticket-top">TOKYO BOUND</span><strong>TYO<span>2026</span></strong><div class="ticket-line"><span>30 OCT</span><span>01 NOV</span></div><div class="ticket-bottom"><span>好きなものを、少しずつ。</span><b>東京</b></div></div>
+    </section>
+    <div class="status-strip"><span><i class="status-dot"></i><b id="progress-label">방문 기록 불러오는 중</b></span><span>예약·매장 재고는 아직 확인이 필요해요.</span></div>
+    <div id="app-message" class="app-message" role="status" hidden></div>
+    <section id="content" tabindex="-1">
+      <div class="toolbar"><div id="day-tabs" class="day-tabs" role="group" aria-label="날짜 선택"></div><button class="quiet-button" data-action="food-toggle">동선·주변 탐색 ↗</button></div>
+      <div class="workspace">
+        <div id="left-pane" class="left-pane"></div>
+        <aside id="map-pane" class="map-pane">
+          <div class="map-heading"><div><span class="eyebrow">THE BIG PICTURE</span><h2 id="map-title">이번 여행의 장소들</h2></div><button class="icon-button" data-action="map-fit" aria-label="지도 전체 보기" title="지도 전체 보기">⛶</button></div>
+          <div class="explore-controls">
+            <label class="anchor-control" for="explore-anchor">어디를 둘러볼까요?<select id="explore-anchor"></select></label>
+            <div class="explore-primary"><label>직선 반경 <select id="explore-radius" aria-label="주변 탐색 반경"><option value="0.5">500m</option><option value="1" selected>1km</option><option value="2">2km</option></select></label><button class="button-link" data-action="my-location">◎ 내 위치</button><button class="button-link mobile-list-jump" data-action="list-jump">후보 목록 ↓</button></div>
+            <div id="explore-center-label" class="explore-center-label" role="status"></div>
+            <div id="geo-message" class="geo-message" role="status" hidden></div>
+            <details class="explore-options"><summary>후보·식사 필터</summary>
+              <div class="food-scope-control"><label for="food-scope">맛집 범위</label><select id="food-scope"><option value="route">방문권역 주변 · 미검토 포함</option><option value="nearby">선택 장소·지도 중심 주변</option><option value="hotel30">호텔 약 30분 · 확인한 후보</option><option value="selected">엑셀에서 선택한 후보</option><option value="all">엑셀 전체</option></select></div>
+              <div class="food-category-controls" role="group" aria-label="맛집 후보 종류"><label><input data-food-category="picked" type="checkbox" checked>내 선택·모음 영상</label><label><input data-food-category="unreviewed" type="checkbox" checked>엑셀 미검토</label><label><input data-food-category="recommended" type="checkbox" checked>추가 추천</label></div>
+              <div class="meal-filter-control"><label for="food-meal">식사·술</label><select id="food-meal"><option value="all">전체</option><option value="breakfast">아침 식사</option><option value="lunch">점심 식사</option><option value="dinner">저녁 식사</option><option value="drinks">저녁 + 술</option><option value="afterDinner">호텔 근처의 술집</option></select><label><input id="include-unknown-hours" type="checkbox">목적·영업 미확인도 포함</label><small>미확인은 ‘영업 중’이라는 뜻이 아닙니다. 확인된 휴무·점심 전용 가게는 목적 필터에 반영합니다.</small></div>
+              <div class="map-overlays" role="group" aria-label="지도 레이어"><label><input id="show-food" type="checkbox" checked>맛집</label><label><input id="show-recommendations" type="checkbox" checked>추천 장소</label><label><input id="show-route" type="checkbox" checked>참고 동선</label><label><input id="show-fabric" type="checkbox">원단</label></div>
+              <label class="map-style-control">지도 스타일 <select id="map-style" aria-label="지도 스타일"><option value="simple">간략 지도</option><option value="detail">상세 지도</option></select></label>
+              <button class="small-link" data-action="hotel-food-fit">호텔 약 30분 후보 보기 ↗</button>
+              <button class="small-link" data-action="hotel-bars">호텔 근처의 술집 3곳 ↗</button>
+            </details>
+          </div>
+          <div class="map-canvas"><div id="map" aria-label="도쿄 여행 장소 지도"></div><button class="map-search-here" data-action="search-map-center">⌖ 이 주변에서 찾기</button></div>
+          <div class="map-result-bar"><span id="food-map-count" role="status"></span><button class="small-link" data-action="list-jump">목록 보기 ↓</button></div>
+          <div id="map-fallback" hidden>지도를 불러오지 못했습니다. 장소 목록의 Google 지도 버튼으로 위치를 확인할 수 있습니다.</div>
+          <div class="map-foot"><span id="map-legend"></span><small id="map-scope-note"></small><small>거리는 대략적인 직선거리 · 점선은 바꿀 수 있는 참고 순서이며 실제 도로·철도 경로가 아닙니다.</small><small>주소 위치 검색: <a href="https://maps.gsi.go.jp/" target="_blank" rel="noopener">국토지리원·CSIS</a>, <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a>. 블록 위치는 실제 입구와 다를 수 있습니다.</small></div>
+          <div class="map-tip"><b>관심 장소만 저장하고, 식사는 주변에서 고르세요.</b><p>장소 핀의 ‘주변 맛집’ 또는 지도 이동 후 ‘이 주변에서 찾기’를 누르세요. 별표 관심은 이 브라우저에 저장됩니다.</p></div>
+        </aside>
+      </div>
+    </section>
+    <footer class="footer"><span>TOKYO TRAVEL NOTES / 2026</span><span>동선 2026.10.25 · 식사 조사 10.25 기준 · 방문일 영업·재고 재확인</span></footer>
+  </main>
+  <nav class="mobile-nav" aria-label="모바일 주 메뉴"><button class="active" data-view="today"><span>◷</span>일정</button><button data-view="map"><span>⌖</span>지도</button><button data-view="places"><span>▦</span>장소</button><button data-view="prepare"><span>☑</span>준비</button></nav>
+  <dialog id="place-dialog"><div class="dialog-header"><span class="eyebrow">PLACE NOTE</span><button class="icon-button" data-action="close-dialog" aria-label="장소 상세 닫기">×</button></div><div id="dialog-content"></div></dialog>
+  <input type="file" accept="application/json,.json" id="import-file" hidden>
+  <noscript><p class="noscript">일정과 지도를 보려면 JavaScript를 켜 주세요.</p></noscript>
+</body>
+</html>
