@@ -34,6 +34,7 @@
       if(c.scope==='all'&&p.sourceType==='hotel-research')return false;
       if(c.categories&&!c.categories.includes(category(p)))return false;
       if(c.interestedOnly&&!c.records?.[p.id]?.interested)return false;
+      if(c.reviewFilter&&c.reviewFilter!=='all'&&p.reviewSelection!==c.reviewFilter)return false;
       if(!mealMatch(p,c.meal||'all',c.day||'all',c.includeUnknown))return false;
       if(q&&![p.name,p.area,p.summary,p.address,p.hotelFood?.menu,...(p.videoIds||[])].join(' ').toLocaleLowerCase().includes(q))return false;
       if(c.scope==='route'||c.scope==='nearby')return referenceDistance(p,c)<=c.radiusKm;

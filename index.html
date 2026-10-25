@@ -10,13 +10,14 @@
   <link rel="stylesheet" href="./vendor/leaflet.css">
   <link rel="stylesheet" href="./vendor/MarkerCluster.css">
   <link rel="stylesheet" href="./vendor/maplibre-gl.css">
-  <link rel="stylesheet" href="./style.css?v=20261025-dialog-scroll">
+  <link rel="stylesheet" href="./style.css?v=20261025-review">
   <script defer src="./vendor/leaflet.js"></script>
   <script defer src="./vendor/leaflet.markercluster.js"></script>
   <script defer src="./vendor/maplibre-gl.js"></script>
   <script defer src="./vendor/leaflet-maplibre-gl.js"></script>
-  <script defer src="./explore-model.js?v=20261025-explore"></script>
-  <script defer src="./app.js?v=20261025-dialog-back"></script>
+  <script defer src="./explore-model.js?v=20261025-review"></script>
+  <script defer src="./review-model.js?v=20261025-review"></script>
+  <script defer src="./app.js?v=20261025-review"></script>
 </head>
 <body data-view="map">
   <a class="skip-link" href="#content">본문으로 이동</a>
@@ -27,6 +28,7 @@
       <button class="nav-item active" data-view="today"><span>◷</span> 날짜별 일정</button>
       <button class="nav-item" data-view="map"><span>⌖</span> 전체 지도</button>
       <button class="nav-item" data-view="places"><span>▦</span> 장소 보관함</button>
+      <button class="nav-item" data-view="review"><span>✓</span> 엑셀 목록 검토</button>
       <button class="nav-item" data-view="prepare"><span>☑</span> 예약과 준비</button>
     </nav>
     <div class="sidebar-note"><span class="little-dot"></span> 아직 여유가 있는 계획<p>장소를 먼저 고르고,<br>그 주변에서 한 끼를 채우기.</p></div>
@@ -54,6 +56,7 @@
             <details class="explore-options"><summary>후보·식사 필터</summary>
               <div class="food-scope-control"><label for="food-scope">맛집 범위</label><select id="food-scope"><option value="route">방문권역 주변 · 미검토 포함</option><option value="nearby">선택 장소·지도 중심 주변</option><option value="hotel30">호텔 약 30분 · 확인한 후보</option><option value="selected">엑셀에서 선택한 후보</option><option value="all">엑셀 전체</option></select></div>
               <div class="food-category-controls" role="group" aria-label="맛집 후보 종류"><label><input data-food-category="picked" type="checkbox" checked>내 선택·모음 영상</label><label><input data-food-category="unreviewed" type="checkbox" checked>엑셀 미검토</label><label><input data-food-category="recommended" type="checkbox" checked>추가 추천</label></div>
+              <div class="food-scope-control"><label for="food-review">내 검토 결과</label><select id="food-review"><option value="all">전체</option><option value="가고 싶음">가고 싶음</option><option value="미검토">미검토</option><option value="검토">검토 중</option><option value="보류">보류</option><option value="제외">제외</option></select><button class="small-link" data-view="review">엑셀 목록 검토 →</button></div>
               <div class="meal-filter-control"><label for="food-meal">식사·술</label><select id="food-meal"><option value="all">전체</option><option value="breakfast">아침 식사</option><option value="lunch">점심 식사</option><option value="dinner">저녁 식사</option><option value="drinks">저녁 + 술</option><option value="afterDinner">호텔 근처의 술집</option></select><label><input id="include-unknown-hours" type="checkbox">목적·영업 미확인도 포함</label><small>미확인은 ‘영업 중’이라는 뜻이 아닙니다. 확인된 휴무·점심 전용 가게는 목적 필터에 반영합니다.</small></div>
               <div class="map-overlays" role="group" aria-label="지도 레이어"><label><input id="show-food" type="checkbox" checked>맛집</label><label><input id="show-recommendations" type="checkbox" checked>추천 장소</label><label><input id="show-route" type="checkbox" checked>참고 동선</label><label><input id="show-fabric" type="checkbox">원단</label></div>
               <label class="map-style-control">지도 스타일 <select id="map-style" aria-label="지도 스타일"><option value="simple">간략 지도</option><option value="detail">상세 지도</option></select></label>
@@ -71,7 +74,7 @@
     </section>
     <footer class="footer"><span>TOKYO TRAVEL NOTES / 2026</span><span>동선 2026.10.25 · 식사 조사 10.25 기준 · 방문일 영업·재고 재확인</span></footer>
   </main>
-  <nav class="mobile-nav" aria-label="모바일 주 메뉴"><button class="active" data-view="today"><span>◷</span>일정</button><button data-view="map"><span>⌖</span>지도</button><button data-view="places"><span>▦</span>장소</button><button data-view="prepare"><span>☑</span>준비</button></nav>
+  <nav class="mobile-nav" aria-label="모바일 주 메뉴"><button class="active" data-view="today"><span>◷</span>일정</button><button data-view="map"><span>⌖</span>지도</button><button data-view="places"><span>▦</span>장소</button><button data-view="review"><span>✓</span>엑셀 검토</button><button data-view="prepare"><span>☑</span>준비</button></nav>
   <dialog id="place-dialog"><div class="dialog-header"><span class="eyebrow">PLACE NOTE</span><button class="icon-button" data-action="close-dialog" aria-label="장소 상세 닫기">×</button></div><div id="dialog-content"></div></dialog>
   <input type="file" accept="application/json,.json" id="import-file" hidden>
   <noscript><p class="noscript">일정과 지도를 보려면 JavaScript를 켜 주세요.</p></noscript>

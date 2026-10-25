@@ -9227,6 +9227,3823 @@
       "related_ids": ""
     }
   ],
+  "reviewVideos": [
+    {
+      "id": "T001",
+      "url": "https://www.youtube.com/shorts/0R3n0tGQeK4",
+      "title": "도쿄에서 말차 치즈 난(Naan)을 주문하면 생기는 일",
+      "restaurant": "Asian Dining YUMMY",
+      "area": "신주쿠",
+      "menu": "말차 치즈 난 (935엔), 시금치 치킨 커리 (1,485엔)",
+      "selection": "제외",
+      "isCompilation": false,
+      "restaurantNames": [
+        "Asian Dining YUMMY"
+      ]
+    },
+    {
+      "id": "T002",
+      "url": "https://www.youtube.com/shorts/u6e5ttyLqwY",
+      "title": "도쿄에서 피자를 주문하면 생기는 일",
+      "restaurant": "SHOGUN PIZZA Shibuya",
+      "area": "시부야",
+      "menu": "산더미 버섯 데리야키 마요 피자 (620엔), 콰트로 포르마지 피자 (1,500엔), 와규 스키야키 피자 (2,500엔), 살몬 제노베제 피자 (1,400엔)",
+      "selection": "가고 싶음",
+      "isCompilation": false,
+      "restaurantNames": [
+        "SHOGUN PIZZA Shibuya"
+      ]
+    },
+    {
+      "id": "T003",
+      "url": "https://www.youtube.com/shorts/Bsmy-H0VBc4",
+      "title": "도쿄에서 우설을 주문하면 생기는 일",
+      "restaurant": "29 Terrace",
+      "area": "시부야",
+      "menu": "파우설 8개 (5,456엔)",
+      "selection": "제외",
+      "isCompilation": false,
+      "restaurantNames": [
+        "29 Terrace"
+      ]
+    },
+    {
+      "id": "T004",
+      "url": "https://www.youtube.com/shorts/X89F9x9kpf8",
+      "title": "도쿄에서 텐동을 주문하면 생기는 일",
+      "restaurant": "Hirokatsu Shibuyadogenzakaten ひろかつ 渋谷道玄坂店",
+      "area": "시부야",
+      "menu": "와규 스키야키 창코 텐동 (4,980엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "Hirokatsu Shibuyadogenzakaten ひろかつ 渋谷道玄坂店"
+      ]
+    },
+    {
+      "id": "T005",
+      "url": "https://www.youtube.com/shorts/0rSmZI91ebU",
+      "title": "도쿄에서 푸딩 파르페를 주문하면 생기는 일",
+      "restaurant": "Ginza Orions / 銀座オリオンズ",
+      "area": "긴자",
+      "menu": "할로윈 한정 자색고구마와 우지 말차 푸딩 파르페 (2,700엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "Ginza Orions / 銀座オリオンズ"
+      ]
+    },
+    {
+      "id": "T006",
+      "url": "https://www.youtube.com/shorts/GbtRruQOZDM",
+      "title": "도쿄에서 시오라멘을 주문하면 생기는 일",
+      "restaurant": "Ramen Sakurai 麺屋 さくら井",
+      "area": "도쿄 기타",
+      "menu": "특상 시오 라멘 (2,000엔)",
+      "selection": "가고 싶음",
+      "isCompilation": false,
+      "restaurantNames": [
+        "Ramen Sakurai 麺屋 さくら井"
+      ]
+    },
+    {
+      "id": "T007",
+      "url": "https://www.youtube.com/shorts/vuJ3jgRTPkY",
+      "title": "도쿄에서 스시 오마카세를 주문했더니 생겼던 일",
+      "restaurant": "おすしのジョー",
+      "area": "롯폰기",
+      "menu": "스시 오마카세 18품 (15,000엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "おすしのジョー"
+      ]
+    },
+    {
+      "id": "T008",
+      "url": "https://www.youtube.com/shorts/all-v17kmEE",
+      "title": "도쿄에서 야키니쿠를 주문하면 생기는 일",
+      "restaurant": "29 Terrace",
+      "area": "시부야",
+      "menu": "파말이 채끝등심 TKG (1,969엔), 브랜드 와규 특선 두툼 안심 (5,808엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "29 Terrace"
+      ]
+    },
+    {
+      "id": "T009",
+      "url": "https://www.youtube.com/shorts/9BRTTsB3p6A",
+      "title": "도쿄에서 우동을 주문하면 생기는 일",
+      "restaurant": "MENYA ISHII WAGYU UDON 麺屋いしヰ 東京銀座",
+      "area": "긴자",
+      "menu": "극미 트러플 와규 스키야키 가마타마 우동 (2,700엔), 노른자 추가 (200엔)",
+      "selection": "가고 싶음",
+      "isCompilation": false,
+      "restaurantNames": [
+        "MENYA ISHII WAGYU UDON 麺屋いしヰ 東京銀座"
+      ]
+    },
+    {
+      "id": "T010",
+      "url": "https://www.youtube.com/shorts/qAQl1tkOsFw",
+      "title": "도쿄에서 아이스크림을 주문하면 생기는 일",
+      "restaurant": "DOLCE TACUBO CAFFE",
+      "area": "신바시·도라노몬",
+      "menu": "밀크 소프트 아이스크림 (900엔)",
+      "selection": "가고 싶음",
+      "isCompilation": false,
+      "restaurantNames": [
+        "DOLCE TACUBO CAFFE"
+      ]
+    },
+    {
+      "id": "T011",
+      "url": "https://www.youtube.com/shorts/WhigRIP8KVA",
+      "title": "도쿄에서 스시 오마카세를 주문하면 생기는 일",
+      "restaurant": "鮨よしかわ 新 ARATA 六本木",
+      "area": "롯폰기",
+      "menu": "대장 오마카세 코스 (13,200엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "鮨よしかわ 新 ARATA 六本木"
+      ]
+    },
+    {
+      "id": "T012",
+      "url": "https://www.youtube.com/shorts/KvtZET1FS98",
+      "title": "도쿄에서 오므라이스를 주문하면 생기는 일",
+      "restaurant": "Sweet Check",
+      "area": "시부야",
+      "menu": "카망베르 치즈 함박 오므라이스 (3,480엔), 노른자 추가 5개 (500엔)",
+      "selection": "가고 싶음",
+      "isCompilation": false,
+      "restaurantNames": [
+        "Sweet Check"
+      ]
+    },
+    {
+      "id": "T013",
+      "url": "https://www.youtube.com/shorts/Z-WNK7oHeOs",
+      "title": "일본 스테이크의 3단계",
+      "restaurant": "히로키야 롯폰기",
+      "area": "롯폰기",
+      "menu": "A5 와규 덮밥 (1,980엔)",
+      "selection": "가고 싶음",
+      "isCompilation": false,
+      "restaurantNames": [
+        "히로키야 롯폰기"
+      ]
+    },
+    {
+      "id": "T014",
+      "url": "https://www.youtube.com/shorts/OHJ5w3fkshg",
+      "title": "도쿄에서 샤브샤브를 주문하면 생기는 일",
+      "restaurant": "Shabu-Shabu Shoutaian Yodobashi HD Ikebukuro Building",
+      "area": "이케부쿠로",
+      "menu": "A5 흑모와규・즈와이게 무제한 코스 (13,310엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "Shabu-Shabu Shoutaian Yodobashi HD Ikebukuro Building"
+      ]
+    },
+    {
+      "id": "T015",
+      "url": "https://www.youtube.com/shorts/3IbjV5LjBeU",
+      "title": "도쿄에서 수플레 팬케이크를 주문하면 생기는 일",
+      "restaurant": "베니즈루 팬케익 紅鶴",
+      "area": "아사쿠사",
+      "menu": "",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "베니즈루 팬케익 紅鶴"
+      ]
+    },
+    {
+      "id": "T016",
+      "url": "https://www.youtube.com/shorts/jOmcmL4hyso",
+      "title": "곰팡이에 숙성한 도쿄 와규 스테이크",
+      "restaurant": "J Roppongi",
+      "area": "도쿄 기타",
+      "menu": "The J 코스 (28,000엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "J Roppongi"
+      ]
+    },
+    {
+      "id": "T017",
+      "url": "https://www.youtube.com/shorts/G-nZaOdPy2U",
+      "title": "도쿄에서 말차 치즈케이크를 주문하면 생기는 일",
+      "restaurant": "센토 사와이오리온즈 銀座オリオンズ",
+      "area": "긴자",
+      "menu": "말차 바스크 치즈케이크 (¥2,000)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "센토 사와이오리온즈 銀座オリオンズ"
+      ]
+    },
+    {
+      "id": "T018",
+      "url": "https://www.youtube.com/shorts/G3QdbMvhskY",
+      "title": "도쿄 와규 오마카세에서 나왔던 숯 샤브샤브",
+      "restaurant": "J Roppongi",
+      "area": "도쿄 기타",
+      "menu": "The J 코스 (28,000엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "J Roppongi"
+      ]
+    },
+    {
+      "id": "T019",
+      "url": "https://www.youtube.com/shorts/vqrq2Z6F-LQ",
+      "title": "103,000원 도쿄 참치김밥을 주문하면 생기는 일",
+      "restaurant": "미래수산 みらい水産 / Mirai Suisan",
+      "area": "도쿄 기타",
+      "menu": "은하계 제일의 우니참치마끼 (10,780엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "미래수산 みらい水産 / Mirai Suisan"
+      ]
+    },
+    {
+      "id": "T020",
+      "url": "https://www.youtube.com/shorts/rz4KOMAO9-4",
+      "title": "도쿄에서 특대 와규 살치살을 주문하면 생기는 일",
+      "restaurant": "Ushikou うし幸",
+      "area": "메구로",
+      "menu": "고기를 좋아하는 사람들을 위한 특별 코스 (19,800엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "Ushikou うし幸"
+      ]
+    },
+    {
+      "id": "T021",
+      "url": "https://www.youtube.com/shorts/-uxa5FMl1zE",
+      "title": "도쿄 스타벅스의 흔한 풍경",
+      "restaurant": "도큐 플라자 하라주쿠 하라카도 東急プラザ原宿 ハラカド",
+      "area": "하라주쿠",
+      "menu": "",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "도큐 플라자 하라주쿠 하라카도 東急プラザ原宿 ハラカド"
+      ]
+    },
+    {
+      "id": "T022",
+      "url": "https://www.youtube.com/shorts/ZhuQC6Rmxdk",
+      "title": "도쿄에서 킹크랩 오마카세를 주문하면 생기는 일",
+      "restaurant": "Kani Gennu Ginza かにじぇんぬ",
+      "area": "지역 확인 필요",
+      "menu": "타라바게(레드 킹크랩) 코스 1인 (60,500엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "Kani Gennu Ginza かにじぇんぬ"
+      ]
+    },
+    {
+      "id": "T023",
+      "url": "https://www.youtube.com/shorts/fzcwLK5Kbqw",
+      "title": "현재 도쿄 랭킹 1위의 라멘을 주문하면 생기는 일",
+      "restaurant": "라멘야 시마 らぁ麺や 嶋",
+      "area": "시부야",
+      "menu": "특상 쇼유라멘 (2,000엔)",
+      "selection": "가고 싶음",
+      "isCompilation": false,
+      "restaurantNames": [
+        "라멘야 시마 らぁ麺や 嶋"
+      ]
+    },
+    {
+      "id": "T024",
+      "url": "https://www.youtube.com/shorts/pyki2DSdQgw",
+      "title": "도쿄에서 말차 아이스크림을 주문하면 생기는 일",
+      "restaurant": "茶屋いつか 銀座店 / CHAYA ITSUKA",
+      "area": "긴자",
+      "menu": "말차 몽블랑 소프트 아이스크림 (1,480엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "茶屋いつか 銀座店 / CHAYA ITSUKA"
+      ]
+    },
+    {
+      "id": "T025",
+      "url": "https://www.youtube.com/shorts/96cQyELvI1c",
+      "title": "도쿄에서 말차 초콜릿을 주문하면 생기는 일",
+      "restaurant": "HIIRAGI Ginza ひいらぎ 銀座本店",
+      "area": "우에노·유시마",
+      "menu": "말차 카레 오 쇼콜라 (6,580엔), 말차 쇼콜라 세트 (2,400엔), 서비스 차지 10% 별도",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "HIIRAGI Ginza ひいらぎ 銀座本店"
+      ]
+    },
+    {
+      "id": "T026",
+      "url": "https://www.youtube.com/shorts/NwH1fBHTqdw",
+      "title": "도쿄에서 샌드위치를 주문하면 생기는 일",
+      "restaurant": "CHERMSIDE SANDWICH Harajuku Takeshita Dori",
+      "area": "하라주쿠",
+      "menu": "Meat Box (3,278엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "CHERMSIDE SANDWICH Harajuku Takeshita Dori"
+      ]
+    },
+    {
+      "id": "T027",
+      "url": "https://www.youtube.com/shorts/ipnS1pfllMg",
+      "title": "22만원 도쿄 오마카세에서 나왔던 말차 와라비모찌",
+      "restaurant": "Cha no Oto 茶ノ音",
+      "area": "메구로",
+      "menu": "",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "Cha no Oto 茶ノ音"
+      ]
+    },
+    {
+      "id": "T028",
+      "url": "https://www.youtube.com/shorts/WlH0hfEK3Ag",
+      "title": "도쿄에서 마늘 라멘을 주문하면 생기는 일",
+      "restaurant": "Yoshioka Mejiro Main Store",
+      "area": "도쿄 기타",
+      "menu": "마늘 쇼유라멘 1,500엔 (면 추가 무료 / 마늘 토핑 추가 200엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "Yoshioka Mejiro Main Store"
+      ]
+    },
+    {
+      "id": "T029",
+      "url": "https://www.youtube.com/shorts/sTI1kPYF-t4",
+      "title": "도쿄에서 와규 오마카세를 주문하면 생기는 일",
+      "restaurant": "Cha no Oto 茶ノ音",
+      "area": "메구로",
+      "menu": "디너 오마카세 코스 (24,000엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "Cha no Oto 茶ノ音"
+      ]
+    },
+    {
+      "id": "T030",
+      "url": "https://www.youtube.com/shorts/i9n2jbu-l04",
+      "title": "도쿄에서 복숭아 라멘을 주문하면 생기는 일",
+      "restaurant": "Ramen Hisui / Ramen 翡翠",
+      "area": "도쿄 기타",
+      "menu": "복숭아와 로스트비프 냉라멘 (3,000엔)",
+      "selection": "가고 싶음",
+      "isCompilation": false,
+      "restaurantNames": [
+        "Ramen Hisui / Ramen 翡翠"
+      ]
+    },
+    {
+      "id": "T031",
+      "url": "https://www.youtube.com/shorts/cqzUMMV_po8",
+      "title": "도쿄에서 스시 오마카세를 주문하면 생기는 일",
+      "restaurant": "스시 후지로 니혼바시 가야바초",
+      "area": "도쿄역·니혼바시",
+      "menu": "미야비(雅) 코스 (33,800엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "스시 후지로 니혼바시 가야바초"
+      ]
+    },
+    {
+      "id": "T032",
+      "url": "https://www.youtube.com/shorts/NNnr2jnuTWk",
+      "title": "사무라이가 환생한 도쿄 바",
+      "restaurant": "바 센티폴리아",
+      "area": "도쿄 기타",
+      "menu": "칵테일 (4000~5000엔), 커버차지 (1000엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "바 센티폴리아"
+      ]
+    },
+    {
+      "id": "T033",
+      "url": "https://www.youtube.com/shorts/BTvNA6Ne6LI",
+      "title": "도쿄에서 말차 아이스크림을 주문하면 생기는 일",
+      "restaurant": "DOLCE TACUBO GINZA",
+      "area": "긴자",
+      "menu": "말차 소프트 아이스크림 (1,200엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "DOLCE TACUBO GINZA"
+      ]
+    },
+    {
+      "id": "T034",
+      "url": "https://www.youtube.com/shorts/U_JPxlhx9S8",
+      "title": "도쿄에서 육회를 주문하면 생기는 일",
+      "restaurant": "Hirokiya Shinjuku ヒロキヤ新宿",
+      "area": "신주쿠",
+      "menu": "미소 육회 (2,500엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "Hirokiya Shinjuku ヒロキヤ新宿"
+      ]
+    },
+    {
+      "id": "T035",
+      "url": "https://www.youtube.com/shorts/0B8_wT65ruI",
+      "title": "도쿄에서 와규 우동을 주문하면 생기는 일",
+      "restaurant": "MENYA ISHII WAGYU UDON 麺屋いしヰ 東京銀座",
+      "area": "긴자",
+      "menu": "극미 트러플 와규 스키야키 가마타마 우동 (2,400엔), 노른자 추가 (200엔)",
+      "selection": "가고 싶음",
+      "isCompilation": false,
+      "restaurantNames": [
+        "MENYA ISHII WAGYU UDON 麺屋いしヰ 東京銀座"
+      ]
+    },
+    {
+      "id": "T036",
+      "url": "https://www.youtube.com/shorts/DV-CVYURJ_I",
+      "title": "도쿄에서 두바이 초코 샌드위치를 주문하면 생기는 일",
+      "restaurant": "Age.3xQ HARAJUKU",
+      "area": "하라주쿠",
+      "menu": "두바이 초콜릿 (¥1,500)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "Age.3xQ HARAJUKU"
+      ]
+    },
+    {
+      "id": "T037",
+      "url": "https://www.youtube.com/shorts/CQjY1YEONFQ",
+      "title": "도쿄에서 와규 오마카세를 주문하면 생기는 일",
+      "restaurant": "Yakiniku Kappo Ryotei Note",
+      "area": "도쿄 기타",
+      "menu": "와규 오마카세 코스 (44,000엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "Yakiniku Kappo Ryotei Note"
+      ]
+    },
+    {
+      "id": "T038",
+      "url": "https://www.youtube.com/shorts/7EVvdIMLo5U",
+      "title": "도쿄에서 오믈렛 샌드위치를 주문하면 생기는 일",
+      "restaurant": "CHERMSIDE SANDWICH Harajuku Takeshita Dori",
+      "area": "하라주쿠",
+      "menu": "오무박스 (2,750엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "CHERMSIDE SANDWICH Harajuku Takeshita Dori"
+      ]
+    },
+    {
+      "id": "T039",
+      "url": "https://www.youtube.com/shorts/qBkSvqi4h14",
+      "title": "도쿄에서 예약제 라멘을 주문하면 생기는 일",
+      "restaurant": "Ramen Break Beats ラーメンブレイクビーツ",
+      "area": "메구로",
+      "menu": "금눈돔 시오라멘 (3,000엔) *한정메뉴",
+      "selection": "가고 싶음",
+      "isCompilation": false,
+      "restaurantNames": [
+        "Ramen Break Beats ラーメンブレイクビーツ"
+      ]
+    },
+    {
+      "id": "T040",
+      "url": "https://www.youtube.com/shorts/CCI8yDDeYt8",
+      "title": "도쿄에서 사케를 주문하면 생기는 일",
+      "restaurant": "Yakiniku Kappo Ryotei Note",
+      "area": "도쿄 기타",
+      "menu": "",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "Yakiniku Kappo Ryotei Note"
+      ]
+    },
+    {
+      "id": "T041",
+      "url": "https://www.youtube.com/shorts/PxTBbuO-fn4",
+      "title": "도쿄에서 스시 오마카세를 주문하면 생기는 일",
+      "restaurant": "스시 요시카와 카츠 긴자 별관 鮨よしかわ 勝 銀座 別邸",
+      "area": "긴자",
+      "menu": "대장 오마카세 코스 (22,000엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "스시 요시카와 카츠 긴자 별관 鮨よしかわ 勝 銀座 別邸"
+      ]
+    },
+    {
+      "id": "T042",
+      "url": "https://www.youtube.com/shorts/e7v9TRslZIs",
+      "title": "도쿄에서 쿠키슈를 또 주문하면 생기는 일",
+      "restaurant": "슈크림 파티세리 텐& 히비야 오쿠로지 / パティスリーテンアンド",
+      "area": "도쿄 기타",
+      "menu": "바닐라 커스터드 슈크림 (880엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "슈크림 파티세리 텐& 히비야 오쿠로지 / パティスリーテンアンド"
+      ]
+    },
+    {
+      "id": "T043",
+      "url": "https://www.youtube.com/shorts/is7NwT56gp0",
+      "title": "도쿄에서 웨이팅이 제일 긴 라멘을 주문하면 생기는 일",
+      "restaurant": "Ramen Suzuharu",
+      "area": "도쿄 기타",
+      "menu": "츠케멘 300g (1,500엔),면추가 100g (200엔), 계란추가 (150엔)",
+      "selection": "가고 싶음",
+      "isCompilation": false,
+      "restaurantNames": [
+        "Ramen Suzuharu"
+      ]
+    },
+    {
+      "id": "T044",
+      "url": "https://www.youtube.com/shorts/VY5eqHKvj-s",
+      "title": "도쿄에사 드라이에이징 참치를 주문하면 생기는 일",
+      "restaurant": "미래수산 みらい水産",
+      "area": "도쿄 기타",
+      "menu": "드라이에이징 생참치덮밥 (3,520엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "미래수산 みらい水産"
+      ]
+    },
+    {
+      "id": "T045",
+      "url": "https://www.youtube.com/shorts/eKNps1pqBXs",
+      "title": "도쿄에서 괜찮아 보였던 소바를 주문하니 생겼던 일",
+      "restaurant": "테우치소바 오자와 手打蕎麦 おざわ",
+      "area": "아사쿠사",
+      "menu": "극태 소바 (950엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "테우치소바 오자와 手打蕎麦 おざわ"
+      ]
+    },
+    {
+      "id": "T046",
+      "url": "https://www.youtube.com/shorts/ke38rXhCo50",
+      "title": "도쿄에서 말차 파르페를 주문하면 생기는 일",
+      "restaurant": "센토 사와이 오리온즈 セント・サワイオリオンズ",
+      "area": "긴자",
+      "menu": "망고 좋아하는 분들을 위한 말차 푸딩 파르페 프리미엄 (5,500엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "센토 사와이 오리온즈 セント・サワイオリオンズ"
+      ]
+    },
+    {
+      "id": "T047",
+      "url": "https://www.youtube.com/shorts/3DhnC481UXs",
+      "title": "도쿄에서 우설 코스를 주문하면 생기는 일",
+      "restaurant": "西麻布けんしろう",
+      "area": "도쿄 기타",
+      "menu": "SNS 한정 코스 (20,000엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "西麻布けんしろう"
+      ]
+    },
+    {
+      "id": "T048",
+      "url": "https://www.youtube.com/shorts/fgqilIjn378",
+      "title": "도쿄에서 우동을 주문하면 생기는 일",
+      "restaurant": "히모카와 키류 이케부쿠로점 ひもかわ桐生",
+      "area": "이케부쿠로",
+      "menu": "네기 츠케 히모카와 우동 (1,090엔), 상 텐푸라 모둠 (860엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "히모카와 키류 이케부쿠로점 ひもかわ桐生"
+      ]
+    },
+    {
+      "id": "T049",
+      "url": "https://www.youtube.com/shorts/QB-OF241-tw",
+      "title": "도쿄에서 샌드위치를 주문하면 생기는 일",
+      "restaurant": "Age.3xQ HARAJUKU",
+      "area": "하라주쿠",
+      "menu": "바나나 브륄레 샌드위치 (1,200엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "Age.3xQ HARAJUKU"
+      ]
+    },
+    {
+      "id": "T050",
+      "url": "https://www.youtube.com/shorts/LHWH_9OllYY",
+      "title": "도쿄 7박 30끼 재방문 맛집 정리",
+      "restaurant": "Tobiushi Iidabashi / 센토 사와이오리온즈 (オリオンズ) / 미도리 스시 니혼바시점 (寿司の美登利 日本橋店) / Ramen Sakurai (麺屋 さくら井) / 미래수산 (みらい水産) / Age.3×Q HARAJUKU",
+      "area": "지역 확인 필요",
+      "menu": "",
+      "selection": "가고 싶음",
+      "isCompilation": true,
+      "restaurantNames": [
+        "Tobiushi Iidabashi",
+        "센토 사와이오리온즈 (オリオンズ)",
+        "미도리 스시 니혼바시점 (寿司の美登利 日本橋店)",
+        "Ramen Sakurai (麺屋 さくら井)",
+        "미래수산 (みらい水産)",
+        "Age.3×Q HARAJUKU"
+      ]
+    },
+    {
+      "id": "T051",
+      "url": "https://www.youtube.com/shorts/kJHMjAG7I6Q",
+      "title": "도쿄에서 츠케멘을 주문하면 생기는 일",
+      "restaurant": "Tsukemen TETSU Keio Mall Shinjuku つけめんTETSU 京王モール新宿店",
+      "area": "신주쿠",
+      "menu": "아지타마 츠케멘 (1,140엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "Tsukemen TETSU Keio Mall Shinjuku つけめんTETSU 京王モール新宿店"
+      ]
+    },
+    {
+      "id": "T052",
+      "url": "https://www.youtube.com/shorts/G23HFayEPBY",
+      "title": "일본 샌드위치의 3단계",
+      "restaurant": "Age.3xQ HARAJUKU",
+      "area": "하라주쿠",
+      "menu": "소갈비 야키니쿠 튀김 샌드위치 (950엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "Age.3xQ HARAJUKU"
+      ]
+    },
+    {
+      "id": "T053",
+      "url": "https://www.youtube.com/shorts/v_wwp1H-hP0",
+      "title": "도쿄에서 소프트 아이스크림을 주문하면 생기는 일",
+      "restaurant": "AIPAKU TOKYO",
+      "area": "하라주쿠",
+      "menu": "하라주쿠 플라워 소프트 아이스크림 라지 사이즈 (850엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "AIPAKU TOKYO"
+      ]
+    },
+    {
+      "id": "T054",
+      "url": "https://www.youtube.com/shorts/_Y6tIxfTsG0",
+      "title": "도쿄에서 말차 크림브륄레 치즈케이크를 주문하면 생기는 일",
+      "restaurant": "센토 사와이오리온즈 銀座オリオンズ",
+      "area": "긴자",
+      "menu": "말차 바스크 치즈 “브륄레 스타일” 말차 아이스크림 곁들임 (¥2,000)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "센토 사와이오리온즈 銀座オリオンズ"
+      ]
+    },
+    {
+      "id": "T055",
+      "url": "https://www.youtube.com/shorts/H0Dwc_sjaLM",
+      "title": "도쿄에서 스시 오마카세를 주문하면 생기는 일",
+      "restaurant": "Sushi Yoshikawa Azabu-Juban 鮨よしかわ 麻布十番",
+      "area": "도쿄 기타",
+      "menu": "대장 오마카세 코스 (13,200엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "Sushi Yoshikawa Azabu-Juban 鮨よしかわ 麻布十番"
+      ]
+    },
+    {
+      "id": "T056",
+      "url": "https://www.youtube.com/shorts/67j5scM_mB8",
+      "title": "도쿄에서 우니덮밥을 주문했더니 생겼던 일",
+      "restaurant": "에도후지 鮨 江戸富士",
+      "area": "우에노·유시마",
+      "menu": "연어알과 우니를 올린 바라카이센동 (7,900엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "에도후지 鮨 江戸富士"
+      ]
+    },
+    {
+      "id": "T057",
+      "url": "https://www.youtube.com/shorts/Ml5ooii-y_Y",
+      "title": "도쿄에서 말차 아이스크림을 주문하면 생기는 일",
+      "restaurant": "茶屋いつか 銀座店 / CHAYA ITSUKA",
+      "area": "긴자",
+      "menu": "말차 몽블랑 소프트 아이스크림 (1,480엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "茶屋いつか 銀座店 / CHAYA ITSUKA"
+      ]
+    },
+    {
+      "id": "T058",
+      "url": "https://www.youtube.com/shorts/SFJx5_ZCR4M",
+      "title": "도쿄에서 말차 크레페 샌드위치를 주문하면 생기는 일",
+      "restaurant": "Age.3×Q HARAJUKU",
+      "area": "하라주쿠",
+      "menu": "말차 드레스 크레페 샌드위치 (1,100엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "Age.3×Q HARAJUKU"
+      ]
+    },
+    {
+      "id": "T059",
+      "url": "https://www.youtube.com/shorts/ufnhwVbIp4c",
+      "title": "도쿄에서 치즈버거를 주문하면 생기는 일",
+      "restaurant": "American Diner Andra",
+      "area": "우에노·유시마",
+      "menu": "터치다운버거 트리플 (2,700엔)",
+      "selection": "검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "American Diner Andra"
+      ]
+    },
+    {
+      "id": "T060",
+      "url": "https://www.youtube.com/shorts/8g2qyenT0Xo",
+      "title": "도쿄에서 계란말이 장인을 만나면 생기는 일",
+      "restaurant": "TEPPAN DINING BY THE WAY",
+      "area": "메구로",
+      "menu": "철판 치즈 다시마끼 (1,080엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "TEPPAN DINING BY THE WAY"
+      ]
+    },
+    {
+      "id": "T061",
+      "url": "https://www.youtube.com/shorts/PVz2s7pdL4Q",
+      "title": "도쿄에서 쇼유라멘을 주문하면 생기는 일",
+      "restaurant": "Ramen Sakurai 麺屋 さくら井",
+      "area": "도쿄 기타",
+      "menu": "특상 쇼유라멘 (2,000엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "Ramen Sakurai 麺屋 さくら井"
+      ]
+    },
+    {
+      "id": "T062",
+      "url": "https://www.youtube.com/shorts/uWBXcDPbCGY",
+      "title": "도쿄에서 스시 오마카세를 주문하면 생기는 일",
+      "restaurant": "Fukuzuka ふくづか",
+      "area": "신주쿠",
+      "menu": "디너 오마카세 코스 (41,800엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "Fukuzuka ふくづか"
+      ]
+    },
+    {
+      "id": "T063",
+      "url": "https://www.youtube.com/shorts/W_yYmZqNXQg",
+      "title": "도쿄에서 수플레 팬케이크를 주문하면 생기는 일",
+      "restaurant": "베니즈루 팬케익 紅鶴",
+      "area": "아사쿠사",
+      "menu": "베이컨 계란 팬케이크 (2,500엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "베니즈루 팬케익 紅鶴"
+      ]
+    },
+    {
+      "id": "T064",
+      "url": "https://www.youtube.com/shorts/a9WDOMyZDLE",
+      "title": "한 잔에 15만원 나왔지만 또 간 도쿄의 바",
+      "restaurant": "바 센티폴리아",
+      "area": "도쿄 기타",
+      "menu": "칵테일 4000~5000엔, 커버 차지 (1,000엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "바 센티폴리아"
+      ]
+    },
+    {
+      "id": "T065",
+      "url": "https://www.youtube.com/shorts/Wl3lB__G1LQ",
+      "title": "도쿄에서 살치살을 주문하면 생기는 일",
+      "restaurant": "Yakiniku Inoue Kichijōji 焼肉いのうえ 吉祥寺店",
+      "area": "기치조지",
+      "menu": "트라이앵글 자부톤 마키스키야키 1개 (1,680엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "Yakiniku Inoue Kichijōji 焼肉いのうえ 吉祥寺店"
+      ]
+    },
+    {
+      "id": "T066",
+      "url": "https://www.youtube.com/shorts/h2SDB6Pwkd8",
+      "title": "도쿄에서 크림빵을 주문하면 생기는 일",
+      "restaurant": "슈크림 파티세리 텐& 히비야 오쿠로지 / パティスリーテンアンド",
+      "area": "도쿄 기타",
+      "menu": "피스타치오 슈크림 (990엔) *3~6월 한정",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "슈크림 파티세리 텐& 히비야 오쿠로지 / パティスリーテンアンド"
+      ]
+    },
+    {
+      "id": "T067",
+      "url": "https://www.youtube.com/shorts/FQPByG74ByY",
+      "title": "도쿄에서 미슐랭 원스타를 받았던 라멘을 주문하면 생기는 일",
+      "restaurant": "긴자 하치고 銀座 八五",
+      "area": "긴자",
+      "menu": "라비올리 구르망디즈 츄카소바 (2,200엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "긴자 하치고 銀座 八五"
+      ]
+    },
+    {
+      "id": "T068",
+      "url": "https://www.youtube.com/shorts/1jUB_AOAw6Q",
+      "title": "인당 26만원 도쿄 숯스시 오마카세",
+      "restaurant": "KURO-SHARI 아자부 麻布 黒しゃり",
+      "area": "도쿄 기타",
+      "menu": "오마카세 코스 16품 (27,500엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "KURO-SHARI 아자부 麻布 黒しゃり"
+      ]
+    },
+    {
+      "id": "T069",
+      "url": "https://www.youtube.com/shorts/PYYb-RKrVVY",
+      "title": "도쿄에서 말차를 주문하면 생기는 일",
+      "restaurant": "THE MATCHA TOKYO 오모테산도점",
+      "area": "하라주쿠",
+      "menu": "Gold Blend (¥900)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "THE MATCHA TOKYO 오모테산도점"
+      ]
+    },
+    {
+      "id": "T070",
+      "url": "https://www.youtube.com/shorts/NxPvVVYXnxY",
+      "title": "도쿄에서 고급 돈까스를 주문했더니 생겼던 일",
+      "restaurant": "Katsu Pulipo",
+      "area": "신주쿠",
+      "menu": "아마기 쿠로부타 안심 카츠 3피스 (8,000엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "Katsu Pulipo"
+      ]
+    },
+    {
+      "id": "T071",
+      "url": "https://www.youtube.com/shorts/Yi6CC_GMo-Y",
+      "title": "도쿄에서 치즈피자를 주문하면 생기는 일",
+      "restaurant": "스폰티니 캐스케이드 하라주쿠점 SPONTINI カスケード原宿店",
+      "area": "하라주쿠",
+      "menu": "더블 모짜렐라 치즈 조각 (1,150엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "스폰티니 캐스케이드 하라주쿠점 SPONTINI カスケード原宿店"
+      ]
+    },
+    {
+      "id": "T072",
+      "url": "https://www.youtube.com/shorts/vRwBu38JsKk",
+      "title": "도쿄에서 미슐랭 라멘을 주문하면 생기는 일",
+      "restaurant": "Ramen Break Beats ラーメンブレイクビーツ",
+      "area": "메구로",
+      "menu": "오리 쇼유 라멘 (3,000엔) *한정메뉴",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "Ramen Break Beats ラーメンブレイクビーツ"
+      ]
+    },
+    {
+      "id": "T073",
+      "url": "https://www.youtube.com/shorts/asZkEXEID4s",
+      "title": "도쿄에서 한정판 라멘을 주문하면 생기는 일",
+      "restaurant": "MENSHO District",
+      "area": "시부야",
+      "menu": "호타루이까 라멘 (1,400엔), 오리차슈 3장 추가 (400엔), 계란 추가 (200엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "MENSHO District"
+      ]
+    },
+    {
+      "id": "T074",
+      "url": "https://www.youtube.com/shorts/YXWKzFPr5mE",
+      "title": "도쿄 할아버지 핫케이크",
+      "restaurant": "커피숍 피노키오 コーヒーショップ ピノキオ",
+      "area": "이타바시",
+      "menu": "핫케이크 (700엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "커피숍 피노키오 コーヒーショップ ピノキオ"
+      ]
+    },
+    {
+      "id": "T075",
+      "url": "https://www.youtube.com/shorts/nwa4cH-4JOA",
+      "title": "도쿄에서 돈카츠를 주문하면 생기는 일",
+      "restaurant": "Tonkatsu Marushichi Ginza とんかつ 丸七 銀座店",
+      "area": "긴자",
+      "menu": "야끼카츠동 600g (4,800엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "Tonkatsu Marushichi Ginza とんかつ 丸七 銀座店"
+      ]
+    },
+    {
+      "id": "T076",
+      "url": "https://www.youtube.com/shorts/GXltkb93Azs",
+      "title": "도쿄에서 오므라이스를 주문하면 생기는 일",
+      "restaurant": "yellow 表参道",
+      "area": "도쿄 기타",
+      "menu": "더블치즈 함박 오므라이스 (2,396엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "yellow 表参道"
+      ]
+    },
+    {
+      "id": "T077",
+      "url": "https://www.youtube.com/shorts/J08on2yxJ10",
+      "title": "본토 쇼유라멘을 주문하면 생기는 일",
+      "restaurant": "Ramen Sakurai 麺屋 さくら井",
+      "area": "도쿄 기타",
+      "menu": "특상 쇼유라멘 (2,000엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "Ramen Sakurai 麺屋 さくら井"
+      ]
+    },
+    {
+      "id": "T078",
+      "url": "https://www.youtube.com/shorts/3GcgFBDrwV0",
+      "title": "도쿄에서 말차 디저트를 주문하면 생기는 일",
+      "restaurant": "IPPUKU&MATCHA Nihonbashi store",
+      "area": "도쿄역·니혼바시",
+      "menu": "",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "IPPUKU&MATCHA Nihonbashi store"
+      ]
+    },
+    {
+      "id": "T079",
+      "url": "https://www.youtube.com/shorts/5ve6DmveFqM",
+      "title": "도쿄에서 내장덮밥을 주문하면 생기는 일",
+      "restaurant": "키츠네야",
+      "area": "도쿄 기타",
+      "menu": "규동 (800엔), 호르몬동 (900엔), 계란추가 (100엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "키츠네야"
+      ]
+    },
+    {
+      "id": "T080",
+      "url": "https://www.youtube.com/shorts/b14i1a8Pd_8",
+      "title": "도쿄에서 와규덮밥을 주문하면 생기는 일",
+      "restaurant": "히로키야 롯폰기",
+      "area": "롯폰기",
+      "menu": "기적의 로스트비프 덮밥 (1,980엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "히로키야 롯폰기"
+      ]
+    },
+    {
+      "id": "T081",
+      "url": "https://www.youtube.com/shorts/f_rbOE9MWco",
+      "title": "도쿄에서 오믈렛을 주문하면 생기는 일",
+      "restaurant": "TEPPAN DINING BY THE WAY",
+      "area": "메구로",
+      "menu": "철판 치즈 오믈렛 (880엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "TEPPAN DINING BY THE WAY"
+      ]
+    },
+    {
+      "id": "T082",
+      "url": "https://www.youtube.com/shorts/fyg0AbASKcM",
+      "title": "도쿄에서 2026 미슐랭 라멘을 주문했더니 생겼던 일",
+      "restaurant": "긴자 하루짱라멘 銀座はるちゃんラーメン",
+      "area": "긴자",
+      "menu": "스페셜 라멘 (1,600엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "긴자 하루짱라멘 銀座はるちゃんラーメン"
+      ]
+    },
+    {
+      "id": "T083",
+      "url": "https://www.youtube.com/shorts/mhvwOGONNb0",
+      "title": "도쿄에서 시오라멘을 주문하면 생기는 일",
+      "restaurant": "RAMEN 紫苑",
+      "area": "신주쿠",
+      "menu": "특제 시오라멘 (1,800엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "RAMEN 紫苑"
+      ]
+    },
+    {
+      "id": "T084",
+      "url": "https://www.youtube.com/shorts/U8uLYB7GEi8",
+      "title": "도쿄에서 까르보나라를 주문하면 생기는 일",
+      "restaurant": "Chicago Pizza & Volcano Pasta Forne",
+      "area": "메구로",
+      "menu": "고기보나라 (2,900엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "Chicago Pizza & Volcano Pasta Forne"
+      ]
+    },
+    {
+      "id": "T085",
+      "url": "https://www.youtube.com/shorts/kxx_DIJRyTo",
+      "title": "도쿄에서 푸딩 아이스크림을 주문하면 생기는 일",
+      "restaurant": "PUDDING LAB Ginza プリン研究所",
+      "area": "긴자",
+      "menu": "150% 푸딩 소프트 크림 (1,296엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "PUDDING LAB Ginza プリン研究所"
+      ]
+    },
+    {
+      "id": "T086",
+      "url": "https://www.youtube.com/shorts/qxVtnUWvVMM",
+      "title": "도쿄에서 츠케멘을 주문하면 생기는 일",
+      "restaurant": "멘야 스고 칸다점 麺屋 周郷 神田店",
+      "area": "아키하바라·간다",
+      "menu": "특제 매운 츠케멘 (1,700엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "멘야 스고 칸다점 麺屋 周郷 神田店"
+      ]
+    },
+    {
+      "id": "T087",
+      "url": "https://www.youtube.com/shorts/US1mMuzxag4",
+      "title": "도쿄에서 두바이 쫀득 스시를 주문하면 생기는 일",
+      "restaurant": "신오쿠보 부대찌개 新大久保ブデチゲ",
+      "area": "신주쿠",
+      "menu": "두바이 쫀득 스시 1개 (500엔), 피스타치오 소스 (200엔), 초코 소스 (100엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "신오쿠보 부대찌개 新大久保ブデチゲ"
+      ]
+    },
+    {
+      "id": "T088",
+      "url": "https://www.youtube.com/shorts/9-t3L6POxwE",
+      "title": "도쿄에서 초콜릿 치즈케이크를 주문하면 생기는 일",
+      "restaurant": "Sweet Check",
+      "area": "시부야",
+      "menu": "녹아내리는 초콜릿 바스크 치즈케이크 (1,380엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "Sweet Check"
+      ]
+    },
+    {
+      "id": "T089",
+      "url": "https://www.youtube.com/shorts/8V7qzHMjXzc",
+      "title": "도쿄에서 한국 셰프 분의 스시 오마카세를 주문하면 생기는 일",
+      "restaurant": "鮨よしかわ 恵比寿",
+      "area": "시부야·에비스",
+      "menu": "대장 오마카세 코스 (13,200엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "鮨よしかわ 恵比寿"
+      ]
+    },
+    {
+      "id": "T090",
+      "url": "https://www.youtube.com/shorts/zoLYqZb9olU",
+      "title": "도쿄에서 미슐랭 라멘을 주문하면 생기는 일",
+      "restaurant": "Ramen Break Beats",
+      "area": "메구로",
+      "menu": "특상 시오라멘 (2,200엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "Ramen Break Beats"
+      ]
+    },
+    {
+      "id": "T091",
+      "url": "https://www.youtube.com/shorts/zePRjzIoTYM",
+      "title": "도쿄에서 스시 오마카세를 주문하면 생기는 일",
+      "restaurant": "스시 요시카와 카이도 신주쿠 鮨よしかわ 海道 新宿",
+      "area": "신주쿠",
+      "menu": "대장 오마카세 코스 (13,200엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "스시 요시카와 카이도 신주쿠 鮨よしかわ 海道 新宿"
+      ]
+    },
+    {
+      "id": "T092",
+      "url": "https://www.youtube.com/shorts/zQfkRzqD0PA",
+      "title": "도쿄에서 와규 코스를 주문하니 나왔던 음식들",
+      "restaurant": "Ginza Chikamitsu Namiki-dori 銀座 ちかみつ 並木通り / Ginza Chikamitsu Namiki-dori",
+      "area": "긴자",
+      "menu": "10주년 기념 코스 (15,950엔)",
+      "selection": "미검토",
+      "isCompilation": true,
+      "restaurantNames": [
+        "Ginza Chikamitsu Namiki-dori 銀座 ちかみつ 並木通り",
+        "Ginza Chikamitsu Namiki-dori"
+      ]
+    },
+    {
+      "id": "T093",
+      "url": "https://www.youtube.com/shorts/z1zlcLe9RMI",
+      "title": "도쿄에서 우동을 주문하면 생기는 일",
+      "restaurant": "우동 타니야",
+      "area": "도쿄역·니혼바시",
+      "menu": "소고기 붓카케 우동 (980엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "우동 타니야"
+      ]
+    },
+    {
+      "id": "T094",
+      "url": "https://www.youtube.com/shorts/ydkFjs-J8BE",
+      "title": "도쿄라멘 진심맛집 족보정리",
+      "restaurant": "멘야 스고 / Homemade Ramen 무기나에 / 슌야짱 라멘 (Shunya-chan) / Ramen Jazzy Beats / Tokyo Style Noodle 호타테 비요리 / 츄카소바 시바타 / 라멘야 시마 / 멘미츠이 / 카가리 긴자 본점 / 모테나시 쿠로키 / 시로쿠로",
+      "area": "지역 확인 필요",
+      "menu": "",
+      "selection": "미검토",
+      "isCompilation": true,
+      "restaurantNames": [
+        "멘야 스고",
+        "Homemade Ramen 무기나에",
+        "슌야짱 라멘 (Shunya-chan)",
+        "Ramen Jazzy Beats",
+        "Tokyo Style Noodle 호타테 비요리",
+        "츄카소바 시바타",
+        "라멘야 시마",
+        "멘미츠이",
+        "카가리 긴자 본점",
+        "모테나시 쿠로키",
+        "시로쿠로"
+      ]
+    },
+    {
+      "id": "T095",
+      "url": "https://www.youtube.com/shorts/y_hFVK-QDTs",
+      "title": "도쿄에서 말차 빙수를 주문하면 생기는 일",
+      "restaurant": "HIIRAGI Ginza ひいらぎ 銀座本店",
+      "area": "우에노·유시마",
+      "menu": "말차 빙수 세트 (7,700엔), 서비스 차지 10% 별도",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "HIIRAGI Ginza ひいらぎ 銀座本店"
+      ]
+    },
+    {
+      "id": "T096",
+      "url": "https://www.youtube.com/shorts/xy_ezh6eiZw",
+      "title": "도쿄에서 원조 소금빵을 주문하면 생기는 일",
+      "restaurant": "팡 메종 긴자점 塩パン屋 pain･maison 銀座店",
+      "area": "긴자",
+      "menu": "소금빵 (120엔), 메론 소금빵 (190엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "팡 메종 긴자점 塩パン屋 pain･maison 銀座店"
+      ]
+    },
+    {
+      "id": "T097",
+      "url": "https://www.youtube.com/shorts/xVZe7tdqXDk",
+      "title": "도쿄에서 맥주를 주문하면 생기는 일",
+      "restaurant": "PERFECT BEER LABO 東京",
+      "area": "도쿄 기타",
+      "menu": "泡なしピリピリ 거품 없는 맥주 (900엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "PERFECT BEER LABO 東京"
+      ]
+    },
+    {
+      "id": "T098",
+      "url": "https://www.youtube.com/shorts/wwEYHSxmQsA",
+      "title": "도쿄에서 오믈렛을 주문하면 생기는 일",
+      "restaurant": "By The Way",
+      "area": "메구로",
+      "menu": "치즈 명란마요 오므라이스 (880엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "By The Way"
+      ]
+    },
+    {
+      "id": "T099",
+      "url": "https://www.youtube.com/shorts/wmT3u6Zvc0s",
+      "title": "도쿄에서 명란 계란말이를 주문하면 생기는 일",
+      "restaurant": "PERFECT BEER LABO 東京",
+      "area": "도쿄 기타",
+      "menu": "명란 다시마끼 타마고 (980엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "PERFECT BEER LABO 東京"
+      ]
+    },
+    {
+      "id": "T100",
+      "url": "https://www.youtube.com/shorts/wUIuDX7cS8w",
+      "title": "도쿄에서 말차 크레페를 주문하면 생기는 일",
+      "restaurant": "아사쿠사 차야 타바네노시",
+      "area": "아사쿠사",
+      "menu": "가케가와 말차 브륄레 크레페 (990엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "아사쿠사 차야 타바네노시"
+      ]
+    },
+    {
+      "id": "T101",
+      "url": "https://www.youtube.com/shorts/wT5Xm04bmkA",
+      "title": "도쿄에서 6만 원짜리 파르페를 주문하면 생기는 일",
+      "restaurant": "Patisserie Asakoiwayanagi",
+      "area": "세타가야",
+      "menu": "체리 파르페 (6,600엔), 스페셜티 커피 혹은 차 포함",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "Patisserie Asakoiwayanagi"
+      ]
+    },
+    {
+      "id": "T102",
+      "url": "https://www.youtube.com/shorts/vx0WTqxo9Z4",
+      "title": "도쿄에서 괜찮아보였던 푸딩을 주문하니 생겼던 일",
+      "restaurant": "Kagurazaka Cococino 神楽坂ココチーノ",
+      "area": "신주쿠",
+      "menu": "지글지글 캐러멜 푸딩 (880엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "Kagurazaka Cococino 神楽坂ココチーノ"
+      ]
+    },
+    {
+      "id": "T103",
+      "url": "https://www.youtube.com/shorts/vbUezHDWtbI",
+      "title": "도쿄에서 스키야키를 주문하면 생기는 일",
+      "restaurant": "Ginza Chikamitsu 6-chome 銀座ちかみつ六丁目",
+      "area": "긴자",
+      "menu": "두툼하게 썬 안심 스키야키 1장 (5,000엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "Ginza Chikamitsu 6-chome 銀座ちかみつ六丁目"
+      ]
+    },
+    {
+      "id": "T104",
+      "url": "https://www.youtube.com/shorts/vPUteYTeDrs",
+      "title": "귀여운 수달과 놀 수 있는 도쿄 카페",
+      "restaurant": "WAKABAYASHI カワウソ",
+      "area": "하라주쿠",
+      "menu": "25분 (1,900엔), 50분 (3,600엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "WAKABAYASHI カワウソ"
+      ]
+    },
+    {
+      "id": "T105",
+      "url": "https://www.youtube.com/shorts/vI_TGqaEjwA",
+      "title": "도쿄에서 커스텀 말차 라테를 주문하면 생기는 일",
+      "restaurant": "하토야 시부야 Hatoya Shibuya",
+      "area": "시부야",
+      "menu": "말차 라테 (800엔), 계절 과일 복숭아 (250엔), 말차 아이스크림 1스쿱 (500엔), 하토야 셰이크 (1,000엔), 거품 말차 토핑 (400엔), 경단 (150엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "하토야 시부야 Hatoya Shibuya"
+      ]
+    },
+    {
+      "id": "T106",
+      "url": "https://www.youtube.com/shorts/upYoowALXJg",
+      "title": "도쿄 라멘 찐맛집 족보정리",
+      "restaurant": "슌야짱 #しゅんやっちゃん / 이루카 도쿄 롯폰기 #入鹿TOKYO / Tokyo Style Noodle Hotate Biyori #ほたて日和 / 에비마루 라멘 #海老丸らーめん / 츄카소바 시바타 #中華そばしば田 / Ramen Jazzy Beats / 시로쿠로 #しろくろ / 라멘야 시마 #らぁ麺や嶋",
+      "area": "지역 확인 필요",
+      "menu": "",
+      "selection": "미검토",
+      "isCompilation": true,
+      "restaurantNames": [
+        "슌야짱 #しゅんやっちゃん",
+        "이루카 도쿄 롯폰기 #入鹿TOKYO",
+        "Tokyo Style Noodle Hotate Biyori #ほたて日和",
+        "에비마루 라멘 #海老丸らーめん",
+        "츄카소바 시바타 #中華そばしば田",
+        "Ramen Jazzy Beats",
+        "시로쿠로 #しろくろ",
+        "라멘야 시마 #らぁ麺や嶋"
+      ]
+    },
+    {
+      "id": "T107",
+      "url": "https://www.youtube.com/shorts/uLiFAubzjDk",
+      "title": "삶을 우동에 바친 도쿄 우동 장인집",
+      "restaurant": "우동 타니야",
+      "area": "도쿄역·니혼바시",
+      "menu": "타니야 스페셜 (1,600엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "우동 타니야"
+      ]
+    },
+    {
+      "id": "T108",
+      "url": "https://www.youtube.com/shorts/uDvdv5g_AA0",
+      "title": "도쿄에서 두바이 초코 붕어빵을 주문하면 생기는 일",
+      "restaurant": "SOBOONG ソブン",
+      "area": "신주쿠",
+      "menu": "두바이 초코 붕어빵 (800엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "SOBOONG ソブン"
+      ]
+    },
+    {
+      "id": "T109",
+      "url": "https://www.youtube.com/shorts/uAFNlUBYl_0",
+      "title": "도쿄에서 오므라이스를 주문하면 생기는 일",
+      "restaurant": "Ikura Shibuya いくら 渋谷店",
+      "area": "시부야",
+      "menu": "함박 오므라이스 (2,000엔), 치즈토핑 2배 (400엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "Ikura Shibuya いくら 渋谷店"
+      ]
+    },
+    {
+      "id": "T110",
+      "url": "https://www.youtube.com/shorts/t5EXAX8213A",
+      "title": "도쿄에서 말차 푸딩을 주문하면 생기는 일",
+      "restaurant": "セント・サワイオリオンズ 센토 사와이오리온즈",
+      "area": "긴자",
+      "menu": "우지 말차 밀크 푸딩 (1,500엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "セント・サワイオリオンズ 센토 사와이오리온즈"
+      ]
+    },
+    {
+      "id": "T111",
+      "url": "https://www.youtube.com/shorts/soBEtr28o6w",
+      "title": "도쿄 평점 1위 우동집",
+      "restaurant": "우동 마루카 うどん 丸香",
+      "area": "아키하바라·간다",
+      "menu": "츠키미 우동 (620엔), 달걀 추가 (140엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "우동 마루카 うどん 丸香"
+      ]
+    },
+    {
+      "id": "T112",
+      "url": "https://www.youtube.com/shorts/s_JLcMuQSIk",
+      "title": "지금 본토에서 인기인 쇼유라멘",
+      "restaurant": "Teuchi Ren 手打ち 蓮",
+      "area": "도쿄 기타",
+      "menu": "전부 올린 쇼유라멘 (1,430엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "Teuchi Ren 手打ち 蓮"
+      ]
+    },
+    {
+      "id": "T113",
+      "url": "https://www.youtube.com/shorts/sKtnSnZ2BJQ",
+      "title": "도쿄에서 팬케이크를 주문하면 생기는 일",
+      "restaurant": "베니즈루",
+      "area": "아사쿠사",
+      "menu": "베이컨 계란 팬케이크 (2,300엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "베니즈루"
+      ]
+    },
+    {
+      "id": "T114",
+      "url": "https://www.youtube.com/shorts/s4Onbtu6OnE",
+      "title": "또 가고 싶은 도쿄 노포들",
+      "restaurant": "헤케룬 ヘッケルン / 커피숍 피노키오 コーヒーショップ ピノキオ / 토니스 피자 NEW YORK PIZZA TONY'S / Yamacho 黒うどん山長 原宿店 / 텐쓰케 天すけ",
+      "area": "지역 확인 필요",
+      "menu": "",
+      "selection": "미검토",
+      "isCompilation": true,
+      "restaurantNames": [
+        "헤케룬 ヘッケルン",
+        "커피숍 피노키오 コーヒーショップ ピノキオ",
+        "토니스 피자 NEW YORK PIZZA TONY'S",
+        "Yamacho 黒うどん山長 原宿店",
+        "텐쓰케 天すけ"
+      ]
+    },
+    {
+      "id": "T115",
+      "url": "https://www.youtube.com/shorts/rwmxjvhi4nw",
+      "title": "한국이랑 완전히 다른 도쿄식 부침개의 정체",
+      "restaurant": "쓰키시마몬자 고보레야 아사쿠사 月島もんじゃ こぼれや 浅草",
+      "area": "아사쿠사",
+      "menu": "장어 몬자야키 (2,189엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "쓰키시마몬자 고보레야 아사쿠사 月島もんじゃ こぼれや 浅草"
+      ]
+    },
+    {
+      "id": "T116",
+      "url": "https://www.youtube.com/shorts/rsgR_ZpLsk0",
+      "title": "도쿄에서 맛있을 줄 알았던 푸딩을 주문하니 생겼던 일",
+      "restaurant": "Kagurazaka Cococino 神楽坂ココチーノ",
+      "area": "신주쿠",
+      "menu": "지글지글 캐러멜 푸딩 (880엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "Kagurazaka Cococino 神楽坂ココチーノ"
+      ]
+    },
+    {
+      "id": "T117",
+      "url": "https://www.youtube.com/shorts/raoBrIGZfDI",
+      "title": "도쿄에서 수달 카페를 방문하면 생기는 일",
+      "restaurant": "OttersFamily Otter Petting",
+      "area": "하라주쿠",
+      "menu": "25분 이용 (2,000엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "OttersFamily Otter Petting"
+      ]
+    },
+    {
+      "id": "T118",
+      "url": "https://www.youtube.com/shorts/rXIw5t6CaL0",
+      "title": "도쿄에서 센베를 주문하면 생기는 일",
+      "restaurant": "Asahi Honten Tsukiji",
+      "area": "도쿄 기타",
+      "menu": "게 센베 (1,500엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "Asahi Honten Tsukiji"
+      ]
+    },
+    {
+      "id": "T119",
+      "url": "https://www.youtube.com/shorts/rCAOSsdBE08",
+      "title": "도쿄에서 20만원하는 오므라이스를 주문하면 생기는 일",
+      "restaurant": "Ikura Shibuya いくら 渋谷店",
+      "area": "시부야",
+      "menu": "메가 오므라이스 (20,000엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "Ikura Shibuya いくら 渋谷店"
+      ]
+    },
+    {
+      "id": "T120",
+      "url": "https://www.youtube.com/shorts/r1w1kzfrhhI",
+      "title": "도쿄에서 야키니쿠를 주문하면 생기는 일",
+      "restaurant": "29 Terrace",
+      "area": "시부야",
+      "menu": "두툼한 파우설 4개 (2,728엔), 파말이 설로인 TKG (1,969엔), 육회 김밥 1개 (539엔), 파인애플 점보 안창살 (4,048엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "29 Terrace"
+      ]
+    },
+    {
+      "id": "T121",
+      "url": "https://www.youtube.com/shorts/qwKrVXVfJCM",
+      "title": "1인 30만원 고베규 오마카세 Kobe Beef Restaurant",
+      "restaurant": "Matoi Ginza",
+      "area": "긴자",
+      "menu": "고베규와 요네자와규, 제철 해산물 오마카세 코스 11품 전후 (28,000엔 / 세금 별도)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "Matoi Ginza"
+      ]
+    },
+    {
+      "id": "T122",
+      "url": "https://www.youtube.com/shorts/qlxSI_bfWf4",
+      "title": "스시로 논문 낸 도쿄 오마카세",
+      "restaurant": "스시 후지로 니혼바시 가야바초",
+      "area": "도쿄역·니혼바시",
+      "menu": "오마카세 (20,000 ~ 35,000엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "스시 후지로 니혼바시 가야바초"
+      ]
+    },
+    {
+      "id": "T123",
+      "url": "https://www.youtube.com/shorts/qRuIpTLLv3s",
+      "title": "도쿄에서 샤토브리앙을 주문하면 생기는 일",
+      "restaurant": "와규불고기고기타라시 和牛焼肉 肉たらし",
+      "area": "시부야",
+      "menu": "샤토브리앙 (12,000엔), 스키야키 스타일 채끝살 (2,500엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "와규불고기고기타라시 和牛焼肉 肉たらし"
+      ]
+    },
+    {
+      "id": "T124",
+      "url": "https://www.youtube.com/shorts/qQm5JxC_7sI",
+      "title": "도쿄에서 스시 오마카세를 주문하면 생기는 일",
+      "restaurant": "Fukuzuka ふくづか",
+      "area": "신주쿠",
+      "menu": "디너 38,000엔",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "Fukuzuka ふくづか"
+      ]
+    },
+    {
+      "id": "T125",
+      "url": "https://www.youtube.com/shorts/qMymn4J9evE",
+      "title": "도쿄에서 치즈 육회를 주문하면 생기는 일",
+      "restaurant": "히로키야 신주쿠 ヒロキヤ新宿",
+      "area": "신주쿠",
+      "menu": "궁극의 생치즈 함박스테이크 더블 200g (2,900엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "히로키야 신주쿠 ヒロキヤ新宿"
+      ]
+    },
+    {
+      "id": "T126",
+      "url": "https://www.youtube.com/shorts/q5UA5LJ7V_Y",
+      "title": "도쿄에서 소프트 아이스크림을 주문하면 생기는 일",
+      "restaurant": "DOLCE TACUBO CAFFE",
+      "area": "신바시·도라노몬",
+      "menu": "피스타치오 소프트 아이스크림 (1,200엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "DOLCE TACUBO CAFFE"
+      ]
+    },
+    {
+      "id": "T127",
+      "url": "https://www.youtube.com/shorts/q4_ZveeGxuc",
+      "title": "도쿄에서 와규 갓포 오마카세를 주문하면 생기는 일",
+      "restaurant": "Yakiniku Kappo Ryotei Note",
+      "area": "도쿄 기타",
+      "menu": "오마카세 코스 (44,000엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "Yakiniku Kappo Ryotei Note"
+      ]
+    },
+    {
+      "id": "T128",
+      "url": "https://www.youtube.com/shorts/q4G0V9lSW1s",
+      "title": "도쿄에서 말차 초콜릿을 주문하면 생기는 일",
+      "restaurant": "나나야 아모야마 ななや青山店",
+      "area": "시부야",
+      "menu": "MATCHA 7 초콜릿 (1,296엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "나나야 아모야마 ななや青山店"
+      ]
+    },
+    {
+      "id": "T129",
+      "url": "https://www.youtube.com/shorts/pmVmL2zPLjk",
+      "title": "도쿄에서 와규 오마카세를 주문하면 생기는 일",
+      "restaurant": "Yakiniku Kappo Ryotei Note",
+      "area": "도쿄 기타",
+      "menu": "스페셜 와규 코스 (44,000엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "Yakiniku Kappo Ryotei Note"
+      ]
+    },
+    {
+      "id": "T130",
+      "url": "https://www.youtube.com/shorts/pGZ2jzdm56Q",
+      "title": "도쿄에서 푸딩을 주문하면 생기는 일",
+      "restaurant": "PUDDING LAB",
+      "area": "긴자",
+      "menu": "350% 푸딩 파르페 (1,836엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "PUDDING LAB"
+      ]
+    },
+    {
+      "id": "T131",
+      "url": "https://www.youtube.com/shorts/p1i7w3VrQeQ",
+      "title": "도쿄에서 프렌치토스트를 주문하면 생기는 일",
+      "restaurant": "The Front Room Deli Restaurant Marunouchi",
+      "area": "도쿄역·니혼바시",
+      "menu": "휘핑 버터와 메이플 시럽 프렌치토스트 (1,705엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "The Front Room Deli Restaurant Marunouchi"
+      ]
+    },
+    {
+      "id": "T132",
+      "url": "https://www.youtube.com/shorts/ouEbKfYneXc",
+      "title": "도쿄에서 계절 오마카세를 주문하면 생기는 일",
+      "restaurant": "SANO EBISU 佐ノ EBISU",
+      "area": "시부야·에비스",
+      "menu": "계절 오마카세 코스 (19,800엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "SANO EBISU 佐ノ EBISU"
+      ]
+    },
+    {
+      "id": "T133",
+      "url": "https://www.youtube.com/shorts/nF4dwt6NlRc",
+      "title": "45만원이지만 또 갈 예정인 도쿄 가이세키",
+      "restaurant": "Japanese cuisine - Kashiwa de Tsukasa Suikoan 膳司 水光庵",
+      "area": "도쿄 기타",
+      "menu": "테이스팅 코스 (48,400엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "Japanese cuisine - Kashiwa de Tsukasa Suikoan 膳司 水光庵"
+      ]
+    },
+    {
+      "id": "T134",
+      "url": "https://www.youtube.com/shorts/nDk-9RGHfaY",
+      "title": "도쿄에서 멜론을 주문하면 생기는 일",
+      "restaurant": "Ginza Fruits",
+      "area": "긴자",
+      "menu": "메론 케이크 1조각 (2,025엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "Ginza Fruits"
+      ]
+    },
+    {
+      "id": "T135",
+      "url": "https://www.youtube.com/shorts/n9psBEvhTyY",
+      "title": "생일에 도쿄에서 칵테일을 주문하면 생기는 일",
+      "restaurant": "바 센티폴리아",
+      "area": "도쿄 기타",
+      "menu": "칵테일 6000엔",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "바 센티폴리아"
+      ]
+    },
+    {
+      "id": "T136",
+      "url": "https://www.youtube.com/shorts/mi0ifVgunI4",
+      "title": "28만원 도쿄 튀김 오마카세를 주문하면 생기는 일",
+      "restaurant": "Tempura Azabu Juban Yanase 天ぷら 麻布十番 やなせ",
+      "area": "도쿄 기타",
+      "menu": "양의 코스 陽のコース (29,700엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "Tempura Azabu Juban Yanase 天ぷら 麻布十番 やなせ"
+      ]
+    },
+    {
+      "id": "T137",
+      "url": "https://www.youtube.com/shorts/mBKpNw7Ybe8",
+      "title": "잇몸으로 썰리는 와규 샤토브리앙 Wagyu Chateaubriand",
+      "restaurant": "와규 불고기 고기타라시",
+      "area": "시부야",
+      "menu": "샤토브리앙 (11,000엔), 스키야키 스타일 채끝살 (2,500엔), 와규 스시 5종 모둠 (4,500엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "와규 불고기 고기타라시"
+      ]
+    },
+    {
+      "id": "T138",
+      "url": "https://www.youtube.com/shorts/lXLV3kBmljY",
+      "title": "도쿄에서 피자를 주문하면 생기는 일",
+      "restaurant": "토니스 피자 NEW YORK PIZZA TONY'S",
+      "area": "기치조지",
+      "menu": "샐러드 음료 피자2조각 런치 세트 (1,100엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "토니스 피자 NEW YORK PIZZA TONY'S"
+      ]
+    },
+    {
+      "id": "T139",
+      "url": "https://www.youtube.com/shorts/l2Ex3pXEdm8",
+      "title": "도쿄에서 말차 몽블랑을 주문하면 생기는 일",
+      "restaurant": "차차 코보 후타츠메 茶々工房ふたつめ",
+      "area": "아사쿠사",
+      "menu": "말차 몽블랑 콘 (1,400엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "차차 코보 후타츠메 茶々工房ふたつめ"
+      ]
+    },
+    {
+      "id": "T140",
+      "url": "https://www.youtube.com/shorts/kvaNsVoXP7w",
+      "title": "도쿄에서 신의 우설을 주문하면 생기는 일",
+      "restaurant": "Edo Yakiniku 江戸焼肉",
+      "area": "긴자",
+      "menu": "오마카세 코스 (48,400엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "Edo Yakiniku 江戸焼肉"
+      ]
+    },
+    {
+      "id": "T141",
+      "url": "https://www.youtube.com/shorts/ifu7Pi6RxMM",
+      "title": "도쿄에서 초콜릿 슈크림을 주문하면 생기는 일",
+      "restaurant": "슈크림 파티세리 텐& 히비야 오쿠로지 パティスリーテンアンド",
+      "area": "도쿄 기타",
+      "menu": "쇼콜라 슈크림 (990엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "슈크림 파티세리 텐& 히비야 오쿠로지 パティスリーテンアンド"
+      ]
+    },
+    {
+      "id": "T142",
+      "url": "https://www.youtube.com/shorts/iAixFadXFE4",
+      "title": "오므라이스를 10,000개 만든 프로의 손놀림",
+      "restaurant": "Sweet Check",
+      "area": "도쿄 기타",
+      "menu": "카망베르 치즈 팡! 햄버그 오므라이스(¥3,480)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "Sweet Check"
+      ]
+    },
+    {
+      "id": "T143",
+      "url": "https://www.youtube.com/shorts/i6gh2Md-zfA",
+      "title": "도쿄에서 사슴 라멘을 주문하면 생기는 일",
+      "restaurant": "라멘 히스이 Ramen 翡翠",
+      "area": "도쿄 기타",
+      "menu": "에조사슴 라멘 (3,200엔), 손반죽면 변경 (100엔), 사슴 차슈 추가 (1,500엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "라멘 히스이 Ramen 翡翠"
+      ]
+    },
+    {
+      "id": "T144",
+      "url": "https://www.youtube.com/shorts/i3yGLmGZupU",
+      "title": "도쿄에서 스시 오마카세를 주문하면 생기는 일",
+      "restaurant": "Fukuzuka ふくづか",
+      "area": "신주쿠",
+      "menu": "디너 38,000엔",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "Fukuzuka ふくづか"
+      ]
+    },
+    {
+      "id": "T145",
+      "url": "https://www.youtube.com/shorts/hjEYscNRmMY",
+      "title": "도쿄 9박 36끼 찐맛집 족보정리(2025)",
+      "restaurant": "American Diner Andra / Sukiyaki Asai / KUROGI JAPANESE SWEETS LAB / akim'p / 400℃ Pizza Tokyo / 우미노사치쇼 / 부히부히 (더블오므라이스) / Ramen FeeL / The Front Room Deli Restaurant Marunouchi",
+      "area": "지역 확인 필요",
+      "menu": "",
+      "selection": "미검토",
+      "isCompilation": true,
+      "restaurantNames": [
+        "American Diner Andra",
+        "Sukiyaki Asai",
+        "KUROGI JAPANESE SWEETS LAB",
+        "akim'p",
+        "400℃ Pizza Tokyo",
+        "우미노사치쇼",
+        "부히부히 (더블오므라이스)",
+        "Ramen FeeL",
+        "The Front Room Deli Restaurant Marunouchi"
+      ]
+    },
+    {
+      "id": "T146",
+      "url": "https://www.youtube.com/shorts/hdNrRmCFz2c",
+      "title": "도쿄에서 말차 라멘을 주문하면 생기는 일",
+      "restaurant": "MENSHO District",
+      "area": "시부야",
+      "menu": "오리 말차 라멘 (1,500엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "MENSHO District"
+      ]
+    },
+    {
+      "id": "T147",
+      "url": "https://www.youtube.com/shorts/haT1ijDuvvg",
+      "title": "도쿄 가성비 1등, 프렌치 레스토랑",
+      "restaurant": "Eureka",
+      "area": "세타가야",
+      "menu": "",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "Eureka"
+      ]
+    },
+    {
+      "id": "T148",
+      "url": "https://www.youtube.com/shorts/hMorMLiIYAY",
+      "title": "도쿄에서 먹은 21그릇 중 또 먹고 싶은 라멘 리스트",
+      "restaurant": "무기나에 (*예약제) / 재패니즈 라멘 고칸 (*예약제) / 미소라멘 쵸린 / 라멘 히스이 (*예약제) / 멘야 스고 칸다점 / 산마로 도쿄점",
+      "area": "지역 확인 필요",
+      "menu": "",
+      "selection": "미검토",
+      "isCompilation": true,
+      "restaurantNames": [
+        "무기나에 (*예약제)",
+        "재패니즈 라멘 고칸 (*예약제)",
+        "미소라멘 쵸린",
+        "라멘 히스이 (*예약제)",
+        "멘야 스고 칸다점",
+        "산마로 도쿄점"
+      ]
+    },
+    {
+      "id": "T149",
+      "url": "https://www.youtube.com/shorts/hM13xmFaG8o",
+      "title": "인당 23만원 도쿄 와규 오마카세를 주문하면 생기는 일",
+      "restaurant": "신주쿠 우시미츠 新宿 うしみつ",
+      "area": "신주쿠",
+      "menu": "VIP 코스 (24,200엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "신주쿠 우시미츠 新宿 うしみつ"
+      ]
+    },
+    {
+      "id": "T150",
+      "url": "https://www.youtube.com/shorts/gmucP0Kf2ZU",
+      "title": "도쿄에서 붕어빵을 주문하면 생기는 일",
+      "restaurant": "SOBOONG ソブン",
+      "area": "신주쿠",
+      "menu": "햄&계란 붕어빵 (550엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "SOBOONG ソブン"
+      ]
+    },
+    {
+      "id": "T151",
+      "url": "https://www.youtube.com/shorts/giZ4yUT0BEI",
+      "title": "도쿄에서 맥주를 주문하면 생기는 일",
+      "restaurant": "PERFECT BEER LABO 東京",
+      "area": "도쿄 기타",
+      "menu": "말차 거품 맥주 (900엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "PERFECT BEER LABO 東京"
+      ]
+    },
+    {
+      "id": "T152",
+      "url": "https://www.youtube.com/shorts/gdv_QXf3wAU",
+      "title": "도쿄에서 케이크를 주문하면 생기는 일",
+      "restaurant": "Cafe Legato",
+      "area": "시부야",
+      "menu": "알래스카 버닝 케이크 (1,980엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "Cafe Legato"
+      ]
+    },
+    {
+      "id": "T153",
+      "url": "https://www.youtube.com/shorts/gai1s8XQyBI",
+      "title": "도쿄에서 라멘을 주문하면 생기는 일",
+      "restaurant": "치이카와 라멘 ちいかわラーメン 豚",
+      "area": "이케부쿠로",
+      "menu": "미니 (1,540엔), 스몰 (1,760엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "치이카와 라멘 ちいかわラーメン 豚"
+      ]
+    },
+    {
+      "id": "T154",
+      "url": "https://www.youtube.com/shorts/gSiiwNnDwqI",
+      "title": "50년 도쿄 푸딩 할아버지",
+      "restaurant": "헤케룬 Hekkerun Coffee & Pudding",
+      "area": "신바시·도라노몬",
+      "menu": "점보푸딩 & 커피 세트 (900엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "헤케룬 Hekkerun Coffee & Pudding"
+      ]
+    },
+    {
+      "id": "T155",
+      "url": "https://www.youtube.com/shorts/gFKGyQPC1Ng",
+      "title": "도쿄 시장에서 파스타를 주문하면 생기는 일",
+      "restaurant": "다도코로 식품 魚卵専門店 田所食品",
+      "area": "도쿄 기타",
+      "menu": "명란 파스타 (900엔), 연어알 토핑 추가 (300엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "다도코로 식품 魚卵専門店 田所食品"
+      ]
+    },
+    {
+      "id": "T156",
+      "url": "https://www.youtube.com/shorts/fivSo_d3x_c",
+      "title": "도쿄 랭킹 1위 돈카츠를 주문하면 생기는 일",
+      "restaurant": "돈카츠 나리쿠라",
+      "area": "도쿄 기타",
+      "menu": "돈카츠 정식 코스 (8,800엔~)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "돈카츠 나리쿠라"
+      ]
+    },
+    {
+      "id": "T157",
+      "url": "https://www.youtube.com/shorts/fhLa4xT3SBk",
+      "title": "도쿄 오므라이스 장인",
+      "restaurant": "Sweet Check",
+      "area": "도쿄 기타",
+      "menu": "치즈밤 오므라이스 (2,280엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "Sweet Check"
+      ]
+    },
+    {
+      "id": "T158",
+      "url": "https://www.youtube.com/shorts/fGu3FYvqKoA",
+      "title": "도쿄에서 푸딩을 주문하면 생기는 일",
+      "restaurant": "센토 사와이오리온즈 銀座オリオンズ",
+      "area": "긴자",
+      "menu": "불타는 커스터드 애호가를 위한 파르페 (2,700엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "센토 사와이오리온즈 銀座オリオンズ"
+      ]
+    },
+    {
+      "id": "T159",
+      "url": "https://www.youtube.com/shorts/fCW_VUi0Aqc",
+      "title": "도쿄에서 아이스크림을 주문하면 생기는 일",
+      "restaurant": "Daily Chiko",
+      "area": "도쿄 기타",
+      "menu": "특대 소프트 아이스크림 (1,100엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "Daily Chiko"
+      ]
+    },
+    {
+      "id": "T160",
+      "url": "https://www.youtube.com/shorts/eZwDTjw4USk",
+      "title": "먹고 웃으면 안되는 말차 크레페",
+      "restaurant": "코토부키세이안 寿清庵",
+      "area": "아사쿠사",
+      "menu": "말차 티라미수 크레페 (950엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "코토부키세이안 寿清庵"
+      ]
+    },
+    {
+      "id": "T161",
+      "url": "https://www.youtube.com/shorts/diGQeH5HZsk",
+      "title": "도쿄에서 츠케멘을 주문하면 생기는 일",
+      "restaurant": "Dashi no Torico だしの虜",
+      "area": "롯폰기",
+      "menu": "The Plain L 사이즈 (1,500엔), 새우 된장 츠케지루 추가 (350엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "Dashi no Torico だしの虜"
+      ]
+    },
+    {
+      "id": "T162",
+      "url": "https://www.youtube.com/shorts/cxUFo91vCWs",
+      "title": "도쿄에서 두꺼운 돈카츠를 주문하면 생기는 일",
+      "restaurant": "Tonkatsu Marushichi Ginza とんかつ 丸七 銀座店",
+      "area": "긴자",
+      "menu": "야끼카츠동 600g (4,800엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "Tonkatsu Marushichi Ginza とんかつ 丸七 銀座店"
+      ]
+    },
+    {
+      "id": "T163",
+      "url": "https://www.youtube.com/shorts/cqw5hbhyGsQ",
+      "title": "도쿄에서 말차버터 팬케이크를 주문하면 생기는 일",
+      "restaurant": "Chacha Koubou Kiyosumi",
+      "area": "도쿄 기타",
+      "menu": "말차 버터 팬케이크와 음료 세트 (2,200엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "Chacha Koubou Kiyosumi"
+      ]
+    },
+    {
+      "id": "T164",
+      "url": "https://www.youtube.com/shorts/cPD_6KSkl6U",
+      "title": "도쿄에서 스시 오마카세를 주문하면 생기는 일",
+      "restaurant": "스시 요시카와 카츠 긴자 별관 鮨よしかわ 勝 銀座 別邸",
+      "area": "긴자",
+      "menu": "대장 오마카세 코스 (22,000엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "스시 요시카와 카츠 긴자 별관 鮨よしかわ 勝 銀座 別邸"
+      ]
+    },
+    {
+      "id": "T165",
+      "url": "https://www.youtube.com/shorts/cMtDMi-_wwI",
+      "title": "도쿄에서 살치살을 주문하면 생기는 일",
+      "restaurant": "야키니쿠 이노우에 기치조지점 焼肉いのうえ 吉祥寺店",
+      "area": "기치조지",
+      "menu": "TRIANGLE 살치살 스키야키 롤 1점 (1,680엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "야키니쿠 이노우에 기치조지점 焼肉いのうえ 吉祥寺店"
+      ]
+    },
+    {
+      "id": "T166",
+      "url": "https://www.youtube.com/shorts/cM6uwr6j9wI",
+      "title": "도쿄에서 라멘을 주문하면 생기는 일",
+      "restaurant": "Ramen Jazzy Beats",
+      "area": "메구로",
+      "menu": "특상 쇼유 라멘 (1,780엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "Ramen Jazzy Beats"
+      ]
+    },
+    {
+      "id": "T167",
+      "url": "https://www.youtube.com/shorts/bklEhi1ufLg",
+      "title": "카피바라랑 커피 마실 수 있는 카페",
+      "restaurant": "cafe capyba",
+      "area": "도쿄 기타",
+      "menu": "30분 이용권 (1,250엔), 간식 (330엔), 아메리카노 (660엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "cafe capyba"
+      ]
+    },
+    {
+      "id": "T168",
+      "url": "https://www.youtube.com/shorts/auzLDsEw74w",
+      "title": "도쿄 7박 30끼 찐맛집 족보정리",
+      "restaurant": "Robatasho #ろばた翔 / 우동심보리 #udonshimbori / ParkStore / 우미노사치쇼 #海の幸翔 / 오이와케당고혼포 #おいわけだんご本舗 / AmericanDinerAndra",
+      "area": "지역 확인 필요",
+      "menu": "",
+      "selection": "미검토",
+      "isCompilation": true,
+      "restaurantNames": [
+        "Robatasho #ろばた翔",
+        "우동심보리 #udonshimbori",
+        "ParkStore",
+        "우미노사치쇼 #海の幸翔",
+        "오이와케당고혼포 #おいわけだんご本舗",
+        "AmericanDinerAndra"
+      ]
+    },
+    {
+      "id": "T169",
+      "url": "https://www.youtube.com/shorts/afxCmgfVr-g",
+      "title": "도쿄 뒷골목, 기차 지나가는 작은 라멘 가게 Tokyo Street Ramen",
+      "restaurant": "순야짱 Shunya-chan",
+      "area": "도쿄 기타",
+      "menu": "차슈 라멘 (950엔), 맛계란 추가 (100엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "순야짱 Shunya-chan"
+      ]
+    },
+    {
+      "id": "T170",
+      "url": "https://www.youtube.com/shorts/aRrZL5oKURY",
+      "title": "도쿄에서 킹크랩 뷔페를 주문하면 생기는 일",
+      "restaurant": "카니잔마이 이케부쿠로점",
+      "area": "이케부쿠로",
+      "menu": "레드 킹크랩 무한 리필 코스 (16,280엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "카니잔마이 이케부쿠로점"
+      ]
+    },
+    {
+      "id": "T171",
+      "url": "https://www.youtube.com/shorts/aK1aMH7E9cw",
+      "title": "도쿄에서 스시 오마카세를 주문하면 생기는 일",
+      "restaurant": "스시 후지로 니혼바시",
+      "area": "도쿄역·니혼바시",
+      "menu": "후지로 스시 코스 (24,200엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "스시 후지로 니혼바시"
+      ]
+    },
+    {
+      "id": "T172",
+      "url": "https://www.youtube.com/shorts/_qn2yeyjgCA",
+      "title": "도쿄에서 와규 오마카세를 주문하면 생기는 일",
+      "restaurant": "Yakiniku Kappo Ryotei Note",
+      "area": "도쿄 기타",
+      "menu": "오마카세 코스 (44,000엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "Yakiniku Kappo Ryotei Note"
+      ]
+    },
+    {
+      "id": "T173",
+      "url": "https://www.youtube.com/shorts/_nE7gddW5po",
+      "title": "도쿄에서 애플티를 주문하면 생기는 일",
+      "restaurant": "Oyoppi Coffee 어여삐 커피",
+      "area": "신주쿠",
+      "menu": "생사과차 (850엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "Oyoppi Coffee 어여삐 커피"
+      ]
+    },
+    {
+      "id": "T174",
+      "url": "https://www.youtube.com/shorts/Zyc8BukvOdQ",
+      "title": "도쿄에서 육회를 주문하면 생기는 일",
+      "restaurant": "Hirokiya Roppongi",
+      "area": "롯폰기",
+      "menu": "초특대 생 함박 육회 (7,000엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "Hirokiya Roppongi"
+      ]
+    },
+    {
+      "id": "T175",
+      "url": "https://www.youtube.com/shorts/ZKP3hGDGyFE",
+      "title": "노른자 주황자 하얀자? 도쿄의 달걀 뷔페",
+      "restaurant": "키사부로노죠",
+      "area": "도쿄 기타",
+      "menu": "런치 계란밥 뷔페 정식 (1,600엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "키사부로노죠"
+      ]
+    },
+    {
+      "id": "T176",
+      "url": "https://www.youtube.com/shorts/Z9pzYeCVDRM",
+      "title": "도쿄에서 아이스크림을 주문하면 생기는 일",
+      "restaurant": "DOLCE TACUBO CAFFE",
+      "area": "신바시·도라노몬",
+      "menu": "솔티 카라멜 소프트 아이스크림 (1,200엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "DOLCE TACUBO CAFFE"
+      ]
+    },
+    {
+      "id": "T177",
+      "url": "https://www.youtube.com/shorts/YQJjVXyCqrU",
+      "title": "도쿄에서 와규 버거를 주문하면 생기는 일",
+      "restaurant": "WAGYU BURGER HIROKIYA",
+      "area": "롯폰기",
+      "menu": "THE UMAMI TARTAR TERIYAKI EGG YOLK Double (3,600엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "WAGYU BURGER HIROKIYA"
+      ]
+    },
+    {
+      "id": "T178",
+      "url": "https://www.youtube.com/shorts/YPaqZ9oEGPY",
+      "title": "도쿄 전통방식 이자카야 Tokyo Izakaya",
+      "restaurant": "카나가리 하나레 燗アガリはなれ",
+      "area": "신주쿠",
+      "menu": "소금구이 (1,890엔), 통양파구이 (690엔), 고시히카리 솥밥 (1,290엔), 연어알간장절임 (740엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "카나가리 하나레 燗アガリはなれ"
+      ]
+    },
+    {
+      "id": "T179",
+      "url": "https://www.youtube.com/shorts/Xm9_Vrmrhxs",
+      "title": "도쿄에서 피자를 주문하면 생기는 일",
+      "restaurant": "Chicago Pizza & Volcano Pasta Forne",
+      "area": "메구로",
+      "menu": "설로인 시카고 피자 (2,900엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "Chicago Pizza & Volcano Pasta Forne"
+      ]
+    },
+    {
+      "id": "T180",
+      "url": "https://www.youtube.com/shorts/XjSbmeTV5Ms",
+      "title": "도쿄에서 오믈렛을 주문하면 생기는 일",
+      "restaurant": "By The Way",
+      "area": "메구로",
+      "menu": "치즈 명란마요 오므라이스 (880엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "By The Way"
+      ]
+    },
+    {
+      "id": "T181",
+      "url": "https://www.youtube.com/shorts/XhfdWQNuTWI",
+      "title": "도쿄에서 말차 푸딩 파르페를 주문하면 셍기는 일",
+      "restaurant": "센토 사와이오리온즈 銀座オリオンズ",
+      "area": "긴자",
+      "menu": "말차 밀크 푸딩 파르페 (2,750엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "센토 사와이오리온즈 銀座オリオンズ"
+      ]
+    },
+    {
+      "id": "T182",
+      "url": "https://www.youtube.com/shorts/XaJuGQ0E0SM",
+      "title": "도쿄에서 와라비모찌를 주문하면 생기는 일",
+      "restaurant": "카네스에 아사쿠사점",
+      "area": "아사쿠사",
+      "menu": "와라비모찌 소프트 아이스크림 (600엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "카네스에 아사쿠사점"
+      ]
+    },
+    {
+      "id": "T183",
+      "url": "https://www.youtube.com/shorts/Wk90eeYngaU",
+      "title": "도쿄에서 줄서서 먹은 음식들 평점 매기기",
+      "restaurant": "고다이메 하나야마우동 긴자점 / 레어 텐동 긴자 미츠요시 / 돈가츠 마루시치 후카카와 후도우점 / 호타테 비요리 / 우미노사치 쇼 / 라멘 카모토네기 우에노 오카치마치 본점 / 사보이 아자부주반 / 멘야 스고",
+      "area": "지역 확인 필요",
+      "menu": "",
+      "selection": "미검토",
+      "isCompilation": true,
+      "restaurantNames": [
+        "고다이메 하나야마우동 긴자점",
+        "레어 텐동 긴자 미츠요시",
+        "돈가츠 마루시치 후카카와 후도우점",
+        "호타테 비요리",
+        "우미노사치 쇼",
+        "라멘 카모토네기 우에노 오카치마치 본점",
+        "사보이 아자부주반",
+        "멘야 스고"
+      ]
+    },
+    {
+      "id": "T184",
+      "url": "https://www.youtube.com/shorts/W8euQJ_ZhFc",
+      "title": "철판 오므라이스 10,000개 만든 도쿄 장인",
+      "restaurant": "Ikura Shibuya いくら 渋谷店",
+      "area": "시부야",
+      "menu": "함박 오므라이스 (2,000엔), 치즈토핑 (200엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "Ikura Shibuya いくら 渋谷店"
+      ]
+    },
+    {
+      "id": "T185",
+      "url": "https://www.youtube.com/shorts/Vr9xcrh0W6E",
+      "title": "도쿄에서 처음보는 말차 화과자를 주문하면 생기는 일",
+      "restaurant": "하야시야신베에 도쿄미드타운 히비야 日比谷 林屋新兵衛",
+      "area": "도쿄 기타",
+      "menu": "말차 쿠즈네리 (513엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "하야시야신베에 도쿄미드타운 히비야 日比谷 林屋新兵衛"
+      ]
+    },
+    {
+      "id": "T186",
+      "url": "https://www.youtube.com/shorts/VQ9RPlsCXdg",
+      "title": "도쿄에서 함박 스테이크를 주문하면 생기는 일",
+      "restaurant": "By The Way",
+      "area": "메구로",
+      "menu": "수제 손반죽 함박 스테이크 (1,980엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "By The Way"
+      ]
+    },
+    {
+      "id": "T187",
+      "url": "https://www.youtube.com/shorts/UnF_1gWxwOk",
+      "title": "도쿄에서 치즈버거를 주문하면 생기는 일",
+      "restaurant": "American Diner Andra",
+      "area": "우에노·유시마",
+      "menu": "터치다운버거 + 음료 (2,300엔), 감자튀김 (200엔)",
+      "selection": "검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "American Diner Andra"
+      ]
+    },
+    {
+      "id": "T188",
+      "url": "https://www.youtube.com/shorts/UKYkI7Y-F2c",
+      "title": "도쿄 낭만 포장마차 라멘",
+      "restaurant": "야타이 라멘 슌야짱 屋台ラーメン しゅんやっちゃん",
+      "area": "도쿄 기타",
+      "menu": "차슈멘 (1,100엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "야타이 라멘 슌야짱 屋台ラーメン しゅんやっちゃん"
+      ]
+    },
+    {
+      "id": "T189",
+      "url": "https://www.youtube.com/shorts/U11PmzaMkuc",
+      "title": "도쿄에서 말차 빙수를 주문하면 생기는 일",
+      "restaurant": "HIIRAGI Ginza ひいらぎ 銀座本店",
+      "area": "우에노·유시마",
+      "menu": "말차 빙수 (1,600엔), 서비스 차지 10% 별도",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "HIIRAGI Ginza ひいらぎ 銀座本店"
+      ]
+    },
+    {
+      "id": "T190",
+      "url": "https://www.youtube.com/shorts/TeLi1q3Yy0k",
+      "title": "도쿄에서 말차 슈크림을 주문하면 생기는 일",
+      "restaurant": "슈크림 파티세리 텐& 히비야 오쿠로지 パティスリーテンアンド",
+      "area": "도쿄 기타",
+      "menu": "말차 슈크림 (990엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "슈크림 파티세리 텐& 히비야 오쿠로지 パティスリーテンアンド"
+      ]
+    },
+    {
+      "id": "T191",
+      "url": "https://www.youtube.com/shorts/T_1Kyxxti1k",
+      "title": "도쿄에서 말차 라테를 주문하면 생기는 일",
+      "restaurant": "센토 사와이오리온즈 銀座オリオンズ",
+      "area": "긴자",
+      "menu": "말차 라테 (1,500엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "센토 사와이오리온즈 銀座オリオンズ"
+      ]
+    },
+    {
+      "id": "T192",
+      "url": "https://www.youtube.com/shorts/SQErbgYCJRs",
+      "title": "도쿄에서 팬케이크를 주문하면 생기는 일",
+      "restaurant": "BUTTER 美瑛放牧酪農場",
+      "area": "도쿄역·니혼바시",
+      "menu": "",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "BUTTER 美瑛放牧酪農場"
+      ]
+    },
+    {
+      "id": "T193",
+      "url": "https://www.youtube.com/shorts/SDxsJftC8vs",
+      "title": "도쿄에서 푸딩을 주문하면 생기는 일",
+      "restaurant": "セント・サワイオリオンズ 센토 사와이오리온즈",
+      "area": "긴자",
+      "menu": "커스터드 애호가를 위한 파르페 (2,200엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "セント・サワイオリオンズ 센토 사와이오리온즈"
+      ]
+    },
+    {
+      "id": "T194",
+      "url": "https://www.youtube.com/shorts/RuNrkdgf5Ic",
+      "title": "도쿄에서 야끼소바를 주문하면 생기는 일",
+      "restaurant": "나가타 혼조켄 長田本庄軒メトロセンター西葛西",
+      "area": "도쿄 기타",
+      "menu": "오믈렛 야끼소바 (950엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "나가타 혼조켄 長田本庄軒メトロセンター西葛西"
+      ]
+    },
+    {
+      "id": "T195",
+      "url": "https://www.youtube.com/shorts/RjoWyzdwi4E",
+      "title": "도쿄에서 시오라멘을 주문하면 생기는 일",
+      "restaurant": "Ramen Jazzy Beats",
+      "area": "메구로",
+      "menu": "특상 시오라멘 (1,780엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "Ramen Jazzy Beats"
+      ]
+    },
+    {
+      "id": "T196",
+      "url": "https://www.youtube.com/shorts/RitomQkq8VU",
+      "title": "도쿄에서 우설을 주문하면 생기는 일",
+      "restaurant": "29 Terrace",
+      "area": "시부야",
+      "menu": "두툼한 파우설 4개 (2,480엔), 파말이 설로인 TKG (1,890엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "29 Terrace"
+      ]
+    },
+    {
+      "id": "T197",
+      "url": "https://www.youtube.com/shorts/RZooNPf1Rng",
+      "title": "도쿄에서 금눈돔 라멘을 주문하면 생기는 일",
+      "restaurant": "라멘 히스이 Ramen 翡翠",
+      "area": "도쿄 기타",
+      "menu": "금눈돔과 생김 라멘 (2,800엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "라멘 히스이 Ramen 翡翠"
+      ]
+    },
+    {
+      "id": "T198",
+      "url": "https://www.youtube.com/shorts/RRVh7uU2kcQ",
+      "title": "도쿄에서 아이스크림 케이크를 주문하면 생기는 일",
+      "restaurant": "Cafe Legato",
+      "area": "시부야",
+      "menu": "알래스카 버닝 케이크 (1,980엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "Cafe Legato"
+      ]
+    },
+    {
+      "id": "T199",
+      "url": "https://www.youtube.com/shorts/Qu8lEEArc8I",
+      "title": "도쿄에서 수플레 팬케이크를 주문하면 생기는 일",
+      "restaurant": "베니즈루",
+      "area": "아사쿠사",
+      "menu": "베이컨 계란 팬케이크 (2,300엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "베니즈루"
+      ]
+    },
+    {
+      "id": "T200",
+      "url": "https://www.youtube.com/shorts/QnU8TFuYzeY",
+      "title": "도쿄에서 치즈케이크를 주문하면 생기는 일",
+      "restaurant": "THREE",
+      "area": "세타가야",
+      "menu": "말차 바스크 치즈케이크 (1,000엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "THREE"
+      ]
+    },
+    {
+      "id": "T201",
+      "url": "https://www.youtube.com/shorts/QnMjNF2m0Xg",
+      "title": "도쿄에서 크렘 브륄레 파르페를 주문하면 생기는 일",
+      "restaurant": "Kagurazaka Cococino 神楽坂ココチーノ",
+      "area": "신주쿠",
+      "menu": "딸기 브륄레 파르페 (2,178엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "Kagurazaka Cococino 神楽坂ココチーノ"
+      ]
+    },
+    {
+      "id": "T202",
+      "url": "https://www.youtube.com/shorts/QXtnERSnRFQ",
+      "title": "도쿄에서 살치살을 주문하면 생기는 일",
+      "restaurant": "Tobiushi Iidabashi 和牛焼肉 とびうし",
+      "area": "도쿄 기타",
+      "menu": "일본 최고의 살치살 구이 세트 1인 (5,500엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "Tobiushi Iidabashi 和牛焼肉 とびうし"
+      ]
+    },
+    {
+      "id": "T203",
+      "url": "https://www.youtube.com/shorts/QEjQnUJPWQs",
+      "title": "도쿄에서 라멘을 주문하면 생기는 일",
+      "restaurant": "라멘 히스이 Ramen 翡翠",
+      "area": "도쿄 기타",
+      "menu": "극미 트러플 시오 라멘 (5,500엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "라멘 히스이 Ramen 翡翠"
+      ]
+    },
+    {
+      "id": "T204",
+      "url": "https://www.youtube.com/shorts/PxGEjxo-gdU",
+      "title": "도쿄에서 말차 아이스크림을 주문하면 생기는 일",
+      "restaurant": "나가미네 세이차 도쿄 타바타점 長峰製茶 東京田端店",
+      "area": "도쿄 기타",
+      "menu": "기침 나는 말차 소프트크림 왕자 (550엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "나가미네 세이차 도쿄 타바타점 長峰製茶 東京田端店"
+      ]
+    },
+    {
+      "id": "T205",
+      "url": "https://www.youtube.com/shorts/Pc_wqLNG-84",
+      "title": "도쿄에서 와규 코스를 주문하면 생기는 일",
+      "restaurant": "Yakiniku Ponga Ebisu",
+      "area": "시부야·에비스",
+      "menu": "특선 오마카세 코스 1인 (19,800엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "Yakiniku Ponga Ebisu"
+      ]
+    },
+    {
+      "id": "T206",
+      "url": "https://www.youtube.com/shorts/PXahbb_b8l0",
+      "title": "도쿄에서 송이버섯 라멘을 주문하면 생기는 일",
+      "restaurant": "MENSHO District",
+      "area": "시부야",
+      "menu": "특상 송이 라멘 (3,300엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "MENSHO District"
+      ]
+    },
+    {
+      "id": "T207",
+      "url": "https://www.youtube.com/shorts/PVmGWgUQuTM",
+      "title": "도쿄에서 샌드위치를 주문하면 생기는 일",
+      "restaurant": "Ginza Sand",
+      "area": "긴자",
+      "menu": "특선 와규 히레 산도 (3,200엔), 에비 산도 (1,200엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "Ginza Sand"
+      ]
+    },
+    {
+      "id": "T208",
+      "url": "https://www.youtube.com/shorts/PRnERXYI0Iw",
+      "title": "도쿄에서 푸딩을 주문하면 생기는 일",
+      "restaurant": "セント・サワイオリオンズ 센토 사와이오리온즈",
+      "area": "긴자",
+      "menu": "딸기를 사랑하는 사람을 위한 푸딩 파르페 (2,700엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "セント・サワイオリオンズ 센토 사와이오리온즈"
+      ]
+    },
+    {
+      "id": "T209",
+      "url": "https://www.youtube.com/shorts/P73BqT9avAw",
+      "title": "50년 넘게 동판에서 핫케이크를 만든 도쿄 할아버지",
+      "restaurant": "커피숍 피노키오 コーヒーショップ ピノキオ",
+      "area": "이타바시",
+      "menu": "핫케이크 (550엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "커피숍 피노키오 コーヒーショップ ピノキオ"
+      ]
+    },
+    {
+      "id": "T210",
+      "url": "https://www.youtube.com/shorts/OvWmn33OibE",
+      "title": "도쿄에서 오므라이스를 주문하면 생기는 일",
+      "restaurant": "Ikura Shibuya いくら 渋谷店",
+      "area": "시부야",
+      "menu": "함박 오므라이스 (2,000엔), 치즈토핑 (200엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "Ikura Shibuya いくら 渋谷店"
+      ]
+    },
+    {
+      "id": "T211",
+      "url": "https://www.youtube.com/shorts/Ou-iVYrsTTk",
+      "title": "도쿄에서 생선구이를 주문하면 생기는 일",
+      "restaurant": "로바타쇼 Robatasho ろばた翔",
+      "area": "신주쿠",
+      "menu": "흰살생선구이 (1,780엔), 표고버섯 (580엔), 츠키미 야끼오니기리 (580엔), 연어알 야끼오니기리 (1,200엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "로바타쇼 Robatasho ろばた翔"
+      ]
+    },
+    {
+      "id": "T212",
+      "url": "https://www.youtube.com/shorts/OYrjE6a5MYo",
+      "title": "도쿄에서 푸딩을 주문하면 생기는 일",
+      "restaurant": "akim'p",
+      "area": "도쿄 기타",
+      "menu": "카라멜 푸딩 (600엔), 브륄레 푸딩 (600엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "akim'p"
+      ]
+    },
+    {
+      "id": "T213",
+      "url": "https://www.youtube.com/shorts/OMqfPnmEjt0",
+      "title": "우설 전문점에서만 파는 덮밥",
+      "restaurant": "Keyaki Beef Tongue Azabu-Juban 牛たん けやき 麻布十番店",
+      "area": "도쿄 기타",
+      "menu": "우설 히츠마부시 (3,300엔), 비프 카레 변경 (300엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "Keyaki Beef Tongue Azabu-Juban 牛たん けやき 麻布十番店"
+      ]
+    },
+    {
+      "id": "T214",
+      "url": "https://www.youtube.com/shorts/OF2APf3v04g",
+      "title": "일본 도라에몽 카페에서 음식을 주문하면 생기는 도코",
+      "restaurant": "도라에몽 에프즈 키친 ドラえもん Ｆ’ｓキッチン",
+      "area": "신주쿠",
+      "menu": "",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "도라에몽 에프즈 키친 ドラえもん Ｆ’ｓキッチン"
+      ]
+    },
+    {
+      "id": "T215",
+      "url": "https://www.youtube.com/shorts/NHcfdxwAo0Q",
+      "title": "도쿄에서 팬케이크를 주문하면 생기는 일",
+      "restaurant": "BUTTER Hoboku Rakunojo",
+      "area": "도쿄역·니혼바시",
+      "menu": "",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "BUTTER Hoboku Rakunojo"
+      ]
+    },
+    {
+      "id": "T216",
+      "url": "https://www.youtube.com/shorts/NGmlVHERvOA",
+      "title": "50만원 냈지만 후회 없던 위스키 한 잔",
+      "restaurant": "바 센티폴리아 BAR CENTIFOLIA",
+      "area": "도쿄 기타",
+      "menu": "입장료 1인 (1,000엔), 칵테일 (4,000엔~)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "바 센티폴리아 BAR CENTIFOLIA"
+      ]
+    },
+    {
+      "id": "T217",
+      "url": "https://www.youtube.com/shorts/MnPMigSHpag",
+      "title": "도쿄에서 크렘브륄레를 주문하면 생기는 일",
+      "restaurant": "Eureka ユリイカ",
+      "area": "세타가야",
+      "menu": "런치 - 전채 메인 디저트 음료 세트 (3,000엔), 오리가슴살 메인 변경 (800엔 추가)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "Eureka ユリイカ"
+      ]
+    },
+    {
+      "id": "T218",
+      "url": "https://www.youtube.com/shorts/MXeWqpbuRaU",
+      "title": "도쿄에서 우설을 주문하면 생기는 일",
+      "restaurant": "신주쿠 우시미츠 新宿 うしみつ",
+      "area": "신주쿠",
+      "menu": "VIP 코스 (24,200엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "신주쿠 우시미츠 新宿 うしみつ"
+      ]
+    },
+    {
+      "id": "T219",
+      "url": "https://www.youtube.com/shorts/MIK3PDh_Pi8",
+      "title": "도쿄에서 스시 오마카세를 주문하면 생기는 일",
+      "restaurant": "스시 요시카와 카츠 긴자 별관 鮨よしかわ 勝 銀座 別邸",
+      "area": "긴자",
+      "menu": "대장 오마카세 코스 (22,000엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "스시 요시카와 카츠 긴자 별관 鮨よしかわ 勝 銀座 別邸"
+      ]
+    },
+    {
+      "id": "T220",
+      "url": "https://www.youtube.com/shorts/ME-l0bCFCq4",
+      "title": "도쿄 사무라이 바",
+      "restaurant": "바 센티폴리아",
+      "area": "도쿄 기타",
+      "menu": "칵테일 5000~6000엔",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "바 센티폴리아"
+      ]
+    },
+    {
+      "id": "T221",
+      "url": "https://www.youtube.com/shorts/M3CEAzLqzGU",
+      "title": "도쿄에서 주황자 오므라이스를 주문하면 생기는 일",
+      "restaurant": "Sweet Check",
+      "area": "도쿄 기타",
+      "menu": "카망베르 치즈 팡! 햄버그 오므라이스(¥3,480), 노른자 추가 (100엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "Sweet Check"
+      ]
+    },
+    {
+      "id": "T222",
+      "url": "https://www.youtube.com/shorts/M1GdxYZyby8",
+      "title": "도쿄에서 먹은 말차 디저트들",
+      "restaurant": "PARK STORE @parkstore_cafethesunliveshere",
+      "area": "지역 확인 필요",
+      "menu": "",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "PARK STORE @parkstore_cafethesunliveshere"
+      ]
+    },
+    {
+      "id": "T223",
+      "url": "https://www.youtube.com/shorts/LgHDudcpNME",
+      "title": "도쿄 스시 오마카세에서 새우를 내어주는 방법",
+      "restaurant": "스시 요시카와 카츠 긴자 별관 鮨よしかわ 勝 銀座 別邸",
+      "area": "긴자",
+      "menu": "대장 오마카세 코스 (19,800엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "스시 요시카와 카츠 긴자 별관 鮨よしかわ 勝 銀座 別邸"
+      ]
+    },
+    {
+      "id": "T224",
+      "url": "https://www.youtube.com/shorts/LRaUcxzkjDc",
+      "title": "도쿄에서 팬케이크를 주문하면 생기는 일",
+      "restaurant": "BUTTER 美瑛放牧酪農場",
+      "area": "도쿄역·니혼바시",
+      "menu": "",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "BUTTER 美瑛放牧酪農場"
+      ]
+    },
+    {
+      "id": "T225",
+      "url": "https://www.youtube.com/shorts/JzlOY5l_P8o",
+      "title": "도쿄에서 도넛을 주문하면 생기는 일",
+      "restaurant": "PARK STORE",
+      "area": "세타가야",
+      "menu": "말차 크림 도넛 (560엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "PARK STORE"
+      ]
+    },
+    {
+      "id": "T226",
+      "url": "https://www.youtube.com/shorts/JudynWDUbaQ",
+      "title": "도쿄에서 메가 생참치 덮밥을 주문하면 생기는 일",
+      "restaurant": "미래수산 みらい水産",
+      "area": "도쿄 기타",
+      "menu": "혼마구로 3종 메가 덮밥 (4,180엔), 연어알 추가 (850엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "미래수산 みらい水産"
+      ]
+    },
+    {
+      "id": "T227",
+      "url": "https://www.youtube.com/shorts/JisQ4AKRl4g",
+      "title": "도쿄에서 미슐랭 라멘을 주문하면 생기는 일",
+      "restaurant": "Ramen Break Beats",
+      "area": "메구로",
+      "menu": "특상 쇼유 라멘 (2,200엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "Ramen Break Beats"
+      ]
+    },
+    {
+      "id": "T228",
+      "url": "https://www.youtube.com/shorts/JcawbMDRi8s",
+      "title": "도쿄 인기 no.1 팬케이크 Tokyo Pancakes",
+      "restaurant": "베니즈루",
+      "area": "아사쿠사",
+      "menu": "베이컨 계란 팬케이크 (2,300엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "베니즈루"
+      ]
+    },
+    {
+      "id": "T229",
+      "url": "https://www.youtube.com/shorts/JKrcW1IFpx8",
+      "title": "도쿄에서 소간을 주문하면 생기는 일",
+      "restaurant": "히로키야 신주쿠 ヒロキヤ新宿",
+      "area": "신주쿠",
+      "menu": "매직 레버 1인분 (2,000엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "히로키야 신주쿠 ヒロキヤ新宿"
+      ]
+    },
+    {
+      "id": "T230",
+      "url": "https://www.youtube.com/shorts/IkNS7r6dOds",
+      "title": "도쿄에서 푸딩을 주문하면 생기는 일",
+      "restaurant": "Ginza Fruits 銀座フルーツ",
+      "area": "긴자",
+      "menu": "왕의 푸딩 아라모드 (6,000엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "Ginza Fruits 銀座フルーツ"
+      ]
+    },
+    {
+      "id": "T231",
+      "url": "https://www.youtube.com/shorts/IA6x59hpkwQ",
+      "title": "도쿄에서 로스트 비프를 주문하면 생기는 일",
+      "restaurant": "센토 사와이오리온즈 銀座オリオンズ",
+      "area": "긴자",
+      "menu": "와규 로스트비프 덮밥 with 트러플 (3,900엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "센토 사와이오리온즈 銀座オリオンズ"
+      ]
+    },
+    {
+      "id": "T232",
+      "url": "https://www.youtube.com/shorts/HWLo_2Fd1mg",
+      "title": "11만원 도쿄 와규 오마카세에서 나왔던 우설",
+      "restaurant": "Ginza Chikamitsu Namiki-dori 銀座 ちかみつ 並木通り",
+      "area": "긴자",
+      "menu": "10주년 기념 코스 (11,000엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "Ginza Chikamitsu Namiki-dori 銀座 ちかみつ 並木通り"
+      ]
+    },
+    {
+      "id": "T233",
+      "url": "https://www.youtube.com/shorts/HCxXXIK-HKw",
+      "title": "도쿄에서 대게 오마카세를 주문하면 생기는 일",
+      "restaurant": "Kani Gennu Ginza かにじぇんぬ 銀座",
+      "area": "긴자",
+      "menu": "활 마츠바게 1인 1마리 코스, 암게 포함 (71,500엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "Kani Gennu Ginza かにじぇんぬ 銀座"
+      ]
+    },
+    {
+      "id": "T234",
+      "url": "https://www.youtube.com/shorts/GBcQv70CM-s",
+      "title": "13만원 도쿄 스시오마카세에서 처음본 메뉴",
+      "restaurant": "Sushi Tatsuya 鮨 たつ也 よしかわ",
+      "area": "메구로",
+      "menu": "셰프 추천 오마카세 코스 (13,200엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "Sushi Tatsuya 鮨 たつ也 よしかわ"
+      ]
+    },
+    {
+      "id": "T235",
+      "url": "https://www.youtube.com/shorts/Eiqj2yWNSRg",
+      "title": "도쿄에서 돈카츠 샌드위치를 주문하면 생기는 일",
+      "restaurant": "Tonkatsu Marushichi Ginza とんかつ 丸七 銀座店",
+      "area": "긴자",
+      "menu": "카츠 산도 (1,700엔) *테이크 아웃 전용 메뉴",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "Tonkatsu Marushichi Ginza とんかつ 丸七 銀座店"
+      ]
+    },
+    {
+      "id": "T236",
+      "url": "https://www.youtube.com/shorts/EVxbgUcA6L0",
+      "title": "도쿄에서 바나나 크렘브륄레 타르트를 주문하면 생기는 일",
+      "restaurant": "도쿄역 기프트 키오스크 ",
+      "area": "지역 확인 필요",
+      "menu": "도쿄바나나 브륄레타르트 5개 박스 (896엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "도쿄역 기프트 키오스크 "
+      ]
+    },
+    {
+      "id": "T237",
+      "url": "https://www.youtube.com/shorts/DfNx1xrScsQ",
+      "title": "50년째 푸딩을 만드는 80대 할아버지",
+      "restaurant": "헷케룬 커피 & 푸딩 Hekkerun Coffee & Pudding",
+      "area": "신바시·도라노몬",
+      "menu": "점보푸딩 & 커피 세트 (900엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "헷케룬 커피 & 푸딩 Hekkerun Coffee & Pudding"
+      ]
+    },
+    {
+      "id": "T238",
+      "url": "https://www.youtube.com/shorts/D34Jp4mG2-A",
+      "title": "도쿄에서 사과차를 주문하면 생기는 일",
+      "restaurant": "Oyoppi Coffee 어여삐 커피",
+      "area": "신주쿠",
+      "menu": "생사과차 (850엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "Oyoppi Coffee 어여삐 커피"
+      ]
+    },
+    {
+      "id": "T239",
+      "url": "https://www.youtube.com/shorts/CqJw2xJ6pso",
+      "title": "도쿄에서 야키토리 오마카세를 주문하면 생기는 일",
+      "restaurant": "焼鳥 佐田十郎 六本木",
+      "area": "롯폰기",
+      "menu": "10꼬치 및 일품요리 3종 및 디저트 코스 (7,300엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "焼鳥 佐田十郎 六本木"
+      ]
+    },
+    {
+      "id": "T240",
+      "url": "https://www.youtube.com/shorts/CnDRA2NGWqo",
+      "title": "도쿄 소고기 랭킹 1위 오마카세를 주문하면 생기는 일",
+      "restaurant": "Nikuya Tanaka Ginza 肉屋田中 銀座",
+      "area": "긴자",
+      "menu": "Seasonal Choice Course 1인 (54,450엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "Nikuya Tanaka Ginza 肉屋田中 銀座"
+      ]
+    },
+    {
+      "id": "T241",
+      "url": "https://www.youtube.com/shorts/CM8a2jNCqWY",
+      "title": "도쿄에서 오므라이스를 주문하면 생기는 일",
+      "restaurant": "Sweet Check",
+      "area": "도쿄 기타",
+      "menu": "함바그 오므라이스 (2,600엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "Sweet Check"
+      ]
+    },
+    {
+      "id": "T242",
+      "url": "https://www.youtube.com/shorts/BnpMdKhzl6E",
+      "title": "도쿄 라멘 찐맛집 족보정리",
+      "restaurant": "라멘야 시마 #らぁ麺や嶋 / Ramen FeeL / 중화소바 토미타 #中華蕎麦とみ田 / 중화소바 시바타 #中華そばしば田 / 창작면 히토스지 #創作麺ひとすじ / Homemade Ramen 무기나에 #麦苗 / 라멘 마츠이 #RAMENMATSUI / 멘도코로 니보시코 스이텐구마에점 #麺処にぼし香水天宮前店 / 면황 #麺皇",
+      "area": "지역 확인 필요",
+      "menu": "",
+      "selection": "미검토",
+      "isCompilation": true,
+      "restaurantNames": [
+        "라멘야 시마 #らぁ麺や嶋",
+        "Ramen FeeL",
+        "중화소바 토미타 #中華蕎麦とみ田",
+        "중화소바 시바타 #中華そばしば田",
+        "창작면 히토스지 #創作麺ひとすじ",
+        "Homemade Ramen 무기나에 #麦苗",
+        "라멘 마츠이 #RAMENMATSUI",
+        "멘도코로 니보시코 스이텐구마에점 #麺処にぼし香水天宮前店",
+        "면황 #麺皇"
+      ]
+    },
+    {
+      "id": "T243",
+      "url": "https://www.youtube.com/shorts/BHsIPp7ikSo",
+      "title": "도쿄에서 대회우승 버거를 주문하면 생기는 일",
+      "restaurant": "BRISK STAND NAKAMEGURO",
+      "area": "메구로",
+      "menu": "切ったやつ(킷타 야츠) 더블 패티 버거 (2,500엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "BRISK STAND NAKAMEGURO"
+      ]
+    },
+    {
+      "id": "T244",
+      "url": "https://www.youtube.com/shorts/BARPiquR0Qw",
+      "title": "도쿄에서 크렘브륄레 샌드위치를 주문하면 생기는 일",
+      "restaurant": "Age.3×Q HARAJUKU",
+      "area": "하라주쿠",
+      "menu": "크렘브륄레 (850엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "Age.3×Q HARAJUKU"
+      ]
+    },
+    {
+      "id": "T245",
+      "url": "https://www.youtube.com/shorts/B7oj8GRI8eY",
+      "title": "도쿄에서 미슐랭 라멘을 주문하면 생기는 일",
+      "restaurant": "Ramen Break Beats",
+      "area": "메구로",
+      "menu": "특상 쇼유 라멘 (2,200엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "Ramen Break Beats"
+      ]
+    },
+    {
+      "id": "T246",
+      "url": "https://www.youtube.com/shorts/AcNokW6R58g",
+      "title": "도쿄에서 야끼소바를 주문하면 생기는 일",
+      "restaurant": "나가타 혼조켄 長田本庄軒メトロセンター西葛西",
+      "area": "도쿄 기타",
+      "menu": "オムそば 오믈렛 야끼소바 (1,012엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "나가타 혼조켄 長田本庄軒メトロセンター西葛西"
+      ]
+    },
+    {
+      "id": "T247",
+      "url": "https://www.youtube.com/shorts/AbvX3xsgJyg",
+      "title": "도쿄에서 치즈피자를 주문하면 생기는 일",
+      "restaurant": "스폰티니 캐스케이드 하라주쿠점 SPONTINI カスケード原宿店",
+      "area": "하라주쿠",
+      "menu": "더블 모짜렐라 치즈 조각 (1,150엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "스폰티니 캐스케이드 하라주쿠점 SPONTINI カスケード原宿店"
+      ]
+    },
+    {
+      "id": "T248",
+      "url": "https://www.youtube.com/shorts/AazQ2tctT1Y",
+      "title": "도쿄에서 말차 푸딩을 주문하면 생기는 일",
+      "restaurant": "센토 사와이오리온즈 セント・サワイオリオンズ",
+      "area": "긴자",
+      "menu": "말차 애호가를 위한 푸딩 파르페 (2,750엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "센토 사와이오리온즈 セント・サワイオリオンズ"
+      ]
+    },
+    {
+      "id": "T249",
+      "url": "https://www.youtube.com/shorts/9qHRRa_kYWs",
+      "title": "도쿄에서 군고구마 아이스크림을 주문하면 생기는 일",
+      "restaurant": "이모핏피 芋ぴっぴ。浅草店",
+      "area": "아사쿠사",
+      "menu": "1mm 실타래 자색고구마 아이스크림 (1,400엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "이모핏피 芋ぴっぴ。浅草店"
+      ]
+    },
+    {
+      "id": "T250",
+      "url": "https://www.youtube.com/shorts/9ppo5ZbmjdE",
+      "title": "도쿄에서 라멘을 주문하면 생기는 일",
+      "restaurant": "순야짱 Shunya-chan",
+      "area": "도쿄 기타",
+      "menu": "차슈 라멘 (950엔), 맛계란 추가 (100엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "순야짱 Shunya-chan"
+      ]
+    },
+    {
+      "id": "T251",
+      "url": "https://www.youtube.com/shorts/97oXPAi-a94",
+      "title": "도쿄에서 푸딩을 주문하면 생기는 일",
+      "restaurant": "Satella 喫茶サテラ",
+      "area": "시부야",
+      "menu": "푸딩 (800엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "Satella 喫茶サテラ"
+      ]
+    },
+    {
+      "id": "T252",
+      "url": "https://www.youtube.com/shorts/94xTLY7OdHk",
+      "title": "도쿄 랭킹 1등 츠케멘",
+      "restaurant": "Tokyo Style Noodle Hotate Biyori ほたて日和",
+      "area": "아키하바라·간다",
+      "menu": "특제 가리비 콘부스이 츠케멘 간장 (1,700엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "Tokyo Style Noodle Hotate Biyori ほたて日和"
+      ]
+    },
+    {
+      "id": "T253",
+      "url": "https://www.youtube.com/shorts/8lNtuntDK68",
+      "title": "도쿄에서 생간을 주문하면 생기는 일",
+      "restaurant": "Hirokiya Roppongi",
+      "area": "롯폰기",
+      "menu": "매직 레바 2인분 (3,600엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "Hirokiya Roppongi"
+      ]
+    },
+    {
+      "id": "T254",
+      "url": "https://www.youtube.com/shorts/8RJ-SrqekSY",
+      "title": "도쿄에서 탄탄멘을 주문하면 생기는 일",
+      "restaurant": "Ramen Jazzy Beats",
+      "area": "메구로",
+      "menu": "특상 탄탄멘 (1,920엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "Ramen Jazzy Beats"
+      ]
+    },
+    {
+      "id": "T255",
+      "url": "https://www.youtube.com/shorts/8LVMQ9AcZro",
+      "title": "47만원 나왔지만 후회 없는 도쿄의 바",
+      "restaurant": "바 센티폴리아",
+      "area": "도쿄 기타",
+      "menu": "칵테일 (4000~5000엔), 커버차지 (1000엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "바 센티폴리아"
+      ]
+    },
+    {
+      "id": "T256",
+      "url": "https://www.youtube.com/shorts/7zGRQI3Np_k",
+      "title": "푸딩 만들다 인생 지나간 할아버지를 만나봤습니다",
+      "restaurant": "헷케룬 커피 & 푸딩 Hekkerun Coffee & Pudding",
+      "area": "신바시·도라노몬",
+      "menu": "점보푸딩 & 커피 세트 (900엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "헷케룬 커피 & 푸딩 Hekkerun Coffee & Pudding"
+      ]
+    },
+    {
+      "id": "T257",
+      "url": "https://www.youtube.com/shorts/7vdmoPcR3ok",
+      "title": "도쿄에서 초밥뷔페를 방문하면 생기는 일",
+      "restaurant": "스시도 토미자 すし道 冨座",
+      "area": "시부야·에비스",
+      "menu": "런치 한정 스시 뷔페 코스 12,100엔",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "스시도 토미자 すし道 冨座"
+      ]
+    },
+    {
+      "id": "T258",
+      "url": "https://www.youtube.com/shorts/7jL6XjQZPAU",
+      "title": "도쿄에서 말차 칵테일을 주문하면 생기는 일",
+      "restaurant": "Bar Centifolia",
+      "area": "도쿄 기타",
+      "menu": "말차 칵테일 (5,000엔), 커버 차지 (1,000엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "Bar Centifolia"
+      ]
+    },
+    {
+      "id": "T259",
+      "url": "https://www.youtube.com/shorts/7PJ59f6qC-8",
+      "title": "도쿄에서 해산물 덮밥을 주문하면 생기는 일",
+      "restaurant": "Waunn 和雲",
+      "area": "아사쿠사",
+      "menu": "특선 성게와 참치의 극미 (18,000엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "Waunn 和雲"
+      ]
+    },
+    {
+      "id": "T260",
+      "url": "https://www.youtube.com/shorts/7NvjCS8o_D4",
+      "title": "도쿄에서 계란말이를 주문하면 생기는 일",
+      "restaurant": "By The Way",
+      "area": "메구로",
+      "menu": "철판 다시마끼 계란 (780엔), 치즈 토핑 (300엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "By The Way"
+      ]
+    },
+    {
+      "id": "T261",
+      "url": "https://www.youtube.com/shorts/7J9vOj5EJAw",
+      "title": "도쿄에서 생참치 덮밥을 주문하면 생기는 일",
+      "restaurant": "시겐 海玄",
+      "area": "도쿄 기타",
+      "menu": "궁극의 참치덮밥 (4,300엔), 2종 선택 참치덮밥 (3,200엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "시겐 海玄"
+      ]
+    },
+    {
+      "id": "T262",
+      "url": "https://www.youtube.com/shorts/7FL7K1SE8Xw",
+      "title": "도쿄에서 햄버거를 주문하면 생기는 일",
+      "restaurant": "WAGYU BURGER HIROKIYA",
+      "area": "롯폰기",
+      "menu": "THE UMAMI TARTAR TERIYAKI EGG YOLK Double (3,600엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "WAGYU BURGER HIROKIYA"
+      ]
+    },
+    {
+      "id": "T263",
+      "url": "https://www.youtube.com/shorts/7805GQmK68g",
+      "title": "도쿄에서 털게 오마카세를 주문하면 생기는 일",
+      "restaurant": "Kani Azabu かにじぇんぬ麻布",
+      "area": "도쿄 기타",
+      "menu": "특선 라이브 털게 코스 (60,500엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "Kani Azabu かにじぇんぬ麻布"
+      ]
+    },
+    {
+      "id": "T264",
+      "url": "https://www.youtube.com/shorts/6ylhB7sEkXE",
+      "title": "오므라이스 프로는 다르다 Omurice Professional",
+      "restaurant": "Sweet Check",
+      "area": "도쿄 기타",
+      "menu": "함바그 오므라이스 (2,600엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "Sweet Check"
+      ]
+    },
+    {
+      "id": "T265",
+      "url": "https://www.youtube.com/shorts/6gbF5f_U6RU",
+      "title": "전생에 사무라이였던 도쿄 바텐더",
+      "restaurant": "바 센티폴리아",
+      "area": "도쿄 기타",
+      "menu": "칵테일 4000~6000엔",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "바 센티폴리아"
+      ]
+    },
+    {
+      "id": "T266",
+      "url": "https://www.youtube.com/shorts/6TbFXp-3fgc",
+      "title": "도쿄에서 맛있어 보이는 우동을 주문하면 생기는 일",
+      "restaurant": "우동 심보리",
+      "area": "시부야",
+      "menu": "가마타마 명란 버터 김 우동 1,300円",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "우동 심보리"
+      ]
+    },
+    {
+      "id": "T267",
+      "url": "https://www.youtube.com/shorts/6Q5K8Q4O2b8",
+      "title": "도쿄에서 프리미엄 오므라이스를 주문하면 생기는 일",
+      "restaurant": "Sweet Check",
+      "area": "도쿄 기타",
+      "menu": "카망베르 치즈 팡! 햄버그 오므라이스(¥3,480)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "Sweet Check"
+      ]
+    },
+    {
+      "id": "T268",
+      "url": "https://www.youtube.com/shorts/6DXHsTzYsrQ",
+      "title": "도쿄에서 야키토리 오마카세을 주문하면 생기는 일",
+      "restaurant": "토리쇼 이시이 히나 鳥匠いし井ひな",
+      "area": "도쿄 기타",
+      "menu": "셰프 테이스팅 야키토리 코스 (15,000엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "토리쇼 이시이 히나 鳥匠いし井ひな"
+      ]
+    },
+    {
+      "id": "T269",
+      "url": "https://www.youtube.com/shorts/56sKBAbu8vw",
+      "title": "도쿄에서 랍스터 라멘을 주문하면 생기는 일",
+      "restaurant": "Ebimaru Ramen",
+      "area": "아키하바라·간다",
+      "menu": "원조 에비마루 라멘 (1,530엔), 디럭스 토핑 추가 (1,100엔), 리조또 (700엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "Ebimaru Ramen"
+      ]
+    },
+    {
+      "id": "T270",
+      "url": "https://www.youtube.com/shorts/55rFRJsBZjk",
+      "title": "도쿄에서 300년 넘은 스시집을 방문하면 생기는 일",
+      "restaurant": "Kenuki Sushi 笹巻けぬきすし",
+      "area": "아키하바라·간다",
+      "menu": "평일 한정 돈부리 런치 세트 (1,400엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "Kenuki Sushi 笹巻けぬきすし"
+      ]
+    },
+    {
+      "id": "T271",
+      "url": "https://www.youtube.com/shorts/4rBpayRR-64",
+      "title": "고급 계란으로 만든 극강의 푸딩 파르페 🍮",
+      "restaurant": "セント・サワイオリオンズ 센토 사와이오리온즈",
+      "area": "긴자",
+      "menu": "커스터드 애호가를 위한 파르페 (2,200엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "セント・サワイオリオンズ 센토 사와이오리온즈"
+      ]
+    },
+    {
+      "id": "T272",
+      "url": "https://www.youtube.com/shorts/4iEMPTuabCo",
+      "title": "45만원이지만 또 가고 싶은 도쿄 가이세키 레스토랑",
+      "restaurant": "Japanese cuisine - Kashiwa de Tsukasa Suikoan 膳司 水光庵",
+      "area": "도쿄 기타",
+      "menu": "테이스팅 코스 (48,400엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "Japanese cuisine - Kashiwa de Tsukasa Suikoan 膳司 水光庵"
+      ]
+    },
+    {
+      "id": "T273",
+      "url": "https://www.youtube.com/shorts/4hZnNbIl99s",
+      "title": "도쿄에서 덴푸라 정식을 주문하면 생기는 일",
+      "restaurant": "텐쓰케 天すけ",
+      "area": "도쿄 기타",
+      "menu": "타마고 런치 (1,800엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "텐쓰케 天すけ"
+      ]
+    },
+    {
+      "id": "T274",
+      "url": "https://www.youtube.com/shorts/4gxDYBN70H0",
+      "title": "도쿄에서 치즈버거를 주문하면 생기는 일",
+      "restaurant": "American Diner Andra",
+      "area": "우에노·유시마",
+      "menu": "터치다운버거 + 음료 (2,300엔)",
+      "selection": "검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "American Diner Andra"
+      ]
+    },
+    {
+      "id": "T275",
+      "url": "https://www.youtube.com/shorts/4UfNlqYsmLU",
+      "title": "도쿄에서 우동을 주문하면 생기는 일",
+      "restaurant": "Himokawa Kiryu Ikebukuro",
+      "area": "이케부쿠로",
+      "menu": "파&돼지고기 히모카와 우동 (990엔), 스페셜 튀김 모둠 (710엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "Himokawa Kiryu Ikebukuro"
+      ]
+    },
+    {
+      "id": "T276",
+      "url": "https://www.youtube.com/shorts/3WEyOzFYogM",
+      "title": "도쿄 랭킹 1등 전설의 카레",
+      "restaurant": "유럽풍 카레 전문점 토마토",
+      "area": "도쿄 기타",
+      "menu": "우설 카레 (3,800엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "유럽풍 카레 전문점 토마토"
+      ]
+    },
+    {
+      "id": "T277",
+      "url": "https://www.youtube.com/shorts/3LAgocgvf3c",
+      "title": "도쿄에서 찹쌀떡을 주문하면 생기는 일",
+      "restaurant": "Iseya Kameari Main Store 葛飾 伊勢屋 亀有本店",
+      "area": "도쿄 기타",
+      "menu": "검은콩 찹쌀떡 (마메다이후쿠) - 190엔",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "Iseya Kameari Main Store 葛飾 伊勢屋 亀有本店"
+      ]
+    },
+    {
+      "id": "T278",
+      "url": "https://www.youtube.com/shorts/3H6mScBL0fg",
+      "title": "도쿄에서 액체 푸딩을 주문하면 생기는 일",
+      "restaurant": "PUDDING LAB",
+      "area": "긴자",
+      "menu": "150% 푸딩 소프트 크림 (1,296엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "PUDDING LAB"
+      ]
+    },
+    {
+      "id": "T279",
+      "url": "https://www.youtube.com/shorts/37BN__YjnSM",
+      "title": "도쿄에서 샤브샤브를 주문하면 생기는 일",
+      "restaurant": "しゃぶしゃぶ雅龍 Shabu Shabu Miyabiryu",
+      "area": "도쿄 기타",
+      "menu": "프리미엄 와규 샤브샤브 코스 1인 (12,100엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "しゃぶしゃぶ雅龍 Shabu Shabu Miyabiryu"
+      ]
+    },
+    {
+      "id": "T280",
+      "url": "https://www.youtube.com/shorts/36idlqPJ89A",
+      "title": "도쿄 1위 라멘을 주문하면 생기는 일",
+      "restaurant": "무기나에 Homemade Ramen 麦苗",
+      "area": "도쿄 기타",
+      "menu": "쇼유 라멘 (1,300엔), 상토핑 추가 (250엔), 와규 차슈 추가 (400엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "무기나에 Homemade Ramen 麦苗"
+      ]
+    },
+    {
+      "id": "T281",
+      "url": "https://www.youtube.com/shorts/2hNvwI7XWVA",
+      "title": "흉내낼 수 없는 식감의 도쿄 오므라이스 장인",
+      "restaurant": "부히부히 더블오므라이스",
+      "area": "세타가야",
+      "menu": "메가 오므라이스 (2,800엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "부히부히 더블오므라이스"
+      ]
+    },
+    {
+      "id": "T282",
+      "url": "https://www.youtube.com/shorts/2_ooj1bbQF8",
+      "title": "도쿄에서 스키야키를 주문하면 생기는 일",
+      "restaurant": "Sukiyaki Asai すき焼き あさい",
+      "area": "신바시·도라노몬",
+      "menu": "런치 코스 (14,520엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "Sukiyaki Asai すき焼き あさい"
+      ]
+    },
+    {
+      "id": "T283",
+      "url": "https://www.youtube.com/shorts/1GEvQ09KSFU",
+      "title": "33만원 도쿄 스시 오마카세 Sushi Omakase",
+      "restaurant": "영상·댓글 확인 필요",
+      "area": "지역 확인 필요",
+      "menu": "",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": []
+    },
+    {
+      "id": "T284",
+      "url": "https://www.youtube.com/shorts/1Fe1l3rhet8",
+      "title": "도쿄에서 새우스시를 주문하면 생기는 일",
+      "restaurant": "Sushi Teppen 鮨てっぺん",
+      "area": "시부야",
+      "menu": "스시 오마카세 코스 1인 (16,500엔), 우니 추가 (2,000엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "Sushi Teppen 鮨てっぺん"
+      ]
+    },
+    {
+      "id": "T285",
+      "url": "https://www.youtube.com/shorts/0iG0wIx8LRI",
+      "title": "도쿄에서 된장 우동을 주문하면 생기는 일",
+      "restaurant": "야마초 黒うどん山長 原宿店",
+      "area": "하라주쿠",
+      "menu": "된장 우동 (1,000엔), 닭고기 추가 (150엔), 계란 추가 (50엔), 표고버섯 추가 (150엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "야마초 黒うどん山長 原宿店"
+      ]
+    },
+    {
+      "id": "T286",
+      "url": "https://www.youtube.com/shorts/0dcyy2PEFfc",
+      "title": "도쿄에서 옥돔을 주문하면 생기는 일",
+      "restaurant": "Kagurazaka Cococino 神楽坂ココチーノ",
+      "area": "신주쿠",
+      "menu": "옥돔과 토마토 크림 소스 (2,310엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "Kagurazaka Cococino 神楽坂ココチーノ"
+      ]
+    },
+    {
+      "id": "T287",
+      "url": "https://www.youtube.com/shorts/-Yh7moW0hyU",
+      "title": "가격을 모르고 주문한 위스키 Tokyo Bar",
+      "restaurant": "바 센티폴리아 BAR CENTIFOLIA",
+      "area": "도쿄 기타",
+      "menu": "입장료 1인 (1,000엔), 칵테일 (4,000엔~)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "바 센티폴리아 BAR CENTIFOLIA"
+      ]
+    },
+    {
+      "id": "T288",
+      "url": "https://www.youtube.com/shorts/-M9-voDMIV4",
+      "title": "라멘에도 말차가 들어가는 도쿄 라멘집 근황",
+      "restaurant": "MENSHO SAN FRANCISCO",
+      "area": "지역 확인 필요",
+      "menu": "A5 와규를 올린 말차 토리파이탄 라멘 (1,450엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "MENSHO SAN FRANCISCO"
+      ]
+    },
+    {
+      "id": "T289",
+      "url": "https://www.youtube.com/shorts/-Bq7LJkzwDY",
+      "title": "도쿄에서 180년 된 텐동을 주문하면 생기는 일",
+      "restaurant": "카미나리몬 산사다",
+      "area": "아사쿠사",
+      "menu": "쥬카키동 (3,850엔)",
+      "selection": "미검토",
+      "isCompilation": false,
+      "restaurantNames": [
+        "카미나리몬 산사다"
+      ]
+    }
+  ],
   "whisky": {
     "as_of": "2026-10-20",
     "currency": "JPY",

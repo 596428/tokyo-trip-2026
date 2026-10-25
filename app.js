@@ -1,10 +1,15 @@
 'use strict';
 const KEY = 'tokyo-trip-20261030-records-v1';
+const REVIEW_KEY='tokyo-trip-20261030-video-reviews-v1';
+const REVIEW_UI_KEY='tokyo-trip-20261030-review-ui-v1';
+const REVIEW_PAGE_SIZE=20;
 const kinds = {pokemon:'포켓몬',card:'카드숍',shoe:'신발',fabric:'원단',whisky:'위스키',food:'맛집',hotel:'숙소',shopping:'쇼핑',sight:'관광'};
 const kindIcons = {pokemon:'P',card:'C',shoe:'S',fabric:'F',whisky:'W',food:'食',hotel:'H',shopping:'S',sight:'T'};
 const dayColors = {fri:'#b94936',sat:'#3c6256',sun:'#476a94'};
 const state = {view:'map',day:'all',showFood:true,showFabric:false,foodScope:'route',foodMeal:'all',foodQuery:'',mapStyle:'simple',kind:'all',query:'',includeUnreviewed:false,listTab:'food',radiusKm:1,center:null,anchorId:'route',centerLabel:'전체 방문권역',includeUnknownHours:false,categories:['picked','unreviewed','recommended'],showRecommendations:true,showRoute:true,userPosition:null};
+Object.assign(state,{reviewFilter:'all',reviewStatus:'all',reviewQuery:'',reviewPage:0});
 let data, places, records={}, map, mapLayer, foodLayer, baseLayer, dialogPlace, focusLayer;
+let videoReviews={},reviewVideoMap=new Map();
 let dialogBackPending=false;
 const DIALOG_HISTORY_KEY='tokyoTripPlace';
 const markers=new Map();
@@ -32,6 +37,59 @@ function saveRecords(){try{localStorage.setItem(KEY,JSON.stringify(records));}ca
 function renderProgress(){
   const n=Object.values(records).filter(r=>r.done).length;
   $('#progress-label').textContent=n?`${n}곳의 방문을 기록했어요`:'아직 방문 전 · 나만의 여행을 준비하는 중';
+}
+function loadVideoReviews(){
+  try{videoReviews=TripReview.normalizeReviews(JSON.parse(localStorage.getItem(REVIEW_KEY)||'{}'),new Set(reviewVideoMap.keys()));}
+  catch{message('검토 기록을 읽지 못했습니다. 내보내 둔 파일이 있다면 준비 화면에서 가져와 주세요.');}
+  try{
+    const saved=JSON.parse(localStorage.getItem(REVIEW_UI_KEY)||'{}');
+    state.reviewStatus=TripReview.statuses.includes(saved.status)?saved.status:'all';
+    state.reviewQuery=typeof saved.query==='string'?saved.query.slice(0,4000):'';
+    state.reviewPage=Number.isInteger(saved.page)&&saved.page>=0?saved.page:0;
+  }catch{}
+}
+function saveReviewUI(){try{localStorage.setItem(REVIEW_UI_KEY,JSON.stringify({status:state.reviewStatus,query:state.reviewQuery,page:state.reviewPage}));}catch{}}
+function saveVideoReviews(){
+  try{localStorage.setItem(REVIEW_KEY,JSON.stringify(videoReviews));return true;}
+  catch{message('검토 기록을 브라우저에 저장하지 못했습니다. 내보내기로 보관해 주세요.');return false;}
+}
+function applyReviewSelections(){
+  for(const p of data.places){
+    if(p.kind!=='food')continue;
+    if(p.initialSelected===undefined)p.initialSelected=!!p.selected;
+    const selection=TripReview.placeSelection(p,reviewVideoMap,videoReviews);
+    p.reviewSelection=selection;
+    if(selection!==null)p.selected=['가고 싶음','검토'].includes(selection)||(p.initialSelected&&selection==='미검토'&&!p.videoIds.some(id=>videoReviews[id]));
+    p.compilationMention=selection!=='제외'&&(p.videoIds||[]).some(id=>{
+      const v=reviewVideoMap.get(id);return v?.isCompilation&&TripReview.selection(v,videoReviews)==='가고 싶음';
+    });
+    for(const v of p.videos||[]){const source=reviewVideoMap.get(v.id);if(source)v.selection=TripReview.selection(source,videoReviews);}
+  }
+}
+function setVideoReview(id,change){
+  const video=reviewVideoMap.get(id);if(!video)return;
+  videoReviews[id]={selection:TripReview.selection(video,videoReviews),note:videoReviews[id]?.note||'',...change,reviewedAt:new Date().toISOString()};
+  const saved=saveVideoReviews();applyReviewSelections();
+  if($('#review-save-status'))$('#review-save-status').textContent=saved?'이 브라우저에 저장됨':'저장 실패 · 내보내기로 보관해 주세요';
+}
+function reviewCard(v){
+  const current=TripReview.selection(v,videoReviews);
+  const related=!v.isCompilation&&data.places.find(p=>p.kind==='food'&&!p.duplicateOf&&p.videoIds?.includes(v.id));
+  return `<article class="review-card" data-review-card="${esc(v.id)}"><div class="place-card-top"><b>${esc(v.id)}</b><span>${esc(v.area)}${v.isCompilation?' · 모음 영상':''}</span>${badge(TripReview.labels[current],current==='가고 싶음'?'':'soft')}</div><h3>${esc(v.restaurant||v.title)}</h3><p>${esc(v.menu||v.title)}</p><div class="review-actions">${link(v.url,'Shorts 보기 ↗','button-link')}${related?`<button class="button-link" data-place="${esc(related.id)}">메뉴·지도 상세</button>`:''}</div>${v.isCompilation?`<details><summary>영상 속 장소 ${v.restaurantNames.length}곳</summary><p>${esc(v.restaurantNames.join(' / '))}</p></details>`:''}<label class="review-selection">검토 결과<select data-video-review="${esc(v.id)}" aria-label="${esc(v.id)} 검토 결과">${TripReview.statuses.map(s=>`<option value="${esc(s)}" ${current===s?'selected':''}>${esc(TripReview.labels[s])}</option>`).join('')}</select></label><details class="review-note" ${videoReviews[v.id]?.note?'open':''}><summary>내 검토 메모${videoReviews[v.id]?.note?' · 작성됨':''}</summary><textarea data-video-note="${esc(v.id)}" aria-label="${esc(v.id)} 검토 메모" maxlength="4000" placeholder="먹고 싶은 메뉴, 고민하는 이유…">${esc(videoReviews[v.id]?.note||'')}</textarea></details><small>엑셀 원본: ${esc(TripReview.labels[v.selection]||v.selection)}${videoReviews[v.id]?' · 웹 검토 기록 있음':''}</small></article>`;
+}
+function renderReviewResults(){
+  const all=data.reviewVideos||[],stats=TripReview.stats(all,videoReviews);
+  const list=TripReview.filter(all,videoReviews,state.reviewStatus,state.reviewQuery);
+  const pages=Math.max(1,Math.ceil(list.length/REVIEW_PAGE_SIZE));state.reviewPage=Math.min(state.reviewPage,pages-1);
+  const start=state.reviewPage*REVIEW_PAGE_SIZE;
+  $('#review-progress').innerHTML=`<b>${stats.reviewed} / ${stats.total}개 검토</b><progress value="${stats.reviewed}" max="${stats.total}" aria-label="엑셀 영상 검토 진행률"></progress><span>${TripReview.statuses.map(s=>esc(TripReview.labels[s])+' '+stats[s]).join(' · ')}</span>`;
+  const pager=`<div class="review-pagination"><button class="button-link" data-review-page="${state.reviewPage-1}" ${state.reviewPage===0?'disabled':''}>이전 20개</button><span>${state.reviewPage+1} / ${pages}쪽 · ${list.length}개</span><button class="button-link" data-review-page="${state.reviewPage+1}" ${state.reviewPage>=pages-1?'disabled':''}>다음 20개</button></div>`;
+  $('#review-results').innerHTML=pager+`<div class="review-grid">${list.slice(start,start+REVIEW_PAGE_SIZE).map(reviewCard).join('')||'<div class="empty-state">이 조건에 해당하는 영상이 없습니다.</div>'}</div>`+pager;
+  saveReviewUI();
+}
+function renderReview(){
+  $('#left-pane').innerHTML=`<div class="section-heading"><div><span class="eyebrow">REVIEW YOUR EXCEL LIST</span><h2>엑셀 목록 검토</h2></div></div><p class="section-intro">엑셀 번호순으로 영상을 보고 결과를 고르세요. 기존 엑셀 선택을 초기값으로 사용하며 변경은 자동 저장됩니다. 같은 가게의 영상과 모음 영상도 번호별로 따로 검토합니다.</p><div id="review-progress" class="review-progress" role="status"></div><div class="review-tools"><label>검토 상태<select id="review-status">${['all',...TripReview.statuses].map(s=>`<option value="${esc(s)}" ${state.reviewStatus===s?'selected':''}>${s==='all'?'전체':esc(TripReview.labels[s])}</option>`).join('')}</select></label><button class="button-link" data-action="review-unreviewed">미검토부터 이어 보기</button><button class="button-link" data-action="review-map-wanted">가고 싶은 곳 지도</button><button class="button-link" data-action="export">검토·메모 내보내기</button></div><label class="search-box"><span aria-hidden="true">⌕</span><input id="review-search" type="search" aria-label="엑셀 영상 검색" placeholder="T051, 가게·지역·메뉴 검색" value="${esc(state.reviewQuery)}"></label><p id="review-save-status" class="review-save-status" role="status">이 브라우저에 자동 저장 · 다른 기기로 옮길 때는 내보내기</p><p class="section-intro">‘가고 싶음’은 지도 검토 필터에 반영됩니다. 별표 관심은 별도로 유지합니다. 모음 영상 속 장소는 개별 핀으로 자동 추가되지 않습니다.</p><div id="review-results"></div>`;
+  renderReviewResults();
 }
 function selectedDays(){return data.days.filter(d=>state.day==='all'||d.id===state.day);}
 function routePlaces(){return selectedDays().flatMap(d=>{
@@ -81,7 +139,7 @@ function diningHtml(p,detail=false){
 }
 
 function explorationContext(){
-  return {scope:state.foodScope,anchors:mappedRoutePlaces(),center:state.center,radiusKm:state.radiusKm,day:state.day,meal:state.foodMeal,query:state.foodQuery,categories:state.categories,includeUnknown:state.includeUnknownHours,records};
+  return {scope:state.foodScope,anchors:mappedRoutePlaces(),center:state.center,radiusKm:state.radiusKm,day:state.day,meal:state.foodMeal,query:state.foodQuery,categories:state.categories,includeUnknown:state.includeUnknownHours,reviewFilter:state.reviewFilter,records};
 }
 function foodCandidates(){return TripExplore.candidates(data.places,explorationContext());}
 function referenceDistance(p){return TripExplore.referenceDistance(p,explorationContext());}
@@ -115,6 +173,7 @@ function syncExploreControls(){
   $('#explore-anchor').value=id;
   $('#explore-radius').value=String(state.radiusKm);
   $('#include-unknown-hours').checked=state.includeUnknownHours;
+  $('#food-review').value=state.reviewFilter;
   $('#show-recommendations').checked=state.showRecommendations;$('#show-route').checked=state.showRoute;
   document.querySelectorAll('[data-food-category]').forEach(el=>el.checked=state.categories.includes(el.dataset.foodCategory));
   $('#explore-center-label').textContent=state.foodScope==='route'?`선택 날짜의 각 방문 장소에서 직선 ${state.radiusKm}km 주변 · 순서는 자유롭게 변경`:
@@ -158,6 +217,7 @@ function render(){
   if(state.view==='today')renderToday();
   else if(state.view==='map')renderMapList();
   else if(state.view==='places')renderPlaces();
+  else if(state.view==='review')renderReview();
   else renderPrepare();
   updateMap(false);
 }
@@ -332,8 +392,9 @@ function openPlace(id,syncHistory=true){
   }
 }
 function exportRecords(){
-  const content=JSON.stringify({format:'tokyo-trip-records',version:1,trip:'2026-10-30',exportedAt:new Date().toISOString(),records},null,2);
-  const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([content],{type:'application/json'}));a.download='tokyo-trip-records.json';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000);message('방문 체크·관심·메모를 내보냈습니다. 다운로드한 파일을 보관해 주세요.');
+  const reviewRows=(data.reviewVideos||[]).map(v=>({id:v.id,restaurant:v.restaurant,videoUrl:v.url,excelSelection:v.selection,selection:TripReview.selection(v,videoReviews),note:videoReviews[v.id]?.note||'',reviewedAt:videoReviews[v.id]?.reviewedAt||'',source:videoReviews[v.id]?'web':'excel'}));
+  const content=JSON.stringify({format:'tokyo-trip-records',version:2,trip:'2026-10-30',exportedAt:new Date().toISOString(),records,videoReviews,reviewRows},null,2);
+  const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([content],{type:'application/json'}));a.download='tokyo-trip-records.json';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000);message('검토 결과·방문 체크·관심·메모를 내보냈습니다. 다운로드한 파일을 보관해 주세요.');
 }
 
 document.addEventListener('click',e=>{
@@ -341,6 +402,7 @@ document.addEventListener('click',e=>{
   if(b.dataset.view){const sameMap=state.view==='map'&&b.dataset.view==='map';state.view=b.dataset.view;if(!sameMap)render();if(sameMap)$('#map-pane').scrollIntoView({behavior:'smooth',block:'start'});return;}
   if(b.dataset.day){state.day=b.dataset.day;render();if(state.foodScope==='route')updateMap(true);return;}
   if(b.dataset.listTab){state.listTab=b.dataset.listTab;renderMapList();return;}
+  if(b.dataset.reviewPage!==undefined){state.reviewPage=Math.max(0,Number(b.dataset.reviewPage)||0);renderReviewResults();$('#review-results').scrollIntoView({block:'start'});return;}
   if(b.dataset.nearby){selectFocus(b.dataset.nearby);return;}
   if(b.dataset.interest){
     const id=b.dataset.interest;records[id]={...(records[id]||{}),interested:!records[id]?.interested};saveRecords();
@@ -358,12 +420,17 @@ document.addEventListener('click',e=>{
     case 'list-jump':$('#left-pane').scrollIntoView({behavior:'smooth',block:'start'});break;
     case 'hotel-food-fit':state.foodScope='hotel30';state.anchorId=data.routePlan.hotelId;render();updateMap(true);break;
     case 'hotel-bars':state.view='map';state.showFood=true;state.listTab='food';state.foodScope='hotel30';state.anchorId=data.routePlan.hotelId;state.foodMeal='afterDinner';state.foodQuery='';state.includeUnknownHours=false;state.categories=['picked','unreviewed','recommended'];render();updateMap(true);break;
+    case 'review-unreviewed':state.reviewStatus='미검토';state.reviewPage=0;state.reviewQuery='';renderReview();break;
+    case 'review-map-wanted':state.view='map';state.listTab='food';state.foodScope='all';state.reviewFilter='가고 싶음';state.foodMeal='all';state.foodQuery='';state.categories=['picked','unreviewed','recommended'];state.showFood=true;render();updateMap(true);break;
     case 'food-toggle':state.view='map';state.showFood=true;render();break;
     case 'export':exportRecords();break;
     case 'import':$('#import-file').click();break;
   }
 });
 document.addEventListener('change',e=>{
+  if(e.target.dataset.videoReview){setVideoReview(e.target.dataset.videoReview,{selection:e.target.value});renderReviewResults();return;}
+  if(e.target.id==='review-status'){state.reviewStatus=e.target.value;state.reviewPage=0;renderReviewResults();return;}
+  if(e.target.id==='food-review'){state.reviewFilter=e.target.value;renderExplorerResults();updateMap(false);return;}
   if(e.target.id==='map-style'){setMapStyle(e.target.value);return;}
   if(e.target.id==='explore-anchor'){selectFocus(e.target.value);return;}
   if(e.target.id==='explore-radius'){state.radiusKm=Number(e.target.value);renderExplorerResults();updateMap(false);if(state.foodScope==='nearby')fitFocus();return;}
@@ -379,6 +446,8 @@ document.addEventListener('change',e=>{
   if(e.target.id==='unreviewed-toggle'){state.includeUnreviewed=e.target.checked;renderPlaceResults();}
 });
 document.addEventListener('input',e=>{
+  if(e.target.dataset.videoNote){setVideoReview(e.target.dataset.videoNote,{note:e.target.value});return;}
+  if(e.target.id==='review-search'){state.reviewQuery=e.target.value;state.reviewPage=0;renderReviewResults();return;}
   if(e.target.id==='food-search'){state.foodQuery=e.target.value;renderFoodResults();updateMap(false);return;}
   if(e.target.id==='place-search'){state.query=e.target.value;renderPlaceResults();}
   if(e.target.id==='place-note'&&dialogPlace){records[dialogPlace]={...(records[dialogPlace]||{}),note:e.target.value};saveRecords();}
@@ -386,17 +455,20 @@ document.addEventListener('input',e=>{
 $('#import-file').addEventListener('change',async e=>{
   const file=e.target.files[0];if(!file)return;
   try{
-    if(file.size>1024*1024)throw new Error('ファイル');
+    if(file.size>8*1024*1024)throw new Error('파일 크기');
     const parsed=JSON.parse(await file.text());
-    if(parsed.format!=='tokyo-trip-records'||parsed.version!==1||parsed.trip!=='2026-10-30')throw new Error('형식');
-    records={...records,...validateRecords(parsed.records)};saveRecords();render();message('저장한 체크와 메모를 가져왔습니다.');
+    if(parsed.format!=='tokyo-trip-records'||![1,2].includes(parsed.version)||parsed.trip!=='2026-10-30')throw new Error('형식');
+    records={...records,...validateRecords(parsed.records)};
+    if(parsed.version===2)videoReviews={...videoReviews,...TripReview.normalizeReviews(parsed.videoReviews,new Set(reviewVideoMap.keys()))};
+    saveRecords();saveVideoReviews();applyReviewSelections();render();message('저장한 기록을 가져왔습니다. 같은 항목은 파일의 기록으로 갱신했습니다.');
   }catch{message('기록을 가져오지 못했습니다. 이 여행 노트에서 내보낸 JSON 파일인지 확인해 주세요.');}
   e.target.value='';
 });
 async function start(){
-  const response=await fetch('./trip-data.json?v=20261025-explore',{cache:'no-cache'});if(!response.ok)throw new Error('데이터 불러오기');
+  const response=await fetch('./trip-data.json?v=20261025-review',{cache:'no-cache'});if(!response.ok)throw new Error('데이터 불러오기');
   data=await response.json();places=new Map(data.places.map(p=>[p.id,p]));
-  state.center=places.get(data.routePlan.hotelId).coords;loadRecords();initMap();render();renderProgress();updateMap(true);
+  reviewVideoMap=new Map((data.reviewVideos||[]).map(v=>[v.id,v]));
+  state.center=places.get(data.routePlan.hotelId).coords;loadRecords();loadVideoReviews();applyReviewSelections();initMap();render();renderProgress();updateMap(true);
   if(places.has(history.state?.[DIALOG_HISTORY_KEY]))openPlace(history.state[DIALOG_HISTORY_KEY],false);
 }
 start().catch(()=>message('여행 정보를 불러오지 못했습니다. 페이지를 새로고침해 주세요.'));
