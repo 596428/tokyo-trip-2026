@@ -5,6 +5,8 @@ const kindIcons = {pokemon:'P',card:'C',shoe:'S',fabric:'F',whisky:'W',food:'食
 const dayColors = {fri:'#b94936',sat:'#3c6256',sun:'#476a94'};
 const state = {view:'map',day:'all',showFood:true,showFabric:false,foodScope:'route',foodMeal:'all',foodQuery:'',mapStyle:'simple',kind:'all',query:'',includeUnreviewed:false,listTab:'food',radiusKm:1,center:null,anchorId:'route',centerLabel:'전체 방문권역',includeUnknownHours:false,categories:['picked','unreviewed','recommended'],showRecommendations:true,showRoute:true,userPosition:null};
 let data, places, records={}, map, mapLayer, foodLayer, baseLayer, dialogPlace, focusLayer;
+let dialogBackPending=false;
+const DIALOG_HISTORY_KEY='tokyoTripPlace';
 const markers=new Map();
 const $ = selector => document.querySelector(selector);
 const esc = v => String(v ?? '').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -129,7 +131,7 @@ function selectFocus(id){
   else if(id==='user'&&state.userPosition){coords=state.userPosition.coords;label='내 위치';}
   else {const p=places.get(id);if(!p?.coords)return;coords=p.coords;label=p.name;}
   state.view='map';state.foodScope='nearby';state.anchorId=id;state.center=coords;state.centerLabel=label;state.foodQuery='';state.showFood=true;state.listTab='food';
-  if($('#place-dialog').open)$('#place-dialog').close();
+  closePlace();
   render();fitFocus();$('#map-pane').scrollIntoView({behavior:'smooth',block:'start'});
 }
 function fitFocus(){if(map&&state.center)map.fitBounds(L.latLng(state.center).toBounds(state.radiusKm*2000),{padding:[20,20],animate:false});}
@@ -298,13 +300,36 @@ function locatePlace(id){
   if(foodLayer.zoomToShowLayer)foodLayer.zoomToShowLayer(marker,()=>marker.openPopup());else marker.openPopup();
 }
 
-function openPlace(id){
-  const p=places.get(id);if(!p)return;
+function closePlace(){
+  const dialog=$('#place-dialog');
+  if(!dialog.open)return;
+  dialog.close();dialogPlace=null;
+  if(history.state?.[DIALOG_HISTORY_KEY]){
+    dialogBackPending=true;
+    history.back();
+  }
+}
+window.addEventListener('popstate',e=>{
+  dialogBackPending=false;
+  const id=e.state?.[DIALOG_HISTORY_KEY];
+  if(places?.has(id)){openPlace(id,false);return;}
+  if($('#place-dialog').open)$('#place-dialog').close();
+  dialogPlace=null;
+});
+$('#place-dialog').addEventListener('cancel',e=>{e.preventDefault();closePlace();});
+
+function openPlace(id,syncHistory=true){
+  const p=places.get(id);if(!p||dialogBackPending)return;
   dialogPlace=id;
   $('#dialog-content').innerHTML=`<span class="area-label">${esc(p.area)} / ${esc(kinds[p.kind])}</span><h2>${esc(p.name)}</h2>${badge(p.status,tone(p))}<p>${esc(p.summary)}</p><div class="detail-address">${esc(p.address||'주소 확인 필요')}</div><div class="detail-actions">${link(p.directionsUrl,'길안내 ↗','primary')}${link(p.mapUrl,'Google 지도 ↗')}${p.url?link(p.url,p.id==='food-G034'?'예약 페이지 ↗':'사이트 ↗'):''}${p.browse?link(p.browse,'상품 둘러보기 ↗'):''}${p.store?link(p.store,'매장 안내 ↗'):''}</div>${p.detail&&!p.hotelFood?`<p>${esc(p.detail)}</p>`:''}${p.hours&&!p.hotelFood?`<div class="detail-info">영상에 안내된 영업시간: ${esc(p.hours)}<br>방문일 영업시간은 다시 확인해 주세요.</div>`:''}${p.hotelFood?diningHtml(p,true):''}${p.exploreTip?`<div class="detail-info">${esc(p.exploreTip)}<br>${link(p.exploreTipUrl,'같은 층 공식 매장 안내 ↗')}</div>`:''}<div class="detail-info">${esc(p.coordinateNote)}</div>${check(p)} ${interestButton(p)}${p.kind!=='food'?`<button class="button-link" data-nearby="${esc(p.id)}">이 장소 주변 맛집</button>`:''}<label class="note-label" for="place-note">나의 메모</label><textarea id="place-note" maxlength="4000" placeholder="사고 싶은 상품, 고를 메뉴, 현장에서 확인할 것…">${esc(records[id]?.note||'')}</textarea><div class="note-hint">자동 저장 · 현재 브라우저에만 보관</div>${p.videos?.length?`<details class="source-videos"><summary>관련 Shorts ${p.videos.length}개 · 원본 확인</summary>${p.videos.map(v=>link(v.url,v.id+' · '+v.title+(v.selection==='가고 싶음'?' ✓':''))).join('')}</details>`:''}`;
   if(p.buildingName)$('#dialog-content .detail-address').insertAdjacentHTML('afterend',arrivalHtml(p,true));
   if(p.kind==='food')$('#dialog-content').insertAdjacentHTML('beforeend',`${link(contextDirections(p),state.foodScope==='nearby'?'탐색 기준점에서 길찾기 ↗':'Google 길찾기 ↗','button-link')}<div class="food-distance">${distanceHtml(p)}${link(hotelDirections(p),'호텔에서 길찾기 ↗')}</div>${p.locationWarning?`<div class="detail-info">${esc(p.locationWarning)}${p.originalAddress?'<br>영상 속 주소: '+esc(p.originalAddress):''}${p.addressSource?'<br>'+link(p.addressSource,'현재 주소 출처 ↗'):''}</div>`:''}${p.coordinateSource?link(p.coordinateSource,'위치 검색 근거 ↗','small-link'):''}`);
-  $('#place-dialog').showModal();
+  if(!$('#place-dialog').open)$('#place-dialog').showModal();
+  if(syncHistory){
+    const entry={...history.state,[DIALOG_HISTORY_KEY]:id};
+    if(history.state?.[DIALOG_HISTORY_KEY])history.replaceState(entry,'');
+    else history.pushState(entry,'');
+  }
 }
 function exportRecords(){
   const content=JSON.stringify({format:'tokyo-trip-records',version:1,trip:'2026-10-30',exportedAt:new Date().toISOString(),records},null,2);
@@ -326,7 +351,7 @@ document.addEventListener('click',e=>{
   if(b.dataset.kind){state.kind=b.dataset.kind;renderPlaces();return;}
   if(b.dataset.place){openPlace(b.dataset.place);return;}
   switch(b.dataset.action){
-    case 'close-dialog':$('#place-dialog').close();break;
+    case 'close-dialog':closePlace();break;
     case 'map-fit':updateMap(true);break;
     case 'search-map-center':selectFocus('map');break;
     case 'my-location':getMyLocation();break;
@@ -372,5 +397,6 @@ async function start(){
   const response=await fetch('./trip-data.json?v=20261025-explore',{cache:'no-cache'});if(!response.ok)throw new Error('데이터 불러오기');
   data=await response.json();places=new Map(data.places.map(p=>[p.id,p]));
   state.center=places.get(data.routePlan.hotelId).coords;loadRecords();initMap();render();renderProgress();updateMap(true);
+  if(places.has(history.state?.[DIALOG_HISTORY_KEY]))openPlace(history.state[DIALOG_HISTORY_KEY],false);
 }
 start().catch(()=>message('여행 정보를 불러오지 못했습니다. 페이지를 새로고침해 주세요.'));
