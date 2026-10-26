@@ -6,9 +6,10 @@ const REVIEW_PAGE_SIZE=20;
 const kinds = {pokemon:'포켓몬',card:'카드숍',shoe:'신발',fabric:'원단',whisky:'위스키',food:'맛집',hotel:'숙소',shopping:'쇼핑',sight:'관광'};
 const kindIcons = {pokemon:'P',card:'C',shoe:'S',fabric:'F',whisky:'W',food:'食',hotel:'H',shopping:'S',sight:'T'};
 const dayColors = {fri:'#b94936',sat:'#3c6256',sun:'#476a94'};
-const state = {view:'map',day:'all',showFood:true,showFabric:false,foodScope:'route',foodMeal:'all',foodQuery:'',mapStyle:'simple',kind:'all',query:'',includeUnreviewed:false,listTab:'food',radiusKm:1,center:null,anchorId:'route',centerLabel:'전체 방문권역',includeUnknownHours:false,categories:['picked','unreviewed','recommended'],showRecommendations:true,showRoute:true,userPosition:null};
-Object.assign(state,{reviewFilter:'all',reviewStatus:'all',reviewQuery:'',reviewPage:0});
+const state = {view:'map',day:'all',showFood:true,showFabric:false,foodScope:'city',foodMeal:'all',foodQuery:'',mapStyle:'simple',kind:'all',query:'',includeUnreviewed:false,listTab:'food',radiusKm:1,center:null,anchorId:'city',centerLabel:'도쿄 전체',includeUnknownHours:false,categories:['picked','unreviewed','recommended'],showRecommendations:false,showRoute:false,userPosition:null};
+Object.assign(state,{reviewFilter:'가고 싶음',reviewStatus:'all',reviewQuery:'',reviewPage:0,foodDisplay:'pins',mapCategories:['food','bar']});
 let data, places, records={}, map, mapLayer, foodLayer, baseLayer, dialogPlace, focusLayer;
+let foodLayerMode;
 let videoReviews={},reviewVideoMap=new Map(),reviewGroups=[];
 let dialogBackPending=false;
 const DIALOG_HISTORY_KEY='tokyoTripPlace';
@@ -21,6 +22,16 @@ const badge = (text, tone='') => `<span class="badge ${tone}">${esc(text)}</span
 const tone = p => /필요|선택 전|예약 도전/.test(p.status)?'warn':/후보|미검토/.test(p.status)?'soft':'';
 const isDone = id => records[id]?.done === true;
 const check = p => `<label class="check-control"><input type="checkbox" data-check="${esc(p.id)}" ${isDone(p.id)?'checked':''}>방문 완료</label>`;
+const purposeCategory=p=>TripMap.category(p,records[p.id]);
+const isMust=p=>TripExplore.isMust(p,records[p.id]);
+const reviewFilterLabel=value=>TripReview.filterLabels[value]||value;
+
+function foodPreferences(p,selection=p.reviewSelection){
+  if(p.kind!=='food')return '';
+  const record=records[p.id]||{},eligible=selection==='가고 싶음',role=record.mapCategory||'auto';
+  const automatic=TripMap.categories[TripMap.category(p)].label;
+  return `<fieldset class="food-preferences"><legend>이번 여행의 분류</legend><label class="must-choice"><input type="checkbox" data-must-place="${esc(p.id)}" aria-label="${esc(p.name)} 꼭 가고 싶음" ${eligible&&record.priority==='must'?'checked':''} ${eligible?'':'disabled'}>꼭 가고 싶음</label><small>${eligible?'체크하지 않으면 일반 후보 · 기존 검토 결과와 메모는 유지됩니다.':'검토 결과가 ‘가고 싶음’인 식당에서 체크할 수 있습니다.'}</small><label class="food-role-choice">지도 분류<select data-food-role="${esc(p.id)}" aria-label="${esc(p.name)} 지도 분류">${[['auto','자동 분류 · '+automatic],['food','맛집'],['bar','술집']].map(([value,label])=>`<option value="${value}" ${role===value?'selected':''}>${esc(label)}</option>`).join('')}</select></label><small>술을 중심으로 들를 곳은 ‘술집’으로 선택하세요.</small></fieldset>`;
+}
 
 function message(text){ $('#app-message').hidden=false; $('#app-message').textContent=text; }
 function loadRecords(){try{const saved=JSON.parse(localStorage.getItem(KEY)||'{}');records=validateRecords(saved);}catch{records={};message('이 브라우저에서는 저장한 기록을 읽지 못했습니다. 내보내기로 기록을 보관해 주세요.');}}
@@ -41,9 +52,13 @@ function renderProgress(){
 function loadVideoReviews(){
   try{videoReviews=TripReview.normalizeReviews(JSON.parse(localStorage.getItem(REVIEW_KEY)||'{}'),new Set(reviewVideoMap.keys()));}
   catch{message('검토 기록을 읽지 못했습니다. 내보내 둔 파일이 있다면 준비 화면에서 가져와 주세요.');}
+  if(data.reviewBaseline){
+    const shared=TripReview.normalizeReviews(data.reviewBaseline.videoReviews,new Set(reviewVideoMap.keys()));
+    videoReviews=TripReview.mergeBaseline(shared,videoReviews);
+  }
   try{
     const saved=JSON.parse(localStorage.getItem(REVIEW_UI_KEY)||'{}');
-    state.reviewStatus=TripReview.statuses.includes(saved.status)?saved.status:'all';
+    state.reviewStatus=TripReview.filters.includes(saved.status)?saved.status:'all';
     state.reviewQuery=typeof saved.query==='string'?saved.query.slice(0,4000):'';
     state.reviewPage=Number.isInteger(saved.page)&&saved.page>=0?saved.page:0;
   }catch{}
@@ -77,20 +92,20 @@ function reviewCard(v){
   const related=v.placeId&&places.get(v.placeId);
   const sources=v.videos.length>1?`<details class="review-source-videos"><summary>관련 Shorts ${v.videos.length}개 · 엑셀 번호·이전 메모</summary>${v.videos.map(x=>`<div class="review-source-video">${link(x.url,x.id+' · '+x.title)}<small>엑셀 원본: ${esc(TripReview.labels[x.selection]||x.selection)}</small>${videoReviews[x.id]?.note&&x.id!==v.id?`<p>${esc(x.id+' 메모: '+videoReviews[x.id].note)}</p>`:''}</div>`).join('')}</details>`:'';
   const original=[...new Set(v.videos.map(x=>TripReview.labels[x.selection]||x.selection))].join(' / ');
-  return `<article class="review-card" data-review-card="${esc(v.id)}"><div class="place-card-top"><b>${esc(v.videoIds.join(' · '))}</b><span>${esc(v.area)}${v.isCompilation?' · 모음 영상':''}</span>${badge(TripReview.labels[current],current==='가고 싶음'?'':'soft')}</div><h3>${esc(v.restaurant||v.title)}</h3><p>${esc(v.menu||v.title)}</p><div class="review-actions">${link(v.url,'Shorts 보기 ↗','button-link')}${related?`<button class="button-link" data-place="${esc(related.id)}">메뉴·지도 상세</button>`:''}</div>${sources}${v.isCompilation?`<details><summary>영상 속 장소 ${v.restaurantNames.length}곳</summary><p>${esc(v.restaurantNames.join(' / '))}</p></details>`:''}<label class="review-selection">검토 결과<select data-video-review="${esc(v.id)}" aria-label="${esc(v.id)} 검토 결과">${TripReview.statuses.map(s=>`<option value="${esc(s)}" ${current===s?'selected':''}>${esc(TripReview.labels[s])}</option>`).join('')}</select></label><details class="review-note" ${note?'open':''}><summary>내 검토 메모${note?' · 작성됨':''}</summary><textarea data-video-note="${esc(v.id)}" aria-label="${esc(v.id)} 검토 메모" maxlength="4000" placeholder="먹고 싶은 메뉴, 고민하는 이유…">${esc(note)}</textarea></details><small>엑셀 원본: ${esc(original)}${v.videos.some(x=>videoReviews[x.id])?' · 웹 검토 기록 있음':''}${v.videos.length>1?' · 결과 변경 시 연결된 엑셀 항목에 함께 반영':''}</small></article>`;
+  return `<article class="review-card" data-review-card="${esc(v.id)}"><div class="place-card-top"><b>${esc(v.videoIds.join(' · '))}</b><span>${esc(v.area)}${v.isCompilation?' · 모음 영상':''}</span>${badge(related&&isMust(related)?'꼭 가고 싶음':TripReview.labels[current],related&&isMust(related)?'must':current==='가고 싶음'?'':'soft')}</div><h3>${esc(v.restaurant||v.title)}</h3><p>${esc(v.menu||v.title)}</p><div class="review-actions">${link(v.url,'Shorts 보기 ↗','button-link')}${related?`<button class="button-link" data-place="${esc(related.id)}">메뉴·지도 상세</button>`:''}</div>${sources}${v.isCompilation?`<details><summary>영상 속 장소 ${v.restaurantNames.length}곳 · 이번 여행 지도에서는 제외</summary><p>${esc(v.restaurantNames.join(' / '))}</p><p>모음 영상은 검토 중으로 보관해도 됩니다. 개별 식당으로 나누기 전까지 핀을 자동 추가하지 않습니다.</p></details>`:''}<label class="review-selection">검토 결과<select data-video-review="${esc(v.id)}" aria-label="${esc(v.id)} 검토 결과">${TripReview.statuses.map(s=>`<option value="${esc(s)}" ${current===s?'selected':''}>${esc(TripReview.labels[s])}</option>`).join('')}</select></label>${related?foodPreferences(related,current):''}<details class="review-note" ${note?'open':''}><summary>내 검토 메모${note?' · 작성됨':''}</summary><textarea data-video-note="${esc(v.id)}" aria-label="${esc(v.id)} 검토 메모" maxlength="4000" placeholder="먹고 싶은 메뉴, 고민하는 이유…">${esc(note)}</textarea></details><small>엑셀 원본: ${esc(original)}${v.videos.some(x=>videoReviews[x.id])?' · 웹 검토 기록 있음':''}${v.videos.length>1?' · 결과 변경 시 연결된 엑셀 항목에 함께 반영':''}</small></article>`;
 }
 function renderReviewResults(){
   const all=reviewGroups,stats=TripReview.stats(all,videoReviews);
-  const list=TripReview.filter(all,videoReviews,state.reviewStatus,state.reviewQuery);
+  const list=TripReview.filter(all,videoReviews,state.reviewStatus,state.reviewQuery,records);
   const pages=Math.max(1,Math.ceil(list.length/REVIEW_PAGE_SIZE));state.reviewPage=Math.min(state.reviewPage,pages-1);
   const start=state.reviewPage*REVIEW_PAGE_SIZE;
-  $('#review-progress').innerHTML=`<b>${stats.reviewed} / ${stats.total}개 항목 검토</b><small>같은 가게는 한 번만 표시 · 원본 영상 ${data.reviewVideos.length}개${all.some(g=>g.isCompilation)?' · 모음 영상은 별도 항목':''}</small><progress value="${stats.reviewed}" max="${stats.total}" aria-label="맛집 검토 진행률"></progress><span>${TripReview.statuses.map(s=>esc(TripReview.labels[s])+' '+stats[s]).join(' · ')}</span>`;
+  $('#review-progress').innerHTML=`<b>${stats.reviewed} / ${stats.total}개 항목 검토</b><small>같은 가게는 한 번만 표시 · 원본 영상 ${data.reviewVideos.length}개${all.some(g=>g.isCompilation)?' · 모음 영상은 별도 항목':''}</small><progress value="${stats.reviewed}" max="${stats.total}" aria-label="맛집 검토 진행률"></progress><span>${TripReview.statuses.map(s=>esc(TripReview.labels[s])+' '+stats[s]).join(' · ')} · 그중 꼭 가고 싶음 ${TripReview.filter(all,videoReviews,'must','',records).length}</span>`;
   const pager=`<div class="review-pagination"><button class="button-link" data-review-page="${state.reviewPage-1}" ${state.reviewPage===0?'disabled':''}>이전 20개</button><span>${state.reviewPage+1} / ${pages}쪽 · ${list.length}개</span><button class="button-link" data-review-page="${state.reviewPage+1}" ${state.reviewPage>=pages-1?'disabled':''}>다음 20개</button></div>`;
   $('#review-results').innerHTML=pager+`<div class="review-grid">${list.slice(start,start+REVIEW_PAGE_SIZE).map(reviewCard).join('')||'<div class="empty-state">이 조건에 해당하는 영상이 없습니다.</div>'}</div>`+pager;
   saveReviewUI();
 }
 function renderReview(){
-  $('#left-pane').innerHTML=`<div class="section-heading"><div><span class="eyebrow">REVIEW YOUR EXCEL LIST</span><h2>엑셀 목록 검토</h2></div></div><p class="section-intro">같은 가게의 Shorts를 한 카드로 묶었습니다. 관련 영상을 골라 보고 가게별로 검토하세요. 결과를 변경하면 연결된 엑셀 항목에 함께 반영되며 자동 저장됩니다.</p><div id="review-progress" class="review-progress" role="status"></div><div class="review-tools"><label>검토 상태<select id="review-status">${['all',...TripReview.statuses].map(s=>`<option value="${esc(s)}" ${state.reviewStatus===s?'selected':''}>${s==='all'?'전체':esc(TripReview.labels[s])}</option>`).join('')}</select></label><button class="button-link" data-action="review-unreviewed">미검토부터 이어 보기</button><button class="button-link" data-action="review-map-wanted">가고 싶은 곳 지도</button><button class="button-link" data-action="export">검토·메모 내보내기</button></div><label class="search-box"><span aria-hidden="true">⌕</span><input id="review-search" type="search" aria-label="엑셀 영상 검색" placeholder="T051, 가게·지역·메뉴 검색" value="${esc(state.reviewQuery)}"></label><p id="review-save-status" class="review-save-status" role="status">이 브라우저에 자동 저장 · 다른 기기로 옮길 때는 내보내기</p><p class="section-intro">‘가고 싶음’은 지도 검토 필터에 반영됩니다. 별표 관심은 별도로 유지합니다. 모음 영상 속 장소는 개별 핀으로 자동 추가되지 않습니다.</p><div id="review-results"></div>`;
+  $('#left-pane').innerHTML=`<div class="section-heading"><div><span class="eyebrow">REVIEW YOUR EXCEL LIST</span><h2>엑셀 목록 검토</h2></div></div><p class="section-intro">같은 가게의 Shorts를 한 카드로 묶었습니다. 관련 영상을 골라 보고 가게별로 검토하세요. 결과를 변경하면 연결된 엑셀 항목에 함께 반영되며 자동 저장됩니다.</p><div id="review-progress" class="review-progress" role="status"></div><div class="review-tools"><label>검토 상태<select id="review-status">${TripReview.filters.map(s=>`<option value="${esc(s)}" ${state.reviewStatus===s?'selected':''}>${esc(reviewFilterLabel(s))}</option>`).join('')}</select></label><button class="button-link" data-action="review-unreviewed">미검토부터 이어 보기</button><button class="button-link" data-action="review-map-wanted">가고 싶은 곳 지도</button><button class="button-link" data-action="review-map-must">꼭 갈 곳 지도</button><button class="button-link" data-action="export">검토·메모 내보내기</button></div><label class="search-box"><span aria-hidden="true">⌕</span><input id="review-search" type="search" aria-label="엑셀 영상 검색" placeholder="T051, 가게·지역·메뉴 검색" value="${esc(state.reviewQuery)}"></label><p id="review-save-status" class="review-save-status" role="status">이 브라우저에 자동 저장 · 다른 기기로 옮길 때는 내보내기</p><p class="section-intro">‘가고 싶음’에서 ‘꼭 가고 싶음’을 체크하면 우선 방문 후보가 됩니다. 검토 상태에서 두 단계를 나눠 보세요. 술집 분류는 각 카드에서 변경할 수 있습니다. 모음 영상은 검토 중으로 보관하고 이번 여행 지도에서 생략할 수 있습니다. 별표 관심은 별도로 유지합니다.</p><div id="review-results"></div>`;
   renderReviewResults();
 }
 function selectedDays(){return data.days.filter(d=>state.day==='all'||d.id===state.day);}
@@ -143,7 +158,7 @@ function diningHtml(p,detail=false){
 function explorationContext(){
   return {scope:state.foodScope,anchors:mappedRoutePlaces(),center:state.center,radiusKm:state.radiusKm,day:state.day,meal:state.foodMeal,query:state.foodQuery,categories:state.categories,includeUnknown:state.includeUnknownHours,reviewFilter:state.reviewFilter,records};
 }
-function foodCandidates(){return TripExplore.candidates(data.places,explorationContext());}
+function foodCandidates(){return TripExplore.candidates(data.places,explorationContext()).filter(p=>state.mapCategories.includes(purposeCategory(p))&&(state.showFood||purposeCategory(p)!=='food'));}
 function referenceDistance(p){return TripExplore.referenceDistance(p,explorationContext());}
 function nearbyLabel(p){
   if(!p.coords)return '위치 확인 필요';
@@ -164,26 +179,34 @@ function contextDirections(p){
 }
 function recommendationPlaces(){return data.places.filter(p=>p.exploreRecommended&&!p.duplicateOf);}
 function nearbyRecommendations(){
-  if(!state.showRecommendations)return [];
   const context=explorationContext();
-  return recommendationPlaces().filter(p=>state.foodScope==='hotel30'?distanceKm(p.coords,places.get(data.routePlan.hotelId).coords)<=state.radiusKm:!['route','nearby'].includes(state.foodScope)||TripExplore.referenceDistance(p,context)<=state.radiusKm);
+  return TripMap.recommendations(recommendationPlaces(),state.showRecommendations).filter(p=>state.foodScope==='hotel30'?distanceKm(p.coords,places.get(data.routePlan.hotelId).coords)<=state.radiusKm:!['route','nearby'].includes(state.foodScope)||TripExplore.referenceDistance(p,context)<=state.radiusKm);
 }
 function syncExploreControls(){
-  const id=state.foodScope==='route'?'route':state.anchorId;
-  $('#explore-anchor').innerHTML='<option value="route">전체 방문권역 · 참고 동선</option>'+`<option value="map">지도에서 선택한 지역</option>${state.userPosition?'<option value="user">내 위치</option>':''}`+
+  const id=state.foodScope==='city'?'city':state.foodScope==='route'?'route':state.anchorId;
+  $('#explore-anchor').innerHTML='<option value="city">도쿄 전체 · 반경 제한 없음</option><option value="route">전체 방문권역 · 참고 동선</option>'+`<option value="map">지도에서 선택한 지역</option>${state.userPosition?'<option value="user">내 위치</option>':''}`+
     '<optgroup label="방문할 장소">'+[...new Map(data.days.flatMap(d=>d.steps.filter(s=>s.place).map(s=>[s.place,places.get(s.place)]))).values()].map(p=>`<option value="${esc(p.id)}">${esc(p.name)}</option>`).join('')+'</optgroup><optgroup label="동선을 넓힐 후보">'+recommendationPlaces().map(p=>`<option value="${esc(p.id)}">${esc(p.name)}</option>`).join('')+'</optgroup>';
   $('#explore-anchor').value=id;
   $('#explore-radius').value=String(state.radiusKm);
+  $('#explore-radius').closest('label').style.display=state.foodScope==='city'?'none':'';
   $('#include-unknown-hours').checked=state.includeUnknownHours;
   $('#food-review').value=state.reviewFilter;
+  $('#food-display').value=state.foodDisplay;
+  $('#map-categories').innerHTML=Object.entries(TripMap.categories).map(([id,c])=>`<label class="map-category-chip ${state.mapCategories.includes(id)?'enabled':''}" style="--category-color:${c.color}"><input type="checkbox" data-map-category="${id}" ${state.mapCategories.includes(id)?'checked':''}><span aria-hidden="true">${c.icon}</span>${c.label}</label>`).join('');
   $('#show-recommendations').checked=state.showRecommendations;$('#show-route').checked=state.showRoute;
   document.querySelectorAll('[data-food-category]').forEach(el=>el.checked=state.categories.includes(el.dataset.foodCategory));
-  $('#explore-center-label').textContent=state.foodScope==='route'?`선택 날짜의 각 방문 장소에서 직선 ${state.radiusKm}km 주변 · 순서는 자유롭게 변경`:
+  $('#explore-center-label').textContent=state.foodScope==='city'?`도쿄 전체 · 반경 제한 없음 · ${state.reviewFilter==='all'?'모든 검토 상태':reviewFilterLabel(state.reviewFilter)+' 맛집'} · 선택한 종류만 지도에 표시`:state.foodScope==='route'?`선택 날짜의 각 방문 장소에서 직선 ${state.radiusKm}km 주변 · 순서는 자유롭게 변경`:
     state.foodScope==='nearby'?`${state.centerLabel} · 직선 반경 ${state.radiusKm}km${state.anchorId==='user'?' · 위치는 저장하지 않습니다':''}`:
     state.foodScope==='hotel30'?`호텔 출발 약 30분권 · 이동·영업 안내가 있는 ${data.places.filter(p=>p.hotelFood?.travel?.within30).length}곳`:'넓게 비교하는 보기 · 장소를 선택하면 그 주변으로 좁힐 수 있습니다';
 }
+function enableMapCategory(id){if(!state.mapCategories.includes(id))state.mapCategories.push(id);if(id==='food')state.showFood=true;}
+function showCityWanted(foodOnly=false,reviewFilter='가고 싶음'){
+  Object.assign(state,{view:'map',day:'all',listTab:'food',foodScope:'city',anchorId:'city',centerLabel:'도쿄 전체',reviewFilter,foodMeal:'all',foodQuery:'',showFood:true,showRoute:false,showRecommendations:false,includeUnknownHours:false,categories:['picked','unreviewed','recommended'],mapCategories:['food','bar'],foodDisplay:foodOnly?'clusters':'pins'});
+  render();updateMap(true);$('#map-pane').scrollIntoView({block:'start'});
+}
 function selectFocus(id){
   let coords,label;
+  if(id==='city'){showCityWanted();return;}
   if(id==='route'){
     state.foodScope='route';state.anchorId='route';state.centerLabel='전체 방문권역';state.foodQuery='';
     render();updateMap(true);$('#map-pane').scrollIntoView({behavior:'smooth',block:'start'});return;
@@ -238,13 +261,15 @@ function placeCard(p){return `<article class="place-card ${isDone(p.id)?'done':'
 function hoursLabel(p){return p.hotelFood?(p.hotelFood.hoursEvidence==='공식 안내'?'공식 영업 안내 있음':'영업 정보·주의사항 있음'):'영업 미확인 · 영상 정보는 참고용';}
 function foodCard(p){
   const cat=TripExplore.category(p),label=p.hotelFood?.group==='hotel-bars'?'호텔 근처의 술집':{picked:'내 선택·모음 영상',unreviewed:'엑셀 미검토',recommended:'추가 추천'}[cat];
-  return `<article class="place-card food-map-card" data-food-card="${esc(p.id)}"><div class="place-card-top"><span class="area-label">${esc(p.area)} · ${esc(p.videoIds.join(' · ')||'추천·보완')}</span>${badge(label,cat==='unreviewed'?'soft':'')}</div><h3><button data-place="${esc(p.id)}">${esc(p.name)}</button></h3><div class="explore-distance">${state.foodScope==='hotel30'?hotelTravelHtml(p):esc(nearbyLabel(p))}</div><p>${esc(p.hotelFood?.menu||p.summary)}</p><div class="quick-hours">${p.hotelFood?esc(state.day==='all'?hoursLabel(p)+' · 상세에서 요일별 확인':p.hotelFood.hours[state.day]):'영업 미확인 · 영상 메뉴·가격은 참고용'}</div>${p.hotelFood?.caution?`<p class="dining-caution">${esc(p.hotelFood.caution)}</p>`:''}<div class="food-card-actions">${interestButton(p)}<button data-locate="${esc(p.id)}" class="small-link">핀 보기</button><button data-place="${esc(p.id)}" class="small-link">${p.videoIds.length?'메뉴·시간·Shorts':'메뉴·시간'} →</button></div></article>`;
+  return `<article class="place-card food-map-card" data-food-card="${esc(p.id)}"><div class="place-card-top"><span class="area-label">${esc(p.area)} · ${esc(p.videoIds.join(' · ')||'추천·보완')}</span>${badge(purposeCategory(p)==='bar'?'술집':label,cat==='unreviewed'?'soft':'')}${isMust(p)?badge('꼭 가고 싶음','must'):''}</div><h3><button data-place="${esc(p.id)}">${esc(p.name)}</button></h3><div class="explore-distance">${state.foodScope==='hotel30'?hotelTravelHtml(p):esc(nearbyLabel(p))}</div><p>${esc(p.hotelFood?.menu||p.summary)}</p><div class="quick-hours">${p.hotelFood?esc(state.day==='all'?hoursLabel(p)+' · 상세에서 요일별 확인':p.hotelFood.hours[state.day]):'영업 미확인 · 영상 메뉴·가격은 참고용'}</div>${p.hotelFood?.caution?`<p class="dining-caution">${esc(p.hotelFood.caution)}</p>`:''}<div class="food-card-actions">${interestButton(p)}<button data-locate="${esc(p.id)}" class="small-link">핀 보기</button><button data-place="${esc(p.id)}" class="small-link">${p.videoIds.length?'메뉴·시간·Shorts':'메뉴·시간'} →</button></div></article>`;
 }
 function renderFoodResults(){
   const list=foodCandidates(),mapped=list.filter(p=>p.coords),missing=list.filter(p=>!p.coords);
   const counts={picked:0,unreviewed:0,recommended:0};list.forEach(p=>counts[TripExplore.category(p)]++);
-  const unresolved=data.places.filter(p=>p.kind==='food'&&!p.duplicateOf&&!p.coords);
-  $('#food-results').innerHTML=`<div class="result-count" role="status">${mapped.length}곳 표시 · 내 선택 ${counts.picked} / 미검토 ${counts.unreviewed} / 추가 추천 ${counts.recommended}<br>가까운 순 · 직선거리이며 도보시간은 길찾기에서 확인 · 영상 메뉴·가격은 참고용${state.foodMeal!=='all'&&state.includeUnknownHours?'<br>식사 목적 미확인 후보도 포함합니다. ‘영업 미확인’ 표기를 확인하세요.':''}</div><div class="places-grid">${mapped.map(foodCard).join('')||'<div class="empty-state">주변 후보가 없습니다. 반경을 넓히거나 후보·식사 필터를 조정해 주세요.</div>'}</div>${missing.length?`<details class="unmapped-food"><summary>위치 미확인 ${missing.length}곳</summary>${missing.map(foodCard).join('')}</details>`:''}${unresolved.length&&!missing.length?`<details class="unmapped-food"><summary>위치 미확인 ${unresolved.length}곳 · 주변 판정 보류</summary><p class="section-intro">주소가 없거나 가게명과 주소가 맞지 않아 핀을 보류했습니다.</p>${unresolved.map(foodCard).join('')}</details>`:''}`;
+  const unresolved=TripExplore.candidates(data.places,{...explorationContext(),scope:'city'}).filter(p=>!p.coords&&state.mapCategories.includes(purposeCategory(p)));
+  const areas=TripMap.areas(mapped,records);
+  const areaSummary=areas.length?`<details class="food-area-summary" ${state.foodScope==='city'?'open':''}><summary>권역별 맛집 개수</summary><div>${areas.map(a=>`<button data-food-area="${esc(a.name)}">${esc(a.name)} <b>${a.places.length}</b></button>`).join('')}</div><small>등록 지역명 기준 · 누르면 해당 권역으로 확대합니다. 다른 권역의 선택은 유지됩니다.</small></details>`:'';
+  $('#food-results').innerHTML=`<div class="result-count" role="status">${mapped.length}곳 표시 · 내 선택 ${counts.picked} / 미검토 ${counts.unreviewed} / 추가 추천 ${counts.recommended}<br>가까운 순 · 직선거리이며 도보시간은 길찾기에서 확인 · 영상 메뉴·가격은 참고용${state.foodMeal!=='all'&&state.includeUnknownHours?'<br>식사 목적 미확인 후보도 포함합니다. ‘영업 미확인’ 표기를 확인하세요.':''}</div>${areaSummary}<div class="places-grid">${mapped.map(foodCard).join('')||'<div class="empty-state">주변 후보가 없습니다. 반경을 넓히거나 후보·식사 필터를 조정해 주세요.</div>'}</div>${missing.length?`<details class="unmapped-food"><summary>위치 미확인 ${missing.length}곳</summary>${missing.map(foodCard).join('')}</details>`:''}${unresolved.length&&!missing.length?`<details class="unmapped-food"><summary>위치 미확인 ${unresolved.length}곳 · 주변 판정 보류</summary><p class="section-intro">주소가 없거나 가게명과 주소가 맞지 않아 핀을 보류했습니다.</p>${unresolved.map(foodCard).join('')}</details>`:''}`;
 }
 function optionalCard(p){return `<article class="place-card optional-card"><div class="place-card-top"><span class="area-label">${esc(p.area)} · ${esc(kinds[p.kind])}</span>${badge('선택 방문','soft')}</div><h3>${esc(p.name)}</h3><p>${esc(p.summary)}</p><div class="explore-distance">${esc(nearbyLabel(p))}</div><div class="food-card-actions">${interestButton(p)}<button class="button-link" data-nearby="${esc(p.id)}">이 장소 주변 탐색</button><button class="small-link" data-place="${esc(p.id)}">상세 →</button></div></article>`;}
 function renderExplorerResults(){
@@ -261,7 +286,7 @@ function renderExplorerResults(){
   }
 }
 function renderMapList(){
-  $('#left-pane').innerHTML=`<div class="section-heading"><div><span class="eyebrow">EXPLORE AS YOU GO</span><h2>주변에서 다음 장소 고르기</h2></div></div><p class="section-intro">쇼핑 동선은 참고선입니다. 방문 장소를 고르거나 지도를 움직인 뒤 ‘이 주변에서 찾기’를 누르세요. 식당은 미리 시간표에 넣지 않아도 됩니다.</p><div class="explore-tabs" role="group" aria-label="주변 후보 목록"><button data-list-tab="food" aria-pressed="${state.listTab==='food'}">맛집</button><button data-list-tab="recommendations" aria-pressed="${state.listTab==='recommendations'}">추천 장소</button><button data-list-tab="route" aria-pressed="${state.listTab==='route'}">방문 장소</button><button data-list-tab="saved" aria-pressed="${state.listTab==='saved'}">★ 관심</button></div>${state.listTab==='food'?`<label class="search-box"><span aria-hidden="true">⌕</span><input id="food-search" type="search" aria-label="지도 맛집 검색" placeholder="메뉴·가게·엑셀 번호 검색" value="${esc(state.foodQuery)}"></label>`:''}<div id="food-results"></div>`;
+  $('#left-pane').innerHTML=`<div class="section-heading"><div><span class="eyebrow">EXPLORE AS YOU GO</span><h2>주변에서 다음 장소 고르기</h2></div></div><p class="section-intro">기본 지도에는 가고 싶은 맛집만 표시합니다. ‘도쿄 전체’는 반경 제한이 없고, ‘맛집 분포만’에서는 가까운 맛집을 개수로 묶어 비교할 수 있습니다. 장소를 고르면 그 주변으로 좁혀 볼 수 있습니다.</p><div class="explore-tabs" role="group" aria-label="주변 후보 목록"><button data-list-tab="food" aria-pressed="${state.listTab==='food'}">맛집</button><button data-list-tab="recommendations" aria-pressed="${state.listTab==='recommendations'}">추천 장소</button><button data-list-tab="route" aria-pressed="${state.listTab==='route'}">방문 장소</button><button data-list-tab="saved" aria-pressed="${state.listTab==='saved'}">★ 관심</button></div>${state.listTab==='food'?`<label class="search-box"><span aria-hidden="true">⌕</span><input id="food-search" type="search" aria-label="지도 맛집 검색" placeholder="메뉴·가게·엑셀 번호 검색" value="${esc(state.foodQuery)}"></label>`:''}<div id="food-results"></div>`;
   renderExplorerResults();
 }
 
@@ -291,8 +316,9 @@ function renderPrepare(){
 }
 
 function mapPlaces(){
-  const candidates=[...mappedRoutePlaces(),...(state.showFood?foodCandidates().filter(p=>p.coords):[]),...nearbyRecommendations(),...(state.showFabric?data.places.filter(p=>p.kind==='fabric'&&p.coords):[])];
-  return [...new Map(candidates.map(p=>[p.id,p])).values()];
+  const hotelBars=data.places.filter(p=>p.hotelFood?.group==='hotel-bars'&&p.coords&&TripExplore.reviewMatch(p,state.reviewFilter,records[p.id]));
+  const candidates=[...mappedRoutePlaces(),...foodCandidates().filter(p=>p.coords),...hotelBars,...nearbyRecommendations(),...(state.showFabric?data.places.filter(p=>p.kind==='fabric'&&p.coords):[])];
+  return [...new Map(candidates.map(p=>[p.id,p])).values()].filter(p=>state.mapCategories.includes(purposeCategory(p)));
 }
 
 function setMapStyle(style){
@@ -315,18 +341,26 @@ function initMap(){
   if(!window.L){$('#map').hidden=true;$('#map-fallback').hidden=false;return;}
   map=L.map('map',{scrollWheelZoom:true,minZoom:1,maxZoom:19}).setView(state.center,14);
   setMapStyle(state.mapStyle);mapLayer=L.layerGroup().addTo(map);focusLayer=L.layerGroup().addTo(map);
-  foodLayer=(L.markerClusterGroup?L.markerClusterGroup({maxClusterRadius:30,showCoverageOnHover:false,spiderfyOnMaxZoom:true,animate:false,iconCreateFunction:cluster=>L.divIcon({className:'food-cluster',html:`<span>食 ${cluster.getChildCount()}</span>`,iconSize:[44,34]})}):L.layerGroup()).addTo(map);
+  ensureFoodLayer();
   map.on('moveend',()=>{const center=map.getCenter();const moved=distanceKm([center.lat,center.lng],state.center)>.05;const b=$('[data-action="search-map-center"]');b.classList.toggle('pending',moved);b.textContent=moved?'⌖ 이 지역에서 다시 찾기':'⌖ 이 주변에서 찾기';});
+}
+function ensureFoodLayer(){
+  if(foodLayer&&foodLayerMode===state.foodDisplay)return;
+  if(foodLayer)map.removeLayer(foodLayer);
+  foodLayer=(state.foodDisplay==='clusters'&&L.markerClusterGroup?L.markerClusterGroup({maxClusterRadius:55,showCoverageOnHover:false,spiderfyOnMaxZoom:true,animate:false,iconCreateFunction:cluster=>L.divIcon({className:'food-cluster purpose-cluster',html:`<span>食 ${cluster.getChildCount()}</span>`,iconSize:[48,38]})}):L.layerGroup()).addTo(map);
+  foodLayerMode=state.foodDisplay;
 }
 function updateMap(fit=true){
   if(!map)return;
+  ensureFoodLayer();
   mapLayer.clearLayers();foodLayer.clearLayers();focusLayer.clearLayers();markers.clear();syncExploreControls();
   $('#show-food').checked=state.showFood;$('#show-fabric').checked=state.showFabric;
   $('#food-scope').value=state.foodScope;$('#food-meal').value=state.foodMeal;
   const visible=mapPlaces(),list=foodCandidates();
-  $('#map-legend').innerHTML='<span>H 호텔 · 숫자 방문 희망</span><span><i class="legend-food picked">食</i>내 선택</span><span><i class="legend-food unreviewed">食</i>미검토</span><span><i class="legend-food recommended">食</i>추가 추천</span><span>☆ 선택 방문</span>';
-  $('#map-scope-note').textContent='食 뒤 숫자는 묶인 후보 수 · 날짜는 참고 동선·확인한 영업시간에 적용';
-  $('#food-map-count').textContent=`맛집 ${state.showFood?list.filter(p=>p.coords).length:0}곳 · 추천 장소 ${nearbyRecommendations().length}곳`;
+  $('#map-legend').innerHTML=Object.entries(TripMap.categories).filter(([id])=>state.mapCategories.includes(id)).map(([id,c])=>`<span><i class="purpose-legend" style="background:${c.color}">${c.icon}</i>${c.label}</span>`).join('');
+  $('#map-scope-note').textContent=state.foodDisplay==='clusters'?'食 뒤 숫자는 화면에서 가까운 맛집을 묶은 개수입니다. 원을 누르면 확대됩니다. 도보 반경이나 인구 밀도가 아닙니다.':'개별 핀: 확대 전에도 선택한 맛집의 위치를 모두 표시합니다. 같은 위치의 핀은 겹칠 수 있어 묶음 보기로도 비교할 수 있습니다.';
+  const foodCount=visible.filter(p=>purposeCategory(p)==='food').length,barCount=visible.filter(p=>purposeCategory(p)==='bar').length;
+  $('#food-map-count').textContent=`맛집 ${foodCount}곳 · 술집 ${barCount}곳 · 다른 방문 장소 ${visible.length-foodCount-barCount}곳`;
   if(state.showRoute)for(const d of selectedDays()){
     const stops=d.steps.filter(s=>s.place).map(s=>places.get(s.place)).filter(p=>p.coords);
     for(let i=1;i<stops.length;i++)L.polyline([stops[i-1].coords,stops[i].coords],{color:dayColors[d.id],weight:2,opacity:.5,dashArray:'5 8',interactive:false}).addTo(mapLayer);
@@ -337,29 +371,28 @@ function updateMap(fit=true){
     if(state.anchorId==='user'&&state.userPosition)L.circle(state.center,{radius:Math.min(state.userPosition.accuracy,5000),color:'#537b9c',weight:0,fillOpacity:.08,interactive:false}).addTo(focusLayer);
   }
   for(const p of visible){
-    const route=!!p.visits,cat=p.kind==='food'?TripExplore.category(p):null;
-    const cls=p.kind==='hotel'?'hotel':route?p.routeDay:p.kind==='food'?'food '+cat:p.kind==='fabric'?'fabric':'optional';
-    const label=route?p.routeOrder:p.kind==='food'?'食':p.exploreRecommended?'☆':kindIcons[p.kind];
-    const icon=L.divIcon({className:'',html:`<span class="map-pin ${esc(cls)}">${esc(label)}</span>`,iconSize:[29,29],iconAnchor:[14,14]});
+    const route=!!p.visits,purpose=purposeCategory(p),design=TripMap.categories[purpose],must=isMust(p);
+    const icon=L.divIcon({className:'',html:`<span class="map-pin purpose-pin purpose-${purpose}${must?' priority-must':''}" style="--pin-color:${design.color}">${design.icon}${must?'<small class="pin-priority">꼭</small>':''}${route&&state.showRoute&&p.kind!=='hotel'?`<small class="pin-order">${esc(p.routeOrder)}</small>`:''}</span>`,iconSize:[32,32],iconAnchor:[16,16]});
     const quick=p.kind==='food'?`<span class="popup-note">${esc(nearbyLabel(p))}<br>${esc(p.hotelFood?.menu||p.summary)}<br>${esc(p.hotelFood?(state.day==='all'?hoursLabel(p)+' · 상세에서 확인':p.hotelFood.hours[state.day]):'영업 미확인 · 지도에서 재확인')}</span>${link(contextDirections(p),state.foodScope==='nearby'?'기준점에서 길찾기 ↗':'Google 길찾기 ↗','popup-link')}`:`${p.buildingName?arrivalHtml(p):`<span class="popup-note">${esc(p.exploreTip||p.summary)}</span>`}<button class="popup-link" data-nearby="${esc(p.id)}">이 장소 주변 맛집 →</button>`;
-    const marker=L.marker(p.coords,{icon,title:p.name,keyboard:true,zIndexOffset:p.kind==='hotel'?500:route?300:0}).addTo(p.kind==='food'?foodLayer:mapLayer).bindPopup(`<b>${esc(p.name)}</b><br>${esc(p.area)} · ${esc(p.status)}${quick}<button class="popup-link" data-place="${esc(p.id)}">${p.kind==='food'?'메뉴·시간·메모':p.buildingName?'상세·층수·메모':'상세·메모'} →</button> &nbsp;${interestButton(p)}`,p.buildingName?{minWidth:250,maxWidth:290,autoPanPaddingTopLeft:[12,52],autoPanPaddingBottomRight:[12,12]}:{});
+    const marker=L.marker(p.coords,{icon,title:p.name,keyboard:true,zIndexOffset:p.kind==='hotel'?500:route?300:0}).addTo(purpose==='food'?foodLayer:mapLayer).bindPopup(`<b>${esc(p.name)}</b>${must?' · 꼭 가고 싶음':''}<br>${esc(design.label)} · ${esc(p.area)} · ${esc(p.status)}${quick}<button class="popup-link" data-place="${esc(p.id)}">${p.kind==='food'?'메뉴·시간·메모':p.buildingName?'상세·층수·메모':'상세·메모'} →</button> &nbsp;${interestButton(p)}`,p.buildingName?{minWidth:250,maxWidth:290,autoPanPaddingTopLeft:[12,52],autoPanPaddingBottomRight:[12,12]}:{});
     markers.set(p.id,marker);
   }
   const hotelBars=state.foodScope==='hotel30'&&state.foodMeal==='afterDinner';
-  $('#map-title').textContent=hotelBars?'호텔 근처의 술집':state.foodScope==='route'?'방문권역 주변에서 탐색':state.foodScope==='nearby'?state.centerLabel+' 주변':'후보를 넓게 비교하기';
+  $('#map-title').textContent=hotelBars?'호텔 근처의 술집':state.foodScope==='city'?'도쿄 전체 · '+(state.reviewFilter==='must'?'꼭 가고 싶은 맛집':state.reviewFilter==='regular'?'가고 싶은 맛집 · 일반 후보':state.reviewFilter==='가고 싶음'?'가고 싶은 맛집':'선택한 후보'):state.foodScope==='route'?'방문권역 주변에서 탐색':state.foodScope==='nearby'?state.centerLabel+' 주변':'후보를 넓게 비교하기';
   requestAnimationFrame(()=>{map.invalidateSize();const fitPlaces=hotelBars?[places.get(data.routePlan.hotelId),...list.filter(p=>p.coords)]:visible;if(fit&&fitPlaces.length)map.fitBounds(L.latLngBounds(fitPlaces.map(p=>p.coords)),{padding:[30,30],maxZoom:hotelBars?16:14,animate:false});});
 }
 function locatePlace(id){
   const p=places.get(id);if(!p?.coords)return;
   if(p.kind!=='food'){selectFocus(id);return;}
   if(!foodCandidates().some(x=>x.id===id)){
-    state.foodScope='nearby';state.center=p.coords;state.centerLabel=p.name;state.anchorId='map';state.foodMeal='all';state.foodQuery='';state.categories=['picked','unreviewed','recommended'];
+    state.foodScope='nearby';state.center=p.coords;state.centerLabel=p.name;state.anchorId='map';state.foodMeal='all';state.foodQuery='';state.reviewFilter='all';state.categories=['picked','unreviewed','recommended'];
   }
+  enableMapCategory(purposeCategory(p));
   state.view='map';state.showFood=true;render();
   $('#map-pane').scrollIntoView({behavior:'smooth',block:'start'});
   const marker=markers.get(id);if(!marker)return;
   map.setView(p.coords,16,{animate:false});
-  if(foodLayer.zoomToShowLayer)foodLayer.zoomToShowLayer(marker,()=>marker.openPopup());else marker.openPopup();
+  if(foodLayer.zoomToShowLayer&&foodLayer.hasLayer(marker))foodLayer.zoomToShowLayer(marker,()=>marker.openPopup());else marker.openPopup();
 }
 
 function closePlace(){
@@ -383,7 +416,7 @@ $('#place-dialog').addEventListener('cancel',e=>{e.preventDefault();closePlace()
 function openPlace(id,syncHistory=true){
   const p=places.get(id);if(!p||dialogBackPending)return;
   dialogPlace=id;
-  $('#dialog-content').innerHTML=`<span class="area-label">${esc(p.area)} / ${esc(kinds[p.kind])}</span><h2>${esc(p.name)}</h2>${badge(p.status,tone(p))}<p>${esc(p.summary)}</p><div class="detail-address">${esc(p.address||'주소 확인 필요')}</div><div class="detail-actions">${link(p.directionsUrl,'길안내 ↗','primary')}${link(p.mapUrl,'Google 지도 ↗')}${p.url?link(p.url,p.id==='food-G034'?'예약 페이지 ↗':'사이트 ↗'):''}${p.browse?link(p.browse,'상품 둘러보기 ↗'):''}${p.store?link(p.store,'매장 안내 ↗'):''}</div>${p.detail&&!p.hotelFood?`<p>${esc(p.detail)}</p>`:''}${p.hours&&!p.hotelFood?`<div class="detail-info">영상에 안내된 영업시간: ${esc(p.hours)}<br>방문일 영업시간은 다시 확인해 주세요.</div>`:''}${p.hotelFood?diningHtml(p,true):''}${p.exploreTip?`<div class="detail-info">${esc(p.exploreTip)}<br>${link(p.exploreTipUrl,'같은 층 공식 매장 안내 ↗')}</div>`:''}<div class="detail-info">${esc(p.coordinateNote)}</div>${check(p)} ${interestButton(p)}${p.kind!=='food'?`<button class="button-link" data-nearby="${esc(p.id)}">이 장소 주변 맛집</button>`:''}<label class="note-label" for="place-note">나의 메모</label><textarea id="place-note" maxlength="4000" placeholder="사고 싶은 상품, 고를 메뉴, 현장에서 확인할 것…">${esc(records[id]?.note||'')}</textarea><div class="note-hint">자동 저장 · 현재 브라우저에만 보관</div>${p.videos?.length?`<details class="source-videos"><summary>관련 Shorts ${p.videos.length}개 · 원본 확인</summary>${p.videos.map(v=>link(v.url,v.id+' · '+v.title+(v.selection==='가고 싶음'?' ✓':''))).join('')}</details>`:''}`;
+  $('#dialog-content').innerHTML=`<span class="area-label">${esc(p.area)} / ${esc(kinds[p.kind])}</span><h2>${esc(p.name)}</h2>${badge(p.status,tone(p))}<p>${esc(p.summary)}</p><div class="detail-address">${esc(p.address||'주소 확인 필요')}</div><div class="detail-actions">${link(p.directionsUrl,'길안내 ↗','primary')}${link(p.mapUrl,'Google 지도 ↗')}${p.url?link(p.url,p.id==='food-G034'?'예약 페이지 ↗':'사이트 ↗'):''}${p.browse?link(p.browse,'상품 둘러보기 ↗'):''}${p.store?link(p.store,'매장 안내 ↗'):''}</div>${p.detail&&!p.hotelFood?`<p>${esc(p.detail)}</p>`:''}${p.hours&&!p.hotelFood?`<div class="detail-info">영상에 안내된 영업시간: ${esc(p.hours)}<br>방문일 영업시간은 다시 확인해 주세요.</div>`:''}${p.hotelFood?diningHtml(p,true):''}${p.exploreTip?`<div class="detail-info">${esc(p.exploreTip)}<br>${link(p.exploreTipUrl,'같은 층 공식 매장 안내 ↗')}</div>`:''}<div class="detail-info">${esc(p.coordinateNote)}</div>${p.kind==='food'?foodPreferences(p):''}${check(p)} ${interestButton(p)}${p.kind!=='food'?`<button class="button-link" data-nearby="${esc(p.id)}">이 장소 주변 맛집</button>`:''}<label class="note-label" for="place-note">나의 메모</label><textarea id="place-note" maxlength="4000" placeholder="사고 싶은 상품, 고를 메뉴, 현장에서 확인할 것…">${esc(records[id]?.note||'')}</textarea><div class="note-hint">자동 저장 · 현재 브라우저에만 보관</div>${p.videos?.length?`<details class="source-videos"><summary>관련 Shorts ${p.videos.length}개 · 원본 확인</summary>${p.videos.map(v=>link(v.url,v.id+' · '+v.title+(v.selection==='가고 싶음'?' ✓':''))).join('')}</details>`:''}`;
   if(p.buildingName)$('#dialog-content .detail-address').insertAdjacentHTML('afterend',arrivalHtml(p,true));
   if(p.kind==='food')$('#dialog-content').insertAdjacentHTML('beforeend',`${link(contextDirections(p),state.foodScope==='nearby'?'탐색 기준점에서 길찾기 ↗':'Google 길찾기 ↗','button-link')}<div class="food-distance">${distanceHtml(p)}${link(hotelDirections(p),'호텔에서 길찾기 ↗')}</div>${p.locationWarning?`<div class="detail-info">${esc(p.locationWarning)}${p.originalAddress?'<br>영상 속 주소: '+esc(p.originalAddress):''}${p.addressSource?'<br>'+link(p.addressSource,'현재 주소 출처 ↗'):''}</div>`:''}${p.coordinateSource?link(p.coordinateSource,'위치 검색 근거 ↗','small-link'):''}`);
   if(!$('#place-dialog').open)$('#place-dialog').showModal();
@@ -395,7 +428,7 @@ function openPlace(id,syncHistory=true){
 }
 function exportRecords(){
   const reviewRows=(data.reviewVideos||[]).map(v=>({id:v.id,restaurant:v.restaurant,videoUrl:v.url,excelSelection:v.selection,selection:TripReview.selection(v,videoReviews),note:videoReviews[v.id]?.note||'',reviewedAt:videoReviews[v.id]?.reviewedAt||'',source:videoReviews[v.id]?'web':'excel'}));
-  const groupedReviews=reviewGroups.map(g=>({placeId:g.placeId,videoIds:g.videoIds,restaurant:g.restaurant,selection:TripReview.groupSelection(g,videoReviews),note:TripReview.groupNote(g,videoReviews)}));
+  const groupedReviews=reviewGroups.map(g=>({placeId:g.placeId,videoIds:g.videoIds,restaurant:g.restaurant,selection:TripReview.groupSelection(g,videoReviews),note:TripReview.groupNote(g,videoReviews),priority:g.placeId&&isMust(places.get(g.placeId))?'must':'normal',mapCategory:g.placeId?purposeCategory(places.get(g.placeId)):null}));
   const content=JSON.stringify({format:'tokyo-trip-records',version:2,trip:'2026-10-30',exportedAt:new Date().toISOString(),records,videoReviews,reviewRows,groupedReviews},null,2);
   const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([content],{type:'application/json'}));a.download='tokyo-trip-records.json';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000);message('검토 결과·방문 체크·관심·메모를 내보냈습니다. 다운로드한 파일을 보관해 주세요.');
 }
@@ -405,6 +438,7 @@ document.addEventListener('click',e=>{
   if(b.dataset.view){const sameMap=state.view==='map'&&b.dataset.view==='map';state.view=b.dataset.view;if(!sameMap)render();if(sameMap)$('#map-pane').scrollIntoView({behavior:'smooth',block:'start'});return;}
   if(b.dataset.day){state.day=b.dataset.day;render();if(state.foodScope==='route')updateMap(true);return;}
   if(b.dataset.listTab){state.listTab=b.dataset.listTab;renderMapList();return;}
+  if(b.dataset.foodArea){const points=foodCandidates().filter(p=>p.coords&&purposeCategory(p)==='food'&&TripMap.area(p)===b.dataset.foodArea);if(points.length){map.fitBounds(L.latLngBounds(points.map(p=>p.coords)),{padding:[35,35],maxZoom:15,animate:false});$('#map-pane').scrollIntoView({block:'start'});}return;}
   if(b.dataset.reviewPage!==undefined){state.reviewPage=Math.max(0,Number(b.dataset.reviewPage)||0);renderReviewResults();$('#review-results').scrollIntoView({block:'start'});return;}
   if(b.dataset.nearby){selectFocus(b.dataset.nearby);return;}
   if(b.dataset.interest){
@@ -418,19 +452,39 @@ document.addEventListener('click',e=>{
   switch(b.dataset.action){
     case 'close-dialog':closePlace();break;
     case 'map-fit':updateMap(true);break;
+    case 'city-wanted':showCityWanted();break;
+    case 'food-distribution':showCityWanted(true);break;
     case 'search-map-center':selectFocus('map');break;
     case 'my-location':getMyLocation();break;
     case 'list-jump':$('#left-pane').scrollIntoView({behavior:'smooth',block:'start'});break;
     case 'hotel-food-fit':state.foodScope='hotel30';state.anchorId=data.routePlan.hotelId;render();updateMap(true);break;
-    case 'hotel-bars':state.view='map';state.showFood=true;state.listTab='food';state.foodScope='hotel30';state.anchorId=data.routePlan.hotelId;state.foodMeal='afterDinner';state.foodQuery='';state.includeUnknownHours=false;state.categories=['picked','unreviewed','recommended'];render();updateMap(true);break;
+    case 'hotel-bars':enableMapCategory('bar');state.view='map';state.showFood=true;state.listTab='food';state.foodScope='hotel30';state.anchorId=data.routePlan.hotelId;state.foodMeal='afterDinner';state.foodQuery='';state.reviewFilter='all';state.includeUnknownHours=false;state.categories=['picked','unreviewed','recommended'];render();updateMap(true);break;
     case 'review-unreviewed':state.reviewStatus='미검토';state.reviewPage=0;state.reviewQuery='';renderReview();break;
-    case 'review-map-wanted':state.view='map';state.listTab='food';state.foodScope='all';state.reviewFilter='가고 싶음';state.foodMeal='all';state.foodQuery='';state.categories=['picked','unreviewed','recommended'];state.showFood=true;render();updateMap(true);break;
-    case 'food-toggle':state.view='map';state.showFood=true;render();break;
+    case 'review-map-wanted':showCityWanted();break;
+    case 'review-map-must':showCityWanted(false,'must');break;
+    case 'city-must':showCityWanted(false,'must');break;
+    case 'food-toggle':enableMapCategory('food');state.view='map';render();break;
     case 'export':exportRecords();break;
     case 'import':$('#import-file').click();break;
   }
 });
 document.addEventListener('change',e=>{
+  if(e.target.dataset.mustPlace||e.target.dataset.foodRole){
+    const id=e.target.dataset.mustPlace||e.target.dataset.foodRole,p=places.get(id);
+    if(!p||p.kind!=='food')return;
+    const next={...(records[id]||{})};
+    if(e.target.dataset.mustPlace){
+      if(p.reviewSelection!=='가고 싶음')return;
+      if(e.target.checked)next.priority='must';else delete next.priority;
+    }else if(['food','bar'].includes(e.target.value))next.mapCategory=e.target.value;
+    else delete next.mapCategory;
+    records[id]=TripExplore.normalizeRecord(next);saveRecords();
+    if(state.view==='review')renderReviewResults();
+    if(state.view==='map'){renderExplorerResults();updateMap(false);}
+    return;
+  }
+  if(e.target.dataset.mapCategory){state.mapCategories=[...document.querySelectorAll('[data-map-category]:checked')].map(x=>x.dataset.mapCategory);state.showFood=state.mapCategories.includes('food');renderExplorerResults();updateMap(e.target.checked);return;}
+  if(e.target.id==='food-display'){state.foodDisplay=e.target.value;updateMap(false);return;}
   if(e.target.dataset.videoReview){setVideoReview(e.target.dataset.videoReview,{selection:e.target.value});renderReviewResults();return;}
   if(e.target.id==='review-status'){state.reviewStatus=e.target.value;state.reviewPage=0;renderReviewResults();return;}
   if(e.target.id==='food-review'){state.reviewFilter=e.target.value;renderExplorerResults();updateMap(false);return;}
@@ -443,7 +497,7 @@ document.addEventListener('change',e=>{
   if(e.target.id==='show-recommendations'){state.showRecommendations=e.target.checked;renderExplorerResults();updateMap(false);return;}
   if(e.target.id==='include-unknown-hours'){state.includeUnknownHours=e.target.checked;renderExplorerResults();updateMap(false);return;}
   if(e.target.dataset.foodCategory){state.categories=[...document.querySelectorAll('[data-food-category]:checked')].map(x=>x.dataset.foodCategory);renderExplorerResults();updateMap(false);return;}
-  if(e.target.id==='food-meal'){state.foodMeal=e.target.value;if(state.foodMeal==='afterDinner'){state.foodScope='hotel30';state.anchorId=data.routePlan.hotelId;state.includeUnknownHours=false;syncExploreControls();$('#food-scope').value=state.foodScope;}if(state.view==='map')renderExplorerResults();updateMap(false);return;}
+  if(e.target.id==='food-meal'){state.foodMeal=e.target.value;if(state.foodMeal==='afterDinner'){enableMapCategory('bar');state.reviewFilter='all';state.foodScope='hotel30';state.anchorId=data.routePlan.hotelId;state.includeUnknownHours=false;syncExploreControls();$('#food-scope').value=state.foodScope;}if(state.view==='map')renderExplorerResults();updateMap(false);return;}
   if(e.target.id==='food-scope'){state.foodScope=e.target.value;if(state.view==='map')renderMapList();updateMap(!['nearby'].includes(state.foodScope));if(state.foodScope==='nearby')fitFocus();return;}
   if(e.target.dataset.check){const id=e.target.dataset.check;records[id]={...(records[id]||{}),done:e.target.checked};saveRecords();render();}
   if(e.target.id==='unreviewed-toggle'){state.includeUnreviewed=e.target.checked;renderPlaceResults();}
@@ -468,7 +522,7 @@ $('#import-file').addEventListener('change',async e=>{
   e.target.value='';
 });
 async function start(){
-  const response=await fetch('./trip-data.json?v=20261025-review',{cache:'no-cache'});if(!response.ok)throw new Error('데이터 불러오기');
+  const response=await fetch('./trip-data.json?v=20261026-shared-reviews',{cache:'no-cache'});if(!response.ok)throw new Error('데이터 불러오기');
   data=await response.json();places=new Map(data.places.map(p=>[p.id,p]));
   reviewVideoMap=new Map((data.reviewVideos||[]).map(v=>[v.id,v]));
   reviewGroups=TripReview.groups(data.reviewVideos||[],data.places);

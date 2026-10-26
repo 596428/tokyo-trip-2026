@@ -34,13 +34,25 @@
       if(c.scope==='all'&&p.sourceType==='hotel-research')return false;
       if(c.categories&&!c.categories.includes(category(p)))return false;
       if(c.interestedOnly&&!c.records?.[p.id]?.interested)return false;
-      if(c.reviewFilter&&c.reviewFilter!=='all'&&p.reviewSelection!==c.reviewFilter)return false;
+      if(!reviewMatch(p,c.reviewFilter,c.records?.[p.id]))return false;
       if(!mealMatch(p,c.meal||'all',c.day||'all',c.includeUnknown))return false;
       if(q&&![p.name,p.area,p.summary,p.address,p.hotelFood?.menu,...(p.videoIds||[])].join(' ').toLocaleLowerCase().includes(q))return false;
       if(c.scope==='route'||c.scope==='nearby')return referenceDistance(p,c)<=c.radiusKm;
       return true;
     }).sort((a,b)=>c.scope==='hotel30'?a.hotelFood.travel.minutes-b.hotelFood.travel.minutes:referenceDistance(a,c)-referenceDistance(b,c));
   }
-  function normalizeRecord(r){return {done:r?.done===true,interested:r?.interested===true,note:typeof r?.note==='string'?r.note.slice(0,4000):''};}
-  return {distanceKm,nearest,category,mealMatch,referenceDistance,candidates,normalizeRecord};
+  function isMust(p,record){return p.reviewSelection==='가고 싶음'&&record?.priority==='must';}
+  function reviewMatch(p,filter,record){
+    if(!filter||filter==='all')return true;
+    if(filter==='must')return isMust(p,record);
+    if(filter==='regular')return p.reviewSelection==='가고 싶음'&&!isMust(p,record);
+    return p.reviewSelection===filter;
+  }
+  function normalizeRecord(r){
+    const clean={done:r?.done===true,interested:r?.interested===true,note:typeof r?.note==='string'?r.note.slice(0,4000):''};
+    if(r?.priority==='must')clean.priority='must';
+    if(['food','bar'].includes(r?.mapCategory))clean.mapCategory=r.mapCategory;
+    return clean;
+  }
+  return {distanceKm,nearest,category,mealMatch,referenceDistance,candidates,normalizeRecord,isMust,reviewMatch};
 });

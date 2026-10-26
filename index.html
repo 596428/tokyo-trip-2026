@@ -10,14 +10,15 @@
   <link rel="stylesheet" href="./vendor/leaflet.css">
   <link rel="stylesheet" href="./vendor/MarkerCluster.css">
   <link rel="stylesheet" href="./vendor/maplibre-gl.css">
-  <link rel="stylesheet" href="./style.css?v=20261025-review-grouped">
+  <link rel="stylesheet" href="./style.css?v=20261026-shared-reviews">
   <script defer src="./vendor/leaflet.js"></script>
   <script defer src="./vendor/leaflet.markercluster.js"></script>
   <script defer src="./vendor/maplibre-gl.js"></script>
   <script defer src="./vendor/leaflet-maplibre-gl.js"></script>
-  <script defer src="./explore-model.js?v=20261025-review-grouped"></script>
-  <script defer src="./review-model.js?v=20261025-review-grouped"></script>
-  <script defer src="./app.js?v=20261025-review-grouped"></script>
+  <script defer src="./explore-model.js?v=20261026-shared-reviews"></script>
+  <script defer src="./review-model.js?v=20261026-shared-reviews"></script>
+  <script defer src="./map-model.js?v=20261026-shared-reviews"></script>
+  <script defer src="./app.js?v=20261026-shared-reviews"></script>
 </head>
 <body data-view="map">
   <a class="skip-link" href="#content">본문으로 이동</a>
@@ -49,16 +50,20 @@
         <aside id="map-pane" class="map-pane">
           <div class="map-heading"><div><span class="eyebrow">THE BIG PICTURE</span><h2 id="map-title">이번 여행의 장소들</h2></div><button class="icon-button" data-action="map-fit" aria-label="지도 전체 보기" title="지도 전체 보기">⛶</button></div>
           <div class="explore-controls">
+            <div class="map-overview-actions"><button class="button-link" data-action="city-wanted">도쿄 전체 · 가고 싶음</button><button class="button-link" data-action="city-must">꼭 가고 싶음만</button><button class="button-link" data-action="food-distribution">맛집 분포만</button></div>
+            <div id="map-categories" class="map-category-controls" role="group" aria-label="지도 장소 종류"></div>
             <label class="anchor-control" for="explore-anchor">어디를 둘러볼까요?<select id="explore-anchor"></select></label>
             <div class="explore-primary"><label>직선 반경 <select id="explore-radius" aria-label="주변 탐색 반경"><option value="0.5">500m</option><option value="1" selected>1km</option><option value="2">2km</option></select></label><button class="button-link" data-action="my-location">◎ 내 위치</button><button class="button-link mobile-list-jump" data-action="list-jump">후보 목록 ↓</button></div>
             <div id="explore-center-label" class="explore-center-label" role="status"></div>
             <div id="geo-message" class="geo-message" role="status" hidden></div>
             <details class="explore-options"><summary>후보·식사 필터</summary>
-              <div class="food-scope-control"><label for="food-scope">맛집 범위</label><select id="food-scope"><option value="route">방문권역 주변 · 미검토 포함</option><option value="nearby">선택 장소·지도 중심 주변</option><option value="hotel30">호텔 약 30분 · 확인한 후보</option><option value="selected">엑셀에서 선택한 후보</option><option value="all">엑셀 전체</option></select></div>
+              <div class="food-scope-control"><label for="food-scope">맛집 범위</label><select id="food-scope"><option value="city">도쿄 전체 · 반경 제한 없음</option><option value="route">방문권역 주변</option><option value="nearby">선택 장소·지도 중심 주변</option><option value="hotel30">호텔 약 30분 · 확인한 후보</option><option value="selected">엑셀에서 선택한 후보</option><option value="all">엑셀 전체</option></select></div>
               <div class="food-category-controls" role="group" aria-label="맛집 후보 종류"><label><input data-food-category="picked" type="checkbox" checked>내 선택·모음 영상</label><label><input data-food-category="unreviewed" type="checkbox" checked>엑셀 미검토</label><label><input data-food-category="recommended" type="checkbox" checked>추가 추천</label></div>
-              <div class="food-scope-control"><label for="food-review">내 검토 결과</label><select id="food-review"><option value="all">전체</option><option value="가고 싶음">가고 싶음</option><option value="미검토">미검토</option><option value="검토">검토 중</option><option value="보류">보류</option><option value="제외">제외</option></select><button class="small-link" data-view="review">엑셀 목록 검토 →</button></div>
+              <div class="food-scope-control"><label for="food-review">내 검토 결과</label><select id="food-review"><option value="all">전체</option><option value="가고 싶음">가고 싶음 · 전체</option><option value="must">꼭 가고 싶음</option><option value="regular">가고 싶음 · 일반 후보</option><option value="미검토">미검토</option><option value="검토">검토 중</option><option value="보류">보류</option><option value="제외">제외</option></select><button class="small-link" data-view="review">엑셀 목록 검토 →</button></div>
               <div class="meal-filter-control"><label for="food-meal">식사·술</label><select id="food-meal"><option value="all">전체</option><option value="breakfast">아침 식사</option><option value="lunch">점심 식사</option><option value="dinner">저녁 식사</option><option value="drinks">저녁 + 술</option><option value="afterDinner">호텔 근처의 술집</option></select><label><input id="include-unknown-hours" type="checkbox">목적·영업 미확인도 포함</label><small>미확인은 ‘영업 중’이라는 뜻이 아닙니다. 확인된 휴무·점심 전용 가게는 목적 필터에 반영합니다.</small></div>
-              <div class="map-overlays" role="group" aria-label="지도 레이어"><label><input id="show-food" type="checkbox" checked>맛집</label><label><input id="show-recommendations" type="checkbox" checked>추천 장소</label><label><input id="show-route" type="checkbox" checked>참고 동선</label><label><input id="show-fabric" type="checkbox">원단</label></div>
+              <input id="show-food" type="checkbox" checked hidden>
+              <div class="map-overlays" role="group" aria-label="지도 레이어"><label><input id="show-recommendations" type="checkbox">쇼핑·굿즈 추가 후보</label><label><input id="show-route" type="checkbox">참고 동선</label><label><input id="show-fabric" type="checkbox">원단</label></div>
+              <div class="food-scope-control"><label for="food-display">맛집 표시</label><select id="food-display"><option value="pins">개별 핀 · 모두 표시</option><option value="clusters">묶음 개수 · 밀집도 비교</option></select></div>
               <label class="map-style-control">지도 스타일 <select id="map-style" aria-label="지도 스타일"><option value="simple">간략 지도</option><option value="detail">상세 지도</option></select></label>
               <button class="small-link" data-action="hotel-food-fit">호텔 약 30분 후보 보기 ↗</button>
               <button class="small-link" data-action="hotel-bars">호텔 근처의 술집 3곳 ↗</button>

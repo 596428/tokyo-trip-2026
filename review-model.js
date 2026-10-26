@@ -6,6 +6,8 @@
   'use strict';
   const statuses=['미검토','검토','가고 싶음','보류','제외'];
   const labels={'미검토':'미검토','검토':'검토 중','가고 싶음':'가고 싶음','보류':'보류','제외':'제외'};
+  const filters=['all','가고 싶음','must','regular','검토','보류','제외','미검토'];
+  const filterLabels={...labels,all:'전체','가고 싶음':'가고 싶음 · 전체',must:'꼭 가고 싶음',regular:'가고 싶음 · 일반 후보'};
   function normalizeReviews(input,validIds){
     const clean={};
     if(!input||typeof input!=='object'||Array.isArray(input))return clean;
@@ -14,6 +16,16 @@
       clean[id]={selection:r.selection,note:typeof r.note==='string'?r.note.slice(0,4000):'',reviewedAt:typeof r.reviewedAt==='string'&&Number.isFinite(Date.parse(r.reviewedAt))?r.reviewedAt:''};
     }
     return clean;
+  }
+  function mergeBaseline(baseline,local){
+    const merged={...local};
+    for(const [id,shared] of Object.entries(baseline)){
+      const saved=local[id];
+      if(!saved||(Date.parse(shared.reviewedAt)||0)>(Date.parse(saved.reviewedAt)||0)){
+        merged[id]={...shared,note:shared.note||saved?.note||''};
+      }
+    }
+    return merged;
   }
   function selection(video,reviews){return reviews[video.id]?.selection??(statuses.includes(video.selection)?video.selection:'미검토');}
   function groups(videos,places){
@@ -48,13 +60,18 @@
     for(const v of videos)result[v.videos?groupSelection(v,reviews):selection(v,reviews)]++;
     return {...result,total:videos.length,reviewed:videos.length-result['미검토']};
   }
-  function filter(videos,reviews,status,query){
+  function filter(videos,reviews,status,query,records={}){
     const q=(query||'').trim().toLocaleLowerCase();
-    return videos.filter(v=>(status==='all'||(v.videos?groupSelection(v,reviews):selection(v,reviews))===status)&&(!q||[v.id,v.restaurant,v.title,v.area,v.menu,...(v.videos||[v]).flatMap(x=>[x.id,x.title,x.menu,reviews[x.id]?.note])].join(' ').toLocaleLowerCase().includes(q)));
+    return videos.filter(v=>{
+      const current=v.videos?groupSelection(v,reviews):selection(v,reviews);
+      const must=current==='가고 싶음'&&records[v.placeId]?.priority==='must';
+      const match=status==='all'||(status==='must'?must:status==='regular'?current==='가고 싶음'&&!!v.placeId&&!must:current===status);
+      return match&&(!q||[v.id,v.restaurant,v.title,v.area,v.menu,...(v.videos||[v]).flatMap(x=>[x.id,x.title,x.menu,reviews[x.id]?.note])].join(' ').toLocaleLowerCase().includes(q));
+    });
   }
   function placeSelection(place,videoMap,reviews){
     const videos=(place.videoIds||[]).map(id=>videoMap.get(id)).filter(v=>v&&!v.isCompilation);
     return videos.length?groupSelection({videos},reviews):null;
   }
-  return {statuses,labels,normalizeReviews,selection,stats,filter,placeSelection,groups,groupSelection,groupNote,updateGroup};
+  return {statuses,labels,filters,filterLabels,normalizeReviews,mergeBaseline,selection,stats,filter,placeSelection,groups,groupSelection,groupNote,updateGroup};
 });

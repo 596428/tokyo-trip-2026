@@ -483,6 +483,7 @@
       "videoIds": [
         "T001"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T001",
@@ -518,6 +519,7 @@
       "videoIds": [
         "T002"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T002",
@@ -556,6 +558,7 @@
         "T120",
         "T196"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T003",
@@ -609,6 +612,7 @@
       "videoIds": [
         "T004"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T004",
@@ -657,6 +661,7 @@
         "T208",
         "T271"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T005",
@@ -773,6 +778,7 @@
         "T077",
         "T050"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T006",
@@ -826,6 +832,7 @@
       "videoIds": [
         "T007"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T007",
@@ -862,6 +869,7 @@
         "T009",
         "T035"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T009",
@@ -905,6 +913,7 @@
         "T126",
         "T176"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T010",
@@ -952,6 +961,7 @@
       "videoIds": [
         "T011"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T011",
@@ -994,6 +1004,7 @@
         "T264",
         "T267"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T012",
@@ -1077,6 +1088,7 @@
         "T174",
         "T253"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T013",
@@ -1133,6 +1145,7 @@
       "videoIds": [
         "T014"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T014",
@@ -1169,6 +1182,7 @@
         "T015",
         "T063"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T015",
@@ -1211,6 +1225,7 @@
         "T016",
         "T018"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T016",
@@ -1257,6 +1272,7 @@
         "T191",
         "T231"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T017",
@@ -1326,6 +1342,7 @@
         "T226",
         "T050"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T019",
@@ -1379,6 +1396,7 @@
       "videoIds": [
         "T020"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T020",
@@ -1414,6 +1432,7 @@
       "videoIds": [
         "T021"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T021",
@@ -1449,6 +1468,7 @@
       "videoIds": [
         "T022"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T022",
@@ -1487,6 +1507,7 @@
       "videoIds": [
         "T023"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T023",
@@ -1523,6 +1544,7 @@
         "T024",
         "T057"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T024",
@@ -1563,6 +1585,7 @@
         "T095",
         "T189"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T025",
@@ -1615,6 +1638,7 @@
         "T026",
         "T038"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T026",
@@ -1657,6 +1681,7 @@
         "T027",
         "T029"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T027",
@@ -1698,6 +1723,7 @@
       "videoIds": [
         "T028"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T028",
@@ -1733,6 +1759,7 @@
       "videoIds": [
         "T030"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T030",
@@ -1769,6 +1796,7 @@
         "T031",
         "T122"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T031",
@@ -1815,6 +1843,7 @@
         "T255",
         "T265"
       ],
+      "mapCategory": "bar",
       "videos": [
         {
           "id": "T032",
@@ -1880,6 +1909,7 @@
       "videoIds": [
         "T033"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T033",
@@ -1915,6 +1945,7 @@
       "videoIds": [
         "T034"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T034",
@@ -1955,6 +1986,7 @@
         "T244",
         "T050"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T036",
@@ -2027,6 +2059,7 @@
         "T129",
         "T172"
       ],
+      "mapCategory": "bar",
       "videos": [
         {
           "id": "T037",
@@ -2090,6 +2123,7 @@
         "T227",
         "T245"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T039",
@@ -2152,6 +2186,7 @@
         "T219",
         "T223"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T041",
@@ -2208,6 +2243,7 @@
         "T141",
         "T190"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T042",
@@ -2261,6 +2297,7 @@
       "videoIds": [
         "T043"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T043",
@@ -2346,6 +2383,7 @@
       "videoIds": [
         "T045"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T045",
@@ -2382,6 +2420,7 @@
         "T046",
         "T248"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T046",
@@ -2424,6 +2463,7 @@
       "videoIds": [
         "T047"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T047",
@@ -2459,6 +2499,7 @@
       "videoIds": [
         "T048"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T048",
@@ -2494,6 +2535,7 @@
       "videoIds": [
         "T051"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T051",
@@ -2529,6 +2571,7 @@
       "videoIds": [
         "T053"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T053",
@@ -2564,6 +2607,7 @@
       "videoIds": [
         "T055"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T055",
@@ -2599,6 +2643,7 @@
       "videoIds": [
         "T056"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T056",
@@ -2682,6 +2727,7 @@
         "T187",
         "T274"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T059",
@@ -2786,6 +2832,7 @@
         "T060",
         "T081"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T060",
@@ -2829,6 +2876,7 @@
         "T124",
         "T144"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T062",
@@ -2876,6 +2924,7 @@
       "videoIds": [
         "T065"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T065",
@@ -2911,6 +2960,7 @@
       "videoIds": [
         "T067"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T067",
@@ -2946,6 +2996,7 @@
       "videoIds": [
         "T068"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T068",
@@ -2981,6 +3032,7 @@
       "videoIds": [
         "T069"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T069",
@@ -3016,6 +3068,7 @@
       "videoIds": [
         "T070"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T070",
@@ -3052,6 +3105,7 @@
         "T071",
         "T247"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T071",
@@ -3095,6 +3149,7 @@
         "T146",
         "T206"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T073",
@@ -3143,6 +3198,7 @@
         "T074",
         "T209"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T074",
@@ -3186,6 +3242,7 @@
         "T162",
         "T235"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T075",
@@ -3233,6 +3290,7 @@
       "videoIds": [
         "T076"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T076",
@@ -3268,6 +3326,7 @@
       "videoIds": [
         "T078"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T078",
@@ -3303,6 +3362,7 @@
       "videoIds": [
         "T079"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T079",
@@ -3338,6 +3398,7 @@
       "videoIds": [
         "T082"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T082",
@@ -3373,6 +3434,7 @@
       "videoIds": [
         "T083"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T083",
@@ -3409,6 +3471,7 @@
         "T084",
         "T179"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T084",
@@ -3450,6 +3513,7 @@
       "videoIds": [
         "T085"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T085",
@@ -3485,6 +3549,7 @@
       "videoIds": [
         "T086"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T086",
@@ -3561,6 +3626,7 @@
       "videoIds": [
         "T087"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T087",
@@ -3596,6 +3662,7 @@
       "videoIds": [
         "T089"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T089",
@@ -3633,6 +3700,7 @@
         "T227",
         "T245"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T090",
@@ -3681,6 +3749,7 @@
       "videoIds": [
         "T091"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T091",
@@ -3717,6 +3786,7 @@
         "T093",
         "T107"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T093",
@@ -3758,6 +3828,7 @@
       "videoIds": [
         "T096"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T096",
@@ -3795,6 +3866,7 @@
         "T099",
         "T151"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T097",
@@ -3845,6 +3917,7 @@
         "T186",
         "T260"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T098",
@@ -3898,6 +3971,7 @@
       "videoIds": [
         "T100"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T100",
@@ -3933,6 +4007,7 @@
       "videoIds": [
         "T101"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T101",
@@ -3971,6 +4046,7 @@
         "T201",
         "T286"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T102",
@@ -4024,6 +4100,7 @@
       "videoIds": [
         "T103"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T103",
@@ -4059,6 +4136,7 @@
       "videoIds": [
         "T104"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T104",
@@ -4094,6 +4172,7 @@
       "videoIds": [
         "T105"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T105",
@@ -4130,6 +4209,7 @@
         "T108",
         "T150"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T108",
@@ -4174,6 +4254,7 @@
         "T184",
         "T210"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T109",
@@ -4230,6 +4311,7 @@
         "T208",
         "T271"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T110",
@@ -4284,6 +4366,7 @@
       "videoIds": [
         "T111"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T111",
@@ -4362,6 +4445,7 @@
       "videoIds": [
         "T112"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T112",
@@ -4399,6 +4483,7 @@
         "T199",
         "T228"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T113",
@@ -4446,6 +4531,7 @@
       "videoIds": [
         "T115"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T115",
@@ -4540,6 +4626,7 @@
       "videoIds": [
         "T117"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T117",
@@ -4575,6 +4662,7 @@
       "videoIds": [
         "T118"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T118",
@@ -4610,6 +4698,7 @@
       "videoIds": [
         "T121"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T121",
@@ -4645,6 +4734,7 @@
       "videoIds": [
         "T123"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T123",
@@ -4681,6 +4771,7 @@
         "T125",
         "T229"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T125",
@@ -4722,6 +4813,7 @@
       "videoIds": [
         "T128"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T128",
@@ -4758,6 +4850,7 @@
         "T130",
         "T278"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T130",
@@ -4799,6 +4892,7 @@
       "videoIds": [
         "T131"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T131",
@@ -4893,6 +4987,7 @@
       "videoIds": [
         "T132"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T132",
@@ -4929,6 +5024,7 @@
         "T133",
         "T272"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T133",
@@ -4970,6 +5066,7 @@
       "videoIds": [
         "T134"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T134",
@@ -5005,6 +5102,7 @@
       "videoIds": [
         "T136"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T136",
@@ -5040,6 +5138,7 @@
       "videoIds": [
         "T137"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T137",
@@ -5075,6 +5174,7 @@
       "videoIds": [
         "T138"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T138",
@@ -5110,6 +5210,7 @@
       "videoIds": [
         "T139"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T139",
@@ -5145,6 +5246,7 @@
       "videoIds": [
         "T140"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T140",
@@ -5182,6 +5284,7 @@
         "T197",
         "T203"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T143",
@@ -5229,6 +5332,7 @@
       "videoIds": [
         "T147"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T147",
@@ -5265,6 +5369,7 @@
         "T149",
         "T218"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T149",
@@ -5307,6 +5412,7 @@
         "T152",
         "T198"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T152",
@@ -5348,6 +5454,7 @@
       "videoIds": [
         "T153"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T153",
@@ -5383,6 +5490,7 @@
       "videoIds": [
         "T154"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T154",
@@ -5418,6 +5526,7 @@
       "videoIds": [
         "T155"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T155",
@@ -5453,6 +5562,7 @@
       "videoIds": [
         "T156"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T156",
@@ -5488,6 +5598,7 @@
       "videoIds": [
         "T159"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T159",
@@ -5523,6 +5634,7 @@
       "videoIds": [
         "T160"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T160",
@@ -5558,6 +5670,7 @@
       "videoIds": [
         "T161"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T161",
@@ -5593,6 +5706,7 @@
       "videoIds": [
         "T163"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T163",
@@ -5628,6 +5742,7 @@
       "videoIds": [
         "T165"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T165",
@@ -5665,6 +5780,7 @@
         "T195",
         "T254"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T166",
@@ -5712,6 +5828,7 @@
       "videoIds": [
         "T167"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T167",
@@ -5745,6 +5862,7 @@
         "T169",
         "T250"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T169",
@@ -5786,6 +5904,7 @@
       "videoIds": [
         "T170"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T170",
@@ -5821,6 +5940,7 @@
       "videoIds": [
         "T171"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T171",
@@ -5857,6 +5977,7 @@
         "T173",
         "T238"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T173",
@@ -5899,6 +6020,7 @@
         "T174",
         "T253"
       ],
+      "mapCategory": "bar",
       "videos": [
         {
           "id": "T174",
@@ -5941,6 +6063,7 @@
       "videoIds": [
         "T175"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T175",
@@ -5977,6 +6100,7 @@
         "T177",
         "T262"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T177",
@@ -6018,6 +6142,7 @@
       "videoIds": [
         "T178"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T178",
@@ -6053,6 +6178,7 @@
       "videoIds": [
         "T182"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T182",
@@ -6088,6 +6214,7 @@
       "videoIds": [
         "T185"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T185",
@@ -6123,6 +6250,7 @@
       "videoIds": [
         "T188"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T188",
@@ -6159,6 +6287,7 @@
         "T192",
         "T224"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T192",
@@ -6201,6 +6330,7 @@
         "T194",
         "T246"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T194",
@@ -6242,6 +6372,7 @@
       "videoIds": [
         "T200"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T200",
@@ -6278,6 +6409,7 @@
         "T202",
         "T050"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T202",
@@ -6368,6 +6500,7 @@
       "videoIds": [
         "T204"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T204",
@@ -6407,6 +6540,7 @@
       "videoIds": [
         "T205"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T205",
@@ -6442,6 +6576,7 @@
       "videoIds": [
         "T207"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T207",
@@ -6477,6 +6612,7 @@
       "videoIds": [
         "T211"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T211",
@@ -6512,6 +6648,7 @@
       "videoIds": [
         "T212"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T212",
@@ -6547,6 +6684,7 @@
       "videoIds": [
         "T213"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T213",
@@ -6582,6 +6720,7 @@
       "videoIds": [
         "T214"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T214",
@@ -6617,6 +6756,7 @@
       "videoIds": [
         "T215"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T215",
@@ -6653,6 +6793,7 @@
         "T216",
         "T287"
       ],
+      "mapCategory": "bar",
       "videos": [
         {
           "id": "T216",
@@ -6694,6 +6835,7 @@
       "videoIds": [
         "T217"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T217",
@@ -6729,6 +6871,7 @@
       "videoIds": [
         "T222"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T222",
@@ -6767,6 +6910,7 @@
       "videoIds": [
         "T225"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T225",
@@ -6802,6 +6946,7 @@
       "videoIds": [
         "T230"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T230",
@@ -6837,6 +6982,7 @@
       "videoIds": [
         "T232"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T232",
@@ -6872,6 +7018,7 @@
       "videoIds": [
         "T233"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T233",
@@ -6907,6 +7054,7 @@
       "videoIds": [
         "T234"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T234",
@@ -6939,6 +7087,7 @@
       "videoIds": [
         "T236"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T236",
@@ -6975,6 +7124,7 @@
         "T237",
         "T256"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T237",
@@ -7016,6 +7166,7 @@
       "videoIds": [
         "T239"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T239",
@@ -7051,6 +7202,7 @@
       "videoIds": [
         "T240"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T240",
@@ -7086,6 +7238,7 @@
       "videoIds": [
         "T243"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T243",
@@ -7121,6 +7274,7 @@
       "videoIds": [
         "T249"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T249",
@@ -7156,6 +7310,7 @@
       "videoIds": [
         "T251"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T251",
@@ -7191,6 +7346,7 @@
       "videoIds": [
         "T252"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T252",
@@ -7281,6 +7437,7 @@
       "videoIds": [
         "T257"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T257",
@@ -7316,6 +7473,7 @@
       "videoIds": [
         "T258"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T258",
@@ -7351,6 +7509,7 @@
       "videoIds": [
         "T259"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T259",
@@ -7386,6 +7545,7 @@
       "videoIds": [
         "T261"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T261",
@@ -7421,6 +7581,7 @@
       "videoIds": [
         "T263"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T263",
@@ -7456,6 +7617,7 @@
       "videoIds": [
         "T266"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T266",
@@ -7491,6 +7653,7 @@
       "videoIds": [
         "T268"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T268",
@@ -7526,6 +7689,7 @@
       "videoIds": [
         "T269"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T269",
@@ -7612,6 +7776,7 @@
       "videoIds": [
         "T270"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T270",
@@ -7647,6 +7812,7 @@
       "videoIds": [
         "T273"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T273",
@@ -7682,6 +7848,7 @@
       "videoIds": [
         "T275"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T275",
@@ -7717,6 +7884,7 @@
       "videoIds": [
         "T276"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T276",
@@ -7752,6 +7920,7 @@
       "videoIds": [
         "T277"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T277",
@@ -7787,6 +7956,7 @@
       "videoIds": [
         "T279"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T279",
@@ -7822,6 +7992,7 @@
       "videoIds": [
         "T280"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T280",
@@ -7857,6 +8028,7 @@
       "videoIds": [
         "T281"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T281",
@@ -7892,6 +8064,7 @@
       "videoIds": [
         "T282"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T282",
@@ -7924,6 +8097,7 @@
       "videoIds": [
         "T283"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T283",
@@ -7959,6 +8133,7 @@
       "videoIds": [
         "T284"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T284",
@@ -7994,6 +8169,7 @@
       "videoIds": [
         "T285"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T285",
@@ -8026,6 +8202,7 @@
       "videoIds": [
         "T288"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T288",
@@ -8061,6 +8238,7 @@
       "videoIds": [
         "T289"
       ],
+      "mapCategory": "food",
       "videos": [
         {
           "id": "T289",
@@ -13193,5 +13371,1043 @@
         }
       ]
     }
-  ]
+  ],
+  "reviewBaseline": {
+    "id": "phone-20261026T104127Z",
+    "exportedAt": "2026-10-26T10:41:27.195Z",
+    "videoReviews": {
+      "T059": {
+        "selection": "가고 싶음",
+        "reviewedAt": "2026-10-26T07:02:13.616Z"
+      },
+      "T187": {
+        "selection": "가고 싶음",
+        "reviewedAt": "2026-10-26T07:02:13.616Z"
+      },
+      "T274": {
+        "selection": "가고 싶음",
+        "reviewedAt": "2026-10-26T07:02:13.616Z"
+      },
+      "T003": {
+        "selection": "제외",
+        "reviewedAt": "2026-10-26T07:02:39.504Z"
+      },
+      "T008": {
+        "selection": "제외",
+        "reviewedAt": "2026-10-26T07:02:39.504Z"
+      },
+      "T120": {
+        "selection": "제외",
+        "reviewedAt": "2026-10-26T07:02:39.504Z"
+      },
+      "T196": {
+        "selection": "제외",
+        "reviewedAt": "2026-10-26T07:02:39.504Z"
+      },
+      "T004": {
+        "selection": "보류",
+        "reviewedAt": "2026-10-26T07:02:59.691Z"
+      },
+      "T005": {
+        "selection": "가고 싶음",
+        "reviewedAt": "2026-10-26T07:03:20.058Z"
+      },
+      "T017": {
+        "selection": "가고 싶음",
+        "reviewedAt": "2026-10-26T07:03:20.058Z"
+      },
+      "T046": {
+        "selection": "가고 싶음",
+        "reviewedAt": "2026-10-26T07:03:20.058Z"
+      },
+      "T054": {
+        "selection": "가고 싶음",
+        "reviewedAt": "2026-10-26T07:03:20.058Z"
+      },
+      "T110": {
+        "selection": "가고 싶음",
+        "reviewedAt": "2026-10-26T07:03:20.058Z"
+      },
+      "T158": {
+        "selection": "가고 싶음",
+        "reviewedAt": "2026-10-26T07:03:20.058Z"
+      },
+      "T181": {
+        "selection": "가고 싶음",
+        "reviewedAt": "2026-10-26T07:03:20.058Z"
+      },
+      "T191": {
+        "selection": "가고 싶음",
+        "reviewedAt": "2026-10-26T07:03:20.058Z"
+      },
+      "T193": {
+        "selection": "가고 싶음",
+        "reviewedAt": "2026-10-26T07:03:20.058Z"
+      },
+      "T208": {
+        "selection": "가고 싶음",
+        "reviewedAt": "2026-10-26T07:03:20.058Z"
+      },
+      "T231": {
+        "selection": "가고 싶음",
+        "reviewedAt": "2026-10-26T07:03:20.058Z"
+      },
+      "T248": {
+        "selection": "가고 싶음",
+        "reviewedAt": "2026-10-26T07:03:20.058Z"
+      },
+      "T271": {
+        "selection": "가고 싶음",
+        "reviewedAt": "2026-10-26T07:03:20.058Z"
+      },
+      "T007": {
+        "selection": "보류",
+        "reviewedAt": "2026-10-26T07:03:44.473Z"
+      },
+      "T011": {
+        "selection": "보류",
+        "reviewedAt": "2026-10-26T07:03:53.716Z"
+      },
+      "T014": {
+        "selection": "보류",
+        "reviewedAt": "2026-10-26T07:03:59.277Z"
+      },
+      "T015": {
+        "selection": "가고 싶음",
+        "reviewedAt": "2026-10-26T07:04:20.901Z"
+      },
+      "T063": {
+        "selection": "가고 싶음",
+        "reviewedAt": "2026-10-26T07:04:20.901Z"
+      },
+      "T016": {
+        "selection": "제외",
+        "reviewedAt": "2026-10-26T07:04:26.250Z"
+      },
+      "T018": {
+        "selection": "제외",
+        "reviewedAt": "2026-10-26T07:04:26.250Z"
+      },
+      "T019": {
+        "selection": "제외",
+        "reviewedAt": "2026-10-26T07:04:28.225Z"
+      },
+      "T044": {
+        "selection": "제외",
+        "reviewedAt": "2026-10-26T07:04:28.225Z"
+      },
+      "T226": {
+        "selection": "제외",
+        "reviewedAt": "2026-10-26T07:04:28.225Z"
+      },
+      "T020": {
+        "selection": "제외",
+        "reviewedAt": "2026-10-26T07:04:30.300Z"
+      },
+      "T021": {
+        "selection": "가고 싶음",
+        "reviewedAt": "2026-10-26T07:04:32.707Z"
+      },
+      "T022": {
+        "selection": "제외",
+        "reviewedAt": "2026-10-26T07:04:34.646Z"
+      },
+      "T024": {
+        "selection": "제외",
+        "reviewedAt": "2026-10-26T07:04:57.137Z"
+      },
+      "T057": {
+        "selection": "제외",
+        "reviewedAt": "2026-10-26T07:04:57.137Z"
+      },
+      "T025": {
+        "selection": "제외",
+        "reviewedAt": "2026-10-26T07:04:59.570Z"
+      },
+      "T095": {
+        "selection": "제외",
+        "reviewedAt": "2026-10-26T07:04:59.570Z"
+      },
+      "T189": {
+        "selection": "제외",
+        "reviewedAt": "2026-10-26T07:04:59.570Z"
+      },
+      "T026": {
+        "selection": "제외",
+        "reviewedAt": "2026-10-26T07:05:17.657Z"
+      },
+      "T038": {
+        "selection": "제외",
+        "reviewedAt": "2026-10-26T07:05:17.657Z"
+      },
+      "T027": {
+        "selection": "제외",
+        "reviewedAt": "2026-10-26T07:05:19.825Z"
+      },
+      "T029": {
+        "selection": "제외",
+        "reviewedAt": "2026-10-26T07:05:19.825Z"
+      },
+      "T028": {
+        "selection": "가고 싶음",
+        "reviewedAt": "2026-10-26T07:05:22.565Z"
+      },
+      "T031": {
+        "selection": "제외",
+        "reviewedAt": "2026-10-26T07:05:24.805Z"
+      },
+      "T122": {
+        "selection": "제외",
+        "reviewedAt": "2026-10-26T07:05:24.805Z"
+      },
+      "T032": {
+        "selection": "가고 싶음",
+        "reviewedAt": "2026-10-26T07:05:28.414Z"
+      },
+      "T064": {
+        "selection": "가고 싶음",
+        "reviewedAt": "2026-10-26T07:05:28.414Z"
+      },
+      "T135": {
+        "selection": "가고 싶음",
+        "reviewedAt": "2026-10-26T07:05:28.414Z"
+      },
+      "T220": {
+        "selection": "가고 싶음",
+        "reviewedAt": "2026-10-26T07:05:28.414Z"
+      },
+      "T255": {
+        "selection": "가고 싶음",
+        "reviewedAt": "2026-10-26T07:05:28.414Z"
+      },
+      "T265": {
+        "selection": "가고 싶음",
+        "reviewedAt": "2026-10-26T07:05:28.414Z"
+      },
+      "T033": {
+        "selection": "제외",
+        "reviewedAt": "2026-10-26T07:05:30.421Z"
+      },
+      "T034": {
+        "selection": "가고 싶음",
+        "reviewedAt": "2026-10-26T07:06:03.554Z"
+      },
+      "T036": {
+        "selection": "제외",
+        "reviewedAt": "2026-10-26T07:06:13.860Z"
+      },
+      "T049": {
+        "selection": "제외",
+        "reviewedAt": "2026-10-26T07:06:13.860Z"
+      },
+      "T052": {
+        "selection": "제외",
+        "reviewedAt": "2026-10-26T07:06:13.860Z"
+      },
+      "T058": {
+        "selection": "제외",
+        "reviewedAt": "2026-10-26T07:06:13.860Z"
+      },
+      "T244": {
+        "selection": "제외",
+        "reviewedAt": "2026-10-26T07:06:13.860Z"
+      },
+      "T037": {
+        "selection": "제외",
+        "reviewedAt": "2026-10-26T07:06:15.618Z"
+      },
+      "T040": {
+        "selection": "제외",
+        "reviewedAt": "2026-10-26T07:06:15.618Z"
+      },
+      "T127": {
+        "selection": "제외",
+        "reviewedAt": "2026-10-26T07:06:15.618Z"
+      },
+      "T129": {
+        "selection": "제외",
+        "reviewedAt": "2026-10-26T07:06:15.618Z"
+      },
+      "T172": {
+        "selection": "제외",
+        "reviewedAt": "2026-10-26T07:06:15.618Z"
+      },
+      "T041": {
+        "selection": "제외",
+        "reviewedAt": "2026-10-26T07:06:17.051Z"
+      },
+      "T164": {
+        "selection": "제외",
+        "reviewedAt": "2026-10-26T07:06:17.051Z"
+      },
+      "T219": {
+        "selection": "제외",
+        "reviewedAt": "2026-10-26T07:06:17.051Z"
+      },
+      "T223": {
+        "selection": "제외",
+        "reviewedAt": "2026-10-26T07:06:17.051Z"
+      },
+      "T042": {
+        "selection": "가고 싶음",
+        "reviewedAt": "2026-10-26T07:06:20.737Z"
+      },
+      "T066": {
+        "selection": "가고 싶음",
+        "reviewedAt": "2026-10-26T07:06:20.737Z"
+      },
+      "T141": {
+        "selection": "가고 싶음",
+        "reviewedAt": "2026-10-26T07:06:20.737Z"
+      },
+      "T190": {
+        "selection": "가고 싶음",
+        "reviewedAt": "2026-10-26T07:06:20.737Z"
+      },
+      "T045": {
+        "selection": "제외",
+        "reviewedAt": "2026-10-26T07:06:36.095Z"
+      },
+      "T047": {
+        "selection": "제외",
+        "reviewedAt": "2026-10-26T07:06:38.112Z"
+      },
+      "T048": {
+        "selection": "가고 싶음",
+        "reviewedAt": "2026-10-26T07:06:39.982Z"
+      },
+      "T051": {
+        "selection": "가고 싶음",
+        "reviewedAt": "2026-10-26T07:06:52.914Z"
+      },
+      "T053": {
+        "selection": "가고 싶음",
+        "reviewedAt": "2026-10-26T07:06:59.944Z"
+      },
+      "T055": {
+        "selection": "제외",
+        "reviewedAt": "2026-10-26T07:07:07.469Z"
+      },
+      "T056": {
+        "selection": "제외",
+        "reviewedAt": "2026-10-26T07:07:12.319Z"
+      },
+      "T060": {
+        "selection": "보류",
+        "reviewedAt": "2026-10-26T07:07:37.660Z"
+      },
+      "T081": {
+        "selection": "보류",
+        "reviewedAt": "2026-10-26T07:07:37.660Z"
+      },
+      "T062": {
+        "selection": "제외",
+        "reviewedAt": "2026-10-26T07:07:39.999Z"
+      },
+      "T124": {
+        "selection": "제외",
+        "reviewedAt": "2026-10-26T07:07:39.999Z"
+      },
+      "T144": {
+        "selection": "제외",
+        "reviewedAt": "2026-10-26T07:07:39.999Z"
+      },
+      "T065": {
+        "selection": "보류",
+        "reviewedAt": "2026-10-26T07:07:52.522Z"
+      },
+      "T067": {
+        "selection": "가고 싶음",
+        "reviewedAt": "2026-10-26T07:08:02.726Z"
+      },
+      "T068": {
+        "selection": "제외",
+        "reviewedAt": "2026-10-26T07:08:05.450Z"
+      },
+      "T069": {
+        "selection": "제외",
+        "reviewedAt": "2026-10-26T07:08:13.622Z"
+      },
+      "T070": {
+        "selection": "제외",
+        "reviewedAt": "2026-10-26T07:08:20.910Z"
+      },
+      "T071": {
+        "selection": "가고 싶음",
+        "reviewedAt": "2026-10-26T07:12:51.105Z"
+      },
+      "T247": {
+        "selection": "가고 싶음",
+        "reviewedAt": "2026-10-26T07:12:51.105Z"
+      },
+      "T073": {
+        "selection": "보류",
+        "reviewedAt": "2026-10-26T07:12:59.775Z"
+      },
+      "T146": {
+        "selection": "보류",
+        "reviewedAt": "2026-10-26T07:12:59.775Z"
+      },
+      "T206": {
+        "selection": "보류",
+        "reviewedAt": "2026-10-26T07:12:59.775Z"
+      },
+      "T074": {
+        "selection": "가고 싶음",
+        "reviewedAt": "2026-10-26T07:13:20.738Z"
+      },
+      "T209": {
+        "selection": "가고 싶음",
+        "reviewedAt": "2026-10-26T07:13:20.738Z"
+      },
+      "T075": {
+        "selection": "가고 싶음",
+        "reviewedAt": "2026-10-26T07:13:37.023Z"
+      },
+      "T162": {
+        "selection": "가고 싶음",
+        "reviewedAt": "2026-10-26T07:13:37.023Z"
+      },
+      "T235": {
+        "selection": "가고 싶음",
+        "reviewedAt": "2026-10-26T07:13:37.023Z"
+      },
+      "T076": {
+        "selection": "가고 싶음",
+        "reviewedAt": "2026-10-26T07:17:52.441Z"
+      },
+      "T078": {
+        "selection": "보류",
+        "reviewedAt": "2026-10-26T07:17:57.249Z"
+      },
+      "T079": {
+        "selection": "가고 싶음",
+        "reviewedAt": "2026-10-26T07:18:10.245Z"
+      },
+      "T082": {
+        "selection": "가고 싶음",
+        "reviewedAt": "2026-10-26T07:18:17.793Z"
+      },
+      "T083": {
+        "selection": "가고 싶음",
+        "reviewedAt": "2026-10-26T07:18:27.681Z"
+      },
+      "T084": {
+        "selection": "제외",
+        "reviewedAt": "2026-10-26T07:18:35.577Z"
+      },
+      "T179": {
+        "selection": "제외",
+        "reviewedAt": "2026-10-26T07:18:35.577Z"
+      },
+      "T085": {
+        "selection": "가고 싶음",
+        "reviewedAt": "2026-10-26T07:18:43.419Z"
+      },
+      "T086": {
+        "selection": "가고 싶음",
+        "reviewedAt": "2026-10-26T07:18:55.669Z"
+      },
+      "T087": {
+        "selection": "보류",
+        "reviewedAt": "2026-10-26T07:19:09.219Z"
+      },
+      "T089": {
+        "selection": "보류",
+        "reviewedAt": "2026-10-26T07:19:14.359Z"
+      },
+      "T091": {
+        "selection": "보류",
+        "reviewedAt": "2026-10-26T07:19:16.428Z"
+      },
+      "T092": {
+        "selection": "보류",
+        "reviewedAt": "2026-10-26T07:19:18.693Z"
+      },
+      "T093": {
+        "selection": "가고 싶음",
+        "reviewedAt": "2026-10-26T07:19:30.040Z"
+      },
+      "T107": {
+        "selection": "가고 싶음",
+        "reviewedAt": "2026-10-26T07:19:30.040Z"
+      },
+      "T094": {
+        "selection": "보류",
+        "reviewedAt": "2026-10-26T07:19:34.562Z"
+      },
+      "T096": {
+        "selection": "가고 싶음",
+        "reviewedAt": "2026-10-26T09:16:20.827Z"
+      },
+      "T097": {
+        "selection": "가고 싶음",
+        "reviewedAt": "2026-10-26T09:17:26.822Z"
+      },
+      "T099": {
+        "selection": "가고 싶음",
+        "reviewedAt": "2026-10-26T09:17:26.822Z"
+      },
+      "T151": {
+        "selection": "가고 싶음",
+        "reviewedAt": "2026-10-26T09:17:26.822Z"
+      },
+      "T098": {
+        "selection": "가고 싶음",
+        "reviewedAt": "2026-10-26T09:18:55.941Z"
+      },
+      "T180": {
+        "selection": "가고 싶음",
+        "reviewedAt": "2026-10-26T09:18:55.941Z"
+      },
+      "T186": {
+        "selection": "가고 싶음",
+        "reviewedAt": "2026-10-26T09:18:55.941Z"
+      },
+      "T260": {
+        "selection": "가고 싶음",
+        "reviewedAt": "2026-10-26T09:18:55.941Z"
+      },
+      "T100": {
+        "selection": "보류",
+        "reviewedAt": "2026-10-26T09:18:59.266Z"
+      },
+      "T101": {
+        "selection": "보류",
+        "reviewedAt": "2026-10-26T09:19:05.573Z"
+      },
+      "T102": {
+        "selection": "제외",
+        "reviewedAt": "2026-10-26T09:19:35.146Z"
+      },
+      "T116": {
+        "selection": "제외",
+        "reviewedAt": "2026-10-26T09:19:35.146Z"
+      },
+      "T201": {
+        "selection": "제외",
+        "reviewedAt": "2026-10-26T09:19:35.146Z"
+      },
+      "T286": {
+        "selection": "제외",
+        "reviewedAt": "2026-10-26T09:19:35.146Z"
+      },
+      "T103": {
+        "selection": "보류",
+        "reviewedAt": "2026-10-26T09:19:37.895Z"
+      },
+      "T104": {
+        "selection": "제외",
+        "reviewedAt": "2026-10-26T09:19:45.319Z"
+      },
+      "T105": {
+        "selection": "보류",
+        "reviewedAt": "2026-10-26T09:19:53.973Z"
+      },
+      "T106": {
+        "selection": "검토",
+        "reviewedAt": "2026-10-26T09:20:15.181Z"
+      },
+      "T108": {
+        "selection": "제외",
+        "reviewedAt": "2026-10-26T09:21:05.087Z"
+      },
+      "T150": {
+        "selection": "제외",
+        "reviewedAt": "2026-10-26T09:21:05.087Z"
+      },
+      "T109": {
+        "selection": "가고 싶음",
+        "reviewedAt": "2026-10-26T09:21:50.211Z"
+      },
+      "T119": {
+        "selection": "가고 싶음",
+        "reviewedAt": "2026-10-26T09:21:50.211Z"
+      },
+      "T184": {
+        "selection": "가고 싶음",
+        "reviewedAt": "2026-10-26T09:21:50.211Z"
+      },
+      "T210": {
+        "selection": "가고 싶음",
+        "reviewedAt": "2026-10-26T09:21:50.211Z"
+      },
+      "T111": {
+        "selection": "가고 싶음",
+        "reviewedAt": "2026-10-26T09:22:10.502Z"
+      },
+      "T112": {
+        "selection": "가고 싶음",
+        "reviewedAt": "2026-10-26T09:22:38.826Z"
+      },
+      "T113": {
+        "selection": "제외",
+        "reviewedAt": "2026-10-26T09:23:42.841Z"
+      },
+      "T199": {
+        "selection": "제외",
+        "reviewedAt": "2026-10-26T09:23:42.841Z"
+      },
+      "T228": {
+        "selection": "제외",
+        "reviewedAt": "2026-10-26T09:23:42.841Z"
+      },
+      "T114": {
+        "selection": "검토",
+        "reviewedAt": "2026-10-26T09:24:02.497Z"
+      },
+      "T115": {
+        "selection": "보류",
+        "reviewedAt": "2026-10-26T09:24:36.671Z"
+      },
+      "T117": {
+        "selection": "제외",
+        "reviewedAt": "2026-10-26T09:24:44.633Z"
+      },
+      "T118": {
+        "selection": "제외",
+        "reviewedAt": "2026-10-26T09:25:00.287Z"
+      },
+      "T121": {
+        "selection": "제외",
+        "reviewedAt": "2026-10-26T09:25:14.806Z"
+      },
+      "T123": {
+        "selection": "제외",
+        "reviewedAt": "2026-10-26T09:25:17.679Z"
+      },
+      "T125": {
+        "selection": "가고 싶음",
+        "reviewedAt": "2026-10-26T09:26:13.468Z"
+      },
+      "T229": {
+        "selection": "가고 싶음",
+        "reviewedAt": "2026-10-26T09:26:13.468Z"
+      },
+      "T128": {
+        "selection": "가고 싶음",
+        "reviewedAt": "2026-10-26T09:26:37.190Z"
+      },
+      "T130": {
+        "selection": "가고 싶음",
+        "reviewedAt": "2026-10-26T09:27:10.246Z"
+      },
+      "T278": {
+        "selection": "가고 싶음",
+        "reviewedAt": "2026-10-26T09:27:10.246Z"
+      },
+      "T131": {
+        "selection": "가고 싶음",
+        "reviewedAt": "2026-10-26T09:27:39.759Z"
+      },
+      "T132": {
+        "selection": "제외",
+        "reviewedAt": "2026-10-26T09:27:42.608Z"
+      },
+      "T133": {
+        "selection": "제외",
+        "reviewedAt": "2026-10-26T09:27:44.249Z"
+      },
+      "T272": {
+        "selection": "제외",
+        "reviewedAt": "2026-10-26T09:27:44.249Z"
+      },
+      "T134": {
+        "selection": "제외",
+        "reviewedAt": "2026-10-26T09:27:46.547Z"
+      },
+      "T136": {
+        "selection": "제외",
+        "reviewedAt": "2026-10-26T09:27:48.111Z"
+      },
+      "T137": {
+        "selection": "제외",
+        "reviewedAt": "2026-10-26T09:27:49.438Z"
+      },
+      "T138": {
+        "selection": "가고 싶음",
+        "reviewedAt": "2026-10-26T09:28:02.718Z"
+      },
+      "T139": {
+        "selection": "제외",
+        "reviewedAt": "2026-10-26T09:28:05.633Z"
+      },
+      "T140": {
+        "selection": "제외",
+        "reviewedAt": "2026-10-26T09:28:07.201Z"
+      },
+      "T143": {
+        "selection": "가고 싶음",
+        "reviewedAt": "2026-10-26T09:28:34.675Z"
+      },
+      "T197": {
+        "selection": "가고 싶음",
+        "reviewedAt": "2026-10-26T09:28:34.675Z"
+      },
+      "T203": {
+        "selection": "가고 싶음",
+        "reviewedAt": "2026-10-26T09:28:34.675Z"
+      },
+      "T145": {
+        "selection": "검토",
+        "reviewedAt": "2026-10-26T09:28:38.823Z"
+      },
+      "T147": {
+        "selection": "제외",
+        "reviewedAt": "2026-10-26T09:28:41.456Z"
+      },
+      "T148": {
+        "selection": "검토",
+        "reviewedAt": "2026-10-26T09:28:45.163Z"
+      },
+      "T149": {
+        "selection": "제외",
+        "reviewedAt": "2026-10-26T09:28:46.578Z"
+      },
+      "T218": {
+        "selection": "제외",
+        "reviewedAt": "2026-10-26T09:28:46.578Z"
+      },
+      "T152": {
+        "selection": "제외",
+        "reviewedAt": "2026-10-26T09:28:48.697Z"
+      },
+      "T198": {
+        "selection": "제외",
+        "reviewedAt": "2026-10-26T09:28:48.697Z"
+      },
+      "T153": {
+        "selection": "제외",
+        "reviewedAt": "2026-10-26T09:29:05.471Z"
+      },
+      "T154": {
+        "selection": "가고 싶음",
+        "reviewedAt": "2026-10-26T09:29:38.263Z"
+      },
+      "T155": {
+        "selection": "가고 싶음",
+        "reviewedAt": "2026-10-26T09:30:00.123Z"
+      },
+      "T156": {
+        "selection": "제외",
+        "reviewedAt": "2026-10-26T09:30:02.665Z"
+      },
+      "T159": {
+        "selection": "보류",
+        "reviewedAt": "2026-10-26T09:30:05.134Z"
+      },
+      "T160": {
+        "selection": "제외",
+        "reviewedAt": "2026-10-26T09:30:07.098Z"
+      },
+      "T161": {
+        "selection": "제외",
+        "reviewedAt": "2026-10-26T09:30:18.687Z"
+      },
+      "T163": {
+        "selection": "제외",
+        "reviewedAt": "2026-10-26T09:30:41.418Z"
+      },
+      "T165": {
+        "selection": "제외",
+        "reviewedAt": "2026-10-26T09:30:47.713Z"
+      },
+      "T166": {
+        "selection": "가고 싶음",
+        "reviewedAt": "2026-10-26T09:31:15.573Z"
+      },
+      "T195": {
+        "selection": "가고 싶음",
+        "reviewedAt": "2026-10-26T09:31:15.573Z"
+      },
+      "T254": {
+        "selection": "가고 싶음",
+        "reviewedAt": "2026-10-26T09:31:15.573Z"
+      },
+      "T167": {
+        "selection": "제외",
+        "reviewedAt": "2026-10-26T09:31:22.652Z"
+      },
+      "T168": {
+        "selection": "검토",
+        "reviewedAt": "2026-10-26T09:31:24.595Z"
+      },
+      "T169": {
+        "selection": "가고 싶음",
+        "reviewedAt": "2026-10-26T09:31:47.585Z"
+      },
+      "T250": {
+        "selection": "가고 싶음",
+        "reviewedAt": "2026-10-26T09:31:47.585Z"
+      },
+      "T170": {
+        "selection": "제외",
+        "reviewedAt": "2026-10-26T09:32:35.138Z"
+      },
+      "T171": {
+        "selection": "제외",
+        "reviewedAt": "2026-10-26T09:32:37.012Z"
+      },
+      "T173": {
+        "selection": "보류",
+        "reviewedAt": "2026-10-26T09:33:00.758Z"
+      },
+      "T238": {
+        "selection": "보류",
+        "reviewedAt": "2026-10-26T09:33:00.758Z"
+      },
+      "T175": {
+        "selection": "제외",
+        "reviewedAt": "2026-10-26T09:33:20.957Z"
+      },
+      "T177": {
+        "selection": "가고 싶음",
+        "reviewedAt": "2026-10-26T09:33:32.225Z"
+      },
+      "T262": {
+        "selection": "가고 싶음",
+        "reviewedAt": "2026-10-26T09:33:32.225Z"
+      },
+      "T178": {
+        "selection": "제외",
+        "reviewedAt": "2026-10-26T09:33:40.830Z"
+      },
+      "T182": {
+        "selection": "가고 싶음",
+        "reviewedAt": "2026-10-26T09:33:53.750Z"
+      },
+      "T183": {
+        "selection": "검토",
+        "reviewedAt": "2026-10-26T09:33:56.549Z"
+      },
+      "T185": {
+        "selection": "제외",
+        "reviewedAt": "2026-10-26T09:34:08.516Z"
+      },
+      "T188": {
+        "selection": "가고 싶음",
+        "reviewedAt": "2026-10-26T09:34:28.203Z"
+      },
+      "T192": {
+        "selection": "가고 싶음",
+        "reviewedAt": "2026-10-26T09:34:55.544Z"
+      },
+      "T224": {
+        "selection": "가고 싶음",
+        "reviewedAt": "2026-10-26T09:34:55.544Z"
+      },
+      "T194": {
+        "selection": "제외",
+        "reviewedAt": "2026-10-26T09:35:18.719Z"
+      },
+      "T246": {
+        "selection": "제외",
+        "reviewedAt": "2026-10-26T09:35:18.719Z"
+      },
+      "T200": {
+        "selection": "제외",
+        "reviewedAt": "2026-10-26T09:35:20.718Z"
+      },
+      "T202": {
+        "selection": "제외",
+        "reviewedAt": "2026-10-26T09:35:28.900Z"
+      },
+      "T204": {
+        "selection": "제외",
+        "reviewedAt": "2026-10-26T09:35:31.232Z"
+      },
+      "T205": {
+        "selection": "제외",
+        "reviewedAt": "2026-10-26T09:35:32.998Z"
+      },
+      "T207": {
+        "selection": "가고 싶음",
+        "reviewedAt": "2026-10-26T09:35:50.960Z"
+      },
+      "T211": {
+        "selection": "제외",
+        "reviewedAt": "2026-10-26T09:36:00.281Z"
+      },
+      "T212": {
+        "selection": "제외",
+        "reviewedAt": "2026-10-26T09:36:10.712Z"
+      },
+      "T213": {
+        "selection": "가고 싶음",
+        "reviewedAt": "2026-10-26T09:36:42.712Z"
+      },
+      "T214": {
+        "selection": "제외",
+        "reviewedAt": "2026-10-26T09:36:44.536Z"
+      },
+      "T215": {
+        "selection": "가고 싶음",
+        "reviewedAt": "2026-10-26T09:36:55.380Z"
+      },
+      "T216": {
+        "selection": "가고 싶음",
+        "reviewedAt": "2026-10-26T09:37:06.183Z"
+      },
+      "T287": {
+        "selection": "가고 싶음",
+        "reviewedAt": "2026-10-26T09:37:06.183Z"
+      },
+      "T217": {
+        "selection": "제외",
+        "reviewedAt": "2026-10-26T09:37:21.841Z"
+      },
+      "T222": {
+        "selection": "제외",
+        "reviewedAt": "2026-10-26T09:37:23.466Z"
+      },
+      "T225": {
+        "selection": "제외",
+        "reviewedAt": "2026-10-26T09:37:24.767Z"
+      },
+      "T230": {
+        "selection": "제외",
+        "reviewedAt": "2026-10-26T09:37:26.483Z"
+      },
+      "T232": {
+        "selection": "제외",
+        "reviewedAt": "2026-10-26T09:37:27.875Z"
+      },
+      "T233": {
+        "selection": "제외",
+        "reviewedAt": "2026-10-26T09:37:29.283Z"
+      },
+      "T234": {
+        "selection": "제외",
+        "reviewedAt": "2026-10-26T09:37:40.650Z"
+      },
+      "T236": {
+        "selection": "제외",
+        "reviewedAt": "2026-10-26T09:37:54.799Z"
+      },
+      "T237": {
+        "selection": "가고 싶음",
+        "reviewedAt": "2026-10-26T09:38:03.085Z"
+      },
+      "T256": {
+        "selection": "가고 싶음",
+        "reviewedAt": "2026-10-26T09:38:03.085Z"
+      },
+      "T239": {
+        "selection": "제외",
+        "reviewedAt": "2026-10-26T09:38:04.817Z"
+      },
+      "T240": {
+        "selection": "제외",
+        "reviewedAt": "2026-10-26T09:38:06.244Z"
+      },
+      "T242": {
+        "selection": "검토",
+        "reviewedAt": "2026-10-26T09:38:08.583Z"
+      },
+      "T243": {
+        "selection": "가고 싶음",
+        "reviewedAt": "2026-10-26T09:38:25.942Z"
+      },
+      "T249": {
+        "selection": "제외",
+        "reviewedAt": "2026-10-26T09:38:27.684Z"
+      },
+      "T251": {
+        "selection": "제외",
+        "reviewedAt": "2026-10-26T09:38:29.560Z"
+      },
+      "T252": {
+        "selection": "보류",
+        "reviewedAt": "2026-10-26T09:38:42.014Z"
+      },
+      "T257": {
+        "selection": "제외",
+        "reviewedAt": "2026-10-26T09:38:43.398Z"
+      },
+      "T258": {
+        "selection": "제외",
+        "reviewedAt": "2026-10-26T09:38:45.383Z"
+      },
+      "T259": {
+        "selection": "제외",
+        "reviewedAt": "2026-10-26T09:38:47.365Z"
+      },
+      "T261": {
+        "selection": "검토",
+        "reviewedAt": "2026-10-26T09:39:17.531Z"
+      },
+      "T263": {
+        "selection": "제외",
+        "reviewedAt": "2026-10-26T09:39:19.772Z"
+      },
+      "T266": {
+        "selection": "제외",
+        "reviewedAt": "2026-10-26T09:39:28.269Z"
+      },
+      "T268": {
+        "selection": "제외",
+        "reviewedAt": "2026-10-26T09:39:29.869Z"
+      },
+      "T269": {
+        "selection": "가고 싶음",
+        "reviewedAt": "2026-10-26T09:39:43.238Z"
+      },
+      "T270": {
+        "selection": "가고 싶음",
+        "reviewedAt": "2026-10-26T09:40:10.743Z"
+      },
+      "T273": {
+        "selection": "가고 싶음",
+        "reviewedAt": "2026-10-26T09:40:47.790Z"
+      },
+      "T275": {
+        "selection": "보류",
+        "reviewedAt": "2026-10-26T09:41:00.360Z"
+      },
+      "T276": {
+        "selection": "가고 싶음",
+        "reviewedAt": "2026-10-26T09:41:30.235Z"
+      },
+      "T277": {
+        "selection": "보류",
+        "reviewedAt": "2026-10-26T09:41:44.483Z"
+      },
+      "T279": {
+        "selection": "제외",
+        "reviewedAt": "2026-10-26T09:41:46.746Z"
+      },
+      "T280": {
+        "selection": "가고 싶음",
+        "reviewedAt": "2026-10-26T09:41:58.733Z"
+      },
+      "T281": {
+        "selection": "제외",
+        "reviewedAt": "2026-10-26T09:42:01.315Z"
+      },
+      "T282": {
+        "selection": "제외",
+        "reviewedAt": "2026-10-26T09:42:02.978Z"
+      },
+      "T283": {
+        "selection": "제외",
+        "reviewedAt": "2026-10-26T09:42:04.476Z"
+      },
+      "T284": {
+        "selection": "제외",
+        "reviewedAt": "2026-10-26T09:42:05.794Z"
+      },
+      "T285": {
+        "selection": "제외",
+        "reviewedAt": "2026-10-26T09:42:38.372Z"
+      },
+      "T288": {
+        "selection": "제외",
+        "reviewedAt": "2026-10-26T09:42:43.398Z"
+      },
+      "T289": {
+        "selection": "제외",
+        "reviewedAt": "2026-10-26T09:42:45.107Z"
+      }
+    }
+  }
 }
