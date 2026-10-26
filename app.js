@@ -200,6 +200,11 @@ function syncExploreControls(){
     state.foodScope==='hotel30'?`호텔 출발 약 30분권 · 이동·영업 안내가 있는 ${data.places.filter(p=>p.hotelFood?.travel?.within30).length}곳`:'넓게 비교하는 보기 · 장소를 선택하면 그 주변으로 좁힐 수 있습니다';
 }
 function enableMapCategory(id){if(!state.mapCategories.includes(id))state.mapCategories.push(id);if(id==='food')state.showFood=true;}
+function enableRouteCategories(){for(const p of mappedRoutePlaces())enableMapCategory(purposeCategory(p));}
+function showRouteOverview(){
+  Object.assign(state,{view:'map',foodScope:'route',anchorId:'route',centerLabel:'전체 방문권역',listTab:'route',showRoute:true,showRecommendations:false,foodQuery:''});
+  enableRouteCategories();render();updateMap(true);$('#map-pane').scrollIntoView({block:'start'});
+}
 function showCityWanted(foodOnly=false,reviewFilter='가고 싶음'){
   Object.assign(state,{view:'map',day:'all',listTab:'food',foodScope:'city',anchorId:'city',centerLabel:'도쿄 전체',reviewFilter,foodMeal:'all',foodQuery:'',showFood:true,showRoute:false,showRecommendations:false,includeUnknownHours:false,categories:['picked','unreviewed','recommended'],mapCategories:['food','bar'],foodDisplay:foodOnly?'clusters':'pins'});
   render();updateMap(true);$('#map-pane').scrollIntoView({block:'start'});
@@ -253,7 +258,7 @@ function renderStop(s){
 }
 function daySection(d){return `<section class="day-section"><div class="day-summary"><div class="route-heading"><div class="date-square"><small>${esc(d.weekday[0])}</small>${esc(d.date.split('.')[1])}</div><div><span class="eyebrow">${d.id==='fri'?'DAY 01':d.id==='sat'?'DAY 02':'DAY 03'} / ${esc(d.date)}</span><h2>${esc(d.title)}</h2></div></div><p>${esc(d.subtitle)}</p><div class="day-note">${esc(d.note)}</div></div><div class="timeline">${d.steps.map(renderStop).join('')}</div></section>`;}
 function renderToday(){
-  $('#left-pane').innerHTML=(state.day==='all'?'<div class="overview-note"><h3>전체 흐름부터 살펴보세요.</h3><p>금요일은 하라주쿠·시부야, 토요일은 숙소 주변·아키하바라·도쿄역 쇼핑 뒤 이케부쿠로 저녁 방문 가안, 일요일은 귀국 이동입니다. 식사는 후보 상태로 두었습니다.</p></div>':'')+selectedDays().map(daySection).join('<hr class="section-divider">')+
+  $('#left-pane').innerHTML=(state.day==='all'?'<div class="overview-note"><h3>전체 흐름부터 살펴보세요.</h3><p>금요일은 메가도쿄·치이카와랜드가 있는 이케부쿠로, 토요일은 아키하바라에서 니혼바시·도쿄역을 거쳐 긴자 쇼핑, 일요일은 귀국 이동입니다. 식사는 후보 상태로 두었습니다.</p></div>':'')+selectedDays().map(daySection).join('<hr class="section-divider">')+
     `<div class="overview-note"><h3>APA 우에노 히로코지 숙박 확정</h3><p>예약한 숙소를 기준으로 한 쇼핑 동선입니다. 음식점은 후보 단계이고, 원단은 현재 동선에서 제외했습니다. Break Beats 예약 결과와 PRAS 지점 재고에 따라 조정합니다.</p><button class="small-link" data-view="prepare">예약과 준비 확인하기 →</button></div>`;
 }
 function placeCard(p){return `<article class="place-card ${isDone(p.id)?'done':''}"><div class="place-card-top"><span class="area-label">${esc(p.area)} · ${esc(kinds[p.kind])}</span>${badge(p.status,tone(p))}</div><h3><button data-place="${esc(p.id)}" style="font-weight:700;text-align:left;padding:0">${esc(p.name)}</button></h3><p>${esc(p.summary)}</p><div class="place-card-bottom"><span class="card-count">${p.kind==='food'?esc(p.videoIds?.join(' · ')||''):p.day?'동선에 포함':'비교·선택 후보'}</span><button class="small-link" data-place="${esc(p.id)}">자세히 보기 ↗</button></div></article>`;}
@@ -311,7 +316,7 @@ function renderPrepare(){
     <article class="prepare-card featured">${badge('미예약 · 공개 시각 재확인','red')}<h3>Ramen Break Beats</h3><p>10.31 토요일 · 성인 1명 · 이른 점심 도전</p><div class="reserve-date">10.24 SAT / 21:00 <small>KST · JST</small></div><p>현재 공지에 따른 예약 공개 예상 시각입니다. 실제 영업·시간대는 예약 화면에서 확인합니다. 예약 결과가 토요일 동선을 결정합니다.</p>${link('https://www.tablecheck.com/ja/shops/ramenbreakbeats/reserve','TableCheck 예약 페이지 ↗','button-link')}<ul><li>예약 15분 전 도착 안내</li><li>수수료 500엔 · 전날부터 취소료 2,000엔 안내</li><li>실패 시 스즈하루 등 후보로 전환</li></ul><p>조건은 예약 시 표시되는 최신 안내를 우선합니다.</p></article>
     <article class="prepare-card">${badge('숙소 예약 완료')}<h3>APA 우에노 히로코지 기준 동선</h3><p>10.30 체크인 → 11.01 체크아웃 · 성인 1명 / 1실 / 2박. 사용자가 APA 우에노 히로코지 예약 완료를 확인했습니다. 결제 금액과 취소 조건은 예약 확인서 기준입니다.</p><div class="hotel-links">${link('https://www.apahotel.com/hotel/syutoken/tokyo/ueno-hirokoji/','APA 호텔 우에노 히로코지 ↗')}${link('https://www.booking.com/hotel/jp/apa-hotel-ueno-hirokoji.ko.html?checkin=2026-10-30&checkout=2026-11-01&group_adults=1&no_rooms=1&group_children=0&selected_currency=KRW','예약 사이트 ↗')}</div></article>
     <article class="prepare-card">${badge('약 $100 · 약간 초과 가능')}<h3>달콤한 한 병, 혹은 스모키한 한 병</h3><p>리커즈 하세가와에서 비교할 후보입니다. 아래는 10.20 웹 표시 가격(세금 포함, 700ml)이며 방문일 재고·가격은 별도입니다.</p>${data.whisky.candidates.map(w=>`<div class="whisky-row"><div><b>${link(w.url,w.name+' ↗')}</b><small>${esc(w.style)}</small></div><span>¥${w.price.toLocaleString('ja-JP')}</span></div>`).join('')}<p>두 스타일을 함께 고르면 글렌알라키 12년 + 탈리스커 10년 = 14,880엔도 비교 후보입니다. 최종 구매는 현장에서 결정합니다.</p></article>
-    <article class="prepare-card"><h3>쇼핑에서 남은 확인</h3><ul><li>PRAS: 하라주쿠 지점에서 피팅할 상품이 있는지 확인</li><li>포켓몬: 30주년·그 밖의 한정 굿즈 우선, 재고는 미확인</li><li>음식점은 후순위, 원단 매장은 현재 동선에서 제외. 기존 후보는 장소 보관함에 유지</li><li>항공편: 예상 시간 기준이며 발권 완료 여부 미확인</li></ul></article>
+    <article class="prepare-card"><h3>쇼핑에서 남은 확인</h3><ul><li>신발: RFW·SPINGLE 긴자에서 피팅할 상품 확인. PRAS 하라주쿠는 이번 동선에서 보류</li><li>포켓몬: 30주년·그 밖의 한정 굿즈 우선, 재고는 미확인</li><li>음식점은 후순위, 원단 매장은 현재 동선에서 제외. 기존 후보는 장소 보관함에 유지</li><li>항공편: 예상 시간 기준이며 발권 완료 여부 미확인</li></ul></article>
     <article class="prepare-card"><h3>내 기록 보관하기</h3><p>방문 체크·관심·메모는 이 브라우저에 저장됩니다. 다른 기기로 옮기거나 보관하려면 내보내기 파일을 사용하세요. 가져오기는 파일에 있는 같은 장소의 기록을 덮어씁니다.</p><button class="button-link" data-action="export">체크·메모 내보내기</button> <button class="button-link" data-action="import">가져오기</button></article>`;
 }
 
@@ -357,7 +362,7 @@ function updateMap(fit=true){
   $('#show-food').checked=state.showFood;$('#show-fabric').checked=state.showFabric;
   $('#food-scope').value=state.foodScope;$('#food-meal').value=state.foodMeal;
   const visible=mapPlaces(),list=foodCandidates();
-  $('#map-legend').innerHTML=Object.entries(TripMap.categories).filter(([id])=>state.mapCategories.includes(id)).map(([id,c])=>`<span><i class="purpose-legend" style="background:${c.color}">${c.icon}</i>${c.label}</span>`).join('');
+  $('#map-legend').innerHTML=Object.entries(TripMap.categories).filter(([id])=>state.mapCategories.includes(id)).map(([id,c])=>`<span><i class="purpose-legend" style="background:${c.color}">${c.icon}</i>${c.label}</span>`).join('')+(state.showRoute?selectedDays().filter(d=>d.steps.filter(s=>s.place).length>1).map(d=>`<span><i class="route-legend-line" style="--route-color:${dayColors[d.id]}"></i>${esc(d.date)} ${esc(d.weekday[0])} 참고 순서</span>`).join(''):'');
   $('#map-scope-note').textContent=state.foodDisplay==='clusters'?'食 뒤 숫자는 화면에서 가까운 맛집을 묶은 개수입니다. 원을 누르면 확대됩니다. 도보 반경이나 인구 밀도가 아닙니다.':'개별 핀: 확대 전에도 선택한 맛집의 위치를 모두 표시합니다. 같은 위치의 핀은 겹칠 수 있어 묶음 보기로도 비교할 수 있습니다.';
   const foodCount=visible.filter(p=>purposeCategory(p)==='food').length,barCount=visible.filter(p=>purposeCategory(p)==='bar').length;
   $('#food-map-count').textContent=`맛집 ${foodCount}곳 · 술집 ${barCount}곳 · 다른 방문 장소 ${visible.length-foodCount-barCount}곳`;
@@ -379,7 +384,7 @@ function updateMap(fit=true){
   }
   const hotelBars=state.foodScope==='hotel30'&&state.foodMeal==='afterDinner';
   $('#map-title').textContent=hotelBars?'호텔 근처의 술집':state.foodScope==='city'?'도쿄 전체 · '+(state.reviewFilter==='must'?'꼭 가고 싶은 맛집':state.reviewFilter==='regular'?'가고 싶은 맛집 · 일반 후보':state.reviewFilter==='가고 싶음'?'가고 싶은 맛집':'선택한 후보'):state.foodScope==='route'?'방문권역 주변에서 탐색':state.foodScope==='nearby'?state.centerLabel+' 주변':'후보를 넓게 비교하기';
-  requestAnimationFrame(()=>{const container=map.getContainer();if(!container.clientWidth||!container.clientHeight)return;map.invalidateSize();const fitPlaces=hotelBars?[places.get(data.routePlan.hotelId),...list.filter(p=>p.coords)]:visible;if(fit&&fitPlaces.length)map.fitBounds(L.latLngBounds(fitPlaces.map(p=>p.coords)),{padding:[30,30],maxZoom:hotelBars?16:14,animate:false});});
+  requestAnimationFrame(()=>{const container=map.getContainer();if(!container.clientWidth||!container.clientHeight)return;map.invalidateSize();const fitPlaces=hotelBars?[places.get(data.routePlan.hotelId),...list.filter(p=>p.coords)]:state.showRoute?mappedRoutePlaces():visible;if(fit&&fitPlaces.length)map.fitBounds(L.latLngBounds(fitPlaces.map(p=>p.coords)),{padding:[30,30],maxZoom:hotelBars?16:14,animate:false});});
 }
 function locatePlace(id){
   const p=places.get(id);if(!p?.coords)return;
@@ -452,6 +457,7 @@ document.addEventListener('click',e=>{
   switch(b.dataset.action){
     case 'close-dialog':closePlace();break;
     case 'map-fit':updateMap(true);break;
+    case 'route-overview':showRouteOverview();break;
     case 'city-wanted':showCityWanted();break;
     case 'food-distribution':showCityWanted(true);break;
     case 'search-map-center':selectFocus('map');break;
@@ -493,7 +499,7 @@ document.addEventListener('change',e=>{
   if(e.target.id==='explore-radius'){state.radiusKm=Number(e.target.value);renderExplorerResults();updateMap(false);if(state.foodScope==='nearby')fitFocus();return;}
   if(e.target.id==='show-food'){state.showFood=e.target.checked;updateMap(false);return;}
   if(e.target.id==='show-fabric'){state.showFabric=e.target.checked;updateMap(false);return;}
-  if(e.target.id==='show-route'){state.showRoute=e.target.checked;updateMap(false);return;}
+  if(e.target.id==='show-route'){state.showRoute=e.target.checked;if(state.showRoute)enableRouteCategories();renderExplorerResults();updateMap(state.showRoute);return;}
   if(e.target.id==='show-recommendations'){state.showRecommendations=e.target.checked;renderExplorerResults();updateMap(false);return;}
   if(e.target.id==='include-unknown-hours'){state.includeUnknownHours=e.target.checked;renderExplorerResults();updateMap(false);return;}
   if(e.target.dataset.foodCategory){state.categories=[...document.querySelectorAll('[data-food-category]:checked')].map(x=>x.dataset.foodCategory);renderExplorerResults();updateMap(false);return;}
@@ -522,7 +528,7 @@ $('#import-file').addEventListener('change',async e=>{
   e.target.value='';
 });
 async function start(){
-  const response=await fetch('./trip-data.json?v=20261026-megatokyo',{cache:'no-cache'});if(!response.ok)throw new Error('데이터 불러오기');
+  const response=await fetch('./trip-data.json?v=20261026-ginza-route',{cache:'no-cache'});if(!response.ok)throw new Error('데이터 불러오기');
   data=await response.json();places=new Map(data.places.map(p=>[p.id,p]));
   reviewVideoMap=new Map((data.reviewVideos||[]).map(v=>[v.id,v]));
   reviewGroups=TripReview.groups(data.reviewVideos||[],data.places);

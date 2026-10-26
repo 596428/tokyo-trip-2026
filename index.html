@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="./vendor/leaflet.css">
   <link rel="stylesheet" href="./vendor/MarkerCluster.css">
   <link rel="stylesheet" href="./vendor/maplibre-gl.css">
-  <link rel="stylesheet" href="./style.css?v=20261026-shared-reviews">
+  <link rel="stylesheet" href="./style.css?v=20261026-ginza-route">
   <script defer src="./vendor/leaflet.js"></script>
   <script defer src="./vendor/leaflet.markercluster.js"></script>
   <script defer src="./vendor/maplibre-gl.js"></script>
@@ -18,7 +18,7 @@
   <script defer src="./explore-model.js?v=20261026-shared-reviews"></script>
   <script defer src="./review-model.js?v=20261026-shared-reviews"></script>
   <script defer src="./map-model.js?v=20261026-shared-reviews"></script>
-  <script defer src="./app.js?v=20261026-megatokyo"></script>
+  <script defer src="./app.js?v=20261026-ginza-route"></script>
 </head>
 <body data-view="map">
   <a class="skip-link" href="#content">본문으로 이동</a>
@@ -50,7 +50,7 @@
         <aside id="map-pane" class="map-pane">
           <div class="map-heading"><div><span class="eyebrow">THE BIG PICTURE</span><h2 id="map-title">이번 여행의 장소들</h2></div><button class="icon-button" data-action="map-fit" aria-label="지도 전체 보기" title="지도 전체 보기">⛶</button></div>
           <div class="explore-controls">
-            <div class="map-overview-actions"><button class="button-link" data-action="city-wanted">도쿄 전체 · 가고 싶음</button><button class="button-link" data-action="city-must">꼭 가고 싶음만</button><button class="button-link" data-action="food-distribution">맛집 분포만</button></div>
+            <div class="map-overview-actions"><button class="button-link" data-action="city-wanted">도쿄 전체 · 가고 싶음</button><button class="button-link" data-action="city-must">꼭 가고 싶음만</button><button class="button-link" data-action="food-distribution">맛집 분포만</button><button class="button-link" data-action="route-overview">참고 동선 보기</button></div>
             <div id="map-categories" class="map-category-controls" role="group" aria-label="지도 장소 종류"></div>
             <label class="anchor-control" for="explore-anchor">어디를 둘러볼까요?<select id="explore-anchor"></select></label>
             <div class="explore-primary"><label>직선 반경 <select id="explore-radius" aria-label="주변 탐색 반경"><option value="0.5">500m</option><option value="1" selected>1km</option><option value="2">2km</option></select></label><button class="button-link" data-action="my-location">◎ 내 위치</button><button class="button-link mobile-list-jump" data-action="list-jump">후보 목록 ↓</button></div>
