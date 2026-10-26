@@ -379,7 +379,7 @@ function updateMap(fit=true){
   }
   const hotelBars=state.foodScope==='hotel30'&&state.foodMeal==='afterDinner';
   $('#map-title').textContent=hotelBars?'호텔 근처의 술집':state.foodScope==='city'?'도쿄 전체 · '+(state.reviewFilter==='must'?'꼭 가고 싶은 맛집':state.reviewFilter==='regular'?'가고 싶은 맛집 · 일반 후보':state.reviewFilter==='가고 싶음'?'가고 싶은 맛집':'선택한 후보'):state.foodScope==='route'?'방문권역 주변에서 탐색':state.foodScope==='nearby'?state.centerLabel+' 주변':'후보를 넓게 비교하기';
-  requestAnimationFrame(()=>{map.invalidateSize();const fitPlaces=hotelBars?[places.get(data.routePlan.hotelId),...list.filter(p=>p.coords)]:visible;if(fit&&fitPlaces.length)map.fitBounds(L.latLngBounds(fitPlaces.map(p=>p.coords)),{padding:[30,30],maxZoom:hotelBars?16:14,animate:false});});
+  requestAnimationFrame(()=>{const container=map.getContainer();if(!container.clientWidth||!container.clientHeight)return;map.invalidateSize();const fitPlaces=hotelBars?[places.get(data.routePlan.hotelId),...list.filter(p=>p.coords)]:visible;if(fit&&fitPlaces.length)map.fitBounds(L.latLngBounds(fitPlaces.map(p=>p.coords)),{padding:[30,30],maxZoom:hotelBars?16:14,animate:false});});
 }
 function locatePlace(id){
   const p=places.get(id);if(!p?.coords)return;
@@ -435,7 +435,7 @@ function exportRecords(){
 
 document.addEventListener('click',e=>{
   const b=e.target.closest('button');if(!b)return;
-  if(b.dataset.view){const sameMap=state.view==='map'&&b.dataset.view==='map';state.view=b.dataset.view;if(!sameMap)render();if(sameMap)$('#map-pane').scrollIntoView({behavior:'smooth',block:'start'});return;}
+  if(b.dataset.view){const sameMap=state.view==='map'&&b.dataset.view==='map';state.view=b.dataset.view;if(!sameMap){render();if(state.view==='map')updateMap(true);}if(sameMap)$('#map-pane').scrollIntoView({behavior:'smooth',block:'start'});return;}
   if(b.dataset.day){state.day=b.dataset.day;render();if(state.foodScope==='route')updateMap(true);return;}
   if(b.dataset.listTab){state.listTab=b.dataset.listTab;renderMapList();return;}
   if(b.dataset.foodArea){const points=foodCandidates().filter(p=>p.coords&&purposeCategory(p)==='food'&&TripMap.area(p)===b.dataset.foodArea);if(points.length){map.fitBounds(L.latLngBounds(points.map(p=>p.coords)),{padding:[35,35],maxZoom:15,animate:false});$('#map-pane').scrollIntoView({block:'start'});}return;}
