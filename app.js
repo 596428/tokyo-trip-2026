@@ -183,6 +183,7 @@ function nearbyRecommendations(){
   return TripMap.recommendations(recommendationPlaces(),state.showRecommendations).filter(p=>state.foodScope==='hotel30'?distanceKm(p.coords,places.get(data.routePlan.hotelId).coords)<=state.radiusKm:!['route','nearby'].includes(state.foodScope)||TripExplore.referenceDistance(p,context)<=state.radiusKm);
 }
 function syncExploreControls(){
+  $('[data-action="route-overview"]').disabled=false;
   const id=state.foodScope==='city'?'city':state.foodScope==='route'?'route':state.anchorId;
   $('#explore-anchor').innerHTML='<option value="city">도쿄 전체 · 반경 제한 없음</option><option value="route">전체 방문권역 · 참고 동선</option>'+`<option value="map">지도에서 선택한 지역</option>${state.userPosition?'<option value="user">내 위치</option>':''}`+
     '<optgroup label="방문할 장소">'+[...new Map(data.days.flatMap(d=>d.steps.filter(s=>s.place).map(s=>[s.place,places.get(s.place)]))).values()].map(p=>`<option value="${esc(p.id)}">${esc(p.name)}</option>`).join('')+'</optgroup><optgroup label="동선을 넓힐 후보">'+recommendationPlaces().map(p=>`<option value="${esc(p.id)}">${esc(p.name)}</option>`).join('')+'</optgroup>';
@@ -202,6 +203,7 @@ function syncExploreControls(){
 function enableMapCategory(id){if(!state.mapCategories.includes(id))state.mapCategories.push(id);if(id==='food')state.showFood=true;}
 function enableRouteCategories(){for(const p of mappedRoutePlaces())enableMapCategory(purposeCategory(p));}
 function showRouteOverview(){
+  if(!data)return;
   Object.assign(state,{view:'map',foodScope:'route',anchorId:'route',centerLabel:'전체 방문권역',listTab:'route',showRoute:true,showRecommendations:false,foodQuery:''});
   enableRouteCategories();render();updateMap(true);$('#map-pane').scrollIntoView({block:'start'});
 }

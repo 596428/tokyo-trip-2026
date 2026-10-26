@@ -522,15 +522,15 @@
       "kind": "shopping",
       "area": "긴자 6초메",
       "coords": [
-        35.6704583,
-        139.7631473
+        35.6704316,
+        139.763143
       ],
       "summary": "디자이너 패션·신발·소품 구경. 같은 코마츠 건물 동관의 유니클로와 함께 방문.",
       "address": "東京都中央区銀座6-9-5 ギンザコマツ西館",
       "url": "https://ginza.doverstreetmarket.com/",
       "status": "방문 희망",
       "day": "sat",
-      "coordinateNote": "공식 주소와 일치하는 OpenStreetMap 매장 POI. 건물 대표 위치이며 실제 출입구·실내 경로와 다를 수 있습니다.",
+      "coordinateNote": "사용자가 제공한 Google 지도 목적지 좌표. 긴자 코마츠 서관의 매장 대표 위치이며 출입구·실내 경로와 다를 수 있습니다.",
       "store": "https://ginza.doverstreetmarket.com/pages/contact",
       "buildingName": "긴자 코마츠 서관",
       "floor": "1–7F",
@@ -538,9 +538,9 @@
       "accessNote": "긴자 코마츠 서관. 유니클로 긴자점은 같은 주소의 동관이므로 건물 이름과 동·서관을 구분하세요. 둘은 가깝지만 같은 매장은 아닙니다.",
       "floorGuideUrl": "https://ginza.doverstreetmarket.com/",
       "destinationQuery": "Dover Street Market Ginza 東京都中央区銀座6-9-5 ギンザコマツ西館",
-      "coordinateSource": "https://www.openstreetmap.org/node/4618080891",
+      "coordinateSource": "https://maps.app.goo.gl/UdEsa9AyhgWYo9of8",
       "detail": "토요일 SPINGLE 긴자 다음에 남쪽으로 이동해 방문하는 패션 쇼핑 후보. 유니클로보다 한 시간 먼저 닫는 20시 마감 안내라, 두 매장을 묶을 때 이곳을 먼저 둘러보는 참고 순서입니다.",
-      "mapUrl": "https://www.google.com/maps/search/?api=1&query=Dover%20Street%20Market%20Ginza%20%E6%9D%B1%E4%BA%AC%E9%83%BD%E4%B8%AD%E5%A4%AE%E5%8C%BA%E9%8A%80%E5%BA%A76-9-5%20%E3%82%AE%E3%83%B3%E3%82%B6%E3%82%B3%E3%83%9E%E3%83%84%E8%A5%BF%E9%A4%A8",
+      "mapUrl": "https://maps.app.goo.gl/UdEsa9AyhgWYo9of8",
       "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=Dover%20Street%20Market%20Ginza%20%E6%9D%B1%E4%BA%AC%E9%83%BD%E4%B8%AD%E5%A4%AE%E5%8C%BA%E9%8A%80%E5%BA%A76-9-5%20%E3%82%AE%E3%83%B3%E3%82%B6%E3%82%B3%E3%83%9E%E3%83%84%E8%A5%BF%E9%A4%A8&travelmode=transit"
     },
     {
