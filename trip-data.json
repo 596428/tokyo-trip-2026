@@ -436,6 +436,32 @@
       "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=K-BOOKS%20%E7%A7%8B%E8%91%89%E5%8E%9F%E6%9C%AC%E9%A4%A8%20%E6%9D%B1%E4%BA%AC%E9%83%BD%E5%8D%83%E4%BB%A3%E7%94%B0%E5%8C%BA%E5%A4%96%E7%A5%9E%E7%94%B01-15-16%20%E7%A7%8B%E8%91%89%E5%8E%9F%E3%83%A9%E3%82%B8%E3%82%AA%E4%BC%9A%E9%A4%A83F&travelmode=transit"
     },
     {
+      "id": "rec-megatokyo",
+      "name": "포켓몬센터 메가도쿄",
+      "kind": "pokemon",
+      "area": "이케부쿠로·히가시이케부쿠로",
+      "coords": [
+        35.7289056,
+        139.7193245
+      ],
+      "summary": "한정 굿즈·인형과 포켓몬 카드 관련 상품 탐색. 토요일 치이카와랜드와 함께 방문.",
+      "address": "東京都豊島区東池袋3-1-2 サンシャインシティ 専門店街アルパ2F",
+      "url": "https://shop.pokemon.co.jp/ja/shop/pokemoncenter-megatokyo/",
+      "status": "방문 희망 · 토요일 이케부쿠로 구간",
+      "day": "sat",
+      "coordinateNote": "포켓몬센터 공식 매장 안내의 Google 지도 목적지 좌표. 선샤인시티 내 매장 대표 위치이며 실제 입구·층내 경로는 다를 수 있습니다.",
+      "buildingName": "선샤인시티 전문점가 알파",
+      "floor": "2F",
+      "openingNote": "통상 매일 10:00–20:00 · 10.26 공식 확인 · 방문일 입장 조건·상품 재고 미확인",
+      "accessNote": "공식 안내: 히가시이케부쿠로역 도보 약 3분, 이케부쿠로역 도보 약 8분. 건물에 도착하면 알파 2층의 포켓몬센터를 찾으세요. PARCO의 치이카와랜드까지는 건물 안 이동을 포함해 도보 약 15–20분을 계획합니다(추정, 실시간 길찾기 아님).",
+      "floorGuideUrl": "https://shop.pokemon.co.jp/ja/shop/pokemoncenter-megatokyo/",
+      "destinationQuery": "ポケモンセンターメガトウキョー 東京都豊島区東池袋3-1-2 サンシャインシティ アルパ2F",
+      "coordinateSource": "https://maps.app.goo.gl/YDLnyjy8cbp9pJge8",
+      "detail": "토요일 하세가와 다음에 이케부쿠로 권역으로 이동해 메가도쿄를 먼저, 치이카와랜드를 나중에 보는 참고 순서입니다. 메가도쿄 20시·PARCO 21시 마감 안내를 기준으로 순서를 잡았습니다. 쇼핑 45–60분과 추가 도보 등을 합쳐 기존 치이카와랜드 방문안보다 약 1–1.5시간을 더 확보하는 계획값이며 대기는 별도입니다. 정리권·식사 예약·피로에 따라 순서를 조정하세요. 카드 스테이션·Pokémon GO Lab.이 함께 있으나 카드 박스나 한정 굿즈의 구매 가능 여부는 확인되지 않았습니다.",
+      "mapUrl": "https://www.google.com/maps/search/?api=1&query=%E3%83%9D%E3%82%B1%E3%83%A2%E3%83%B3%E3%82%BB%E3%83%B3%E3%82%BF%E3%83%BC%E3%83%A1%E3%82%AC%E3%83%88%E3%82%A6%E3%82%AD%E3%83%A7%E3%83%BC%20%E6%9D%B1%E4%BA%AC%E9%83%BD%E8%B1%8A%E5%B3%B6%E5%8C%BA%E6%9D%B1%E6%B1%A0%E8%A2%8B3-1-2%20%E3%82%B5%E3%83%B3%E3%82%B7%E3%83%A3%E3%82%A4%E3%83%B3%E3%82%B7%E3%83%86%E3%82%A3%20%E3%82%A2%E3%83%AB%E3%83%912F",
+      "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=%E3%83%9D%E3%82%B1%E3%83%A2%E3%83%B3%E3%82%BB%E3%83%B3%E3%82%BF%E3%83%BC%E3%83%A1%E3%82%AC%E3%83%88%E3%82%A6%E3%82%AD%E3%83%A7%E3%83%BC%20%E6%9D%B1%E4%BA%AC%E9%83%BD%E8%B1%8A%E5%B3%B6%E5%8C%BA%E6%9D%B1%E6%B1%A0%E8%A2%8B3-1-2%20%E3%82%B5%E3%83%B3%E3%82%B7%E3%83%A3%E3%82%A4%E3%83%B3%E3%82%B7%E3%83%86%E3%82%A3%20%E3%82%A2%E3%83%AB%E3%83%912F&travelmode=transit"
+    },
+    {
       "id": "chiikawa-ikebukuro",
       "name": "치이카와랜드 이케부쿠로 PARCO · B2F",
       "kind": "shopping",
@@ -444,7 +470,7 @@
         35.7308568,
         139.7123844
       ],
-      "summary": "치이카와 공식 굿즈 쇼핑. 토요일 도쿄역 쇼핑 뒤 18–20시대 방문을 검토하는 가안.",
+      "summary": "치이카와 공식 굿즈 쇼핑. 토요일 메가도쿄 뒤에 방문하는 저녁 가안.",
       "address": "東京都豊島区南池袋1-28-2 池袋PARCO本館B2F",
       "url": "https://chiikawa-info.jp/chiikawaland/ikebukuro/index.html",
       "status": "방문 희망 · 토요일 저녁 가안",
@@ -458,7 +484,7 @@
       "store": "https://ikebukuro.parco.jp/info/",
       "destinationQuery": "ちいかわらんど 池袋パルコ店 東京都豊島区南池袋1-28-2 本館B2F",
       "coordinateSource": "https://maps.app.goo.gl/YzCvk4abz2w2bYg48",
-      "detail": "토요일 하세가와 뒤에 추가하는 저녁 가안입니다. 도쿄역→이케부쿠로는 마루노우치선 공식 표준 승차시간 16분이며, 야에스 지하상가→승강장 도보·대기·PARCO 이동을 합쳐 30–45분을 계획합니다(실시간 조회 아님). 쇼핑 45–60분과 호텔 복귀까지 전체 약 1.5–2시간 추가를 예상하며 입장 대기는 별도입니다. 방문일 정리권 조건이 있으면 이케부쿠로를 먼저 가는 순서로 조정해야 합니다. 메가도쿄는 여전히 선택 후보이며 이 일정에 자동 추가하지 않았습니다.",
+      "detail": "토요일 이케부쿠로 구간에서 메가도쿄 다음에 방문하는 가안입니다. 메가도쿄는 20시, PARCO는 21시 영업 종료 안내라 이 순서로 묶었습니다. 선샤인시티 알파에서 PARCO까지는 건물 안 이동을 포함해 도보 약 15–20분을 계획합니다(추정). 입장 정리권이 있으면 지정 시간에 맞춰 순서를 바꿔야 하며, 저녁 입장이나 상품 재고는 보장되지 않습니다.",
       "mapUrl": "https://www.google.com/maps/search/?api=1&query=%E3%81%A1%E3%81%84%E3%81%8B%E3%82%8F%E3%82%89%E3%82%93%E3%81%A9%20%E6%B1%A0%E8%A2%8B%E3%83%91%E3%83%AB%E3%82%B3%E5%BA%97%20%E6%9D%B1%E4%BA%AC%E9%83%BD%E8%B1%8A%E5%B3%B6%E5%8C%BA%E5%8D%97%E6%B1%A0%E8%A2%8B1-28-2%20%E6%9C%AC%E9%A4%A8B2F",
       "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=%E3%81%A1%E3%81%84%E3%81%8B%E3%82%8F%E3%82%89%E3%82%93%E3%81%A9%20%E6%B1%A0%E8%A2%8B%E3%83%91%E3%83%AB%E3%82%B3%E5%BA%97%20%E6%9D%B1%E4%BA%AC%E9%83%BD%E8%B1%8A%E5%B3%B6%E5%8C%BA%E5%8D%97%E6%B1%A0%E8%A2%8B1-28-2%20%E6%9C%AC%E9%A4%A8B2F&travelmode=transit"
     },
@@ -8414,26 +8440,6 @@
       "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=%E6%9D%B1%E4%BA%AC%E9%83%BD%E5%8F%B0%E6%9D%B1%E5%8C%BA%E8%A5%BF%E6%B5%85%E8%8D%893-8-4&travelmode=transit"
     },
     {
-      "id": "rec-megatokyo",
-      "name": "포켓몬센터 메가도쿄",
-      "kind": "pokemon",
-      "area": "이케부쿠로",
-      "coords": [
-        35.727776,
-        139.720123
-      ],
-      "address": "東京都豊島区東池袋3-1-2",
-      "url": "https://shop.pokemon.co.jp/ja/shop/pokemoncenter-megatokyo/",
-      "summary": "피카츄 스위츠·카드 스테이션과 함께 볼 수 있는 포켓몬 추가 후보.",
-      "detail": "공식 통상 10–20시. 기존 방문 지역에서 떨어져 있어 별도 시간을 잡거나 기존 센터와 교체하는 후보입니다. 여행일 한정 상품 재고·입장 조건은 확인되지 않았습니다.",
-      "status": "추가 추천 · 선택 방문",
-      "exploreRecommended": true,
-      "coordinateSource": "https://msearch.gsi.go.jp/address-search/AddressSearch?q=%E6%9D%B1%E4%BA%AC%E9%83%BD%E8%B1%8A%E5%B3%B6%E5%8C%BA%E6%9D%B1%E6%B1%A0%E8%A2%8B3-1-2",
-      "coordinateNote": "공식 안내 주소의 대표 위치. 구역·시설 내 개별 매장 입구는 Google 지도에서 확인.",
-      "mapUrl": "https://www.google.com/maps/search/?api=1&query=%E6%9D%B1%E4%BA%AC%E9%83%BD%E8%B1%8A%E5%B3%B6%E5%8C%BA%E6%9D%B1%E6%B1%A0%E8%A2%8B3-1-2",
-      "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=%E6%9D%B1%E4%BA%AC%E9%83%BD%E8%B1%8A%E5%B3%B6%E5%8C%BA%E6%9D%B1%E6%B1%A0%E8%A2%8B3-1-2&travelmode=transit"
-    },
-    {
       "id": "food-hotel-coffeekan",
       "name": "珈琲館 · 코코네 우에노오카치마치점",
       "kind": "food",
@@ -8981,7 +8987,7 @@
     "selected": 16
   },
   "routePlan": {
-    "asOf": "2026-10-25",
+    "asOf": "2026-10-26",
     "title": "APA 우에노 히로코지 숙박 확정",
     "hotelId": "hotel-apa",
     "reservationConfirmed": true,
@@ -13300,8 +13306,8 @@
       "date": "10.31",
       "weekday": "토요일",
       "title": "숙소 주변 쇼핑 · 도쿄역 · 이케부쿠로",
-      "subtitle": "호텔 → RFW → 2k540 → 카드숍 → K-BOOKS → TOKYO DX → 하세가와 → 치이카와랜드(저녁 가안) → 호텔",
-      "note": "방문 희망 장소를 잇는 참고 순서입니다. 치이카와랜드는 18–20시대 방문 가안이며 여행일 정리권·입장 마감은 미확인입니다. 정리권 시간이 생기거나 Break Beats 예약이 확정되면 순서를 다시 조정합니다. 식사·혼잡·재고에 따라 방문 수를 줄일 수 있습니다.",
+      "subtitle": "호텔 → RFW → 2k540 → 카드숍 → K-BOOKS → TOKYO DX → 하세가와 → 메가도쿄 → 치이카와랜드 → 호텔",
+      "note": "방문 희망 장소를 잇는 유동적인 참고 순서입니다. 이케부쿠로에서는 20시에 닫는 메가도쿄를 먼저, 21시에 닫는 PARCO 치이카와랜드를 다음에 보는 안입니다. 영업 종료 전에 쇼핑 시간을 확보하고 정리권·식사 예약·혼잡·피로에 따라 방문 순서나 수를 조정합니다. 입장 조건과 한정 상품 재고는 미확인입니다.",
       "steps": [
         {
           "time": "오전",
@@ -13336,12 +13342,17 @@
         {
           "time": "늦은 오후",
           "place": "hasegawa",
-          "note": "⑥ 도쿄역 야에스 지하상가에서 위스키 비교. 이케부쿠로 저녁 방문을 위해 쇼핑 종료 시각에 여유를 둡니다. 도쿄역 포켓몬스토어는 선택 방문."
+          "note": "⑥ 도쿄역 야에스 지하상가에서 위스키 비교. 메가도쿄 20시 마감 전에 충분한 쇼핑 시간이 남도록 이케부쿠로 이동을 시작합니다. 도쿄역 포켓몬스토어는 선택 방문."
         },
         {
-          "time": "18–20시대 가안",
+          "time": "이케부쿠로 · 20시 전",
+          "place": "rec-megatokyo",
+          "note": "⑦ 선샤인시티 알파 2층에서 한정 굿즈·인형·카드 관련 상품 탐색. 쇼핑 45–60분 가안, 대기는 별도."
+        },
+        {
+          "time": "메가도쿄 뒤 · 21시 전",
           "place": "chiikawa-ikebukuro",
-          "note": "⑦ 도쿄역 쇼핑 후 이케부쿠로 PARCO 본관 B2층. 21시 영업 종료 안내. 정리권·입장 마감은 별도 확인, 저녁 입장이 보장되지는 않습니다."
+          "note": "⑧ 선샤인시티에서 PARCO 본관 B2층으로 이동. 도보 약 15–20분 계획값. 정리권·입장 마감은 별도 확인, 저녁 입장은 보장되지 않습니다."
         },
         {
           "time": "쇼핑 후",

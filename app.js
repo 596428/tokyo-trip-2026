@@ -522,7 +522,7 @@ $('#import-file').addEventListener('change',async e=>{
   e.target.value='';
 });
 async function start(){
-  const response=await fetch('./trip-data.json?v=20261026-shared-reviews',{cache:'no-cache'});if(!response.ok)throw new Error('데이터 불러오기');
+  const response=await fetch('./trip-data.json?v=20261026-megatokyo',{cache:'no-cache'});if(!response.ok)throw new Error('데이터 불러오기');
   data=await response.json();places=new Map(data.places.map(p=>[p.id,p]));
   reviewVideoMap=new Map((data.reviewVideos||[]).map(v=>[v.id,v]));
   reviewGroups=TripReview.groups(data.reviewVideos||[],data.places);
