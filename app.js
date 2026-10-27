@@ -323,6 +323,7 @@ function transportGuideHtml(){
   const search=q=>link('https://www.google.com/search?q='+encodeURIComponent(q),q+' 검색 ↗','transport-search');
   return `<section class="transport-guide" aria-labelledby="transport-heading">
     <div class="transport-heading"><span class="eyebrow">GETTING AROUND</span><h3 id="transport-heading">교통 · 이것만 보고 출발</h3><p>시내는 Suica, 공항 왕복은 스카이라이너 별도 표. 2026.10.27 공식 안내 확인.</p></div>
+    <article class="prepare-card transport-card">${badge('도시락유심 · 예약 완료')}<h3>출국 전 유심 수령</h3><p>10.30 금요일 · <b>인천공항 제2여객터미널 1층 3번 출구 옆</b></p><p>와이파이도시락 로밍센터에서 수령한 뒤 3층 출발층으로 이동하세요. 출국심사 전에 수령합니다.</p></article>
     <article class="prepare-card transport-card">${badge('시내 이동 · 실물 카드 기준')}<h3>① Welcome Suica · 웰컴 스이카</h3>
       <ol><li><b>구매:</b> 나리타 제1터미널 지하 1층의 <b>JR 쪽</b> Welcome Suica 전용 발매기 또는 JR EAST 여행 서비스 센터. 스카이라이너를 사는 게이세이 창구와 별도입니다.</li><li><b>금액:</b> 우선 <b>2,000엔</b> 충전을 제안합니다. 부족할 때 추가하고, 충전용 엔화 현금을 준비하세요.</li><li><b>사용:</b> 전철·지하철은 들어갈 때와 나올 때 같은 카드를 터치. 버스는 차량의 IC 안내에 따라 터치합니다. Google 지도에서 목적지·대중교통을 검색하세요.</li></ol>
       <p class="transport-caution">충전은 역 충전기·편의점·세븐은행 ATM에서 <b>엔화 현금</b>으로. 보증금 없이 28일 사용하며 <b>남은 잔액은 환불되지 않습니다.</b> 귀국 전 편의점 등에서 사용하세요. 구입 시 참조서도 보관합니다.</p>
