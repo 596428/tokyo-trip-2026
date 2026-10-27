@@ -9876,6 +9876,156 @@
       },
       "mapUrl": "https://www.google.com/maps/search/?api=1&query=%E6%9D%B1%E4%BA%AC%E9%83%BD%E5%8F%B0%E6%9D%B1%E5%8C%BA%E4%B8%8A%E9%87%8E1-17-5",
       "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=%E6%9D%B1%E4%BA%AC%E9%83%BD%E5%8F%B0%E6%9D%B1%E5%8C%BA%E4%B8%8A%E9%87%8E1-17-5&travelmode=transit"
+    },
+    {
+      "id": "food-yang-ikebukuro",
+      "name": "양(楊) 2호점 · 이케부쿠로",
+      "kind": "food",
+      "area": "이케부쿠로·서쪽 출구",
+      "address": "東京都豊島区西池袋3-25-5 高柳ビル1F",
+      "url": "https://tabelog.com/tokyo/A1305/A130501/13009261/",
+      "coords": [
+        35.730042,
+        139.707169
+      ],
+      "summary": "국물 없는 탄탄면 1,000엔 · 군만두 800엔 · 물만두 700엔. 고독한 미식가 시즌1 3화에 등장한 매장.",
+      "status": "친구 추천 · 금요일 저녁 후보",
+      "day": "fri",
+      "selected": true,
+      "manualSelection": "가고 싶음",
+      "sourceType": "hotel-research",
+      "videoIds": [],
+      "videos": [],
+      "compilationMention": false,
+      "mapCategory": "food",
+      "destinationQuery": "양(楊) 2호점 · 이케부쿠로 東京都豊島区西池袋3-25-5 高柳ビル1F",
+      "coordinateSource": "https://msearch.gsi.go.jp/address-search/AddressSearch?q=%E6%9D%B1%E4%BA%AC%E9%83%BD%E8%B1%8A%E5%B3%B6%E5%8C%BA%E8%A5%BF%E6%B1%A0%E8%A2%8B3-25-5",
+      "locationPrecision": "address",
+      "coordinateNote": "매장 안내 주소를 국토지리원 주소 검색으로 표시한 건물 대표 위치입니다. 실제 출입구·실내 매장 위치는 다를 수 있습니다.",
+      "hotelFood": {
+        "checkedAt": "2026-10-27",
+        "meals": [
+          "lunch",
+          "dinner",
+          "drinks"
+        ],
+        "mealsByDay": {
+          "fri": [
+            "lunch",
+            "dinner",
+            "drinks"
+          ],
+          "sat": [
+            "lunch",
+            "dinner",
+            "drinks"
+          ],
+          "sun": [
+            "lunch",
+            "dinner",
+            "drinks"
+          ]
+        },
+        "menu": "국물 없는 탄탄면 1,000엔 · 군만두 800엔 · 물만두 700엔. 고독한 미식가 시즌1 3화에 등장한 매장.",
+        "hours": {
+          "fri": "11:30–15:00(LO14:30) / 17:00–22:30(LO22:00) · 저녁 시작 시각 주의",
+          "sat": "11:30–22:30(LO22:00)",
+          "sun": "11:30–22:30(LO22:00)"
+        },
+        "hoursEvidence": "매장 게시 안내 · 영업 시작 시각 상충",
+        "note": "사용자가 친구 추천 매장과 꼭 가고 싶음 등록을 확인했습니다. 현재 매장 게시명은 中国家庭料理 池袋楊이며 예전 楊2号店과 같은 주소입니다. 같은 건물 지하의 和酒酔処わく와 구분하세요. 금요일 쇼핑 후 저녁 후보이며 고정 예약·방문 시각은 없습니다. 매장 게시 Tabelog은 평일 저녁 17시 시작·22:30 종료, Hotpepper는 17:30 시작·23시 종료로 달라 방문일 확인이 필요합니다. 매장 안내상 저녁 예약은 3명 이상, 탄탄면만 주문하는 경우 예약 사양. 혼자 방문은 현장 입장 기준. 2026.09 평일18시대 거의 만석·잠시 대기 후 합석한 사례가 있으나 실제 대기 예측은 아닙니다. 현금 결제·저녁 오토시200엔 안내. 메뉴 가격은 2026.07.26 게시 기준.",
+        "sources": [
+          {
+            "label": "매장 게시 위치·예약·영업 안내",
+            "url": "https://tabelog.com/tokyo/A1305/A130501/13009261/"
+          },
+          {
+            "label": "매장 메뉴·가격",
+            "url": "https://tabelog.com/tokyo/A1305/A130501/13009261/dtlmenu/"
+          },
+          {
+            "label": "TV도쿄 · 고독한 미식가 시즌1 3화",
+            "url": "https://www.tv-tokyo.co.jp/kodokunogurume1/story/chapter3.html"
+          },
+          {
+            "label": "영업시간 상충 · Hotpepper",
+            "url": "https://www.hotpepper.jp/strJ000234198/"
+          }
+        ]
+      },
+      "mapUrl": "https://www.google.com/maps/search/?api=1&query=%EC%96%91%28%E6%A5%8A%29%202%ED%98%B8%EC%A0%90%20%C2%B7%20%EC%9D%B4%EC%BC%80%EB%B6%80%EC%BF%A0%EB%A1%9C%20%E6%9D%B1%E4%BA%AC%E9%83%BD%E8%B1%8A%E5%B3%B6%E5%8C%BA%E8%A5%BF%E6%B1%A0%E8%A2%8B3-25-5%20%E9%AB%98%E6%9F%B3%E3%83%93%E3%83%AB1F",
+      "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=%EC%96%91%28%E6%A5%8A%29%202%ED%98%B8%EC%A0%90%20%C2%B7%20%EC%9D%B4%EC%BC%80%EB%B6%80%EC%BF%A0%EB%A1%9C%20%E6%9D%B1%E4%BA%AC%E9%83%BD%E8%B1%8A%E5%B3%B6%E5%8C%BA%E8%A5%BF%E6%B1%A0%E8%A2%8B3-25-5%20%E9%AB%98%E6%9F%B3%E3%83%93%E3%83%AB1F&travelmode=transit"
+    },
+    {
+      "id": "food-ayu-toranomon",
+      "name": "아유 라멘 플러스 · 鮎ラーメン＋ 도라노몬 3F",
+      "kind": "food",
+      "area": "도라노몬·미나토구",
+      "address": "東京都港区虎ノ門1-17-1 虎ノ門ヒルズ ビジネスタワー3F 虎ノ門横丁",
+      "url": "https://www.toranomonhills.com/toranomonyokocho/1022.html",
+      "coords": [
+        35.667774,
+        139.749924
+      ],
+      "summary": "은어 한 마리를 통째로 올린 라멘 1,500엔. 은어 육수의 맑은 라멘 · 굴 요리·술안주도 취급.",
+      "status": "방문 후보 · 은어라멘",
+      "day": null,
+      "selected": true,
+      "manualSelection": "가고 싶음",
+      "sourceType": "hotel-research",
+      "videoIds": [],
+      "videos": [],
+      "compilationMention": false,
+      "mapCategory": "food",
+      "destinationQuery": "아유 라멘 플러스 · 鮎ラーメン＋ 도라노몬 3F 東京都港区虎ノ門1-17-1 虎ノ門ヒルズ ビジネスタワー3F 虎ノ門横丁",
+      "coordinateSource": "https://msearch.gsi.go.jp/address-search/AddressSearch?q=%E6%9D%B1%E4%BA%AC%E9%83%BD%E6%B8%AF%E5%8C%BA%E8%99%8E%E3%83%8E%E9%96%801-17-1",
+      "locationPrecision": "address",
+      "coordinateNote": "매장 안내 주소를 국토지리원 주소 검색으로 표시한 건물 대표 위치입니다. 실제 출입구·실내 매장 위치는 다를 수 있습니다.",
+      "hotelFood": {
+        "checkedAt": "2026-10-27",
+        "meals": [
+          "lunch",
+          "dinner",
+          "drinks"
+        ],
+        "mealsByDay": {
+          "fri": [
+            "lunch",
+            "dinner",
+            "drinks"
+          ],
+          "sat": [
+            "lunch",
+            "dinner",
+            "drinks"
+          ],
+          "sun": [
+            "lunch",
+            "dinner",
+            "drinks"
+          ]
+        },
+        "menu": "은어 한 마리를 통째로 올린 라멘 1,500엔. 은어 육수의 맑은 라멘 · 굴 요리·술안주도 취급.",
+        "hours": {
+          "fri": "11:30–15:00(LO14:30) / 17:00–22:30(LO22:00)",
+          "sat": "11:30–15:00(LO14:30) / 17:00–22:30(LO22:00)",
+          "sun": "11:30–21:00(LO20:00)"
+        },
+        "hoursEvidence": "매장·공식 시설 안내",
+        "note": "도쿄 미나토구(港区)의 은어라멘 매장. 도라노몬 힐즈 비즈니스타워3층 도라노몬 요코초 안이며, 세타가야구의 후타코타마가와 본점과 다릅니다. 2026.10.21 갱신 매장 게시 메뉴에서 鮎丸ごとラーメン1500엔 확인. 여름 점심에는 냉츠케멘 안내가 있으므로 방문일 메뉴는 현장 확인. 영업시간은 최신 공식 시설 안내를 우선하며 타베로그의 토요일 통상영업 표기와 다르게 금·토15–17시 휴식이 있습니다. 긴자 쇼핑에서 확장할 수 있는 별도 식사 후보이며 날짜·고정 동선에는 추가하지 않았습니다. 굴 라멘·안주·일본주도 있지만 지도 분류는 식사 목적의 맛집으로 등록합니다.",
+        "sources": [
+          {
+            "label": "공식 시설 · 위치·층수·영업시간",
+            "url": "https://www.toranomonhills.com/toranomonyokocho/1022.html"
+          },
+          {
+            "label": "매장 게시 메뉴 · 2026.10.21 갱신",
+            "url": "https://tabelog.com/tokyo/A1308/A130802/13247665/dtlmenu/"
+          }
+        ]
+      },
+      "mapUrl": "https://www.google.com/maps/search/?api=1&query=%EC%95%84%EC%9C%A0%20%EB%9D%BC%EB%A9%98%20%ED%94%8C%EB%9F%AC%EC%8A%A4%20%C2%B7%20%E9%AE%8E%E3%83%A9%E3%83%BC%E3%83%A1%E3%83%B3%EF%BC%8B%20%EB%8F%84%EB%9D%BC%EB%85%B8%EB%AA%AC%203F%20%E6%9D%B1%E4%BA%AC%E9%83%BD%E6%B8%AF%E5%8C%BA%E8%99%8E%E3%83%8E%E9%96%801-17-1%20%E8%99%8E%E3%83%8E%E9%96%80%E3%83%92%E3%83%AB%E3%82%BA%20%E3%83%93%E3%82%B8%E3%83%8D%E3%82%B9%E3%82%BF%E3%83%AF%E3%83%BC3F%20%E8%99%8E%E3%83%8E%E9%96%80%E6%A8%AA%E4%B8%81",
+      "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=%EC%95%84%EC%9C%A0%20%EB%9D%BC%EB%A9%98%20%ED%94%8C%EB%9F%AC%EC%8A%A4%20%C2%B7%20%E9%AE%8E%E3%83%A9%E3%83%BC%E3%83%A1%E3%83%B3%EF%BC%8B%20%EB%8F%84%EB%9D%BC%EB%85%B8%EB%AA%AC%203F%20%E6%9D%B1%E4%BA%AC%E9%83%BD%E6%B8%AF%E5%8C%BA%E8%99%8E%E3%83%8E%E9%96%801-17-1%20%E8%99%8E%E3%83%8E%E9%96%80%E3%83%92%E3%83%AB%E3%82%BA%20%E3%83%93%E3%82%B8%E3%83%8D%E3%82%B9%E3%82%BF%E3%83%AF%E3%83%BC3F%20%E8%99%8E%E3%83%8E%E9%96%80%E6%A8%AA%E4%B8%81&travelmode=transit"
     }
   ],
   "hotelFood": {
@@ -9952,9 +10102,9 @@
     ]
   },
   "foodCoverage": {
-    "total": 184,
-    "mapped": 178,
-    "selected": 19
+    "total": 186,
+    "mapped": 180,
+    "selected": 21
   },
   "routePlan": {
     "asOf": "2026-10-27",
@@ -14403,6 +14553,16 @@
       ]
     }
   ],
+  "manualPlacePreferences": {
+    "id": "manual-food-20261027-yang",
+    "exportedAt": "2026-10-27T03:32:08Z",
+    "recordPreferences": {
+      "food-yang-ikebukuro": {
+        "priority": "must",
+        "mapCategory": "food"
+      }
+    }
+  },
   "reviewBaseline": {
     "id": "phone-20261027T010301Z",
     "exportedAt": "2026-10-27T01:03:01.268Z",

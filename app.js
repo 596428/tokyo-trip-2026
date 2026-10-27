@@ -542,11 +542,11 @@ $('#import-file').addEventListener('change',async e=>{
   e.target.value='';
 });
 async function start(){
-  const response=await fetch('./trip-data.json?v=20261027-morning-1',{cache:'no-cache'});if(!response.ok)throw new Error('데이터 불러오기');
+  const response=await fetch('./trip-data.json?v=20261027-extra-food-1',{cache:'no-cache'});if(!response.ok)throw new Error('데이터 불러오기');
   data=await response.json();places=new Map(data.places.map(p=>[p.id,p]));
   reviewVideoMap=new Map((data.reviewVideos||[]).map(v=>[v.id,v]));
   reviewGroups=TripReview.groups(data.reviewVideos||[],data.places);
-  state.center=places.get(data.routePlan.hotelId).coords;loadRecords();records=TripExplore.mergePreferenceBaseline(data.reviewBaseline||{},records);loadVideoReviews();applyReviewSelections();initMap();render();renderProgress();updateMap(true);
+  state.center=places.get(data.routePlan.hotelId).coords;loadRecords();records=TripExplore.mergePreferenceBaseline(data.reviewBaseline||{},records);records=TripExplore.mergePreferenceBaseline(data.manualPlacePreferences||{},records);loadVideoReviews();applyReviewSelections();initMap();render();renderProgress();updateMap(true);
   if(places.has(history.state?.[DIALOG_HISTORY_KEY]))openPlace(history.state[DIALOG_HISTORY_KEY],false);
 }
 start().catch(()=>message('여행 정보를 불러오지 못했습니다. 페이지를 새로고침해 주세요.'));
