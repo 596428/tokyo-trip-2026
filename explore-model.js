@@ -50,9 +50,23 @@
   }
   function normalizeRecord(r){
     const clean={done:r?.done===true,interested:r?.interested===true,note:typeof r?.note==='string'?r.note.slice(0,4000):''};
-    if(r?.priority==='must')clean.priority='must';
+    if(['must','normal'].includes(r?.priority))clean.priority=r.priority;
     if(['food','bar'].includes(r?.mapCategory))clean.mapCategory=r.mapCategory;
+    if(typeof r?.preferenceUpdatedAt==='string'&&Number.isFinite(Date.parse(r.preferenceUpdatedAt)))clean.preferenceUpdatedAt=r.preferenceUpdatedAt;
     return clean;
   }
-  return {distanceKm,nearest,category,mealMatch,referenceDistance,candidates,normalizeRecord,isMust,reviewMatch};
+  function mergePreferenceBaseline(baseline,local){
+    const merged={...local},stamp=baseline?.exportedAt;
+    if(!stamp||!Number.isFinite(Date.parse(stamp)))return merged;
+    for(const [id,pref] of Object.entries(baseline.recordPreferences||{})){
+      const saved=local[id]||{};
+      if((Date.parse(saved.preferenceUpdatedAt)||0)>=Date.parse(stamp))continue;
+      const next={...saved,priority:pref.priority==='must'?'must':'normal',preferenceUpdatedAt:stamp};
+      if(['food','bar'].includes(pref.mapCategory))next.mapCategory=pref.mapCategory;
+      else delete next.mapCategory;
+      merged[id]=normalizeRecord(next);
+    }
+    return merged;
+  }
+  return {distanceKm,nearest,category,mealMatch,referenceDistance,candidates,normalizeRecord,isMust,reviewMatch,mergePreferenceBaseline};
 });

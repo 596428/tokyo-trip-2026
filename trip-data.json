@@ -917,6 +917,24 @@
       "detail": "메뉴·가격·영업시간은 영상 고정댓글 기준이며 현재 영업 정보는 미검증입니다. 식사 시간에는 아직 배정하지 않았습니다.",
       "locationPrecision": "address",
       "coordinateSource": "https://msearch.gsi.go.jp/address-search/AddressSearch?q=%E6%9D%B1%E4%BA%AC%E9%83%BD%E6%AD%A6%E8%94%B5%E9%87%8E%E5%B8%82%E8%A5%BF%E4%B9%85%E4%BF%9D2-21-3",
+      "diningResearch": {
+        "id": "food-G006",
+        "checkedAt": "2026-10-27",
+        "hours": "토 11:30–15:00 / 18:00–20:30 · 수 휴무",
+        "hoursEvidence": "외부 식당 정보 · 공식 SNS 재확인",
+        "queue": "대기 정보 미확인",
+        "queueNote": "",
+        "saturdayFit": "outside",
+        "arrival": "",
+        "caution": "기존 핀은 이전 주소(西久保2-21-3). 이전 보도와 현재 점포 정보가 달라 방문 전 새 주소 확인 필수. 현재 동선에서 멀어 토요일 오전은 비추천.",
+        "closed": false,
+        "sources": [
+          {
+            "label": "외부 식당 정보 · 공식 SNS 재확인",
+            "url": "https://tabelog.com/tokyo/A1320/A132002/13313947/"
+          }
+        ]
+      },
       "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=2%20Chome-21-3%20Nishikubo%2C%20Musashino%2C%20Tokyo&travelmode=transit"
     },
     {
@@ -996,6 +1014,24 @@
       "detail": "메뉴·가격·영업시간은 영상 고정댓글 기준이며 현재 영업 정보는 미검증입니다. 식사 시간에는 아직 배정하지 않았습니다.",
       "locationPrecision": "address",
       "coordinateSource": "https://msearch.gsi.go.jp/address-search/AddressSearch?q=%E6%9D%B1%E4%BA%AC%E9%83%BD%E4%B8%AD%E5%A4%AE%E5%8C%BA%E9%8A%80%E5%BA%A72-14-17",
+      "diningResearch": {
+        "id": "food-G008",
+        "checkedAt": "2026-10-27",
+        "hours": "09:00–20:00 · LO 20:00 · 부정기 휴무",
+        "hoursEvidence": "운영사 확인을 거친 현장 취재",
+        "queue": "수량 제한 주의",
+        "queueNote": "1일 100식 한정 안내. 긴 대기의 정량 자료는 확인하지 못함.",
+        "saturdayFit": "breakfast",
+        "arrival": "09:00 전후 아침 식사 후보",
+        "caution": "늦은 점심보다 아침 방문이 수량 확보에 유리하다는 판단. 당일 판매 상황은 미확인.",
+        "closed": false,
+        "sources": [
+          {
+            "label": "운영사 확인을 거친 현장 취재",
+            "url": "https://www.enjoytokyo.jp/spot/l_20125590/"
+          }
+        ]
+      },
       "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=Tokyo%2C%20Chuo%20City%2C%20Ginza%202-14-17%20Dai%202%20Watanabe%20Bld.%201F&travelmode=transit"
     },
     {
@@ -1046,6 +1082,24 @@
       "detail": "메뉴·가격·영업시간은 영상 고정댓글 기준이며 현재 영업 정보는 미검증입니다. 식사 시간에는 아직 배정하지 않았습니다.",
       "locationPrecision": "block",
       "coordinateSource": "https://msearch.gsi.go.jp/address-search/AddressSearch?q=%E6%9D%B1%E4%BA%AC%E9%83%BD%E6%B8%AF%E5%8C%BA%E8%99%8E%E3%83%8E%E9%96%802-6-2",
+      "diningResearch": {
+        "id": "food-G009",
+        "checkedAt": "2026-10-27",
+        "hours": "11:00 개점 · 판매 20:00까지 / 식사 마감은 공식 간 상충",
+        "hoursEvidence": "공식·시설 안내",
+        "queue": "대기 정보 미확인",
+        "queueNote": "",
+        "saturdayFit": "outside",
+        "arrival": "",
+        "caution": "시설은 식사 22:00(LO21:00), 매장 사이트는 토 23:00(LO22:30)로 안내. 폐점 시간 재확인. 긴자 남서쪽 추가 이동.",
+        "closed": false,
+        "sources": [
+          {
+            "label": "공식·시설 안내",
+            "url": "https://www.toranomonhills.com/gourmet_shops/3607.html"
+          }
+        ]
+      },
       "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=Tokyo%2C%20Minato%20City%2C%20Toranomon%2C%202%20Chome%E2%88%926%E2%88%922%20Toranomon%20Hills%20Station%20Tower%20B2&travelmode=transit"
     },
     {
@@ -1170,6 +1224,24 @@
       "addressSource": "https://sweetcheck-cafe.com/ja",
       "locationPrecision": "poi",
       "coordinateSource": "https://www.openstreetmap.org/node/13665409749",
+      "diningResearch": {
+        "id": "food-G011",
+        "checkedAt": "2026-10-27",
+        "hours": "11:00–20:00 · 공식 LO 20:00",
+        "hoursEvidence": "공식·시설 안내",
+        "queue": "대기 정보 미확인",
+        "queueNote": "",
+        "saturdayFit": "outside",
+        "arrival": "",
+        "caution": "표참도 후보. 현재 아키하바라·긴자 동선에서 벗어남. 예약은 공식 사이트에서 조건 확인.",
+        "closed": false,
+        "sources": [
+          {
+            "label": "공식·시설 안내",
+            "url": "https://sweetcheck-cafe.com/ja"
+          }
+        ]
+      },
       "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=%E6%9D%B1%E4%BA%AC%E9%83%BD%E6%B8%AF%E5%8C%BA%E5%8D%97%E9%9D%92%E5%B1%B13-18-5%20%E3%81%95%E3%81%8F%E3%82%89%E3%82%A2%E3%83%91%E3%83%BC%E3%83%88%E3%83%A1%E3%83%B3%E3%83%881F&travelmode=transit"
     },
     {
@@ -1230,6 +1302,24 @@
       "addressSource": "https://hirokiya-group.com/roppongi/ja",
       "locationPrecision": "block",
       "coordinateSource": "https://msearch.gsi.go.jp/address-search/AddressSearch?q=%E6%9D%B1%E4%BA%AC%E9%83%BD%E6%B8%AF%E5%8C%BA%E5%85%AD%E6%9C%AC%E6%9C%A85-2-6",
+      "diningResearch": {
+        "id": "food-G012",
+        "checkedAt": "2026-10-27",
+        "hours": "토·일 12:00–15:00(LO14:30) / 17:00–23:00(LO22:30)",
+        "hoursEvidence": "공식·시설 안내",
+        "queue": "예약·메뉴 수량 확인",
+        "queueNote": "점심 유케 메뉴와 예약 가능 여부는 공식 예약 화면에서 확인. 토요일 오전 개점 전에는 식사 불가.",
+        "saturdayFit": "outside",
+        "arrival": "",
+        "caution": "롯폰기 우회. 이번 오전 추천에서는 후순위.",
+        "closed": false,
+        "sources": [
+          {
+            "label": "공식·시설 안내",
+            "url": "https://hirokiya-group.com/roppongi/ja"
+          }
+        ]
+      },
       "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=%E6%9D%B1%E4%BA%AC%E9%83%BD%E6%B8%AF%E5%8C%BA%E5%85%AD%E6%9C%AC%E6%9C%A85-2-6%20TK%E3%83%93%E3%83%AB3F&travelmode=transit"
     },
     {
@@ -1628,6 +1718,24 @@
       "detail": "메뉴·가격·영업시간은 영상 고정댓글 기준이며 현재 영업 정보는 미검증입니다. 식사 시간에는 아직 배정하지 않았습니다.",
       "locationPrecision": "poi",
       "coordinateSource": "https://www.openstreetmap.org/node/14138297860",
+      "diningResearch": {
+        "id": "food-G021",
+        "checkedAt": "2026-10-27",
+        "hours": "입장 시간은 TableCheck 예약 슬롯 기준",
+        "hoursEvidence": "공식·시설 안내",
+        "queue": "사전 예약 필수",
+        "queueNote": "전날 08:00에 다음 날 예약 공개. 현장 줄 입장은 받지 않음.",
+        "saturdayFit": "outside",
+        "arrival": "",
+        "caution": "10/31 방문은 10/30 08:00 KST/JST 예약 도전. 니시신주쿠 우회가 필요하므로 예약 확보 때만 별도 동선 검토.",
+        "closed": false,
+        "sources": [
+          {
+            "label": "공식·시설 안내",
+            "url": "https://www.tablecheck.com/ja/shops/ramenya-shima/reserve"
+          }
+        ]
+      },
       "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=Tokyo%2C%20Shibuya%20City%2C%20Honmachi%203-41-12%20/%203-41-12%20Honmachi%2C%20Shibuya%20City%2C%20Tokyo&travelmode=transit"
     },
     {
@@ -2382,6 +2490,24 @@
       "detail": "메뉴·가격·영업시간은 영상 고정댓글 기준이며 현재 영업 정보는 미검증입니다. 식사 시간에는 아직 배정하지 않았습니다.",
       "locationPrecision": "address",
       "coordinateSource": "https://msearch.gsi.go.jp/address-search/AddressSearch?q=%E6%9D%B1%E4%BA%AC%E9%83%BD%E5%8D%83%E4%BB%A3%E7%94%B0%E5%8C%BA%E5%86%85%E5%B9%B8%E7%94%BA1-7-1",
+      "diningResearch": {
+        "id": "food-G036",
+        "checkedAt": "2026-10-27",
+        "hours": "포장 12:00–16:00 / 17:30–20:00 · 매장 식사 12:00–15:30 / 17:30–19:30(LO 각 30분 전)",
+        "hoursEvidence": "공식·시설 안내",
+        "queue": "메뉴별 예약 방식 다름",
+        "queueNote": "슈크림 세트는 온라인 예약 불가, 당일 전화로 좌석 문의. 다른 디저트·포장은 예약 조건 확인.",
+        "saturdayFit": "later",
+        "arrival": "",
+        "caution": "12시 개점이라 아침 식사는 불가. 긴자 쇼핑 뒤 디저트 후보. 현금 불가.",
+        "closed": false,
+        "sources": [
+          {
+            "label": "공식·시설 안내",
+            "url": "https://www.tablecheck.com/ja/shops/patisserie-ten-okuroji/reserve"
+          }
+        ]
+      },
       "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=Tokyo%2C%20Chiyoda%20City%2C%20Uchisaiaicho%201%20Chome%E2%88%927%E2%88%921%20%E6%97%A5%E6%AF%94%E8%B0%B7%E3%82%AA%E3%82%AF%E3%83%AD%E3%82%B8%20H01%20/%20Tokyo%2C%20Chiyoda%20City%2C%20Uchisaiaicho%201%20Chome%E2%88%927%E2%88%921%20Hibiya%20Okuroji%20H01&travelmode=transit"
     },
     {
@@ -2656,6 +2782,24 @@
       "detail": "메뉴·가격·영업시간은 영상 고정댓글 기준이며 현재 영업 정보는 미검증입니다. 식사 시간에는 아직 배정하지 않았습니다.",
       "locationPrecision": "address",
       "coordinateSource": "https://msearch.gsi.go.jp/address-search/AddressSearch?q=%E6%9D%B1%E4%BA%AC%E9%83%BD%E6%96%B0%E5%AE%BF%E5%8C%BA%E8%A5%BF%E6%96%B0%E5%AE%BF1-10",
+      "diningResearch": {
+        "id": "food-G044",
+        "checkedAt": "2026-10-27",
+        "hours": "10:00–23:00 · LO22:45 · 시설 휴무에 준함",
+        "hoursEvidence": "공식·시설 안내",
+        "queue": "대기 정보 미확인",
+        "queueNote": "",
+        "saturdayFit": "outside",
+        "arrival": "",
+        "caution": "신주쿠 지점. 아침 10시 영업은 가능하나 현재 동선에 넣기에는 우회.",
+        "closed": false,
+        "sources": [
+          {
+            "label": "공식·시설 안내",
+            "url": "https://www.tetsu102.com/1582/"
+          }
+        ]
+      },
       "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=Tokyo%2C%20Shinjuku%20City%2C%20Nishishinjuku%201-10%2C%20Keio%20Mall%20B1F%20/%20Keio%20Mall%20B1F%2C%201-10%20Nishishinjuku%2C%20Shinjuku%20City%2C%20Tokyo%2C%20Japan&travelmode=transit"
     },
     {
@@ -2670,7 +2814,7 @@
       "summary": "하라주쿠 플라워 소프트 아이스크림 라지 사이즈 (850엔)",
       "address": "Japan, Tokyo, Shibuya, Jingumae, 1 Chome−20−4 Axia原宿 103C / Axia原宿 103C 1-20-4 Jingumae, Shibuya, Tokyo",
       "url": "",
-      "status": "미검토",
+      "status": "폐점 확인 · 선택 기록 보존",
       "day": null,
       "coordinateNote": "주소 검색으로 잡은 위치. 매장 입구와 다를 수 있습니다.",
       "selected": false,
@@ -2692,6 +2836,24 @@
       "detail": "메뉴·가격·영업시간은 영상 고정댓글 기준이며 현재 영업 정보는 미검증입니다. 식사 시간에는 아직 배정하지 않았습니다.",
       "locationPrecision": "address",
       "coordinateSource": "https://msearch.gsi.go.jp/address-search/AddressSearch?q=%E6%9D%B1%E4%BA%AC%E9%83%BD%E6%B8%8B%E8%B0%B7%E5%8C%BA%E7%A5%9E%E5%AE%AE%E5%89%8D1-20-4",
+      "diningResearch": {
+        "id": "food-G045",
+        "checkedAt": "2026-10-27",
+        "hours": "원래 하라주쿠 매장 폐점 · 2026-06-28 일반 영업 종료",
+        "hoursEvidence": "공식·시설 안내",
+        "queue": "방문 불가 · 폐점",
+        "queueNote": "",
+        "saturdayFit": "outside",
+        "arrival": "",
+        "caution": "선택 기록은 보존. 지도와 상세에 폐점을 표시하며 아침 후보에서 제외. 다른 행사·새 점포를 같은 주소로 간주하지 않음.",
+        "closed": true,
+        "sources": [
+          {
+            "label": "공식·시설 안내",
+            "url": "https://aipaku.tokyo/news/Iv7hlpHz"
+          }
+        ]
+      },
       "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=Japan%2C%20Tokyo%2C%20Shibuya%2C%20Jingumae%2C%201%20Chome%E2%88%9220%E2%88%924%20Axia%E5%8E%9F%E5%AE%BF%20103C%20/%20Axia%E5%8E%9F%E5%AE%BF%20103C%201-20-4%20Jingumae%2C%20Shibuya%2C%20Tokyo&travelmode=transit"
     },
     {
@@ -2916,6 +3078,28 @@
           "source": "https://www.google.com/maps/dir/?api=1&origin=APA+Hotel+Ueno+Hirokoji+Tokyo&destination=American+Diner+Andra+Tokyo&travelmode=transit"
         }
       },
+      "diningResearch": {
+        "id": "food-G049",
+        "checkedAt": "2026-10-27",
+        "hours": "토 11:30–14:30(LO14:00) / 18:00–21:00(LO20:30)",
+        "hoursEvidence": "외부 식당 정보 · 공식 SNS 재확인",
+        "queue": "점심 줄·제공 지연 대비",
+        "queueNote": "방문 후기에 개점 전 줄이 보고됨. 점심 예약 불가 안내. 혼잡 시 조리시간도 고려.",
+        "saturdayFit": "lunch",
+        "arrival": "11:10–11:20 도착 검토 · 계획상 제안",
+        "caution": "호텔 북동쪽이라 아키하바라와 반대 방향. 이미 고려한 저녁 식사로 남겨두는 편도 좋음.",
+        "closed": false,
+        "sources": [
+          {
+            "label": "외부 식당 정보 · 공식 SNS 재확인",
+            "url": "https://tabelog.com/tokyo/A1311/A131101/13264482/"
+          },
+          {
+            "label": "방문 후기 · 해당 방문 당시 사례",
+            "url": "https://map.yahoo.co.jp/v3/place/7B05_g55mCw"
+          }
+        ]
+      },
       "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=Tokyo%2C%20Taito%20City%2C%20Higashiueno%2C%205-13-7%20/%205-13-7%20Higashiueno%2C%20Taito%20City%2C%20Tokyo&travelmode=transit"
     },
     {
@@ -3081,6 +3265,24 @@
       "detail": "메뉴·가격·영업시간은 영상 고정댓글 기준이며 현재 영업 정보는 미검증입니다. 식사 시간에는 아직 배정하지 않았습니다.",
       "locationPrecision": "address",
       "coordinateSource": "https://msearch.gsi.go.jp/address-search/AddressSearch?q=%E6%9D%B1%E4%BA%AC%E9%83%BD%E4%B8%AD%E5%A4%AE%E5%8C%BA%E9%8A%80%E5%BA%A73-14-2",
+      "diningResearch": {
+        "id": "food-G053",
+        "checkedAt": "2026-10-27",
+        "hours": "11:00 현장 줄 입장 / 12:00–16:00 예약 손님 · 월·일부 화 휴무",
+        "hoursEvidence": "공식·시설 안내",
+        "queue": "현장 줄 또는 예약",
+        "queueNote": "토 09:00에 다음 주 화–일 예약 공개. 10/31분 최초 공개는 10/24로 지남. 취소분은 별도 확인. 11시 현장 입장을 원하면 오전을 이곳에 배정.",
+        "saturdayFit": "conditional",
+        "arrival": "10:00–10:15 현장 상황 확인 제안 · 입장 보장 아님",
+        "caution": "예약 없이 12시 이후 방문하는 계획은 피함. 대기 중 다른 가게에 들러도 순번이 유지된다고 가정하지 않음. 예약료 500엔.",
+        "closed": false,
+        "sources": [
+          {
+            "label": "공식·시설 안내",
+            "url": "https://www.tablecheck.com/ja/shops/ginza-hachigou/reserve"
+          }
+        ]
+      },
       "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=3%20Chome-14-2%20Ginza%2C%20Chuo%20City%2C%20Tokyo%2C%20Japan&travelmode=transit"
     },
     {
@@ -3325,6 +3527,24 @@
       "detail": "메뉴·가격·영업시간은 영상 고정댓글 기준이며 현재 영업 정보는 미검증입니다. 식사 시간에는 아직 배정하지 않았습니다.",
       "locationPrecision": "address",
       "coordinateSource": "https://msearch.gsi.go.jp/address-search/AddressSearch?q=%E6%9D%B1%E4%BA%AC%E9%83%BD%E6%9D%BF%E6%A9%8B%E5%8C%BA%E5%A4%A7%E5%B1%B1%E9%87%91%E4%BA%95%E7%94%BA16-8",
+      "diningResearch": {
+        "id": "food-G059",
+        "checkedAt": "2026-10-27",
+        "hours": "08:00–18:00 · LO17:00 · 수·목 휴무",
+        "hoursEvidence": "외부 식당 정보 · 방문일 재확인",
+        "queue": "대기 정보 미확인",
+        "queueNote": "",
+        "saturdayFit": "outside",
+        "arrival": "",
+        "caution": "이타바시의 독립 커피숍. 동명 체인과 구분. 이케부쿠로보다 북서쪽으로 추가 이동이라 토요일 오전 비추천.",
+        "closed": false,
+        "sources": [
+          {
+            "label": "외부 식당 정보 · 방문일 재확인",
+            "url": "https://www.enjoytokyo.jp/spot/l_20100818/"
+          }
+        ]
+      },
       "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=Tokyo%2C%20Itabashi-ku%2C%20Oyamakanaicho%2016-8%20/%2016-8%20Oyamakanaicho%2C%20Itabashi-ku%2C%20Tokyo&travelmode=transit"
     },
     {
@@ -3411,6 +3631,24 @@
       "detail": "메뉴·가격·영업시간은 영상 고정댓글 기준이며 현재 영업 정보는 미검증입니다. 식사 시간에는 아직 배정하지 않았습니다.",
       "locationPrecision": "block",
       "coordinateSource": "https://msearch.gsi.go.jp/address-search/AddressSearch?q=%E6%9D%B1%E4%BA%AC%E9%83%BD%E6%B8%AF%E5%8C%BA%E5%8D%97%E9%9D%92%E5%B1%B15-10-1",
+      "diningResearch": {
+        "id": "food-G061",
+        "checkedAt": "2026-10-27",
+        "hours": "11:00–22:00 · LO21:00 · 부정기 휴무",
+        "hoursEvidence": "가게 예약 안내",
+        "queue": "대기 정보 미확인",
+        "queueNote": "",
+        "saturdayFit": "outside",
+        "arrival": "",
+        "caution": "표참도. 현재 동선에서 벗어남. 저녁 예약은 가능하나 낮 이용 방식은 별도 확인.",
+        "closed": false,
+        "sources": [
+          {
+            "label": "가게 예약 안내",
+            "url": "https://www.foodies-reserve.com/ja/restaurants/RSJR529LJPPXYM1W"
+          }
+        ]
+      },
       "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=Japan%2C%20Tokyo%2C%20Minato%20City%2C%20Minamiaoyama%2C%205%20Chome%E2%88%9210%E2%88%921%20AOYAMA%20BUILDING%20H2%20F2%20/%20AOYAMA%20BUILDING%20H2%20F2%2C%205-10-1%20Minami-Aoyama%2C%20Minato-ku%2C%20Tokyo%2C%20Japan&travelmode=transit"
     },
     {
@@ -3483,6 +3721,28 @@
       "detail": "메뉴·가격·영업시간은 영상 고정댓글 기준이며 현재 영업 정보는 미검증입니다. 식사 시간에는 아직 배정하지 않았습니다.",
       "locationPrecision": "address",
       "coordinateSource": "https://msearch.gsi.go.jp/address-search/AddressSearch?q=%E6%9D%B1%E4%BA%AC%E9%83%BD%E4%B8%AD%E5%A4%AE%E5%8C%BA%E7%AF%89%E5%9C%B04-9-12",
+      "diningResearch": {
+        "id": "food-G063",
+        "checkedAt": "2026-10-27",
+        "hours": "06:30–13:30 · 일·공휴일·시장 휴무일 휴무",
+        "hoursEvidence": "공식·시설 안내",
+        "queue": "아침에도 긴 줄 사례",
+        "queueNote": "2026년 3월 토요일 08:30에 30명 이상 대기한 방문 후기. 인원은 과거 사례이며 10/31 예상 대기시간이 아님.",
+        "saturdayFit": "breakfast",
+        "arrival": "07:00–07:30 도착을 검토 · 이른 출발 가능한 경우",
+        "caution": "호텔→쓰키지 아침→히가시긴자 간식→아키하바라→긴자 쇼핑 구성. 시장 09시 전은 업무용 구매 우선 시간.",
+        "closed": false,
+        "sources": [
+          {
+            "label": "공식·시설 안내",
+            "url": "https://www.tsukiji.or.jp/shoplist/cat-d/cat-14/046/"
+          },
+          {
+            "label": "방문 후기 · 해당 방문 당시 사례",
+            "url": "https://tabelog.com/tokyo/A1313/A131301/13007656/dtlrvwlst/B525373230/"
+          }
+        ]
+      },
       "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=Tokyo%2C%20Chuo%20City%2C%20Tsukiji%204-9-12&travelmode=transit"
     },
     {
@@ -3555,6 +3815,24 @@
       "detail": "메뉴·가격·영업시간은 영상 고정댓글 기준이며 현재 영업 정보는 미검증입니다. 식사 시간에는 아직 배정하지 않았습니다.",
       "locationPrecision": "address",
       "coordinateSource": "https://msearch.gsi.go.jp/address-search/AddressSearch?q=%E6%9D%B1%E4%BA%AC%E9%83%BD%E6%96%B0%E5%AE%BF%E5%8C%BA%E9%AB%98%E7%94%B0%E9%A6%AC%E5%A0%B42-6-10",
+      "diningResearch": {
+        "id": "food-G065",
+        "checkedAt": "2026-10-27",
+        "hours": "토·일 11:00–14:30 · 월 휴무",
+        "hoursEvidence": "매장 취재 기사 · 접수 방식 재확인",
+        "queue": "주말 기명 접수 재확인",
+        "queueNote": "주말 현장 기명제 안내가 외부 목록에 있음. 최신 공식 X 확인 필요.",
+        "saturdayFit": "outside",
+        "arrival": "",
+        "caution": "다카다노바바 우회. 현재 오전 후보에서는 후순위.",
+        "closed": false,
+        "sources": [
+          {
+            "label": "매장 취재 기사 · 접수 방식 재확인",
+            "url": "https://takadanobaba.keizai.biz/headline/1713/"
+          }
+        ]
+      },
       "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=Tokyo%2C%20Shinjuku%20City%2C%20Takadanobaba%2C%202%20Chome%E2%88%926%E2%88%9210%20%E9%96%A2%E3%83%93%E3%83%AB%20103%20/%202%20Chome%E2%88%926%E2%88%9210%20Seki%20Building%20103%2C%20Takadanobaba%2C%20Shinjuku%20City%2C%20Tokyo&travelmode=transit"
     },
     {
@@ -3710,6 +3988,24 @@
           "evidence": "호텔 공식 위치 + Google 지도 길찾기 UI",
           "source": "https://www.google.com/maps/dir/?api=1&origin=APA+Hotel+Ueno+Hirokoji+Tokyo&destination=%EB%A9%98%EC%95%BC+%EC%8A%A4%EA%B3%A0+%EC%B9%B8%EB%8B%A4%EC%A0%90+%E9%BA%BA%E5%B1%8B+%E5%91%A8%E9%83%B7+%E7%A5%9E%E7%94%B0%E5%BA%97+Tokyo&travelmode=transit"
         }
+      },
+      "diningResearch": {
+        "id": "food-G068",
+        "checkedAt": "2026-10-27",
+        "hours": "토·일·수 휴무 · 월·화·목·금 11:00–15:00 / 18:00–22:00",
+        "hoursEvidence": "공식·시설 안내",
+        "queue": "토요일 휴무",
+        "queueNote": "",
+        "saturdayFit": "closed",
+        "arrival": "",
+        "caution": "현재 공식 안내는 수·토·일 휴무. 토요일 오전·점심 후보에서 제외.",
+        "closed": false,
+        "sources": [
+          {
+            "label": "공식·시설 안내",
+            "url": "https://www.mensugo.com/"
+          }
+        ]
       },
       "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=Tokyo%2C%20Chiyoda%20City%2C%20Uchikanda%202%20Chome-9-11%20/%202%20Chome-9-11%20Uchikanda%2C%20Chiyoda%20City%2C%20Tokyo&travelmode=transit"
     },
@@ -3949,6 +4245,28 @@
       "detail": "메뉴·가격·영업시간은 영상 고정댓글 기준이며 현재 영업 정보는 미검증입니다. 식사 시간에는 아직 배정하지 않았습니다.",
       "locationPrecision": "address",
       "coordinateSource": "https://msearch.gsi.go.jp/address-search/AddressSearch?q=%E6%9D%B1%E4%BA%AC%E9%83%BD%E4%B8%AD%E5%A4%AE%E5%8C%BA%E9%8A%80%E5%BA%A72-14-5",
+      "diningResearch": {
+        "id": "food-G076",
+        "checkedAt": "2026-10-27",
+        "hours": "08:30–19:00 · 화 휴무",
+        "hoursEvidence": "공식·시설 안내",
+        "queue": "온라인 순번 접수 확인",
+        "queueNote": "공식 사이트의 긴자점 순번 접수 링크 이용. 2026-09-29 게시 방문기에서 휴일 점심 대기 사례. 접수 후 호출 규칙은 화면 안내 우선.",
+        "saturdayFit": "breakfast",
+        "arrival": "08:30 개점 무렵 포장 간식",
+        "caution": "하치고·멘야 이시이와 같은 히가시긴자 권역. 식사 여러 끼를 한 오전에 모두 넣지는 않음.",
+        "closed": false,
+        "sources": [
+          {
+            "label": "공식·시설 안내",
+            "url": "https://shiopan-maison.com/"
+          },
+          {
+            "label": "방문 후기 · 해당 방문 당시 사례",
+            "url": "https://chikilog.com/bakery260929/"
+          }
+        ]
+      },
       "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=Tokyo%2C%20Chuo%20City%2C%20Ginza%2C%202%20Chome%E2%88%9214%E2%88%925%201F%20/%20Tokyo%2C%20Chuo%20City%2C%20Ginza%202-14-5%2C%201F&travelmode=transit"
     },
     {
@@ -3999,6 +4317,24 @@
       "detail": "메뉴·가격·영업시간은 영상 고정댓글 기준이며 현재 영업 정보는 미검증입니다. 식사 시간에는 아직 배정하지 않았습니다.",
       "locationPrecision": "address",
       "coordinateSource": "https://msearch.gsi.go.jp/address-search/AddressSearch?q=%E6%9D%B1%E4%BA%AC%E9%83%BD%E6%B1%9F%E6%9D%B1%E5%8C%BA%E5%AF%8C%E5%B2%A12-10-1",
+      "diningResearch": {
+        "id": "food-G077",
+        "checkedAt": "2026-10-27",
+        "hours": "11:00–23:00 · 통상 무휴",
+        "hoursEvidence": "공식·시설 안내",
+        "queue": "대기 정보 미확인",
+        "queueNote": "",
+        "saturdayFit": "outside",
+        "arrival": "",
+        "caution": "사용자 선택에 따라 술집 분류 유지. 몬젠나카초·기바 쪽이라 토요일 오전 쇼핑과 별도 이동.",
+        "closed": false,
+        "sources": [
+          {
+            "label": "공식·시설 안내",
+            "url": "https://www.perfectbeer.info/shop-list"
+          }
+        ]
+      },
       "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=Tokyo%2C%20Koto%20City%2C%20Tomioka%2C%202%20Chome%E2%88%9210%E2%88%921%20%E6%A2%B6%E6%9C%AC%E3%83%93%E3%83%AB%201F%20/%20Tokyo%2C%20Koto%20City%2C%20Tomioka%2C%202%20Chome%E2%88%9210%E2%88%921%20Kajimoto%20Building%201F&travelmode=transit"
     },
     {
@@ -4530,6 +4866,28 @@
           "source": "https://www.google.com/maps/dir/?api=1&origin=APA+Hotel+Ueno+Hirokoji+Tokyo&destination=%EC%9A%B0%EB%8F%99+%EB%A7%88%EB%A3%A8%EC%B9%B4+%E3%81%86%E3%81%A9%E3%82%93+%E4%B8%B8%E9%A6%99+Tokyo&travelmode=transit"
         }
       },
+      "diningResearch": {
+        "id": "food-G089",
+        "checkedAt": "2026-10-27",
+        "hours": "토 11:00–15:30 · LO14:30 / 일·공휴일 휴무",
+        "hoursEvidence": "가가와현 공식 가이드 · LO는 기존 식당 정보",
+        "queue": "개점 전 줄 대비",
+        "queueNote": "2026년 3월 토요일 개점 15분 전 도착 후 약40분 뒤 착석한 방문 후기. 이는 당시 사례이며 10/31의 대기시간 예측은 아님. 짧은 토요일 영업을 감안해 이른 점심 우선.",
+        "saturdayFit": "lunch",
+        "arrival": "10:20–10:30 도착 제안 · 첫 회전 보장 아님",
+        "caution": "호텔→마루카→아키하바라→니혼바시·도쿄역→긴자. 에비마루와 둘 다 점심으로 고정하지 않고 하나 선택.",
+        "closed": false,
+        "sources": [
+          {
+            "label": "가가와현 공식 가이드 · LO는 기존 식당 정보",
+            "url": "https://www.pref.kagawa.lg.jp/documents/7607/shutokenkagawagourmetguide1-2026.pdf"
+          },
+          {
+            "label": "방문 후기 · 해당 방문 당시 사례",
+            "url": "https://tabelog.com/tokyo/A1310/A131003/13000629/dtlrvwlst/B524217181/"
+          }
+        ]
+      },
       "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=Tokyo%2C%20Chiyoda%20City%2C%20Kanda%20ogawamachi%203-16-1&travelmode=transit"
     },
     {
@@ -4566,6 +4924,24 @@
       "detail": "메뉴·가격·영업시간은 영상 고정댓글 기준이며 현재 영업 정보는 미검증입니다. 식사 시간에는 아직 배정하지 않았습니다.",
       "locationPrecision": "address",
       "coordinateSource": "https://msearch.gsi.go.jp/address-search/AddressSearch?q=%E6%9D%B1%E4%BA%AC%E9%83%BD%E5%A2%A8%E7%94%B0%E5%8C%BA%E5%8D%83%E6%AD%B33-16-2",
+      "diningResearch": {
+        "id": "food-G090",
+        "checkedAt": "2026-10-27",
+        "hours": "토요일 점심 영업·접수 방식 재확인 필요",
+        "hoursEvidence": "외부 안내 간 상충",
+        "queue": "대기·영업 방식 미확인",
+        "queueNote": "점심·저녁 정보와 계절 영업 안내가 섞여 있어 이번 확인만으로 확정하지 않음.",
+        "saturdayFit": "verify",
+        "arrival": "",
+        "caution": "모리시타로 우회. 공식 SNS에서 10/31 점심을 확인하기 전 오전 고정 후보에 넣지 않음.",
+        "closed": false,
+        "sources": [
+          {
+            "label": "외부 안내 간 상충",
+            "url": "https://www.enjoytokyo.jp/spot/l_20052800/"
+          }
+        ]
+      },
       "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=3%20Chome-16-2%20Chitose%2C%20Sumida%20City%2C%20Tokyo&travelmode=transit"
     },
     {
@@ -4934,6 +5310,24 @@
       "detail": "메뉴·가격·영업시간은 영상 고정댓글 기준이며 현재 영업 정보는 미검증입니다. 식사 시간에는 아직 배정하지 않았습니다.",
       "locationPrecision": "address",
       "coordinateSource": "https://msearch.gsi.go.jp/address-search/AddressSearch?q=%E6%9D%B1%E4%BA%AC%E9%83%BD%E6%B8%8B%E8%B0%B7%E5%8C%BA%E6%B8%8B%E8%B0%B72-7-12",
+      "diningResearch": {
+        "id": "food-G099",
+        "checkedAt": "2026-10-27",
+        "hours": "11:00–19:00 · 화 휴무 · 월말 18:30 마감 안내",
+        "hoursEvidence": "공식 X 프로필",
+        "queue": "대기 정보 미확인",
+        "queueNote": "",
+        "saturdayFit": "outside",
+        "arrival": "",
+        "caution": "10/31은 월말이므로 18:30 안내 유의. 아오야마는 현재 동선에서 벗어남.",
+        "closed": false,
+        "sources": [
+          {
+            "label": "공식 X 프로필",
+            "url": "https://x.com/nanaya_aoyama/with_replies"
+          }
+        ]
+      },
       "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=Tokyo%2C%20Shibuya%2C%202-7-12&travelmode=transit"
     },
     {
@@ -5417,6 +5811,24 @@
       "detail": "메뉴·가격·영업시간은 영상 고정댓글 기준이며 현재 영업 정보는 미검증입니다. 식사 시간에는 아직 배정하지 않았습니다.",
       "locationPrecision": "block",
       "coordinateSource": "https://msearch.gsi.go.jp/address-search/AddressSearch?q=%E6%9D%B1%E4%BA%AC%E9%83%BD%E6%B8%AF%E5%8C%BA%E8%B5%A4%E5%9D%823-14-2",
+      "diningResearch": {
+        "id": "food-G110",
+        "checkedAt": "2026-10-27",
+        "hours": "토 11:30–15:00 / 저녁 비정기 · 일·월 휴무",
+        "hoursEvidence": "외부 식당 정보 · 공식 SNS 재확인",
+        "queue": "예약 가능 여부 확인",
+        "queueNote": "",
+        "saturdayFit": "outside",
+        "arrival": "",
+        "caution": "아카사카 우회. 토요일 점심 예약을 확보할 경우에만 별도 검토.",
+        "closed": false,
+        "sources": [
+          {
+            "label": "외부 식당 정보 · 공식 SNS 재확인",
+            "url": "https://tabelog.com/tokyo/A1308/A130801/13306204/"
+          }
+        ]
+      },
       "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=Tokyo%2C%20Minato%20City%2C%20Akasaka%2C%203%20Chome%E2%88%9214%E2%88%922%20%E3%83%89%E3%83%AB%E3%83%9F%E8%B5%A4%E5%9D%82%20201%20/%20201%2C%203-14-2%20Akasaka%2C%20Minato%20City%2C%20Tokyo&travelmode=transit"
     },
     {
@@ -5647,6 +6059,24 @@
       "detail": "메뉴·가격·영업시간은 영상 고정댓글 기준이며 현재 영업 정보는 미검증입니다. 식사 시간에는 아직 배정하지 않았습니다.",
       "locationPrecision": "address",
       "coordinateSource": "https://msearch.gsi.go.jp/address-search/AddressSearch?q=%E6%9D%B1%E4%BA%AC%E9%83%BD%E4%B8%AD%E5%A4%AE%E5%8C%BA%E7%AF%89%E5%9C%B04-9-11",
+      "diningResearch": {
+        "id": "food-G118",
+        "checkedAt": "2026-10-27",
+        "hours": "06:00–15:00 · 일·공휴일·시장 휴무일 휴무",
+        "hoursEvidence": "공식·시설 안내",
+        "queue": "대기 길이 미확인",
+        "queueNote": "생선알 전문점 내 식사. 06시 영업 표시는 점포 전체 안내로, 파스타·차즈케 개시 시각은 별도 확인 필요.",
+        "saturdayFit": "conditional",
+        "arrival": "쓰키지 방문 시 식사 메뉴 제공 여부부터 확인",
+        "caution": "키츠네야와 거의 옆집. 키츠네야 줄이 길 때 대안이 될 수 있지만 짧은 대기를 보장하지 않음.",
+        "closed": false,
+        "sources": [
+          {
+            "label": "공식·시설 안내",
+            "url": "https://www.tsukiji.or.jp/shoplist/cat-a/cat-3/086/"
+          }
+        ]
+      },
       "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=Tokyo%2C%20Chuo%20City%2C%20Tsukiji%2C%204-9-11%20/%204-9-11%20Tsukiji%2C%20Chuo%20City%2C%20Tokyo&travelmode=transit"
     },
     {
@@ -5913,6 +6343,24 @@
       "detail": "메뉴·가격·영업시간은 영상 고정댓글 기준이며 현재 영업 정보는 미검증입니다. 식사 시간에는 아직 배정하지 않았습니다.",
       "locationPrecision": "address",
       "coordinateSource": "https://msearch.gsi.go.jp/address-search/AddressSearch?q=%E6%9D%B1%E4%BA%AC%E9%83%BD%E7%9B%AE%E9%BB%92%E5%8C%BA%E4%B8%8A%E7%9B%AE%E9%BB%923-5-25",
+      "diningResearch": {
+        "id": "food-G125",
+        "checkedAt": "2026-10-27",
+        "hours": "11:30–14:30 / 17:30–22:00 · 통상 무휴",
+        "hoursEvidence": "외부 식당 정보 · 공식 SNS 재확인",
+        "queue": "대기 정보 미확인",
+        "queueNote": "",
+        "saturdayFit": "outside",
+        "arrival": "",
+        "caution": "나카메구로. 현재 아키하바라·긴자 오전 동선에서는 우회.",
+        "closed": false,
+        "sources": [
+          {
+            "label": "외부 식당 정보 · 공식 SNS 재확인",
+            "url": "https://tabelog.com/tokyo/A1317/A131701/13299883/"
+          }
+        ]
+      },
       "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=Tokyo%2C%20Meguro%20City%2C%20Kamimeguro%2C%203%E2%88%925%E2%88%9225%20%EB%82%98%EC%B9%B4%EB%A9%94%EA%B5%AC%EB%A1%9C%20%EC%B2%A0%EB%8F%84%20%EA%B3%A0%EA%B0%80%20%EC%95%84%EB%9E%98%20/%20Tokyo%2C%20Meguro%20City%2C%20Kamimeguro%2C%203%E2%88%925%E2%88%9225%2C%20under%20the%20Naka-Meguro%20train%20tracks&travelmode=transit"
     },
     {
@@ -6227,6 +6675,24 @@
       "detail": "메뉴·가격·영업시간은 영상 고정댓글 기준이며 현재 영업 정보는 미검증입니다. 식사 시간에는 아직 배정하지 않았습니다.",
       "locationPrecision": "block",
       "coordinateSource": "https://msearch.gsi.go.jp/address-search/AddressSearch?q=%E6%9D%B1%E4%BA%AC%E9%83%BD%E6%B8%AF%E5%8C%BA%E5%85%AD%E6%9C%AC%E6%9C%A85-16-5",
+      "diningResearch": {
+        "id": "food-G134",
+        "checkedAt": "2026-10-27",
+        "hours": "12:00–22:00 · LO21:00",
+        "hoursEvidence": "공식·시설 안내",
+        "queue": "대기 정보 미확인",
+        "queueNote": "",
+        "saturdayFit": "outside",
+        "arrival": "",
+        "caution": "정오 개점, 롯폰기 우회. 오전 식사 후보에서는 제외.",
+        "closed": false,
+        "sources": [
+          {
+            "label": "공식·시설 안내",
+            "url": "https://wagyuburger-hirokiya.com/ja"
+          }
+        ]
+      },
       "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=Tokyo%2C%20Minato%20City%2C%20Roppongi%2C%205%20Chome%E2%88%9216%E2%88%925%20%E3%82%A4%E3%83%B3%E3%83%9A%E3%83%AA%E3%82%A2%E3%83%AB%E5%85%AD%E6%9C%AC%E6%9C%A81%E5%8F%B7%E9%A4%A8%20/%20Tokyo%2C%20Minato%20City%2C%20Roppongi%2C%205%20Chome%E2%88%9216%E2%88%925%2C%20Imperial%20Roppongi%20Building%20No.1&travelmode=transit"
     },
     {
@@ -6414,6 +6880,28 @@
       "detail": "메뉴·가격·영업시간은 영상 고정댓글 기준이며 현재 영업 정보는 미검증입니다. 식사 시간에는 아직 배정하지 않았습니다.",
       "locationPrecision": "block",
       "coordinateSource": "https://msearch.gsi.go.jp/address-search/AddressSearch?q=%E6%9D%B1%E4%BA%AC%E9%83%BD%E5%8D%83%E4%BB%A3%E7%94%B0%E5%8C%BA%E4%B8%B8%E3%81%AE%E5%86%85+2-4-1",
+      "diningResearch": {
+        "id": "food-G140",
+        "checkedAt": "2026-10-27",
+        "hours": "카페 토 11:00–LO19:00 / 상품 판매 10:00–20:00",
+        "hoursEvidence": "공식·시설 안내",
+        "queue": "카페 개점 전 대기 대비",
+        "queueNote": "방문 후기에서 개점 전 줄·대기 사례 확인. 상품 판매 10시와 카페 11시는 다름. 정확한 대기 분수·정리권 도입은 확인하지 못함.",
+        "saturdayFit": "conditional",
+        "arrival": "10:30–10:45 카페 줄 확인 제안",
+        "caution": "이곳이 우선이면 도쿄역을 오전에 먼저 방문. 아키하바라 쇼핑 시작이 늦어지는 절충. 마루카·하치고와 동시에 첫 방문으로 고정 불가.",
+        "closed": false,
+        "sources": [
+          {
+            "label": "공식·시설 안내",
+            "url": "https://www.marunouchi.com/tenants/10351/"
+          },
+          {
+            "label": "방문 후기 · 해당 방문 당시 사례",
+            "url": "https://tabelog.com/tokyo/A1302/A130201/13284751/"
+          }
+        ]
+      },
       "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=%EB%8F%84%EC%BF%84%20%EC%A7%80%EC%9A%94%EB%8B%A4%EA%B5%AC%20%EB%A7%88%EB%A3%A8%EB%85%B8%EC%9A%B0%EC%B9%98%202-4-1%2C%20%EB%A7%88%EB%A3%A8%EB%85%B8%EC%9A%B0%EC%B9%98%20%EB%B9%8C%EB%94%A9%20B1%20/%20Marunouchi%20Building%20B1%2C%202-4-1%20Marunouchi%2C%20Chiyoda-ku%2C%20Tokyo&travelmode=transit"
     },
     {
@@ -6805,6 +7293,24 @@
       "detail": "메뉴·가격·영업시간은 영상 고정댓글 기준이며 현재 영업 정보는 미검증입니다. 식사 시간에는 아직 배정하지 않았습니다.",
       "locationPrecision": "block",
       "coordinateSource": "https://msearch.gsi.go.jp/address-search/AddressSearch?q=%E6%9D%B1%E4%BA%AC%E9%83%BD%E6%B8%AF%E5%8C%BA%E9%BA%BB%E5%B8%83%E5%8D%81%E7%95%AA1-6-6",
+      "diningResearch": {
+        "id": "food-G149",
+        "checkedAt": "2026-10-27",
+        "hours": "11:00–15:00 / 17:00–22:00 · 통상 무휴",
+        "hoursEvidence": "아자부주반 상점가 안내",
+        "queue": "대기 정보 미확인",
+        "queueNote": "",
+        "saturdayFit": "outside",
+        "arrival": "",
+        "caution": "아자부주반 우회. 현재 오전 동선에서는 후순위.",
+        "closed": false,
+        "sources": [
+          {
+            "label": "아자부주반 상점가 안내",
+            "url": "https://www.azabujuban.or.jp/shop/shop_category/eat/21261/"
+          }
+        ]
+      },
       "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=Tokyo%2C%20Minato%20City%2C%20Azabujuban%2C%201%20Chome%E2%88%926%E2%88%926%20%E9%AD%9A%E6%B2%B3%E6%B4%A5%E3%83%93%E3%83%AB%20%EF%BC%92F%20/%20Tokyo%2C%20Minato%20City%2C%20Azabujuban%2C%201-6-6%2C%20Uogazu%20Building%202F&travelmode=transit"
     },
     {
@@ -7251,6 +7757,24 @@
       "detail": "메뉴·가격·영업시간은 영상 고정댓글 기준이며 현재 영업 정보는 미검증입니다. 식사 시간에는 아직 배정하지 않았습니다.",
       "locationPrecision": "block",
       "coordinateSource": "https://msearch.gsi.go.jp/address-search/AddressSearch?q=%E6%9D%B1%E4%BA%AC%E9%83%BD%E6%B8%AF%E5%8C%BA%E8%A5%BF%E6%96%B0%E6%A9%8B1-20-11",
+      "diningResearch": {
+        "id": "food-G161",
+        "checkedAt": "2026-10-27",
+        "hours": "토·일·수 휴무 안내 · 평일 08:00–15:00",
+        "hoursEvidence": "외부 여행 정보 · 공식 확인 불가",
+        "queue": "토요일 휴무 안내",
+        "queueNote": "",
+        "saturdayFit": "closed",
+        "arrival": "",
+        "caution": "옛 정보에는 토요일 영업이 있지만 현재 복수 식당 목록은 토 휴무. 토요일 오전 후보에서 보류하고 직접 확인 후 방문.",
+        "closed": false,
+        "sources": [
+          {
+            "label": "외부 여행 정보 · 공식 확인 불가",
+            "url": "https://rurubu.jp/andmore/spot/80122582"
+          }
+        ]
+      },
       "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=Tokyo%2C%20Minato%20City%2C%20Nishishinbashi%2C%201%E2%88%9220%E2%88%9211&travelmode=transit"
     },
     {
@@ -7359,6 +7883,24 @@
       "detail": "메뉴·가격·영업시간은 영상 고정댓글 기준이며 현재 영업 정보는 미검증입니다. 식사 시간에는 아직 배정하지 않았습니다.",
       "locationPrecision": "address",
       "coordinateSource": "https://msearch.gsi.go.jp/address-search/AddressSearch?q=%E6%9D%B1%E4%BA%AC%E9%83%BD%E7%9B%AE%E9%BB%92%E5%8C%BA%E9%9D%92%E8%91%89%E5%8F%B01-28-7",
+      "diningResearch": {
+        "id": "food-G165",
+        "checkedAt": "2026-10-27",
+        "hours": "11:00–21:00 · 음식 LO20:00",
+        "hoursEvidence": "공식·시설 안내",
+        "queue": "대기 정보 미확인",
+        "queueNote": "",
+        "saturdayFit": "outside",
+        "arrival": "",
+        "caution": "나카메구로 지점. 공식 사이트에 선샤인시티 지점도 있으나 사용자 선택은 기존 지점으로 유지.",
+        "closed": false,
+        "sources": [
+          {
+            "label": "공식·시설 안내",
+            "url": "https://www.brisk-stand.com/"
+          }
+        ]
+      },
       "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=Japan%2C%20Tokyo%2C%20Meguro%20City%2C%20Aobadai%2C%201%20Chome%E2%88%9228%E2%88%927&travelmode=transit"
     },
     {
@@ -7861,6 +8403,28 @@
           "source": "https://www.google.com/maps/dir/?api=1&origin=APA+Hotel+Ueno+Hirokoji+Tokyo&destination=Ebimaru+Ramen+Tokyo&travelmode=transit"
         }
       },
+      "diningResearch": {
+        "id": "food-G176",
+        "checkedAt": "2026-10-27",
+        "hours": "토·일·공휴일 11:30–20:00 · LO19:30 · 부정기 휴무",
+        "hoursEvidence": "공식·시설 안내",
+        "queue": "FastPass 또는 현장 줄",
+        "queueNote": "공식 FastPass는 1인 500엔, 7일 전부터·당일 구매 가능. 줄 우선권이며 착석 시각 보장 아님.",
+        "saturdayFit": "lunch",
+        "arrival": "현장 줄이면 11:00–11:15 도착 제안, 또는 FastPass 시간에 맞춤",
+        "caution": "호텔→진보초 점심→아키하바라→긴자. FastPass 재고·10/31 임시휴무는 미확인.",
+        "closed": false,
+        "sources": [
+          {
+            "label": "공식·시설 안내",
+            "url": "https://ebimaru.com/"
+          },
+          {
+            "label": "방문 후기 · 해당 방문 당시 사례",
+            "url": "https://www.tablecheck.com/en/shops/ebimaru/reserve"
+          }
+        ]
+      },
       "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=Tokyo%2C%20Chiyoda%20City%2C%20Nishikanda%2C%202%20Chome%E2%88%921%E2%88%9213%201%EC%B8%B5%20/%201F%2C%202-1-13%20Nishikanda%2C%20Chiyoda%20City%2C%20Tokyo&travelmode=transit"
     },
     {
@@ -8005,6 +8569,24 @@
       "detail": "메뉴·가격·영업시간은 영상 고정댓글 기준이며 현재 영업 정보는 미검증입니다. 식사 시간에는 아직 배정하지 않았습니다.",
       "locationPrecision": "address",
       "coordinateSource": "https://msearch.gsi.go.jp/address-search/AddressSearch?q=%E6%9D%B1%E4%BA%AC%E9%83%BD%E6%9D%89%E4%B8%A6%E5%8C%BA%E8%8D%BB%E7%AA%AA5-20-7",
+      "diningResearch": {
+        "id": "food-G180",
+        "checkedAt": "2026-10-27",
+        "hours": "11:30부터 매진 시 종료 · 수·목·예정 휴무",
+        "hoursEvidence": "도쿄도 2026년 2월 점포 정보",
+        "queue": "매진·대기 대비",
+        "queueNote": "공식 공공 안내에 매진 종료 명시. 10/31 줄 길이·정리권 정보는 확인하지 못함.",
+        "saturdayFit": "outside",
+        "arrival": "",
+        "caution": "오기쿠보로 크게 우회. 이번 토요일 오전 식사만을 위해 추가하기는 비추천.",
+        "closed": false,
+        "sources": [
+          {
+            "label": "도쿄도 2026년 2월 점포 정보",
+            "url": "https://www.tokyo-walkingmap.metro.tokyo.lg.jp/area_guide/kyoryoku/289"
+          }
+        ]
+      },
       "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=Tokyo%2C%20Suginami%20City%2C%20Ogikubo%2C%205%E2%88%9220%E2%88%927%20/%205-20-7%20Ogikubo%2C%20Suginami%20City%2C%20Tokyo&travelmode=transit"
     },
     {
@@ -8113,6 +8695,24 @@
       "detail": "메뉴·가격·영업시간은 영상 고정댓글 기준이며 현재 영업 정보는 미검증입니다. 식사 시간에는 아직 배정하지 않았습니다.",
       "locationPrecision": "address",
       "coordinateSource": "https://msearch.gsi.go.jp/address-search/AddressSearch?q=%E6%9D%B1%E4%BA%AC%E9%83%BD%E5%93%81%E5%B7%9D%E5%8C%BA%E5%8D%97%E5%A4%A7%E4%BA%956-11-10",
+      "diningResearch": {
+        "id": "food-G183",
+        "checkedAt": "2026-10-27",
+        "hours": "11:00–15:00 · 수·목 휴무",
+        "hoursEvidence": "공식·시설 안내",
+        "queue": "사전 예약 또는 당일 기명",
+        "queueNote": "1주 전 00:00 온라인 공개. 당일 09시부터 현장 기명 약10–15석 안내. 단순히 11시에 가서 줄 서는 가게가 아님.",
+        "saturdayFit": "outside",
+        "arrival": "",
+        "caution": "오모리로 남쪽 이동. 예약·기명 확보를 위해 오전을 크게 쓰므로 현재 동선에서는 후순위.",
+        "closed": false,
+        "sources": [
+          {
+            "label": "공식·시설 안내",
+            "url": "https://www.muginae.com/"
+          }
+        ]
+      },
       "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=6%20Chome-11-10%20Minamioi%2C%20Shinagawa%20City%2C%20Tokyo%2C%20Japan&travelmode=transit"
     },
     {
@@ -9062,6 +9662,53 @@
     "hotelId": "hotel-apa",
     "departure": "2026-10-30T18:00:00+09:00",
     "scopeNote": "30분 이내 후보 중 이동·영업 정보를 우선 확인한 목록. 전수 조사나 30분 등시간선이 아닙니다. 이동시간은 대기·혼잡·엘리베이터·식당 대기시간에 따라 달라집니다."
+  },
+  "diningResearch": {
+    "asOf": "2026-10-27",
+    "scope": "휴대폰 10/27 내보내기 파일의 꼭 가고 싶음 32개 항목",
+    "limits": "통상 영업·공개 입장 규칙 확인. 10/31 개별 임시휴무, 빈 예약 슬롯, 실시간 대기시간을 보장하지 않음. 도착 권장은 계획상 제안.",
+    "shortlist": [
+      "food-G089",
+      "food-G176",
+      "food-G063",
+      "food-G076",
+      "food-G008",
+      "food-G053",
+      "food-G118",
+      "food-G140",
+      "food-G049"
+    ],
+    "plans": [
+      {
+        "title": "쇼핑 우선 · 진보초 이른 점심",
+        "summary": "호텔 → 마루카(11시) 또는 에비마루(11:30) 한 곳 → 아키하바라 → 니혼바시·도쿄역 → 긴자",
+        "note": "11시대 한 끼를 먼저 먹으면 점심 피크와 쇼핑 시간을 분리하기 좋음. 마루카는 10:20–10:30, 에비마루는 11:00–11:15 도착을 검토(계획상 제안).",
+        "places": [
+          "food-G089",
+          "food-G176"
+        ]
+      },
+      {
+        "title": "이른 아침 활용 · 쓰키지·히가시긴자",
+        "summary": "호텔 → 키츠네야(아침) 또는 멘야 이시이(09시) → 팡 메종 포장 → 아키하바라 → 긴자 쇼핑",
+        "note": "쓰키지/긴자를 먼저 찍고 북쪽 아키하바라로 돌아오는 왕복이 생기지만, 11시 전 식사를 마칠 수 있음. 세 식사를 모두 강제하지 않음.",
+        "places": [
+          "food-G063",
+          "food-G118",
+          "food-G008",
+          "food-G076"
+        ]
+      },
+      {
+        "title": "특정 가게 우선 · 오전 한 곳에 배정",
+        "summary": "하치고 현장 11시 입장 또는 BUTTER 카페 11시 개점 → 나머지 쇼핑을 오후로 조정",
+        "note": "둘은 같은 오전 첫 순서로 동시에 잡을 수 없음. 하치고 예약이 있으면 해당 시간을 우선. 현재는 예약·대기 입장 확보 전.",
+        "places": [
+          "food-G053",
+          "food-G140"
+        ]
+      }
+    ]
   },
   "foodCoverage": {
     "total": 181,
@@ -13471,8 +14118,8 @@
     }
   ],
   "reviewBaseline": {
-    "id": "phone-20261026T104127Z",
-    "exportedAt": "2026-10-26T10:41:27.195Z",
+    "id": "phone-20261027T010301Z",
+    "exportedAt": "2026-10-27T01:03:01.268Z",
     "videoReviews": {
       "T059": {
         "selection": "가고 싶음",
@@ -14505,6 +15152,752 @@
       "T289": {
         "selection": "제외",
         "reviewedAt": "2026-10-26T09:42:45.107Z"
+      }
+    },
+    "recordPreferences": {
+      "food-G001": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G002": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G003": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G004": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G005": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G006": {
+        "priority": "must",
+        "mapCategory": "auto"
+      },
+      "food-G007": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G008": {
+        "priority": "must",
+        "mapCategory": "auto"
+      },
+      "food-G009": {
+        "priority": "must",
+        "mapCategory": "auto"
+      },
+      "food-G010": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G011": {
+        "priority": "must",
+        "mapCategory": "auto"
+      },
+      "food-G012": {
+        "priority": "must",
+        "mapCategory": "auto"
+      },
+      "food-G013": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G014": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G015": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G016": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G017": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G018": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G019": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G020": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G021": {
+        "priority": "must",
+        "mapCategory": "auto"
+      },
+      "food-G022": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G023": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G024": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G025": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G026": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G027": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G028": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G029": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G030": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G031": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G032": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G033": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G034": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G035": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G036": {
+        "priority": "must",
+        "mapCategory": "auto"
+      },
+      "food-G037": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G039": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G040": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G041": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G042": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G044": {
+        "priority": "must",
+        "mapCategory": "auto"
+      },
+      "food-G045": {
+        "priority": "must",
+        "mapCategory": "auto"
+      },
+      "food-G046": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G047": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G049": {
+        "priority": "must",
+        "mapCategory": "auto"
+      },
+      "food-G050": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G051": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G052": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G053": {
+        "priority": "must",
+        "mapCategory": "auto"
+      },
+      "food-G054": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G055": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G056": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G057": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G058": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G059": {
+        "priority": "must",
+        "mapCategory": "auto"
+      },
+      "food-G060": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G061": {
+        "priority": "must",
+        "mapCategory": "auto"
+      },
+      "food-G062": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G063": {
+        "priority": "must",
+        "mapCategory": "auto"
+      },
+      "food-G064": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G065": {
+        "priority": "must",
+        "mapCategory": "auto"
+      },
+      "food-G066": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G067": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G068": {
+        "priority": "must",
+        "mapCategory": "auto"
+      },
+      "food-G069": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G070": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G071": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G072": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G074": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G076": {
+        "priority": "must",
+        "mapCategory": "auto"
+      },
+      "food-G077": {
+        "priority": "must",
+        "mapCategory": "bar"
+      },
+      "food-G078": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G079": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G080": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G081": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G082": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G083": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G084": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G086": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G087": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G088": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G089": {
+        "priority": "must",
+        "mapCategory": "auto"
+      },
+      "food-G090": {
+        "priority": "must",
+        "mapCategory": "auto"
+      },
+      "food-G091": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G093": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G094": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G095": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G096": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G097": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G098": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G099": {
+        "priority": "must",
+        "mapCategory": "auto"
+      },
+      "food-G100": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G101": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G102": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G103": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G104": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G105": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G106": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G107": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G108": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G109": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G110": {
+        "priority": "must",
+        "mapCategory": "auto"
+      },
+      "food-G112": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G114": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G115": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G116": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G117": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G118": {
+        "priority": "must",
+        "mapCategory": "auto"
+      },
+      "food-G119": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G120": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G121": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G122": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G123": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G124": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G125": {
+        "priority": "must",
+        "mapCategory": "auto"
+      },
+      "food-G126": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G128": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G129": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G130": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G131": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G132": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G133": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G134": {
+        "priority": "must",
+        "mapCategory": "auto"
+      },
+      "food-G135": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G136": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G138": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G139": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G140": {
+        "priority": "must",
+        "mapCategory": "auto"
+      },
+      "food-G141": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G142": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G143": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G144": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G145": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G146": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G147": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G148": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G149": {
+        "priority": "must",
+        "mapCategory": "auto"
+      },
+      "food-G150": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G151": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G152": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G153": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G154": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G155": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G156": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G157": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G158": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G159": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G160": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G161": {
+        "priority": "must",
+        "mapCategory": "auto"
+      },
+      "food-G162": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G163": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G165": {
+        "priority": "must",
+        "mapCategory": "auto"
+      },
+      "food-G166": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G167": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G168": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G169": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G170": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G171": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G172": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G173": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G174": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G175": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G176": {
+        "priority": "must",
+        "mapCategory": "auto"
+      },
+      "food-G177": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G178": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G179": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G180": {
+        "priority": "must",
+        "mapCategory": "auto"
+      },
+      "food-G181": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G182": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G183": {
+        "priority": "must",
+        "mapCategory": "auto"
+      },
+      "food-G184": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G185": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G186": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G187": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G188": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G189": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-G190": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-extra-midori": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-hotel-coffeekan": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-hotel-tskitchen": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-hotel-ajibo": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "food-hotel-yoshiike": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "drinks-2nd-cooper": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "drinks-bar-raten": {
+        "priority": "normal",
+        "mapCategory": "auto"
+      },
+      "drinks-est": {
+        "priority": "normal",
+        "mapCategory": "auto"
       }
     }
   }

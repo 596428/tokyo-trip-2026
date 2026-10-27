@@ -184,6 +184,7 @@ function nearbyRecommendations(){
 }
 function syncExploreControls(){
   $('[data-action="route-overview"]').disabled=false;
+  $('[data-action="dining-guide"]').disabled=false;
   const id=state.foodScope==='city'?'city':state.foodScope==='route'?'route':state.anchorId;
   $('#explore-anchor').innerHTML='<option value="city">도쿄 전체 · 반경 제한 없음</option><option value="route">전체 방문권역 · 참고 동선</option>'+`<option value="map">지도에서 선택한 지역</option>${state.userPosition?'<option value="user">내 위치</option>':''}`+
     '<optgroup label="방문할 장소">'+[...new Map(data.days.flatMap(d=>d.steps.filter(s=>s.place).map(s=>[s.place,places.get(s.place)]))).values()].map(p=>`<option value="${esc(p.id)}">${esc(p.name)}</option>`).join('')+'</optgroup><optgroup label="동선을 넓힐 후보">'+recommendationPlaces().map(p=>`<option value="${esc(p.id)}">${esc(p.name)}</option>`).join('')+'</optgroup>';
@@ -256,19 +257,28 @@ function render(){
 function renderStop(s){
   if(!s.place)return `<article class="stop"><div class="stop-time">${esc(s.time)}</div><div class="stop-card ${s.type==='meal'?'meal':'transport'}"><h3>${esc(s.title)}</h3><p>${esc(s.note)}</p></div></article>`;
   const p=places.get(s.place);
-  return `<article class="stop"><div class="stop-time">${esc(s.time)}</div><div class="stop-card ${isDone(p.id)?'completed':''}"><div class="stop-meta"><span class="area-label">${esc(p.area)} · ${esc(kinds[p.kind])}</span>${badge(p.status,tone(p))}</div><h3><button data-place="${esc(p.id)}" style="text-align:left;padding:0;font-weight:700">${esc(p.name)}</button></h3><p>${esc(s.note)}</p><div class="stop-actions">${check(p)}<div><button class="small-link" data-place="${esc(p.id)}">상세</button><span aria-hidden="true"> · </span>${link(p.directionsUrl,'길안내 ↗','small-link')}</div></div></div></article>`;
+  return `<article class="stop"><div class="stop-time">${esc(s.time)}</div><div class="stop-card ${isDone(p.id)?'completed':''}"><div class="stop-meta"><span class="area-label">${esc(p.area)} · ${esc(kinds[p.kind])}</span>${badge(isMust(p)?'꼭 가고 싶음':p.status,isMust(p)?'must':tone(p))}</div><h3><button data-place="${esc(p.id)}" style="text-align:left;padding:0;font-weight:700">${esc(p.name)}</button></h3><p>${esc(s.note)}</p><div class="stop-actions">${check(p)}<div><button class="small-link" data-place="${esc(p.id)}">상세</button><span aria-hidden="true"> · </span>${link(p.directionsUrl,'길안내 ↗','small-link')}</div></div></div></article>`;
 }
 function daySection(d){return `<section class="day-section"><div class="day-summary"><div class="route-heading"><div class="date-square"><small>${esc(d.weekday[0])}</small>${esc(d.date.split('.')[1])}</div><div><span class="eyebrow">${d.id==='fri'?'DAY 01':d.id==='sat'?'DAY 02':'DAY 03'} / ${esc(d.date)}</span><h2>${esc(d.title)}</h2></div></div><p>${esc(d.subtitle)}</p><div class="day-note">${esc(d.note)}</div></div><div class="timeline">${d.steps.map(renderStop).join('')}</div></section>`;}
 function renderToday(){
   $('#left-pane').innerHTML=(state.day==='all'?'<div class="overview-note"><h3>전체 흐름부터 살펴보세요.</h3><p>금요일은 메가도쿄·치이카와랜드가 있는 이케부쿠로, 토요일은 아키하바라에서 니혼바시·도쿄역을 거쳐 긴자 쇼핑, 일요일은 귀국 이동입니다. 식사는 후보 상태로 두었습니다.</p></div>':'')+selectedDays().map(daySection).join('<hr class="section-divider">')+
     `<div class="overview-note"><h3>APA 우에노 히로코지 숙박 확정</h3><p>예약한 숙소를 기준으로 한 쇼핑 동선입니다. 음식점은 후보 단계이고, 원단은 현재 동선에서 제외했습니다. Break Beats 예약 결과와 PRAS 지점 재고에 따라 조정합니다.</p><button class="small-link" data-view="prepare">예약과 준비 확인하기 →</button></div>`;
 }
-function placeCard(p){return `<article class="place-card ${isDone(p.id)?'done':''}"><div class="place-card-top"><span class="area-label">${esc(p.area)} · ${esc(kinds[p.kind])}</span>${badge(p.status,tone(p))}</div><h3><button data-place="${esc(p.id)}" style="font-weight:700;text-align:left;padding:0">${esc(p.name)}</button></h3><p>${esc(p.summary)}</p><div class="place-card-bottom"><span class="card-count">${p.kind==='food'?esc(p.videoIds?.join(' · ')||''):p.day?'동선에 포함':'비교·선택 후보'}</span><button class="small-link" data-place="${esc(p.id)}">자세히 보기 ↗</button></div></article>`;}
+function placeCard(p){return `<article class="place-card ${isDone(p.id)?'done':''}"><div class="place-card-top"><span class="area-label">${esc(p.area)} · ${esc(TripMap.categories[purposeCategory(p)].label)}</span>${badge(isMust(p)?'꼭 가고 싶음':p.status,isMust(p)?'must':tone(p))}</div><h3><button data-place="${esc(p.id)}" style="font-weight:700;text-align:left;padding:0">${esc(p.name)}</button></h3><p>${esc(p.summary)}</p><div class="place-card-bottom"><span class="card-count">${p.kind==='food'?esc(p.videoIds?.join(' · ')||''):p.day?'동선에 포함':'비교·선택 후보'}</span><button class="small-link" data-place="${esc(p.id)}">자세히 보기 ↗</button></div></article>`;}
 
-function hoursLabel(p){return p.hotelFood?(p.hotelFood.hoursEvidence==='공식 안내'?'공식 영업 안내 있음':'영업 정보·주의사항 있음'):'영업 미확인 · 영상 정보는 참고용';}
+function hoursLabel(p){return p.diningResearch?p.diningResearch.hours:p.hotelFood?(p.hotelFood.hoursEvidence==='공식 안내'?'공식 영업 안내 있음':'영업 정보·주의사항 있음'):'영업 미확인 · 영상 정보는 참고용';}
+function researchHtml(p,detail=false){
+  const r=p.diningResearch;if(!r)return '';
+  return `<div class="dining-research ${r.closed?'closed-venue':''}"><b>${r.closed?'폐점 확인':esc(r.queue)}</b>${detail?`<div class="detail-info">${esc(r.hours)}</div>`:''}<p>${esc(r.queueNote||'기다림이 짧다는 뜻은 아닙니다. 공개된 대기 정보를 확인하지 못했습니다.')}</p>${r.arrival?`<p class="dining-arrival">방문 제안: ${esc(r.arrival)}</p>`:''}${detail?`<p>${esc(r.caution)}</p><small>2026.10.27 확인 · ${esc(r.hoursEvidence)} · 통상 영업 기준, 방문일 임시휴무 별도</small><div class="dining-sources">${r.sources.map(s=>link(s.url,s.label+' ↗')).join('')}</div>`:''}</div>`;
+}
+function diningGuideHtml(){
+  const guide=data.diningResearch;if(!guide)return '';
+  const profiles=data.places.filter(p=>isMust(p)&&p.diningResearch);
+  return `<article class="prepare-card dining-guide" id="dining-guide"><span class="eyebrow">SATURDAY / 10.31</span><h3>토요일 아침·점심, 먼저 먹을 한 곳 고르기</h3><p>오전 식사 후보입니다. 기존 쇼핑 동선을 자동 변경하거나 예약하지 않았습니다. 마루카·에비마루 중 한 곳, 또는 쓰키지·히가시긴자 아침 중에서 고르는 구성을 권합니다.</p>${guide.plans.map(plan=>`<section class="morning-plan"><h4>${esc(plan.title)}</h4><p>${esc(plan.summary)}</p><small>${esc(plan.note)}</small><div>${plan.places.filter(id=>places.has(id)&&isMust(places.get(id))).map(id=>`<button class="button-link" data-place="${id}">${esc(places.get(id).name)} →</button>`).join(' ')}</div></section>`).join('')}<details class="dining-research-list"><summary>내 꼭 갈 곳 영업·대기 조사 ${profiles.length}개 항목 · 10.27 확인</summary>${profiles.map(p=>`<section><h4><button class="small-link" data-place="${esc(p.id)}">${esc(p.name)} →</button></h4><p>${esc(p.diningResearch.hours)}</p>${researchHtml(p,true)}</section>`).join('')}</details><p>${esc(guide.limits)}</p></article>`;
+}
 function foodCard(p){
   const cat=TripExplore.category(p),label=p.hotelFood?.group==='hotel-bars'?'호텔 근처의 술집':{picked:'내 선택·모음 영상',unreviewed:'엑셀 미검토',recommended:'추가 추천'}[cat];
-  return `<article class="place-card food-map-card" data-food-card="${esc(p.id)}"><div class="place-card-top"><span class="area-label">${esc(p.area)} · ${esc(p.videoIds.join(' · ')||'추천·보완')}</span>${badge(purposeCategory(p)==='bar'?'술집':label,cat==='unreviewed'?'soft':'')}${isMust(p)?badge('꼭 가고 싶음','must'):''}</div><h3><button data-place="${esc(p.id)}">${esc(p.name)}</button></h3><div class="explore-distance">${state.foodScope==='hotel30'?hotelTravelHtml(p):esc(nearbyLabel(p))}</div><p>${esc(p.hotelFood?.menu||p.summary)}</p><div class="quick-hours">${p.hotelFood?esc(state.day==='all'?hoursLabel(p)+' · 상세에서 요일별 확인':p.hotelFood.hours[state.day]):'영업 미확인 · 영상 메뉴·가격은 참고용'}</div>${p.hotelFood?.caution?`<p class="dining-caution">${esc(p.hotelFood.caution)}</p>`:''}<div class="food-card-actions">${interestButton(p)}<button data-locate="${esc(p.id)}" class="small-link">핀 보기</button><button data-place="${esc(p.id)}" class="small-link">${p.videoIds.length?'메뉴·시간·Shorts':'메뉴·시간'} →</button></div></article>`;
+  return `<article class="place-card food-map-card" data-food-card="${esc(p.id)}"><div class="place-card-top"><span class="area-label">${esc(p.area)} · ${esc(p.videoIds.join(' · ')||'추천·보완')}</span>${badge(purposeCategory(p)==='bar'?'술집':label,cat==='unreviewed'?'soft':'')}${isMust(p)?badge('꼭 가고 싶음','must'):''}</div><h3><button data-place="${esc(p.id)}">${esc(p.name)}</button></h3><div class="explore-distance">${state.foodScope==='hotel30'?hotelTravelHtml(p):esc(nearbyLabel(p))}</div><p>${esc(p.hotelFood?.menu||p.summary)}</p><div class="quick-hours">${p.diningResearch?esc(p.diningResearch.hours):p.hotelFood?esc(state.day==='all'?hoursLabel(p)+' · 상세에서 요일별 확인':p.hotelFood.hours[state.day]):'영업 미확인 · 영상 메뉴·가격은 참고용'}</div>${researchHtml(p)}${!p.diningResearch&&p.hotelFood?.caution?`<p class="dining-caution">${esc(p.hotelFood.caution)}</p>`:''}<div class="food-card-actions">${interestButton(p)}<button data-locate="${esc(p.id)}" class="small-link">핀 보기</button><button data-place="${esc(p.id)}" class="small-link">${p.videoIds.length?'메뉴·시간·Shorts':'메뉴·시간'} →</button></div></article>`;
 }
 function renderFoodResults(){
   const list=foodCandidates(),mapped=list.filter(p=>p.coords),missing=list.filter(p=>!p.coords);
@@ -299,7 +309,7 @@ function renderMapList(){
 
 function filteredPlaces(){
   const q=state.query.trim().toLocaleLowerCase();
-  return data.places.filter(p=>!p.duplicateOf&&(state.includeUnreviewed||defaultVisible(p))&&(state.kind==='all'||p.kind===state.kind)&&(!q||[p.name,p.area,p.summary,p.address,...(p.videoIds||[])].join(' ').toLocaleLowerCase().includes(q)));
+  return data.places.filter(p=>!p.duplicateOf&&(state.includeUnreviewed||defaultVisible(p))&&(state.kind==='all'||purposeCategory(p)===state.kind)&&(!q||[p.name,p.area,p.summary,p.address,...(p.videoIds||[])].join(' ').toLocaleLowerCase().includes(q)));
 }
 function compilationHtml(){
   const selected=data.compilations.filter(v=>data.selectedVideoIds.includes(v.id));
@@ -307,14 +317,15 @@ function compilationHtml(){
 }
 function renderPlaceResults(){
   const list=filteredPlaces();
-  $('#place-results').innerHTML=`<div class="result-count">${list.length}곳 · 음식점은 같은 가게의 영상을 묶어서 표시</div><div class="places-grid">${list.map(placeCard).join('')||'<div class="empty-state">검색 결과가 없습니다. 다른 이름이나 지역으로 찾아보세요.</div>'}</div>`;
+  const groups=Object.entries(TripMap.categories).map(([id,c])=>({id,...c,items:list.filter(p=>purposeCategory(p)===id)})).filter(g=>g.items.length);
+  $('#place-results').innerHTML=`<div class="result-count">${list.length}곳 · 지도와 같은 분류 · 음식점은 같은 가게의 영상을 묶어서 표시</div>${groups.map(g=>`<section class="collection-group" aria-label="${esc(g.label)}"><h3 class="collection-heading"><span class="purpose-legend" style="background:${g.color}">${g.icon}</span>${esc(g.label)} <small>${g.items.length}곳</small></h3><div class="places-grid">${g.items.map(placeCard).join('')}</div></section>`).join('')||'<div class="empty-state">검색 결과가 없습니다. 다른 이름이나 지역으로 찾아보세요.</div>'}`;
 }
 function renderPlaces(){
-  $('#left-pane').innerHTML=`<div class="section-heading"><div><span class="eyebrow">YOUR COLLECTION</span><h2>장소 보관함</h2></div>${badge('선택 영상 '+data.selectedVideoIds.length+'개')}</div><p class="section-intro">방문 장소와 엑셀에서 고른 맛집을 모았습니다. 음식점의 식사 시간은 아직 미확정입니다.</p><label class="search-box"><span aria-hidden="true">⌕</span><input id="place-search" type="search" placeholder="가게 이름, 지역, 엑셀 번호로 검색" aria-label="장소 검색" value="${esc(state.query)}"></label><div class="chip-row" role="group" aria-label="장소 종류"><button data-kind="all" class="${state.kind==='all'?'active':''}">전체</button>${Object.entries(kinds).map(([k,v])=>`<button data-kind="${k}" class="${state.kind===k?'active':''}">${v}</button>`).join('')}</div><label class="check-control" style="margin-bottom:16px"><input type="checkbox" id="unreviewed-toggle" ${state.includeUnreviewed?'checked':''}>미검토 맛집도 포함하기</label><div id="place-results"></div><div style="margin-top:20px">${compilationHtml()}</div><p class="data-note">원본 ${data.videoCount}개 도쿄 후보 영상에서 가게별로 묶었습니다. 모음 영상은 별도로 보관합니다. 엑셀 상태는 사이트를 생성한 시점의 사본입니다.</p>`;
+  $('#left-pane').innerHTML=`<div class="section-heading"><div><span class="eyebrow">YOUR COLLECTION</span><h2>장소 보관함</h2></div>${badge('지도와 같은 분류')}</div><p class="section-intro">방문 장소와 엑셀에서 고른 맛집을 모았습니다. 음식점의 식사 시간은 아직 미확정입니다.</p><label class="search-box"><span aria-hidden="true">⌕</span><input id="place-search" type="search" placeholder="가게 이름, 지역, 엑셀 번호로 검색" aria-label="장소 검색" value="${esc(state.query)}"></label><div class="chip-row" role="group" aria-label="장소 종류"><button data-kind="all" class="${state.kind==='all'?'active':''}">전체</button>${Object.entries(TripMap.categories).map(([k,c])=>`<button data-kind="${k}" class="${state.kind===k?'active':''}">${c.icon} ${c.label}</button>`).join('')}</div><label class="check-control" style="margin-bottom:16px"><input type="checkbox" id="unreviewed-toggle" ${state.includeUnreviewed?'checked':''}>보류·제외·미검토 맛집도 포함하기</label><div id="place-results"></div><div style="margin-top:20px">${compilationHtml()}</div><p class="data-note">원본 ${data.videoCount}개 도쿄 후보 영상에서 가게별로 묶었습니다. 모음 영상은 별도로 보관합니다. 엑셀 상태는 사이트를 생성한 시점의 사본입니다.</p>`;
   renderPlaceResults();
 }
 function renderPrepare(){
-  $('#left-pane').innerHTML=`<div class="section-heading"><div><span class="eyebrow">BEFORE YOU GO</span><h2>예약과 준비</h2></div></div>
+  $('#left-pane').innerHTML=`<div class="section-heading"><div><span class="eyebrow">BEFORE YOU GO</span><h2>예약과 준비</h2></div></div>${diningGuideHtml()}
     <article class="prepare-card featured">${badge('미예약 · 공개 시각 재확인','red')}<h3>Ramen Break Beats</h3><p>10.31 토요일 · 성인 1명 · 이른 점심 도전</p><div class="reserve-date">10.24 SAT / 21:00 <small>KST · JST</small></div><p>현재 공지에 따른 예약 공개 예상 시각입니다. 실제 영업·시간대는 예약 화면에서 확인합니다. 예약 결과가 토요일 동선을 결정합니다.</p>${link('https://www.tablecheck.com/ja/shops/ramenbreakbeats/reserve','TableCheck 예약 페이지 ↗','button-link')}<ul><li>예약 15분 전 도착 안내</li><li>수수료 500엔 · 전날부터 취소료 2,000엔 안내</li><li>실패 시 스즈하루 등 후보로 전환</li></ul><p>조건은 예약 시 표시되는 최신 안내를 우선합니다.</p></article>
     <article class="prepare-card">${badge('숙소 예약 완료')}<h3>APA 우에노 히로코지 기준 동선</h3><p>10.30 체크인 → 11.01 체크아웃 · 성인 1명 / 1실 / 2박. 사용자가 APA 우에노 히로코지 예약 완료를 확인했습니다. 결제 금액과 취소 조건은 예약 확인서 기준입니다.</p><div class="hotel-links">${link('https://www.apahotel.com/hotel/syutoken/tokyo/ueno-hirokoji/','APA 호텔 우에노 히로코지 ↗')}${link('https://www.booking.com/hotel/jp/apa-hotel-ueno-hirokoji.ko.html?checkin=2026-10-30&checkout=2026-11-01&group_adults=1&no_rooms=1&group_children=0&selected_currency=KRW','예약 사이트 ↗')}</div></article>
     <article class="prepare-card">${badge('약 $100 · 약간 초과 가능')}<h3>달콤한 한 병, 혹은 스모키한 한 병</h3><p>리커즈 하세가와에서 비교할 후보입니다. 아래는 10.20 웹 표시 가격(세금 포함, 700ml)이며 방문일 재고·가격은 별도입니다.</p>${data.whisky.candidates.map(w=>`<div class="whisky-row"><div><b>${link(w.url,w.name+' ↗')}</b><small>${esc(w.style)}</small></div><span>¥${w.price.toLocaleString('ja-JP')}</span></div>`).join('')}<p>두 스타일을 함께 고르면 글렌알라키 12년 + 탈리스커 10년 = 14,880엔도 비교 후보입니다. 최종 구매는 현장에서 결정합니다.</p></article>
@@ -380,7 +391,7 @@ function updateMap(fit=true){
   for(const p of visible){
     const route=!!p.visits,purpose=purposeCategory(p),design=TripMap.categories[purpose],must=isMust(p);
     const icon=L.divIcon({className:'',html:`<span class="map-pin purpose-pin purpose-${purpose}${must?' priority-must':''}" style="--pin-color:${design.color}">${design.icon}${must?'<small class="pin-priority">꼭</small>':''}${route&&state.showRoute&&p.kind!=='hotel'?`<small class="pin-order">${esc(p.routeOrder)}</small>`:''}</span>`,iconSize:[32,32],iconAnchor:[16,16]});
-    const quick=p.kind==='food'?`<span class="popup-note">${esc(nearbyLabel(p))}<br>${esc(p.hotelFood?.menu||p.summary)}<br>${esc(p.hotelFood?(state.day==='all'?hoursLabel(p)+' · 상세에서 확인':p.hotelFood.hours[state.day]):'영업 미확인 · 지도에서 재확인')}</span>${link(contextDirections(p),state.foodScope==='nearby'?'기준점에서 길찾기 ↗':'Google 길찾기 ↗','popup-link')}`:`${p.buildingName?arrivalHtml(p):`<span class="popup-note">${esc(p.exploreTip||p.summary)}</span>`}<button class="popup-link" data-nearby="${esc(p.id)}">이 장소 주변 맛집 →</button>`;
+    const quick=p.kind==='food'?`<span class="popup-note">${esc(nearbyLabel(p))}<br>${esc(p.hotelFood?.menu||p.summary)}<br>${esc(p.diningResearch?p.diningResearch.hours:p.hotelFood?(state.day==='all'?hoursLabel(p)+' · 상세에서 확인':p.hotelFood.hours[state.day]):'영업 미확인 · 지도에서 재확인')}</span>${link(contextDirections(p),state.foodScope==='nearby'?'기준점에서 길찾기 ↗':'Google 길찾기 ↗','popup-link')}`:`${p.buildingName?arrivalHtml(p):`<span class="popup-note">${esc(p.exploreTip||p.summary)}</span>`}<button class="popup-link" data-nearby="${esc(p.id)}">이 장소 주변 맛집 →</button>`;
     const marker=L.marker(p.coords,{icon,title:p.name,keyboard:true,zIndexOffset:p.kind==='hotel'?500:route?300:0}).addTo(purpose==='food'?foodLayer:mapLayer).bindPopup(`<b>${esc(p.name)}</b>${must?' · 꼭 가고 싶음':''}<br>${esc(design.label)} · ${esc(p.area)} · ${esc(p.status)}${quick}<button class="popup-link" data-place="${esc(p.id)}">${p.kind==='food'?'메뉴·시간·메모':p.buildingName?'상세·층수·메모':'상세·메모'} →</button> &nbsp;${interestButton(p)}`,p.buildingName?{minWidth:250,maxWidth:290,autoPanPaddingTopLeft:[12,52],autoPanPaddingBottomRight:[12,12]}:{});
     markers.set(p.id,marker);
   }
@@ -423,7 +434,7 @@ $('#place-dialog').addEventListener('cancel',e=>{e.preventDefault();closePlace()
 function openPlace(id,syncHistory=true){
   const p=places.get(id);if(!p||dialogBackPending)return;
   dialogPlace=id;
-  $('#dialog-content').innerHTML=`<span class="area-label">${esc(p.area)} / ${esc(kinds[p.kind])}</span><h2>${esc(p.name)}</h2>${badge(p.status,tone(p))}<p>${esc(p.summary)}</p><div class="detail-address">${esc(p.address||'주소 확인 필요')}</div><div class="detail-actions">${link(p.directionsUrl,'길안내 ↗','primary')}${link(p.mapUrl,'Google 지도 ↗')}${p.url?link(p.url,p.id==='food-G034'?'예약 페이지 ↗':'사이트 ↗'):''}${p.browse?link(p.browse,'상품 둘러보기 ↗'):''}${p.store?link(p.store,'매장 안내 ↗'):''}</div>${p.detail&&!p.hotelFood?`<p>${esc(p.detail)}</p>`:''}${p.hours&&!p.hotelFood?`<div class="detail-info">영상에 안내된 영업시간: ${esc(p.hours)}<br>방문일 영업시간은 다시 확인해 주세요.</div>`:''}${p.hotelFood?diningHtml(p,true):''}${p.exploreTip?`<div class="detail-info">${esc(p.exploreTip)}<br>${link(p.exploreTipUrl,'같은 층 공식 매장 안내 ↗')}</div>`:''}<div class="detail-info">${esc(p.coordinateNote)}</div>${p.kind==='food'?foodPreferences(p):''}${check(p)} ${interestButton(p)}${p.kind!=='food'?`<button class="button-link" data-nearby="${esc(p.id)}">이 장소 주변 맛집</button>`:''}<label class="note-label" for="place-note">나의 메모</label><textarea id="place-note" maxlength="4000" placeholder="사고 싶은 상품, 고를 메뉴, 현장에서 확인할 것…">${esc(records[id]?.note||'')}</textarea><div class="note-hint">자동 저장 · 현재 브라우저에만 보관</div>${p.videos?.length?`<details class="source-videos"><summary>관련 Shorts ${p.videos.length}개 · 원본 확인</summary>${p.videos.map(v=>link(v.url,v.id+' · '+v.title+(v.selection==='가고 싶음'?' ✓':''))).join('')}</details>`:''}`;
+  $('#dialog-content').innerHTML=`<span class="area-label">${esc(p.area)} / ${esc(kinds[p.kind])}</span><h2>${esc(p.name)}</h2>${badge(p.status,tone(p))}<p>${esc(p.summary)}</p><div class="detail-address">${esc(p.address||'주소 확인 필요')}</div><div class="detail-actions">${link(p.directionsUrl,'길안내 ↗','primary')}${link(p.mapUrl,'Google 지도 ↗')}${p.url?link(p.url,p.id==='food-G034'?'예약 페이지 ↗':'사이트 ↗'):''}${p.browse?link(p.browse,'상품 둘러보기 ↗'):''}${p.store?link(p.store,'매장 안내 ↗'):''}</div>${p.detail&&!p.hotelFood&&!p.diningResearch?`<p>${esc(p.detail)}</p>`:''}${p.hours&&!p.hotelFood&&!p.diningResearch?`<div class="detail-info">영상에 안내된 영업시간: ${esc(p.hours)}<br>방문일 영업시간은 다시 확인해 주세요.</div>`:''}${p.diningResearch?researchHtml(p,true):p.hotelFood?diningHtml(p,true):''}${p.exploreTip?`<div class="detail-info">${esc(p.exploreTip)}<br>${link(p.exploreTipUrl,'같은 층 공식 매장 안내 ↗')}</div>`:''}<div class="detail-info">${esc(p.coordinateNote)}</div>${p.kind==='food'?foodPreferences(p):''}${check(p)} ${interestButton(p)}${p.kind!=='food'?`<button class="button-link" data-nearby="${esc(p.id)}">이 장소 주변 맛집</button>`:''}<label class="note-label" for="place-note">나의 메모</label><textarea id="place-note" maxlength="4000" placeholder="사고 싶은 상품, 고를 메뉴, 현장에서 확인할 것…">${esc(records[id]?.note||'')}</textarea><div class="note-hint">자동 저장 · 현재 브라우저에만 보관</div>${p.videos?.length?`<details class="source-videos"><summary>관련 Shorts ${p.videos.length}개 · 원본 확인</summary>${p.videos.map(v=>link(v.url,v.id+' · '+v.title+(v.selection==='가고 싶음'?' ✓':''))).join('')}</details>`:''}`;
   if(p.buildingName)$('#dialog-content .detail-address').insertAdjacentHTML('afterend',arrivalHtml(p,true));
   if(p.kind==='food')$('#dialog-content').insertAdjacentHTML('beforeend',`${link(contextDirections(p),state.foodScope==='nearby'?'탐색 기준점에서 길찾기 ↗':'Google 길찾기 ↗','button-link')}<div class="food-distance">${distanceHtml(p)}${link(hotelDirections(p),'호텔에서 길찾기 ↗')}</div>${p.locationWarning?`<div class="detail-info">${esc(p.locationWarning)}${p.originalAddress?'<br>영상 속 주소: '+esc(p.originalAddress):''}${p.addressSource?'<br>'+link(p.addressSource,'현재 주소 출처 ↗'):''}</div>`:''}${p.coordinateSource?link(p.coordinateSource,'위치 검색 근거 ↗','small-link'):''}`);
   if(!$('#place-dialog').open)$('#place-dialog').showModal();
@@ -462,6 +473,7 @@ document.addEventListener('click',e=>{
     case 'route-overview':showRouteOverview();break;
     case 'city-wanted':showCityWanted();break;
     case 'food-distribution':showCityWanted(true);break;
+    case 'dining-guide':state.view='prepare';render();$('#dining-guide')?.scrollIntoView({block:'start'});break;
     case 'search-map-center':selectFocus('map');break;
     case 'my-location':getMyLocation();break;
     case 'list-jump':$('#left-pane').scrollIntoView({behavior:'smooth',block:'start'});break;
@@ -483,11 +495,13 @@ document.addEventListener('change',e=>{
     const next={...(records[id]||{})};
     if(e.target.dataset.mustPlace){
       if(p.reviewSelection!=='가고 싶음')return;
-      if(e.target.checked)next.priority='must';else delete next.priority;
+      next.priority=e.target.checked?'must':'normal';
     }else if(['food','bar'].includes(e.target.value))next.mapCategory=e.target.value;
     else delete next.mapCategory;
+    next.preferenceUpdatedAt=new Date().toISOString();
     records[id]=TripExplore.normalizeRecord(next);saveRecords();
     if(state.view==='review')renderReviewResults();
+    if(state.view==='places')renderPlaceResults();
     if(state.view==='map'){renderExplorerResults();updateMap(false);}
     return;
   }
@@ -523,18 +537,20 @@ $('#import-file').addEventListener('change',async e=>{
     if(file.size>8*1024*1024)throw new Error('파일 크기');
     const parsed=JSON.parse(await file.text());
     if(parsed.format!=='tokyo-trip-records'||![1,2].includes(parsed.version)||parsed.trip!=='2026-10-30')throw new Error('형식');
-    records={...records,...validateRecords(parsed.records)};
+    const imported=validateRecords(parsed.records);
+    for(const record of Object.values(imported))if(!record.preferenceUpdatedAt)record.preferenceUpdatedAt=parsed.exportedAt||new Date().toISOString();
+    records={...records,...imported};
     if(parsed.version===2)videoReviews={...videoReviews,...TripReview.normalizeReviews(parsed.videoReviews,new Set(reviewVideoMap.keys()))};
     saveRecords();saveVideoReviews();applyReviewSelections();render();message('저장한 기록을 가져왔습니다. 같은 항목은 파일의 기록으로 갱신했습니다.');
   }catch{message('기록을 가져오지 못했습니다. 이 여행 노트에서 내보낸 JSON 파일인지 확인해 주세요.');}
   e.target.value='';
 });
 async function start(){
-  const response=await fetch('./trip-data.json?v=20261026-ginza-route',{cache:'no-cache'});if(!response.ok)throw new Error('데이터 불러오기');
+  const response=await fetch('./trip-data.json?v=20261027-dining',{cache:'no-cache'});if(!response.ok)throw new Error('데이터 불러오기');
   data=await response.json();places=new Map(data.places.map(p=>[p.id,p]));
   reviewVideoMap=new Map((data.reviewVideos||[]).map(v=>[v.id,v]));
   reviewGroups=TripReview.groups(data.reviewVideos||[],data.places);
-  state.center=places.get(data.routePlan.hotelId).coords;loadRecords();loadVideoReviews();applyReviewSelections();initMap();render();renderProgress();updateMap(true);
+  state.center=places.get(data.routePlan.hotelId).coords;loadRecords();records=TripExplore.mergePreferenceBaseline(data.reviewBaseline||{},records);loadVideoReviews();applyReviewSelections();initMap();render();renderProgress();updateMap(true);
   if(places.has(history.state?.[DIALOG_HISTORY_KEY]))openPlace(history.state[DIALOG_HISTORY_KEY],false);
 }
 start().catch(()=>message('여행 정보를 불러오지 못했습니다. 페이지를 새로고침해 주세요.'));
