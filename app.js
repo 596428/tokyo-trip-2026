@@ -356,7 +356,7 @@ function renderPrepare(){
 
 function mapPlaces(){
   const hotelBars=data.places.filter(p=>p.hotelFood?.group==='hotel-bars'&&p.coords&&TripExplore.reviewMatch(p,state.reviewFilter,records[p.id]));
-  const candidates=[...mappedRoutePlaces().filter(p=>p.kind!=='food'||TripExplore.reviewMatch(p,state.reviewFilter,records[p.id])),...foodCandidates().filter(p=>p.coords),...hotelBars,...nearbyRecommendations(),...(state.showFabric?data.places.filter(p=>p.kind==='fabric'&&p.coords):[])];
+  const candidates=[...mappedRoutePlaces().filter(p=>p.kind!=='food'||TripExplore.reviewMatch(p,state.reviewFilter,records[p.id])),...data.places.filter(p=>p.mapPinned&&p.coords),...foodCandidates().filter(p=>p.coords),...hotelBars,...nearbyRecommendations(),...(state.showFabric?data.places.filter(p=>p.kind==='fabric'&&p.coords):[])];
   const unique=new Map();
   for(const p of candidates)if(!unique.has(p.id))unique.set(p.id,p);
   return [...unique.values()].filter(p=>state.mapCategories.includes(purposeCategory(p)));
@@ -568,7 +568,7 @@ $('#import-file').addEventListener('change',async e=>{
   e.target.value='';
 });
 async function start(){
-  const response=await fetch('./trip-data.json?v=20261027-extra-food-1',{cache:'no-cache'});if(!response.ok)throw new Error('데이터 불러오기');
+  const response=await fetch('./trip-data.json?v=20261027-donki-1',{cache:'no-cache'});if(!response.ok)throw new Error('데이터 불러오기');
   data=await response.json();places=new Map(data.places.map(p=>[p.id,p]));
   reviewVideoMap=new Map((data.reviewVideos||[]).map(v=>[v.id,v]));
   reviewGroups=TripReview.groups(data.reviewVideos||[],data.places);

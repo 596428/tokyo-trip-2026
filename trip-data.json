@@ -9136,6 +9136,66 @@
       "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=%E6%9D%B1%E4%BA%AC%E9%83%BD%E5%8F%B0%E6%9D%B1%E5%8C%BA%E8%A5%BF%E6%B5%85%E8%8D%893-8-4&travelmode=transit"
     },
     {
+      "id": "donki-ikebukuro",
+      "name": "돈키호테 이케부쿠로 동쪽 출구 역앞점",
+      "kind": "shopping",
+      "area": "이케부쿠로",
+      "coords": [
+        35.72934,
+        139.712402
+      ],
+      "address": "東京都豊島区南池袋1-22-5",
+      "url": "https://www.donki.com/store/shop_detail.php?shop_id=255",
+      "summary": "마칸센 구매를 위해 확인할 돈키호테 지점. 상품 취급·재고는 미확인.",
+      "status": "위치만 추가 · 선택 방문",
+      "mapPinned": true,
+      "locationPrecision": "address",
+      "coordinateSource": "https://msearch.gsi.go.jp/address-search/AddressSearch?q=%E6%9D%B1%E4%BA%AC%E9%83%BD%E8%B1%8A%E5%B3%B6%E5%8C%BA%E5%8D%97%E6%B1%A0%E8%A2%8B1-22-5",
+      "coordinateNote": "돈키호테 공식 주소를 국토지리원 주소 검색으로 표시. 실제 매장 입구는 Google 지도에서 확인.",
+      "mapUrl": "https://www.google.com/maps/search/?api=1&query=%E6%9D%B1%E4%BA%AC%E9%83%BD%E8%B1%8A%E5%B3%B6%E5%8C%BA%E5%8D%97%E6%B1%A0%E8%A2%8B1-22-5",
+      "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=%E6%9D%B1%E4%BA%AC%E9%83%BD%E8%B1%8A%E5%B3%B6%E5%8C%BA%E5%8D%97%E6%B1%A0%E8%A2%8B1-22-5&travelmode=transit"
+    },
+    {
+      "id": "donki-akihabara",
+      "name": "돈키호테 아키하바라점",
+      "kind": "shopping",
+      "area": "아키하바라",
+      "coords": [
+        35.700665,
+        139.771698
+      ],
+      "address": "東京都千代田区外神田4-3-3",
+      "url": "https://www.donki.com/store/shop_detail.php?shop_id=98",
+      "summary": "마칸센 구매를 위해 확인할 돈키호테 지점. 상품 취급·재고는 미확인.",
+      "status": "위치만 추가 · 선택 방문",
+      "mapPinned": true,
+      "locationPrecision": "address",
+      "coordinateSource": "https://msearch.gsi.go.jp/address-search/AddressSearch?q=%E6%9D%B1%E4%BA%AC%E9%83%BD%E5%8D%83%E4%BB%A3%E7%94%B0%E5%8C%BA%E5%A4%96%E7%A5%9E%E7%94%B04-3-3",
+      "coordinateNote": "돈키호테 공식 주소를 국토지리원 주소 검색으로 표시. 실제 매장 입구는 Google 지도에서 확인.",
+      "mapUrl": "https://www.google.com/maps/search/?api=1&query=%E6%9D%B1%E4%BA%AC%E9%83%BD%E5%8D%83%E4%BB%A3%E7%94%B0%E5%8C%BA%E5%A4%96%E7%A5%9E%E7%94%B04-3-3",
+      "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=%E6%9D%B1%E4%BA%AC%E9%83%BD%E5%8D%83%E4%BB%A3%E7%94%B0%E5%8C%BA%E5%A4%96%E7%A5%9E%E7%94%B04-3-3&travelmode=transit"
+    },
+    {
+      "id": "donki-ueno",
+      "name": "돈키호테 우에노점",
+      "kind": "shopping",
+      "area": "우에노·유시마",
+      "coords": [
+        35.708069,
+        139.771011
+      ],
+      "address": "東京都文京区湯島3-38-10",
+      "url": "https://www.donki.com/store/shop_detail.php?shop_id=107",
+      "summary": "마칸센 구매를 위해 확인할 돈키호테 지점. 상품 취급·재고는 미확인.",
+      "status": "위치만 추가 · 선택 방문",
+      "mapPinned": true,
+      "locationPrecision": "address",
+      "coordinateSource": "https://msearch.gsi.go.jp/address-search/AddressSearch?q=%E6%9D%B1%E4%BA%AC%E9%83%BD%E6%96%87%E4%BA%AC%E5%8C%BA%E6%B9%AF%E5%B3%B63-38-10",
+      "coordinateNote": "돈키호테 공식 주소를 국토지리원 주소 검색으로 표시. 실제 매장 입구는 Google 지도에서 확인.",
+      "mapUrl": "https://www.google.com/maps/search/?api=1&query=%E6%9D%B1%E4%BA%AC%E9%83%BD%E6%96%87%E4%BA%AC%E5%8C%BA%E6%B9%AF%E5%B3%B63-38-10",
+      "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=%E6%9D%B1%E4%BA%AC%E9%83%BD%E6%96%87%E4%BA%AC%E5%8C%BA%E6%B9%AF%E5%B3%B63-38-10&travelmode=transit"
+    },
+    {
       "id": "food-hotel-coffeekan",
       "name": "珈琲館 · 코코네 우에노오카치마치점",
       "kind": "food",
