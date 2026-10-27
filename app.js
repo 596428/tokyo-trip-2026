@@ -319,8 +319,34 @@ function renderPlaces(){
   $('#left-pane').innerHTML=`<div class="section-heading"><div><span class="eyebrow">YOUR COLLECTION</span><h2>장소 보관함</h2></div>${badge('지도와 같은 분류')}</div><p class="section-intro">방문 장소와 고른 맛집·카페를 모았습니다. 토요일 첫 식사는 하치고, 일요일 아침은 두 카페 중 한 곳 선택입니다.</p><label class="search-box"><span aria-hidden="true">⌕</span><input id="place-search" type="search" placeholder="가게 이름, 지역, 엑셀 번호로 검색" aria-label="장소 검색" value="${esc(state.query)}"></label><div class="chip-row" role="group" aria-label="장소 종류"><button data-kind="all" class="${state.kind==='all'?'active':''}">전체</button>${Object.entries(TripMap.categories).map(([k,c])=>`<button data-kind="${k}" class="${state.kind===k?'active':''}">${c.icon} ${c.label}</button>`).join('')}</div><label class="check-control" style="margin-bottom:16px"><input type="checkbox" id="unreviewed-toggle" ${state.includeUnreviewed?'checked':''}>보류·제외·미검토 맛집도 포함하기</label><div id="place-results"></div><div style="margin-top:20px">${compilationHtml()}</div><p class="data-note">원본 ${data.videoCount}개 도쿄 후보 영상에서 가게별로 묶었습니다. 모음 영상은 별도로 보관합니다. 엑셀 상태는 사이트를 생성한 시점의 사본입니다.</p>`;
   renderPlaceResults();
 }
+function transportGuideHtml(){
+  const search=q=>link('https://www.google.com/search?q='+encodeURIComponent(q),q+' 검색 ↗','transport-search');
+  return `<section class="transport-guide" aria-labelledby="transport-heading">
+    <div class="transport-heading"><span class="eyebrow">GETTING AROUND</span><h3 id="transport-heading">교통 · 이것만 보고 출발</h3><p>시내는 Suica, 공항 왕복은 스카이라이너 별도 표. 2026.10.27 공식 안내 확인.</p></div>
+    <article class="prepare-card transport-card">${badge('시내 이동 · 실물 카드 기준')}<h3>① Welcome Suica · 웰컴 스이카</h3>
+      <ol><li><b>구매:</b> 나리타 제1터미널 지하 1층의 <b>JR 쪽</b> Welcome Suica 전용 발매기 또는 JR EAST 여행 서비스 센터. 스카이라이너를 사는 게이세이 창구와 별도입니다.</li><li><b>금액:</b> 우선 <b>2,000엔</b> 충전을 제안합니다. 부족할 때 추가하고, 충전용 엔화 현금을 준비하세요.</li><li><b>사용:</b> 전철·지하철은 들어갈 때와 나올 때 같은 카드를 터치. 버스는 차량의 IC 안내에 따라 터치합니다. Google 지도에서 목적지·대중교통을 검색하세요.</li></ol>
+      <p class="transport-caution">충전은 역 충전기·편의점·세븐은행 ATM에서 <b>엔화 현금</b>으로. 보증금 없이 28일 사용하며 <b>남은 잔액은 환불되지 않습니다.</b> 귀국 전 편의점 등에서 사용하세요. 구입 시 참조서도 보관합니다.</p>
+      <div class="transport-searches">${search('나리타 1터미널 웰컴스이카 구매 위치')}${search('스이카 세븐은행 ATM 충전 방법')}</div>
+      <div class="transport-sources">${link('https://www.jreast.co.jp/ko/multi/welcomesuica/purchase.html','JR 공식 한국어 · 구매·충전 ↗')}</div>
+    </article>
+    <article class="prepare-card transport-card">${badge('금요일 · 현장 구매 계획')}<h3>② 나리타공항 → 게이세이우에노</h3>
+      <ol><li><b>입국 후:</b> 수하물을 찾고 <b>제1터미널 지하 1층 게이세이 Skyliner 티켓 카운터</b>로 갑니다.</li><li><b>요청:</b> “게이세이우에노까지, 성인 1명, 가장 빨리 탈 수 있는 스카이라이너”라고 말하세요. 창구에서 열차·지정석을 정합니다.</li><li><b>탑승:</b> 표의 출발 시각·승강장·호차·좌석을 확인합니다. 우에노 도착 후 호텔까지는 Google 지도 도보 길찾기.</li></ol>
+      <p class="transport-caution"><b>현장 편도 2,580엔</b>(승차권+특급권). 신용카드 이용 가능, 결제 실패에 대비해 현금도 준비. <b>Suica 터치만으로는 스카이라이너를 탈 수 없습니다.</b> 위 금액으로 종이 승차권까지 샀다면 개찰구에서도 그 표를 사용합니다.</p>
+      <details class="transport-extra"><summary>온라인 구매를 다시 시도한다면</summary><p>공식 할인 왕복권 4,500엔 / 현장 편도 2회 총 5,160엔으로 차이는 660엔입니다. 현재는 현장 구매 계획이며 표는 미구매 상태입니다.</p>${link('https://www.keisei.co.jp/keisei/tetudou/skyliner/e-ticket/ko/','공식 온라인 구매 ↗')}</details>
+      <div class="transport-searches">${search('나리타 1터미널 스카이라이너 현장 구매')}${search('게이세이우에노역 APA 우에노 히로코지 도보')}</div>
+      <div class="transport-sources">${link('https://www.keisei.co.jp/keisei/tetudou/skyliner/kr/skyliner/purchase.php','게이세이 공식 · 판매 장소·요금 ↗')}${link('https://www.keisei.co.jp/keisei/tetudou/skyliner/kr/tickets/coupon.php','온라인 할인 요금 ↗')}</div>
+    </article>
+    <article class="prepare-card transport-card">${badge('일요일 · 14:00 비행기')}<h3>③ 호텔 → 나리타공항 제1터미널</h3>
+      <p class="transport-plan"><b>호텔 09:45–09:50 출발 → 게이세이우에노역 → 스카이라이너 10:20 → 나리타 제1터미널역 11:03 도착</b></p>
+      <ol><li><b>돌아오는 표:</b> 게이세이우에노역에서 별도 구매. 원하는 10:20편은 금요일 역에 도착했을 때 미리 구매하는 것을 권합니다.</li><li><b>역 구분:</b> <b>JR 우에노역이 아닌 게이세이우에노역</b>입니다. 짐 수령·도보·발권에 여유를 두세요.</li><li><b>공항 도착 후:</b> 제1터미널 출발층에서 대한항공 체크인 카운터·전광판을 확인합니다.</li></ol>
+      <p class="transport-caution">10:20–11:03은 현재 일정에 넣은 <b>계획 시각이며 좌석은 미예약</b>입니다. 전날 공식 토·휴일 시간표와 당일 운행 정보를 다시 확인하세요.</p>
+      <div class="transport-searches">${search('게이세이우에노 스카이라이너 나리타 1터미널 시간표 토요일 휴일')}${search('스카이라이너 운행 정보')}</div>
+      <div class="transport-sources">${link('https://www.keisei.co.jp/keisei/tetudou/skyliner/kr/traffic/skyliner.php?id=time','게이세이 공식 · 시각표(토·휴일 선택) ↗')}</div>
+    </article>
+  </section>`;
+}
 function renderPrepare(){
-  $('#left-pane').innerHTML=`<div class="section-heading"><div><span class="eyebrow">BEFORE YOU GO</span><h2>예약과 준비</h2></div></div>${diningGuideHtml()}
+  $('#left-pane').innerHTML=`<div class="section-heading"><div><span class="eyebrow">BEFORE YOU GO</span><h2>예약과 준비</h2></div></div>${transportGuideHtml()}${diningGuideHtml()}
     <article class="prepare-card featured">${badge('토요일 첫 식사 · 현장 입장 미확보','warn')}<h3>긴자 하치고</h3><p>10.31 토요일 · 라팡 커피 후 09시대 도착 목표</p><div class="reserve-date">11:00 <small>현장 줄 순서 안내</small></div><p>오전을 하치고 대기에 우선 배정합니다. 공식 안내상 12–16시는 예약 손님을 받습니다. 09시대 도착은 계획값이며 입장 보장이 아닙니다.</p>${link('https://www.tablecheck.com/ja/shops/ginza-hachigou/reserve','공식 입장·예약 안내 ↗','button-link')}<p>토요일 09시에 다음 주 화–일 예약을 공개합니다. 10/31분 최초 공개는 지났으며 취소분은 별도 확인합니다. 예약·결제는 진행하지 않았습니다.</p></article>
     <article class="prepare-card">${badge('숙소 예약 완료')}<h3>APA 우에노 히로코지 기준 동선</h3><p>10.30 체크인 → 11.01 체크아웃 · 성인 1명 / 1실 / 2박. 사용자가 APA 우에노 히로코지 예약 완료를 확인했습니다. 결제 금액과 취소 조건은 예약 확인서 기준입니다.</p><div class="hotel-links">${link('https://www.apahotel.com/hotel/syutoken/tokyo/ueno-hirokoji/','APA 호텔 우에노 히로코지 ↗')}${link('https://www.booking.com/hotel/jp/apa-hotel-ueno-hirokoji.ko.html?checkin=2026-10-30&checkout=2026-11-01&group_adults=1&no_rooms=1&group_children=0&selected_currency=KRW','예약 사이트 ↗')}</div></article>
     <article class="prepare-card">${badge('약 $100 · 약간 초과 가능')}<h3>달콤한 한 병, 혹은 스모키한 한 병</h3><p>리커즈 하세가와에서 비교할 후보입니다. 아래는 10.20 웹 표시 가격(세금 포함, 700ml)이며 방문일 재고·가격은 별도입니다.</p>${data.whisky.candidates.map(w=>`<div class="whisky-row"><div><b>${link(w.url,w.name+' ↗')}</b><small>${esc(w.style)}</small></div><span>¥${w.price.toLocaleString('ja-JP')}</span></div>`).join('')}<p>두 스타일을 함께 고르면 글렌알라키 12년 + 탈리스커 10년 = 14,880엔도 비교 후보입니다. 최종 구매는 현장에서 결정합니다.</p></article>
