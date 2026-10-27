@@ -10,15 +10,15 @@
   <link rel="stylesheet" href="./vendor/leaflet.css">
   <link rel="stylesheet" href="./vendor/MarkerCluster.css">
   <link rel="stylesheet" href="./vendor/maplibre-gl.css">
-  <link rel="stylesheet" href="./style.css?v=20261027-dining-1">
+  <link rel="stylesheet" href="./style.css?v=20261027-morning-1">
   <script defer src="./vendor/leaflet.js"></script>
   <script defer src="./vendor/leaflet.markercluster.js"></script>
   <script defer src="./vendor/maplibre-gl.js"></script>
   <script defer src="./vendor/leaflet-maplibre-gl.js"></script>
-  <script defer src="./explore-model.js?v=20261027-dining-1"></script>
-  <script defer src="./review-model.js?v=20261026-shared-reviews"></script>
-  <script defer src="./map-model.js?v=20261026-shared-reviews"></script>
-  <script defer src="./app.js?v=20261027-dining-1"></script>
+  <script defer src="./explore-model.js?v=20261027-morning-1"></script>
+  <script defer src="./review-model.js?v=20261027-morning-1"></script>
+  <script defer src="./map-model.js?v=20261027-morning-1"></script>
+  <script defer src="./app.js?v=20261027-morning-1"></script>
 </head>
 <body data-view="map">
   <a class="skip-link" href="#content">본문으로 이동</a>
@@ -36,7 +36,7 @@
     <div class="sidebar-bottom"><button class="text-button" data-action="export">체크·메모 내보내기 ↗</button><button class="text-button" data-action="import">저장한 기록 가져오기</button><small>기록은 현재 브라우저에 저장됩니다.</small></div>
   </aside>
   <main>
-    <header class="topbar"><span>MY TRAVEL JOURNAL <i>/</i> JAPAN</span><span class="draft-label">유동적인 동선 <span>·</span> 10.26 갱신</span></header>
+    <header class="topbar"><span>MY TRAVEL JOURNAL <i>/</i> JAPAN</span><span class="draft-label">유동적인 동선 <span>·</span> 10.27 갱신</span></header>
     <section class="hero" aria-labelledby="trip-title">
       <div class="hero-copy"><span class="eyebrow">2026.10.30 FRI — 11.01 SUN</span><h1 id="trip-title">도쿄, 취향을 담는 3일<span class="red-period">.</span></h1><p>한정 굿즈와 카드, 캐주얼한 신발.<br class="mobile-only"> APA 우에노 히로코지를 거점으로 잇는 쇼핑 동선.</p><div class="hero-tags"><span>성인 1명</span><span>나리타 왕복</span><span>APA 숙소 예약 완료</span></div></div>
       <div class="hero-ticket" aria-hidden="true"><span class="ticket-top">TOKYO BOUND</span><strong>TYO<span>2026</span></strong><div class="ticket-line"><span>30 OCT</span><span>01 NOV</span></div><div class="ticket-bottom"><span>好きなものを、少しずつ。</span><b>東京</b></div></div>
@@ -50,7 +50,7 @@
         <aside id="map-pane" class="map-pane">
           <div class="map-heading"><div><span class="eyebrow">THE BIG PICTURE</span><h2 id="map-title">이번 여행의 장소들</h2></div><button class="icon-button" data-action="map-fit" aria-label="지도 전체 보기" title="지도 전체 보기">⛶</button></div>
           <div class="explore-controls">
-            <div class="map-overview-actions"><button class="button-link" data-action="city-wanted">도쿄 전체 · 가고 싶음</button><button class="button-link" data-action="city-must">꼭 가고 싶음만</button><button class="button-link" data-action="food-distribution">맛집 분포만</button><button class="button-link" data-action="route-overview" disabled>참고 동선 보기</button><button class="button-link" data-action="dining-guide" disabled>토요일 아침·점심 후보</button></div>
+            <div class="map-overview-actions"><button class="button-link" data-action="city-wanted">도쿄 전체 · 가고 싶음</button><button class="button-link" data-action="city-must">꼭 가고 싶음만</button><button class="button-link" data-action="food-distribution">맛집 분포만</button><button class="button-link" data-action="route-overview" disabled>참고 동선 보기</button><button class="button-link" data-action="dining-guide" disabled>토·일 아침 계획</button></div>
             <div id="map-categories" class="map-category-controls" role="group" aria-label="지도 장소 종류"></div>
             <label class="anchor-control" for="explore-anchor">어디를 둘러볼까요?<select id="explore-anchor"></select></label>
             <div class="explore-primary"><label>직선 반경 <select id="explore-radius" aria-label="주변 탐색 반경"><option value="0.5">500m</option><option value="1" selected>1km</option><option value="2">2km</option></select></label><button class="button-link" data-action="my-location">◎ 내 위치</button><button class="button-link mobile-list-jump" data-action="list-jump">후보 목록 ↓</button></div>
@@ -78,7 +78,7 @@
         </aside>
       </div>
     </section>
-    <footer class="footer"><span>TOKYO TRAVEL NOTES / 2026</span><span>동선 2026.10.26 · 꼭 갈 곳 식사 조사 10.27 기준 · 방문일 영업·재고 재확인</span></footer>
+    <footer class="footer"><span>TOKYO TRAVEL NOTES / 2026</span><span>동선·아침 카페 2026.10.27 · 꼭 갈 곳 식사 조사 10.27 기준 · 방문일 영업·재고 재확인</span></footer>
   </main>
   <nav class="mobile-nav" aria-label="모바일 주 메뉴"><button class="active" data-view="today"><span>◷</span>일정</button><button data-view="map"><span>⌖</span>지도</button><button data-view="places"><span>▦</span>장소</button><button data-view="review"><span>✓</span>엑셀 검토</button><button data-view="prepare"><span>☑</span>준비</button></nav>
   <dialog id="place-dialog"><div class="dialog-header"><span class="eyebrow">PLACE NOTE</span><button class="icon-button" data-action="close-dialog" aria-label="장소 상세 닫기">×</button></div><div id="dialog-content"></div></dialog>

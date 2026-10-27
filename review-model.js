@@ -71,7 +71,7 @@
   }
   function placeSelection(place,videoMap,reviews){
     const videos=(place.videoIds||[]).map(id=>videoMap.get(id)).filter(v=>v&&!v.isCompilation);
-    return videos.length?groupSelection({videos},reviews):null;
+    return videos.length?groupSelection({videos},reviews):(statuses.includes(place.manualSelection)?place.manualSelection:null);
   }
   return {statuses,labels,filters,filterLabels,normalizeReviews,mergeBaseline,selection,stats,filter,placeSelection,groups,groupSelection,groupNote,updateGroup};
 });

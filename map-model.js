@@ -36,5 +36,38 @@
     for(const p of places){if(category(p,records[p.id])!=='food'||!p.coords)continue;const name=area(p);if(!grouped.has(name))grouped.set(name,[]);grouped.get(name).push(p);}
     return [...grouped].map(([name,places])=>({name,places})).sort((a,b)=>b.places.length-a.places.length||a.name.localeCompare(b.name));
   }
-  return {categories,category,area,areas,recommendations};
+  function routeStops(day,places){
+    let n=0;
+    return day.steps.flatMap(s=>{
+      const options=s.place?[{place:s.place}]:(s.alternatives||[]);
+      return options.flatMap((option,i)=>{
+        const p=places.get(option.place);
+        if(!p)return [];
+        const alternative=!s.place;
+        return [{...p,routeOrder:alternative?String.fromCharCode(65+i):p.kind==='hotel'?'H':++n,routeDay:day.id,routeAlternative:alternative}];
+      });
+    });
+  }
+  function routeSegments(day,places){
+    const segments=[];
+    function add(from,to,alternative=false){
+      const a=places.get(from),b=places.get(to);
+      if(!a?.coords||!b?.coords||from===to)return;
+      segments.push({from,to,coords:[a.coords,b.coords],alternative});
+    }
+    let previous=null;
+    day.steps.forEach((s,index)=>{
+      if(s.place){add(previous,s.place);previous=s.place;return;}
+      if(!s.alternatives)return;
+      const next=day.steps.slice(index+1).find(x=>x.place)?.place;
+      for(const option of s.alternatives){
+        add(previous,option.place,true);
+        if(next!==previous)add(option.place,next,true);
+      }
+      // Alternative cafes must never be joined as sequential stops.
+      previous=null;
+    });
+    return segments;
+  }
+  return {categories,category,area,areas,recommendations,routeStops,routeSegments};
 });
