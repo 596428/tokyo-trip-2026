@@ -69,5 +69,19 @@
     });
     return segments;
   }
-  return {categories,category,area,areas,recommendations,routeStops,routeSegments};
+  function excursionStops(guide,places,mode='north'){
+    return (guide?.routes?.[mode]?.ids||[]).flatMap((id,i)=>{
+      const p=places.get(id);return p?.coords?[{...p,akibaOrder:i+1}]:[];
+    });
+  }
+  function excursionSegments(guide,places,mode='north'){
+    const stops=excursionStops(guide,places,mode);
+    return stops.slice(1).map((p,i)=>({from:stops[i].id,to:p.id,coords:[stops[i].coords,p.coords]}));
+  }
+  function focusTargets(places,selectedId,hotelId,userPosition){
+    const valid=coords=>Array.isArray(coords)&&coords.length===2&&coords.every(Number.isFinite)&&Math.abs(coords[0])<=90&&Math.abs(coords[1])<=180;
+    const unique=new Map([selectedId,hotelId].flatMap(id=>{const p=places.get(id);return p&&valid(p.coords)?[[p.id,p]]:[];}));
+    return {places:[...unique.values()],userCoords:valid(userPosition?.coords)?userPosition.coords:null};
+  }
+  return {categories,category,area,areas,recommendations,routeStops,routeSegments,excursionStops,excursionSegments,focusTargets};
 });

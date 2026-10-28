@@ -3,13 +3,19 @@ const KEY = 'tokyo-trip-20261030-records-v1';
 const REVIEW_KEY='tokyo-trip-20261030-video-reviews-v1';
 const REVIEW_UI_KEY='tokyo-trip-20261030-review-ui-v1';
 const REVIEW_PAGE_SIZE=20;
+const PURCHASE_KEY='tokyo-trip-20261030-purchases-v1';
+const REVIEW_MENU_KEY='tokyo-trip-20261030-show-review-menu-v1';
+let showReviewMenu=false;
+let purchaseLog=TripPurchase.empty(),purchaseDraft=null,purchaseUndo=null,purchaseLoadError=false;
 const kinds = {pokemon:'포켓몬',card:'카드숍',shoe:'신발',fabric:'원단',whisky:'위스키',food:'맛집',hotel:'숙소',shopping:'쇼핑',sight:'관광'};
 const kindIcons = {pokemon:'P',card:'C',shoe:'S',fabric:'F',whisky:'W',food:'食',hotel:'H',shopping:'S',sight:'T'};
 const dayColors = {fri:'#b94936',sat:'#3c6256',sun:'#476a94'};
 const state = {view:'map',day:'all',showFood:true,showFabric:false,foodScope:'city',foodMeal:'all',foodQuery:'',mapStyle:'simple',kind:'all',query:'',includeUnreviewed:false,listTab:'food',radiusKm:1,center:null,anchorId:'city',centerLabel:'도쿄 전체',includeUnknownHours:false,categories:['picked','unreviewed','recommended'],showRecommendations:false,showRoute:false,userPosition:null};
-Object.assign(state,{reviewFilter:'가고 싶음',reviewStatus:'all',reviewQuery:'',reviewPage:0,foodDisplay:'pins',mapCategories:['food','bar']});
+Object.assign(state,{reviewFilter:'가고 싶음',reviewStatus:'all',reviewQuery:'',reviewPage:0,foodDisplay:'pins',mapCategories:['food','bar'],akibaRoute:null});
+Object.assign(state,{mapFocusId:null,mapFocusViewport:null});
 let data, places, records={}, map, mapLayer, foodLayer, baseLayer, dialogPlace, focusLayer;
 let foodLayerMode;
+let mapUpdateRevision=0;
 let videoReviews={},reviewVideoMap=new Map(),reviewGroups=[];
 let dialogBackPending=false;
 const DIALOG_HISTORY_KEY='tokyoTripPlace';
@@ -134,7 +140,7 @@ function distanceHtml(p){
   const d=proximity(p);if(!d)return '';
   return `<span>호텔에서 약 ${kmLabel(d.hotel)}</span>${d.nearest?`<span>${esc(d.nearest.place.name)}에서 약 ${kmLabel(d.nearest.km)}</span>`:''}<small>대략적인 직선거리 · 도보/전철 이동거리가 아닙니다</small>`;
 }
-const mealLabels={breakfast:'아침',lunch:'점심',dinner:'저녁',drinks:'저녁 + 술',afterDinner:'호텔 근처의 술집'};
+const mealLabels={breakfast:'아침',lunch:'점심',dinner:'저녁',drinks:'저녁 + 술',afterDinner:'식후 한잔·술집'};
 function mealsFor(p){
   const h=p.hotelFood;if(!h)return [];
   return state.day==='all'?h.meals:(h.mealsByDay?.[state.day]??h.meals);
@@ -146,7 +152,9 @@ function hotelTravelHtml(p){
 function diningHtml(p,detail=false){
   const h=p.hotelFood;
   if(!h)return '<div class="hours-unchecked">영업시간·식사 목적은 아직 재확인하지 않은 후보입니다.</div>';
-  return `${hotelTravelHtml(p)}<div class="meal-tags">${h.meals.filter(m=>m!=='drinks'||h.group!=='hotel-bars').map(m=>badge(mealLabels[m],m==='drinks'?'wine':m==='breakfast'?'morning':'soft')).join('')}</div><p class="meal-menu">${esc(h.menu)}</p>${h.caution?`<p class="dining-caution">${esc(h.caution)}</p>`:''}<div class="hours-grid">${data.days.map(d=>`<div class="${state.day===d.id?'chosen-day':''}"><b>${esc(d.date)} ${esc(d.weekday[0])}</b><span>${esc(h.hours[d.id])}</span></div>`).join('')}</div><small class="hours-evidence">${esc(h.checkedAt||data.hotelFood.asOf)} 확인 · ${esc(h.hoursEvidence)} · 통상 영업 기준</small>${detail?`<p class="dining-note">${esc(h.note)}</p><div class="dining-sources">${h.sources.map(x=>link(x.url,x.label+' ↗')).join('')}</div>`:`<details class="dining-details"><summary>이용 조건·확인 출처</summary><p>${esc(h.note)}</p>${h.sources.map(x=>link(x.url,x.label+' ↗')).join('')}</details>`}`;
+  const google=h.googleReview;
+  const googleHtml=google?`<div class="detail-info"><b>${link(google.url,`Google ★ ${google.rating.toFixed(1)} · 리뷰 ${google.reviewCount.toLocaleString('ko-KR')}개 ↗`)}</b><br><small>${esc(google.checkedAt)} 확인 · 실시간 연동 아님 · 일부 후기 요약</small><p>${esc(google.summary)}</p></div>`:'';
+  return `${hotelTravelHtml(p)}${googleHtml}<div class="meal-tags">${h.meals.filter(m=>m!=='drinks'||h.group!=='hotel-bars').map(m=>badge(mealLabels[m],m==='drinks'?'wine':m==='breakfast'?'morning':'soft')).join('')}</div><p class="meal-menu">${esc(h.menu)}</p>${h.caution?`<p class="dining-caution">${esc(h.caution)}</p>`:''}<div class="hours-grid">${data.days.map(d=>`<div class="${state.day===d.id?'chosen-day':''}"><b>${esc(d.date)} ${esc(d.weekday[0])}</b><span>${esc(h.hours[d.id])}</span></div>`).join('')}</div><small class="hours-evidence">${esc(h.checkedAt||data.hotelFood.asOf)} 확인 · ${esc(h.hoursEvidence)} · 통상 영업 기준</small>${detail?`<p class="dining-note">${esc(h.note)}</p><div class="dining-sources">${h.sources.map(x=>link(x.url,x.label+' ↗')).join('')}</div>`:`<details class="dining-details"><summary>이용 조건·확인 출처</summary><p>${esc(h.note)}</p>${h.sources.map(x=>link(x.url,x.label+' ↗')).join('')}</details>`}`;
 }
 
 function explorationContext(){
@@ -163,8 +171,24 @@ function nearbyLabel(p){
 function interestButton(p){return `<button class="interest-button ${records[p.id]?.interested?'saved':''}" data-interest="${esc(p.id)}" aria-pressed="${records[p.id]?.interested===true}" aria-label="${esc(p.name)} 관심 ${records[p.id]?.interested?'해제':'저장'}">${records[p.id]?.interested?'★ 관심 저장됨':'☆ 관심 저장'}</button>`;}
 function arrivalHtml(p,detail=false){
   if(!p.buildingName)return '';
-  return `<div class="arrival-info"><b>건물 핀 · ${esc(p.buildingName)} ${esc(p.floor)}</b><small>${esc(p.openingNote)}</small>${detail?`<p>${esc(p.accessNote)}</p>${link(p.floorGuideUrl,'공식 층별 안내 ↗','small-link')}<small>핀은 건물 대표 위치입니다. 건물 도착 후 층수를 확인하세요.</small>`:''}</div>`;
+  return `<div class="arrival-info"><b>건물 핀 · ${esc(p.buildingName)} ${esc(p.floor)}</b><small>${esc(p.openingNote)}</small>${detail?`<p>${esc(p.accessNote)}</p>${p.floorGuideUrl?link(p.floorGuideUrl,'공식 층별 안내 ↗','small-link'):''}<small>핀은 건물 대표 위치입니다. 건물 도착 후 층수를 확인하세요.</small>`:''}</div>`;
 }
+function indoorShopsHtml(p){
+  if(!p.indoorShops)return '';
+  return `<section class="indoor-shops"><h3>같은 건물에서 골라 보기</h3><p>한 건물 핀에 묶었습니다. 관심 있는 층만 방문하세요.</p>${p.indoorShops.map(s=>`<article><b>${esc(s.floor)} · ${esc(s.name)}</b><small>${esc(s.hours)}</small><p>${esc(s.purpose)}</p>${link(s.url,'공식 매장 안내 ↗','small-link')}</article>`).join('')}</section>`;
+}
+function akibaStops(){return TripMap.excursionStops(data.akihabara,places,state.akibaRoute||'north');}
+function showAkibaRoute(mode='north'){
+  if(!data.akihabara?.routes[mode])return;
+  clearMapPlace(false);
+  Object.assign(state,{akibaRoute:mode,view:'map',day:'sat',showRoute:false,showRecommendations:false,foodScope:'route',anchorId:'route',mapCategories:['hobby','hotel','shopping'],listTab:'route'});
+  render();updateMap(true);$('#map-pane').scrollIntoView({block:'start'});
+}
+function akibaGuideHtml(){
+  const guide=data.akihabara,route=guide.routes[state.akibaRoute];
+  return `<section class="akiba-guide"><span class="eyebrow">AKIHABARA / OPTIONAL STOPS</span><h2>체력에 맞춰 골라 보기</h2><p>${esc(guide.note)}</p><div class="akiba-route-note">${esc(route.note)}</div><p><b>가볍게 볼 때:</b> 라디오회관 + 중고 매장 한 곳 + 카드숍. 식사·휴식은 자유롭게 끼워 넣으세요.</p><div class="akiba-stop-list">${akibaStops().map(p=>`<article class="akiba-stop"><span class="akiba-number">${p.akibaOrder}</span><div><h3><button data-place="${esc(p.id)}">${esc(p.akiba.shortName)}</button></h3><b>${esc(p.akiba.close)}</b><p>${esc(p.akiba.purpose)}</p><small>${esc(p.akiba.hours)} · ${esc(p.akiba.stay)}</small><div class="food-card-actions"><button class="small-link" data-akiba-pin="${esc(p.id)}">지도 핀 보기</button><button class="small-link" data-place="${esc(p.id)}">${p.indoorShops?'층별 매장·상세':'상세·메모'}</button>${link(contextWalking(p),'Google 도보 길찾기 ↗','small-link')}</div></div></article>`).join('')}</div><details class="akiba-targets"><summary>찾을 경주마 인형 · 한·일 이름</summary><p>${guide.horseTargets.map(esc).join('<br>')}</p><small>우마무스메 캐릭터 굿즈와 실제 말 인형은 별개입니다. 매장별 재고는 미확인입니다.</small></details></section>`;
+}
+function contextWalking(p){return 'https://www.google.com/maps/dir/?api=1&destination='+encodeURIComponent(p.destinationQuery||p.address||p.name)+'&travelmode=walking';}
 function contextDirections(p){
   if(state.foodScope==='hotel30')return hotelDirections(p);
   let url='https://www.google.com/maps/dir/?api=1&destination='+encodeURIComponent((p.addressUncertain?p.name:p.address)||p.name);
@@ -177,8 +201,16 @@ function nearbyRecommendations(){
   return TripMap.recommendations(recommendationPlaces(),state.showRecommendations).filter(p=>state.foodScope==='hotel30'?distanceKm(p.coords,places.get(data.routePlan.hotelId).coords)<=state.radiusKm:!['route','nearby'].includes(state.foodScope)||TripExplore.referenceDistance(p,context)<=state.radiusKm);
 }
 function syncExploreControls(){
+  const selected=places.get(state.mapFocusId),focusBox=$('#map-place-focus');
+  $('#map-pane').classList.toggle('place-focused',!!selected);
+  focusBox.hidden=!selected;
+  if(selected){$('#map-focus-name').textContent=selected.name;$('#map-focus-status').textContent=state.userPosition?'선택 장소 · 숙소 · 확인한 내 위치만 표시합니다.':'선택 장소 · 숙소만 표시 중 · ‘내 위치’를 누르면 현재 위치가 추가됩니다.';}
   $('[data-action="route-overview"]').disabled=false;
   $('[data-action="dining-guide"]').disabled=false;
+  const akibaTools=$('#akiba-map-tools');akibaTools.hidden=!state.akibaRoute;
+  $('#map-pane').classList.toggle('akiba-active',!!state.akibaRoute);
+  if(state.akibaRoute)akibaTools.innerHTML=`<b>아키하바라 · 선택 방문 순서</b><div>${Object.entries(data.akihabara.routes).map(([id,r])=>`<button class="button-link" data-action="akiba-${id}" aria-pressed="${state.akibaRoute===id}">${esc(r.label)}</button>`).join('')}</div><small>번호 핀 5곳 · 라디오회관은 건물 하나로 표시 · 매장 수와 순서는 현장에서 조절</small><button class="small-link" data-action="list-jump">매장·마감시간 목록 ↓</button>`;
+  $('[data-action="akiba-route"]').setAttribute('aria-pressed',String(!!state.akibaRoute));
   const id=state.foodScope==='city'?'city':state.foodScope==='route'?'route':state.anchorId;
   $('#explore-anchor').innerHTML='<option value="city">도쿄 전체 · 반경 제한 없음</option><option value="route">전체 방문권역 · 참고 동선</option>'+`<option value="map">지도에서 선택한 지역</option>${state.userPosition?'<option value="user">내 위치</option>':''}`+
     '<optgroup label="방문할 장소">'+[...new Map(data.days.flatMap(d=>TripMap.routeStops(d,places).map(p=>[p.id,p]))).values()].map(p=>`<option value="${esc(p.id)}">${esc(p.name)}</option>`).join('')+'</optgroup><optgroup label="동선을 넓힐 후보">'+recommendationPlaces().map(p=>`<option value="${esc(p.id)}">${esc(p.name)}</option>`).join('')+'</optgroup>';
@@ -191,22 +223,29 @@ function syncExploreControls(){
   $('#map-categories').innerHTML=Object.entries(TripMap.categories).map(([id,c])=>`<label class="map-category-chip ${state.mapCategories.includes(id)?'enabled':''}" style="--category-color:${c.color}"><input type="checkbox" data-map-category="${id}" ${state.mapCategories.includes(id)?'checked':''}><span aria-hidden="true">${c.icon}</span>${c.label}</label>`).join('');
   $('#show-recommendations').checked=state.showRecommendations;$('#show-route').checked=state.showRoute;
   document.querySelectorAll('[data-food-category]').forEach(el=>el.checked=state.categories.includes(el.dataset.foodCategory));
-  $('#explore-center-label').textContent=state.foodScope==='city'?`도쿄 전체 · 반경 제한 없음 · ${state.reviewFilter==='all'?'모든 검토 상태':reviewFilterLabel(state.reviewFilter)+' 맛집'} · 선택한 종류만 지도에 표시`:state.foodScope==='route'?`선택 날짜의 각 방문 장소에서 직선 ${state.radiusKm}km 주변 · 순서는 자유롭게 변경`:
+  $('#explore-center-label').textContent=state.akibaRoute?'아키하바라 굿즈숍만 확대 · 점선은 선택 순서 · 실제 길찾기는 Google 지도':state.foodScope==='city'?`도쿄 전체 · 반경 제한 없음 · ${state.reviewFilter==='all'?'모든 검토 상태':reviewFilterLabel(state.reviewFilter)+' 맛집'} · 선택한 종류만 지도에 표시`:state.foodScope==='route'?`선택 날짜의 각 방문 장소에서 직선 ${state.radiusKm}km 주변 · 순서는 자유롭게 변경`:
     state.foodScope==='nearby'?`${state.centerLabel} · 직선 반경 ${state.radiusKm}km${state.anchorId==='user'?' · 위치는 저장하지 않습니다':''}`:
     state.foodScope==='hotel30'?`호텔 출발 약 30분권 · 이동·영업 안내가 있는 ${data.places.filter(p=>p.hotelFood?.travel?.within30).length}곳`:'넓게 비교하는 보기 · 장소를 선택하면 그 주변으로 좁힐 수 있습니다';
+  if(selected)$('#explore-center-label').textContent='선택한 장소만 보기 · 후보 목록은 기존 필터를 유지합니다.';
 }
 function enableMapCategory(id){if(!state.mapCategories.includes(id))state.mapCategories.push(id);if(id==='food')state.showFood=true;}
 function enableRouteCategories(){for(const p of mappedRoutePlaces())enableMapCategory(purposeCategory(p));}
 function showRouteOverview(){
   if(!data)return;
+  clearMapPlace(false);
+  state.akibaRoute=null;
   Object.assign(state,{view:'map',foodScope:'route',anchorId:'route',centerLabel:'전체 방문권역',listTab:'route',showRoute:true,showRecommendations:false,foodQuery:''});
   enableRouteCategories();render();updateMap(true);$('#map-pane').scrollIntoView({block:'start'});
 }
 function showCityWanted(foodOnly=false,reviewFilter='가고 싶음'){
+  clearMapPlace(false);
+  state.akibaRoute=null;
   Object.assign(state,{view:'map',day:'all',listTab:'food',foodScope:'city',anchorId:'city',centerLabel:'도쿄 전체',reviewFilter,foodMeal:'all',foodQuery:'',showFood:true,showRoute:false,showRecommendations:false,includeUnknownHours:false,categories:['picked','unreviewed','recommended'],mapCategories:['food','bar'],foodDisplay:foodOnly?'clusters':'pins'});
   render();updateMap(true);$('#map-pane').scrollIntoView({block:'start'});
 }
 function selectFocus(id){
+  clearMapPlace(false);
+  state.akibaRoute=null;
   let coords,label;
   if(id==='city'){showCityWanted();return;}
   if(id==='route'){
@@ -228,7 +267,7 @@ function getMyLocation(){
   const button=$('[data-action="my-location"]');button.disabled=true;msg.textContent='브라우저 위치 권한을 확인하고 있습니다. 위치는 저장하지 않습니다.';
   navigator.geolocation.getCurrentPosition(position=>{
     button.disabled=false;state.userPosition={coords:[position.coords.latitude,position.coords.longitude],accuracy:position.coords.accuracy};
-    selectFocus('user');msg.textContent=`현재 위치 기준 · 위치 오차 약 ${Math.round(position.coords.accuracy)}m. 위치 기록은 저장하지 않습니다.`;
+    if(state.mapFocusId)updateMap(false);else selectFocus('user');msg.textContent=`현재 위치 확인 · 위치 오차 약 ${Math.round(position.coords.accuracy)}m. 위치 기록은 저장하지 않습니다.`;
   },()=>{button.disabled=false;msg.textContent='위치를 확인하지 못했습니다. 권한·GPS 상태를 확인하거나 장소를 골라 찾아 주세요.';},{enableHighAccuracy:true,timeout:12000,maximumAge:60000});
 }
 
@@ -239,12 +278,14 @@ function renderTabs(){
 }
 function render(){
   document.body.dataset.view=state.view;
+  document.body.dataset.reviewMenu=showReviewMenu?'shown':'hidden';
   document.querySelectorAll('[data-view]').forEach(b=>{b.classList.toggle('active',b.dataset.view===state.view);b.setAttribute('aria-pressed',String(b.dataset.view===state.view));});
   renderTabs();
   if(state.view==='today')renderToday();
   else if(state.view==='map')renderMapList();
   else if(state.view==='places')renderPlaces();
   else if(state.view==='review')renderReview();
+  else if(state.view==='purchases')renderPurchases();
   else renderPrepare();
   updateMap(false);
 }
@@ -272,7 +313,7 @@ function diningGuideHtml(){
   return `<article class="prepare-card dining-guide" id="dining-guide"><span class="eyebrow">SATURDAY / SUNDAY</span><h3>토·일 아침 계획</h3><p>토요일은 라팡 커피 뒤 긴자 하치고를 우선합니다. 일요일은 두 카페 중 한 곳만 선택하고 호텔에서 09:45–09:50 출발합니다. 현장 입장·대기 시간은 미확보입니다.</p>${guide.plans.map(plan=>`<section class="morning-plan"><h4>${esc(plan.title)}</h4><p>${esc(plan.summary)}</p><small>${esc(plan.note)}</small><div>${plan.places.filter(id=>places.has(id)).map(id=>`<button class="button-link" data-place="${id}">${esc(places.get(id).name)} →</button>`).join(' ')}</div></section>`).join('')}<details class="dining-research-list"><summary>내 꼭 갈 곳 영업·대기 조사 ${profiles.length}개 항목 · 10.27 확인</summary>${profiles.map(p=>`<section><h4><button class="small-link" data-place="${esc(p.id)}">${esc(p.name)} →</button></h4><p>${esc(p.diningResearch.hours)}</p>${researchHtml(p,true)}</section>`).join('')}</details><p>${esc(guide.limits)}</p></article>`;
 }
 function foodCard(p){
-  const cat=TripExplore.category(p),label=p.hotelFood?.group==='hotel-bars'?'호텔 근처의 술집':{picked:'내 선택·모음 영상',unreviewed:'엑셀 미검토',recommended:'추가 추천'}[cat];
+  const cat=TripExplore.category(p),label=p.hotelFood?.group==='hotel-bars'?'술집 후보':{picked:'내 선택·모음 영상',unreviewed:'엑셀 미검토',recommended:'추가 추천'}[cat];
   return `<article class="place-card food-map-card" data-food-card="${esc(p.id)}"><div class="place-card-top"><span class="area-label">${esc(p.area)} · ${esc(p.videoIds.join(' · ')||'추천·보완')}</span>${badge(purposeCategory(p)==='bar'?'술집':label,cat==='unreviewed'?'soft':'')}${isMust(p)?badge('꼭 가고 싶음','must'):''}</div><h3><button data-place="${esc(p.id)}">${esc(p.name)}</button></h3><div class="explore-distance">${state.foodScope==='hotel30'?hotelTravelHtml(p):esc(nearbyLabel(p))}</div><p>${esc(p.hotelFood?.menu||p.summary)}</p><div class="quick-hours">${p.diningResearch?esc(p.diningResearch.hours):p.hotelFood?esc(state.day==='all'?hoursLabel(p)+' · 상세에서 요일별 확인':p.hotelFood.hours[state.day]):'영업 미확인 · 영상 메뉴·가격은 참고용'}</div>${researchHtml(p)}${!p.diningResearch&&p.hotelFood?.caution?`<p class="dining-caution">${esc(p.hotelFood.caution)}</p>`:''}<div class="food-card-actions">${interestButton(p)}<button data-locate="${esc(p.id)}" class="small-link">핀 보기</button><button data-place="${esc(p.id)}" class="small-link">${p.videoIds.length?'메뉴·시간·Shorts':'메뉴·시간'} →</button></div></article>`;
 }
 function renderFoodResults(){
@@ -298,6 +339,7 @@ function renderExplorerResults(){
   }
 }
 function renderMapList(){
+  if(state.akibaRoute){$('#left-pane').innerHTML=akibaGuideHtml();return;}
   $('#left-pane').innerHTML=`<div class="section-heading"><div><span class="eyebrow">EXPLORE AS YOU GO</span><h2>주변에서 다음 장소 고르기</h2></div></div><p class="section-intro">기본 지도에는 가고 싶은 맛집만 표시합니다. ‘도쿄 전체’는 반경 제한이 없고, ‘맛집 분포만’에서는 가까운 맛집을 개수로 묶어 비교할 수 있습니다. 장소를 고르면 그 주변으로 좁혀 볼 수 있습니다.</p><div class="explore-tabs" role="group" aria-label="주변 후보 목록"><button data-list-tab="food" aria-pressed="${state.listTab==='food'}">맛집</button><button data-list-tab="recommendations" aria-pressed="${state.listTab==='recommendations'}">추천 장소</button><button data-list-tab="route" aria-pressed="${state.listTab==='route'}">방문 장소</button><button data-list-tab="saved" aria-pressed="${state.listTab==='saved'}">★ 관심</button></div>${state.listTab==='food'?`<label class="search-box"><span aria-hidden="true">⌕</span><input id="food-search" type="search" aria-label="지도 맛집 검색" placeholder="메뉴·가게·엑셀 번호 검색" value="${esc(state.foodQuery)}"></label>`:''}<div id="food-results"></div>`;
   renderExplorerResults();
 }
@@ -347,7 +389,7 @@ function transportGuideHtml(){
   </section>`;
 }
 function renderPrepare(){
-  $('#left-pane').innerHTML=`<div class="section-heading"><div><span class="eyebrow">BEFORE YOU GO</span><h2>예약과 준비</h2></div></div>${transportGuideHtml()}${diningGuideHtml()}
+  $('#left-pane').innerHTML=`<div class="section-heading"><div><span class="eyebrow">BEFORE YOU GO</span><h2>예약과 준비</h2></div></div><article class="prepare-card"><h3>화면 설정</h3><label class="review-menu-setting"><input id="show-review-menu" type="checkbox" ${showReviewMenu?'checked':''}>엑셀 목록 검토 메뉴 표시</label><p>여행 중에는 메뉴를 숨겨두고, 다음 여행을 준비할 때 다시 켜실 수 있습니다. 맛집 선택·메모·지도와 백업 기능은 그대로 유지됩니다. 이 설정은 현재 브라우저에 저장됩니다.</p></article>${transportGuideHtml()}${diningGuideHtml()}
     <article class="prepare-card featured">${badge('토요일 첫 식사 · 현장 입장 미확보','warn')}<h3>긴자 하치고</h3><p>10.31 토요일 · 라팡 커피 후 09시대 도착 목표</p><div class="reserve-date">11:00 <small>현장 줄 순서 안내</small></div><p>오전을 하치고 대기에 우선 배정합니다. 공식 안내상 12–16시는 예약 손님을 받습니다. 09시대 도착은 계획값이며 입장 보장이 아닙니다.</p>${link('https://www.tablecheck.com/ja/shops/ginza-hachigou/reserve','공식 입장·예약 안내 ↗','button-link')}<p>토요일 09시에 다음 주 화–일 예약을 공개합니다. 10/31분 최초 공개는 지났으며 취소분은 별도 확인합니다. 예약·결제는 진행하지 않았습니다.</p></article>
     <article class="prepare-card">${badge('숙소 예약 완료')}<h3>APA 우에노 히로코지 기준 동선</h3><p>10.30 체크인 → 11.01 체크아웃 · 성인 1명 / 1실 / 2박. 사용자가 APA 우에노 히로코지 예약 완료를 확인했습니다. 결제 금액과 취소 조건은 예약 확인서 기준입니다.</p><div class="hotel-links">${link('https://www.apahotel.com/hotel/syutoken/tokyo/ueno-hirokoji/','APA 호텔 우에노 히로코지 ↗')}${link('https://www.booking.com/hotel/jp/apa-hotel-ueno-hirokoji.ko.html?checkin=2026-10-30&checkout=2026-11-01&group_adults=1&no_rooms=1&group_children=0&selected_currency=KRW','예약 사이트 ↗')}</div></article>
     <article class="prepare-card">${badge('약 $100 · 약간 초과 가능')}<h3>달콤한 한 병, 혹은 스모키한 한 병</h3><p>리커즈 하세가와에서 비교할 후보입니다. 아래는 10.20 웹 표시 가격(세금 포함, 700ml)이며 방문일 재고·가격은 별도입니다.</p>${data.whisky.candidates.map(w=>`<div class="whisky-row"><div><b>${link(w.url,w.name+' ↗')}</b><small>${esc(w.style)}</small></div><span>¥${w.price.toLocaleString('ja-JP')}</span></div>`).join('')}<p>두 스타일을 함께 고르면 글렌알라키 12년 + 탈리스커 10년 = 14,880엔도 비교 후보입니다. 최종 구매는 현장에서 결정합니다.</p></article>
@@ -356,6 +398,8 @@ function renderPrepare(){
 }
 
 function mapPlaces(){
+  if(state.mapFocusId)return TripMap.focusTargets(places,state.mapFocusId,data.routePlan.hotelId,state.userPosition).places;
+  if(state.akibaRoute)return [...akibaStops(),...data.akihabara.contextIds.map(id=>places.get(id)).filter(p=>p?.coords)].filter(p=>state.mapCategories.includes(purposeCategory(p)));
   const hotelBars=data.places.filter(p=>p.hotelFood?.group==='hotel-bars'&&p.coords&&TripExplore.reviewMatch(p,state.reviewFilter,records[p.id]));
   const candidates=[...mappedRoutePlaces().filter(p=>p.kind!=='food'||TripExplore.reviewMatch(p,state.reviewFilter,records[p.id])),...data.places.filter(p=>p.mapPinned&&p.coords),...foodCandidates().filter(p=>p.coords),...hotelBars,...nearbyRecommendations(),...(state.showFabric?data.places.filter(p=>p.kind==='fabric'&&p.coords):[])];
   const unique=new Map();
@@ -387,53 +431,81 @@ function initMap(){
   map.on('moveend',()=>{const center=map.getCenter();const moved=distanceKm([center.lat,center.lng],state.center)>.05;const b=$('[data-action="search-map-center"]');b.classList.toggle('pending',moved);b.textContent=moved?'⌖ 이 지역에서 다시 찾기':'⌖ 이 주변에서 찾기';});
 }
 function ensureFoodLayer(){
-  if(foodLayer&&foodLayerMode===state.foodDisplay)return;
+  const display=state.mapFocusId?'pins':state.foodDisplay;
+  if(foodLayer&&foodLayerMode===display)return;
   if(foodLayer)map.removeLayer(foodLayer);
-  foodLayer=(state.foodDisplay==='clusters'&&L.markerClusterGroup?L.markerClusterGroup({maxClusterRadius:55,showCoverageOnHover:false,spiderfyOnMaxZoom:true,animate:false,iconCreateFunction:cluster=>L.divIcon({className:'food-cluster purpose-cluster',html:`<span>食 ${cluster.getChildCount()}</span>`,iconSize:[48,38]})}):L.layerGroup()).addTo(map);
-  foodLayerMode=state.foodDisplay;
+  foodLayer=(display==='clusters'&&L.markerClusterGroup?L.markerClusterGroup({maxClusterRadius:55,showCoverageOnHover:false,spiderfyOnMaxZoom:true,animate:false,iconCreateFunction:cluster=>L.divIcon({className:'food-cluster purpose-cluster',html:`<span>食 ${cluster.getChildCount()}</span>`,iconSize:[48,38]})}):L.layerGroup()).addTo(map);
+  foodLayerMode=display;
 }
-function updateMap(fit=true){
+function updateMap(fit=true,afterUpdate=null){
   if(!map)return;
+  const revision=++mapUpdateRevision;
   ensureFoodLayer();
   mapLayer.clearLayers();foodLayer.clearLayers();focusLayer.clearLayers();markers.clear();syncExploreControls();
   $('#show-food').checked=state.showFood;$('#show-fabric').checked=state.showFabric;
   $('#food-scope').value=state.foodScope;$('#food-meal').value=state.foodMeal;
   const visible=mapPlaces(),list=foodCandidates();
   $('#map-legend').innerHTML=Object.entries(TripMap.categories).filter(([id])=>state.mapCategories.includes(id)).map(([id,c])=>`<span><i class="purpose-legend" style="background:${c.color}">${c.icon}</i>${c.label}</span>`).join('')+(state.showRoute?selectedDays().filter(d=>d.steps.filter(s=>s.place).length>1).map(d=>`<span><i class="route-legend-line" style="--route-color:${dayColors[d.id]}"></i>${esc(d.date)} ${esc(d.weekday[0])} 참고 순서</span>`).join(''):'');
+  if(state.akibaRoute)$('#map-legend').innerHTML+='<span><i class="route-legend-line" style="--route-color:#d43c59"></i>1–5 · 선택 방문 순서</span>';
   $('#map-scope-note').textContent=state.foodDisplay==='clusters'?'食 뒤 숫자는 화면에서 가까운 맛집을 묶은 개수입니다. 원을 누르면 확대됩니다. 도보 반경이나 인구 밀도가 아닙니다.':'개별 핀: 확대 전에도 선택한 맛집의 위치를 모두 표시합니다. 같은 위치의 핀은 겹칠 수 있어 묶음 보기로도 비교할 수 있습니다.';
+  if(state.akibaRoute)$('#map-scope-note').textContent='번호는 해당 보기의 추천 순서입니다. 라디오회관은 핀을 눌러 3·4·6·8층 중 선택하세요. 호텔·2k540은 축소하면 보이는 위치 참고용 핀입니다. 통상 영업시간이며 자동 영업 판정은 하지 않습니다.';
   const foodCount=visible.filter(p=>purposeCategory(p)==='food').length,barCount=visible.filter(p=>purposeCategory(p)==='bar').length;
   $('#food-map-count').textContent=`맛집 ${foodCount}곳 · 술집 ${barCount}곳 · 다른 방문 장소 ${visible.length-foodCount-barCount}곳`;
-  if(state.showRoute)for(const d of selectedDays())for(const segment of TripMap.routeSegments(d,places)){
+  if(state.akibaRoute)$('#food-map-count').textContent=`굿즈·카드 건물 ${visible.filter(p=>p.akibaOrder).length}곳 · 호텔·2k540 위치 참고`;
+  if(!state.mapFocusId&&state.akibaRoute)for(const segment of TripMap.excursionSegments(data.akihabara,places,state.akibaRoute)){
+    if(!visible.some(p=>p.id===segment.from)||!visible.some(p=>p.id===segment.to))continue;
+    L.polyline(segment.coords,{color:'#d43c59',weight:3,opacity:.7,dashArray:'6 8',interactive:false}).addTo(mapLayer);
+  }
+  if(!state.mapFocusId&&state.showRoute)for(const d of selectedDays())for(const segment of TripMap.routeSegments(d,places)){
     L.polyline(segment.coords,{color:dayColors[d.id],weight:2,opacity:segment.alternative?.35:.5,dashArray:segment.alternative?'3 8':'5 8',interactive:false}).addTo(mapLayer);
   }
-  if(state.foodScope==='nearby'){
+  if(!state.mapFocusId&&state.foodScope==='nearby'){
     L.circle(state.center,{radius:state.radiusKm*1000,color:'#537b9c',weight:1,dashArray:'4 6',fillOpacity:.035,interactive:false}).addTo(focusLayer);
     L.circleMarker(state.center,{radius:5,color:'#537b9c',fillColor:'#fff',fillOpacity:1,weight:2,interactive:false}).addTo(focusLayer);
     if(state.anchorId==='user'&&state.userPosition)L.circle(state.center,{radius:Math.min(state.userPosition.accuracy,5000),color:'#537b9c',weight:0,fillOpacity:.08,interactive:false}).addTo(focusLayer);
   }
   for(const p of visible){
     const route=!!p.visits,purpose=purposeCategory(p),design=TripMap.categories[purpose],must=isMust(p);
-    const icon=L.divIcon({className:'',html:`<span class="map-pin purpose-pin purpose-${purpose}${must?' priority-must':''}" style="--pin-color:${design.color}">${design.icon}${must?'<small class="pin-priority">꼭</small>':''}${route&&state.showRoute&&p.kind!=='hotel'?`<small class="pin-order">${esc(p.routeOrder)}</small>`:''}</span>`,iconSize:[32,32],iconAnchor:[16,16]});
+    const icon=L.divIcon({className:'',html:`<span class="map-pin purpose-pin purpose-${purpose}${must?' priority-must':''}" style="--pin-color:${design.color}">${p.akibaOrder||design.icon}${must?'<small class="pin-priority">꼭</small>':''}${route&&state.showRoute&&p.kind!=='hotel'?`<small class="pin-order">${esc(p.routeOrder)}</small>`:''}</span>`,iconSize:[32,32],iconAnchor:[16,16]});
     const quick=p.kind==='food'?`<span class="popup-note">${esc(nearbyLabel(p))}<br>${esc(p.hotelFood?.menu||p.summary)}<br>${esc(p.diningResearch?p.diningResearch.hours:p.hotelFood?(state.day==='all'?hoursLabel(p)+' · 상세에서 확인':p.hotelFood.hours[state.day]):'영업 미확인 · 지도에서 재확인')}</span>${link(contextDirections(p),state.foodScope==='nearby'?'기준점에서 길찾기 ↗':'Google 길찾기 ↗','popup-link')}`:`${p.buildingName?arrivalHtml(p):`<span class="popup-note">${esc(p.exploreTip||p.summary)}</span>`}<button class="popup-link" data-nearby="${esc(p.id)}">이 장소 주변 맛집 →</button>`;
-    const marker=L.marker(p.coords,{icon,title:p.name,keyboard:true,zIndexOffset:p.kind==='hotel'?500:route?300:0}).addTo(purpose==='food'?foodLayer:mapLayer).bindPopup(`<b>${esc(p.name)}</b>${must?' · 꼭 가고 싶음':''}<br>${esc(design.label)} · ${esc(p.area)} · ${esc(p.status)}${quick}<button class="popup-link" data-place="${esc(p.id)}">${p.kind==='food'?'메뉴·시간·메모':p.buildingName?'상세·층수·메모':'상세·메모'} →</button> &nbsp;${interestButton(p)}`,p.buildingName?{minWidth:250,maxWidth:290,autoPanPaddingTopLeft:[12,52],autoPanPaddingBottomRight:[12,12]}:{});
+    const marker=L.marker(p.coords,{icon,title:p.name,keyboard:true,zIndexOffset:p.kind==='hotel'?500:route?300:0}).addTo(purpose==='food'?foodLayer:mapLayer).bindPopup(`<b>${p.akibaOrder?p.akibaOrder+'. ':''}${esc(p.name)}</b>${must?' · 꼭 가고 싶음':''}<br>${esc(design.label)} · ${esc(p.area)} · ${esc(p.status)}${p.akiba?`<span class="popup-note"><b>${esc(p.akiba.close)}</b> · ${esc(p.akiba.stay)}</span>${link(contextWalking(p),'Google 도보 길찾기 ↗','popup-link')}`:''}${quick}<button class="popup-link" data-place="${esc(p.id)}">${p.kind==='food'?'메뉴·시간·메모':p.buildingName?'상세·층수·메모':'상세·메모'} →</button> &nbsp;${interestButton(p)}`,p.buildingName?{minWidth:250,maxWidth:290,autoPanPaddingTopLeft:[12,52],autoPanPaddingBottomRight:[12,12]}:{});
     markers.set(p.id,marker);
+    marker.on('click',()=>{if(state.mapFocusId!==p.id&&!(state.mapFocusId&&p.id===data.routePlan.hotelId))focusMapPlace(p.id,{scroll:false});});
+  }
+  const userCoords=TripMap.focusTargets(places,null,null,state.userPosition).userCoords;
+  if(userCoords){
+    const icon=L.divIcon({className:'',html:'<span class="map-user-position">◎</span>',iconSize:[30,30],iconAnchor:[15,15]});
+    L.marker(userCoords,{icon,title:'확인한 내 위치',zIndexOffset:1000}).addTo(focusLayer).bindPopup(`<b>확인한 내 위치</b><br>오차 약 ${Math.round(state.userPosition.accuracy)||0}m<br>위치 갱신은 ‘내 위치’ 버튼을 눌러 주세요.`);
   }
   const hotelBars=state.foodScope==='hotel30'&&state.foodMeal==='afterDinner';
-  $('#map-title').textContent=hotelBars?'호텔 근처의 술집':state.foodScope==='city'?'도쿄 전체 · '+(state.reviewFilter==='must'?'꼭 가고 싶은 맛집':state.reviewFilter==='regular'?'가고 싶은 맛집 · 일반 후보':state.reviewFilter==='가고 싶음'?'가고 싶은 맛집':'선택한 후보'):state.foodScope==='route'?'방문권역 주변에서 탐색':state.foodScope==='nearby'?state.centerLabel+' 주변':'후보를 넓게 비교하기';
-  requestAnimationFrame(()=>{const container=map.getContainer();if(!container.clientWidth||!container.clientHeight)return;map.invalidateSize();const fitPlaces=hotelBars?[places.get(data.routePlan.hotelId),...list.filter(p=>p.coords)]:state.showRoute?mappedRoutePlaces():visible;if(fit&&fitPlaces.length)map.fitBounds(L.latLngBounds(fitPlaces.map(p=>p.coords)),{padding:[30,30],maxZoom:hotelBars?16:14,animate:false});});
+  $('#map-title').textContent=state.foodMeal==='afterDinner'?'술집 후보 · 호텔 주변부터 긴자까지':state.foodScope==='city'?'도쿄 전체 · '+(state.reviewFilter==='must'?'꼭 가고 싶은 맛집':state.reviewFilter==='regular'?'가고 싶은 맛집 · 일반 후보':state.reviewFilter==='가고 싶음'?'가고 싶은 맛집':'선택한 후보'):state.foodScope==='route'?'방문권역 주변에서 탐색':state.foodScope==='nearby'?state.centerLabel+' 주변':'후보를 넓게 비교하기';
+  if(state.akibaRoute)$('#map-title').textContent='아키하바라 · 굿즈 탐색';
+  if(state.mapFocusId){
+    $('#map-title').textContent='선택한 장소 · 숙소'+(userCoords?' · 내 위치':'');
+    $('#food-map-count').textContent=`장소 ${visible.length}곳${userCoords?' + 내 위치':''} 표시 · 다른 후보는 목록에서 선택할 수 있습니다.`;
+    $('#map-legend').innerHTML=[...new Set(visible.map(purposeCategory))].map(id=>{const c=TripMap.categories[id];return `<span><i class="purpose-legend" style="background:${c.color}">${c.icon}</i>${c.label}</span>`;}).join('')+(userCoords?'<span><i class="purpose-legend map-user-legend">◎</i>내 위치</span>':'');
+    $('#map-scope-note').textContent='선택 해제로 기존 필터와 확대 상태로 돌아갑니다. 현재 위치는 마지막으로 확인한 좌표이며 자동 추적하지 않습니다.';
+  }
+  requestAnimationFrame(()=>{if(revision!==mapUpdateRevision)return;const container=map.getContainer();if(!container.clientWidth||!container.clientHeight)return;map.invalidateSize();const fitPlaces=state.mapFocusId?visible:state.akibaRoute?akibaStops():hotelBars?[places.get(data.routePlan.hotelId),...list.filter(p=>p.coords)]:state.showRoute?mappedRoutePlaces():visible;const points=fitPlaces.map(p=>p.coords);if(state.mapFocusId&&userCoords)points.push(userCoords);if(fit&&points.length)map.fitBounds(L.latLngBounds(points),{padding:[30,30],maxZoom:state.mapFocusId?16:state.akibaRoute?17:hotelBars?16:14,animate:false});afterUpdate?.();});
+}
+function focusMapPlace(id,{fit=true,scroll=true,popup=true}={}){
+  const p=places.get(id);if(!p?.coords)return;
+  if(!state.mapFocusId&&map){const c=map.getCenter();state.mapFocusViewport={center:[c.lat,c.lng],zoom:map.getZoom()};}
+  state.mapFocusId=id;
+  if(state.view!=='map'){state.view='map';render();}
+  updateMap(fit,popup?()=>markers.get(id)?.openPopup():null);
+  if(scroll)$('#map-pane').scrollIntoView({block:'start'});
+}
+function clearMapPlace(restore=true){
+  const viewport=state.mapFocusViewport;
+  state.mapFocusId=null;state.mapFocusViewport=null;
+  if(!restore)return;
+  updateMap(false);
+  if(viewport&&map)map.setView(viewport.center,viewport.zoom,{animate:false});
 }
 function locatePlace(id){
   const p=places.get(id);if(!p?.coords)return;
-  if(p.kind!=='food'){selectFocus(id);return;}
-  if(!foodCandidates().some(x=>x.id===id)){
-    state.foodScope='nearby';state.center=p.coords;state.centerLabel=p.name;state.anchorId='map';state.foodMeal='all';state.foodQuery='';state.reviewFilter='all';state.categories=['picked','unreviewed','recommended'];
-  }
-  enableMapCategory(purposeCategory(p));
-  state.view='map';state.showFood=true;render();
-  $('#map-pane').scrollIntoView({behavior:'smooth',block:'start'});
-  const marker=markers.get(id);if(!marker)return;
-  map.setView(p.coords,16,{animate:false});
-  if(foodLayer.zoomToShowLayer&&foodLayer.hasLayer(marker))foodLayer.zoomToShowLayer(marker,()=>marker.openPopup());else marker.openPopup();
+  focusMapPlace(id);
 }
 
 function closePlace(){
@@ -456,9 +528,11 @@ $('#place-dialog').addEventListener('cancel',e=>{e.preventDefault();closePlace()
 
 function openPlace(id,syncHistory=true){
   const p=places.get(id);if(!p||dialogBackPending)return;
+  if(state.view==='map'&&p.coords&&state.mapFocusId!==id)focusMapPlace(id,{scroll:false,popup:false});
   dialogPlace=id;
   $('#dialog-content').innerHTML=`<span class="area-label">${esc(p.area)} / ${esc(kinds[p.kind])}</span><h2>${esc(p.name)}</h2>${badge(p.status,tone(p))}<p>${esc(p.summary)}</p><div class="detail-address">${esc(p.address||'주소 확인 필요')}</div><div class="detail-actions">${link(p.directionsUrl,'길안내 ↗','primary')}${link(p.mapUrl,'Google 지도 ↗')}${p.url?link(p.url,p.id==='food-G034'?'예약 페이지 ↗':'사이트 ↗'):''}${p.browse?link(p.browse,'상품 둘러보기 ↗'):''}${p.store?link(p.store,'매장 안내 ↗'):''}</div>${p.detail&&!p.hotelFood&&!p.diningResearch?`<p>${esc(p.detail)}</p>`:''}${p.hours&&!p.hotelFood&&!p.diningResearch?`<div class="detail-info">영상에 안내된 영업시간: ${esc(p.hours)}<br>방문일 영업시간은 다시 확인해 주세요.</div>`:''}${p.diningResearch?researchHtml(p,true):p.hotelFood?diningHtml(p,true):''}${p.exploreTip?`<div class="detail-info">${esc(p.exploreTip)}<br>${link(p.exploreTipUrl,'같은 층 공식 매장 안내 ↗')}</div>`:''}<div class="detail-info">${esc(p.coordinateNote)}</div>${p.kind==='food'?foodPreferences(p):''}${check(p)} ${interestButton(p)}${p.kind!=='food'?`<button class="button-link" data-nearby="${esc(p.id)}">이 장소 주변 맛집</button>`:''}<label class="note-label" for="place-note">나의 메모</label><textarea id="place-note" maxlength="4000" placeholder="사고 싶은 상품, 고를 메뉴, 현장에서 확인할 것…">${esc(records[id]?.note||'')}</textarea><div class="note-hint">자동 저장 · 현재 브라우저에만 보관</div>${p.videos?.length?`<details class="source-videos"><summary>관련 Shorts ${p.videos.length}개 · 원본 확인</summary>${p.videos.map(v=>link(v.url,v.id+' · '+v.title+(v.selection==='가고 싶음'?' ✓':''))).join('')}</details>`:''}`;
   if(p.buildingName)$('#dialog-content .detail-address').insertAdjacentHTML('afterend',arrivalHtml(p,true));
+  if(p.indoorShops)$('#dialog-content .arrival-info').insertAdjacentHTML('afterend',indoorShopsHtml(p));
   if(p.kind==='food')$('#dialog-content').insertAdjacentHTML('beforeend',`${link(contextDirections(p),state.foodScope==='nearby'?'탐색 기준점에서 길찾기 ↗':'Google 길찾기 ↗','button-link')}<div class="food-distance">${distanceHtml(p)}${link(hotelDirections(p),'호텔에서 길찾기 ↗')}</div>${p.locationWarning?`<div class="detail-info">${esc(p.locationWarning)}${p.originalAddress?'<br>영상 속 주소: '+esc(p.originalAddress):''}${p.addressSource?'<br>'+link(p.addressSource,'현재 주소 출처 ↗'):''}</div>`:''}${p.coordinateSource?link(p.coordinateSource,'위치 검색 근거 ↗','small-link'):''}`);
   if(!$('#place-dialog').open)$('#place-dialog').showModal();
   if(syncHistory){
@@ -467,19 +541,88 @@ function openPlace(id,syncHistory=true){
     else history.pushState(entry,'');
   }
 }
+function loadPurchases(){
+  try{const saved=localStorage.getItem(PURCHASE_KEY);purchaseLog=saved?TripPurchase.normalize(JSON.parse(saved)):TripPurchase.empty();}
+  catch{purchaseLoadError=true;message('구매 기록을 읽지 못했습니다. 기존 저장 내용을 보호하기 위해 구매 기록 저장을 중지했습니다.');}
+}
+function persistPurchases(next){
+  if(purchaseLoadError)throw new Error('기존 구매 기록을 읽지 못해 저장을 중지했습니다.');
+  const clean=TripPurchase.normalize(next);
+  try{localStorage.setItem(PURCHASE_KEY,JSON.stringify(clean));}catch{throw new Error('저장 공간에 기록하지 못했습니다. 입력 내용을 복사해 보관한 뒤 다시 시도해 주세요.');}
+  purchaseLog=clean;
+}
+function newPurchaseDraft(){return {id:'',amount:'',store:'',memo:'',currency:'JPY',category:'general',purchasedAt:TripPurchase.localTime()};}
+function purchaseMoney(sums){return [sums.JPY||!sums.USD?sums.JPY.toLocaleString('ko-KR')+'엔':'',sums.USD?'US$'+sums.USD.toLocaleString('ko-KR',{minimumFractionDigits:2,maximumFractionDigits:2}):''].filter(Boolean).join(' + ');}
+function renderPurchases(){
+  const draft=purchaseDraft||(purchaseDraft=newPurchaseDraft()),sums=TripPurchase.totals(purchaseLog);
+  const rows=[...purchaseLog.entries].sort((a,b)=>b.purchasedAt.localeCompare(a.purchasedAt));
+  $('#left-pane').innerHTML=`<section class="purchase-page"><div class="section-heading"><span class="eyebrow">SHOPPING LOG</span><h2>구매 기록</h2><p>영수증 한 장씩 금액과 구매처를 남기세요. 날짜·시간은 자동 입력되며 수정할 수 있습니다.</p></div>
+    ${purchaseLoadError?'<p role="alert">기존 구매 기록을 읽지 못했습니다. 저장을 중지한 상태입니다.</p>':''}
+    <div class="purchase-totals">${[['all','전체 지출'],['general','일반물품'],['alcohol','주류'],['other','기타 지출']].map(([key,label])=>`<article><span>${label}</span><strong>${purchaseMoney(sums[key])}</strong>${sums[key].usdReference!==null?`<small>달러 환산 약 US$${sums[key].usdReference.toLocaleString('ko-KR',{minimumFractionDigits:2,maximumFractionDigits:2})}</small>`:''}</article>`).join('')}</div>
+    <form id="purchase-form" class="purchase-form"><h3>${draft.id?'구매 기록 수정':'구매 기록 추가'}</h3><div class="purchase-fields">
+      <label>금액 <span>필수</span><input name="amount" type="text" inputmode="decimal" autocomplete="off" required maxlength="15" placeholder="예: 12,500" value="${esc(draft.amount)}"></label>
+      <label>통화<select name="currency"><option value="JPY" ${draft.currency==='JPY'?'selected':''}>JPY · 엔</option><option value="USD" ${draft.currency==='USD'?'selected':''}>USD · 달러</option></select></label>
+      <label class="purchase-wide">구매처 <span>필수</span><input name="store" required maxlength="120" placeholder="예: 포켓몬센터 메가도쿄" value="${esc(draft.store)}"></label>
+      <label>날짜·시간 <small>일본 현지 시각</small><input name="purchasedAt" type="datetime-local" required min="2000-01-01T00:00" value="${esc(draft.purchasedAt)}"></label>
+      <label>분류<select name="category">${Object.entries(TripPurchase.categories).map(([key,label])=>`<option value="${key}" ${draft.category===key?'selected':''}>${label}${key==='other'?' · 식사·교통 등':''}</option>`).join('')}</select></label>
+      <label class="purchase-wide">구매 물품 메모 <span>선택</span><textarea name="memo" maxlength="500" rows="2" placeholder="예: 30주년 피카츄 인형 2개, 친구 선물">${esc(draft.memo)}</textarea></label>
+    </div><p class="purchase-hint">일반물품과 주류가 섞인 영수증은 분류별로 나누어 입력해 주세요. 금액은 실제 결제한 금액으로 기록합니다.</p>
+    <div class="purchase-actions"><button class="button-link primary" type="submit" ${purchaseLoadError?'disabled':''}>${draft.id?'수정 저장':'기록 추가'}</button>${draft.id?'<button class="button-link" type="button" data-purchase-action="cancel">수정 취소</button>':''}<span id="purchase-status" role="status" aria-live="polite"></span></div></form>
+    <details class="purchase-rate"><summary>달러 환산 참고값 설정</summary><form id="purchase-rate-form"><label>1달러 = <input name="jpyPerUsd" type="number" inputmode="decimal" min="0.000001" max="1000000" step="any" placeholder="예: 150" value="${purchaseLog.jpyPerUsd??''}"> 엔</label><button type="submit" class="button-link">환율 저장</button></form><p>직접 입력한 환율로 단순 환산합니다. 비워서 저장하면 환산을 끕니다. 귀국일에 적용되는 관세 환율과 다를 수 있으며, 세금·면세 한도 판정은 계산하지 않습니다.</p></details>
+    <div class="purchase-list-heading"><h3>저장한 기록 <span>${rows.length}건</span></h3><div><button class="button-link" data-action="export">기록 백업 ↗</button><button class="button-link" data-action="import">백업 가져오기</button></div></div>
+    <p class="purchase-hint">현재 기기·브라우저에 저장됩니다. 백업 파일에는 기존 맛집 검토·메모와 구매 기록이 함께 들어갑니다. 다른 기기에서는 가져오기가 필요합니다.</p>
+    ${purchaseUndo?'<p class="purchase-undo" role="status">기록을 삭제했습니다. <button class="small-link" data-purchase-action="undo">삭제 되돌리기</button></p>':''}
+    <div class="purchase-list">${rows.length?rows.map(e=>`<article class="purchase-entry"><div><small><time>${esc(e.purchasedAt.replace('T',' '))}</time> · ${TripPurchase.categories[e.category]}</small><h3>${esc(e.store)}</h3><p>${esc(e.memo||'메모 없음')}</p></div><div class="purchase-entry-end"><strong>${e.currency==='JPY'?e.amount.toLocaleString('ko-KR')+'엔':'US$'+e.amount.toFixed(2)}</strong><div><button class="small-link" data-purchase-action="edit" data-purchase-id="${e.id}" aria-label="${esc(e.store)} 수정">수정</button><button class="small-link" data-purchase-action="delete" data-purchase-id="${e.id}" aria-label="${esc(e.store)} 삭제">삭제</button></div></div></article>`).join(''):'<p class="purchase-empty">아직 구매 기록이 없습니다. 위에서 첫 기록을 추가해 주세요.</p>'}</div></section>`;
+}
+document.addEventListener('input',e=>{
+  if(e.target.form?.id==='purchase-form'){purchaseDraft[e.target.name]=e.target.value;if(e.target.name==='purchasedAt')purchaseDraft.timeEdited=true;}
+});
+document.addEventListener('change',e=>{
+  if(e.target.form?.id==='purchase-form'){purchaseDraft[e.target.name]=e.target.value;if(e.target.name==='purchasedAt')purchaseDraft.timeEdited=true;}
+});
+document.addEventListener('submit',e=>{
+  if(!['purchase-form','purchase-rate-form'].includes(e.target.id))return;
+  e.preventDefault();
+  try{
+    if(e.target.id==='purchase-rate-form'){
+      persistPurchases({...purchaseLog,jpyPerUsd:TripPurchase.rate(new FormData(e.target).get('jpyPerUsd'))});
+      renderPurchases();$('#purchase-status').textContent='환율을 저장했습니다.';return;
+    }
+    const form=Object.fromEntries(new FormData(e.target)),id=purchaseDraft.id||crypto.randomUUID();
+    const row=TripPurchase.entry({...form,id,purchasedAt:purchaseDraft.id||purchaseDraft.timeEdited?form.purchasedAt:TripPurchase.localTime()});
+    const entries=purchaseLog.entries.filter(p=>p.id!==id);entries.push(row);
+    persistPurchases({...purchaseLog,entries});purchaseDraft=null;purchaseUndo=null;
+    renderPurchases();$('#purchase-status').textContent='구매 기록을 저장했습니다.';
+  }catch(error){$('#purchase-status').textContent=error.message;}
+});
+document.addEventListener('click',e=>{
+  const b=e.target.closest('[data-purchase-action]');if(!b)return;
+  try{
+    const row=purchaseLog.entries.find(p=>p.id===b.dataset.purchaseId);
+    switch(b.dataset.purchaseAction){
+      case 'edit':if(!row)return;purchaseDraft={...row};renderPurchases();$('#purchase-form').scrollIntoView({block:'start'});$('#purchase-form [name="amount"]').focus({preventScroll:true});return;
+      case 'cancel':purchaseDraft=null;break;
+      case 'delete':if(!row)return;persistPurchases({...purchaseLog,entries:purchaseLog.entries.filter(p=>p.id!==row.id)});purchaseUndo=row;if(purchaseDraft?.id===row.id)purchaseDraft=null;break;
+      case 'undo':if(!purchaseUndo)return;persistPurchases(TripPurchase.merge(purchaseLog,{version:1,entries:[purchaseUndo],jpyPerUsd:null}));purchaseUndo=null;break;
+    }
+    renderPurchases();
+  }catch(error){$('#purchase-status').textContent=error.message;}
+});
 function exportRecords(){
+  if(purchaseLoadError){message('구매 기록을 읽지 못해 전체 백업을 중지했습니다. 기존 브라우저 데이터를 먼저 확인해 주세요.');return;}
   const reviewRows=(data.reviewVideos||[]).map(v=>({id:v.id,restaurant:v.restaurant,videoUrl:v.url,excelSelection:v.selection,selection:TripReview.selection(v,videoReviews),note:videoReviews[v.id]?.note||'',reviewedAt:videoReviews[v.id]?.reviewedAt||'',source:videoReviews[v.id]?'web':'excel'}));
   const groupedReviews=reviewGroups.map(g=>({placeId:g.placeId,videoIds:g.videoIds,restaurant:g.restaurant,selection:TripReview.groupSelection(g,videoReviews),note:TripReview.groupNote(g,videoReviews),priority:g.placeId&&isMust(places.get(g.placeId))?'must':'normal',mapCategory:g.placeId?purposeCategory(places.get(g.placeId)):null}));
-  const content=JSON.stringify({format:'tokyo-trip-records',version:2,trip:'2026-10-30',exportedAt:new Date().toISOString(),records,videoReviews,reviewRows,groupedReviews},null,2);
-  const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([content],{type:'application/json'}));a.download='tokyo-trip-records.json';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000);message('검토 결과·방문 체크·관심·메모를 내보냈습니다. 다운로드한 파일을 보관해 주세요.');
+  const content=JSON.stringify({format:'tokyo-trip-records',version:2,trip:'2026-10-30',exportedAt:new Date().toISOString(),records,videoReviews,reviewRows,groupedReviews,purchaseLog},null,2);
+  const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([content],{type:'application/json'}));a.download='tokyo-trip-records.json';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000);message('검토 결과·방문 체크·관심·메모·구매 기록을 내보냈습니다. 다운로드한 파일을 보관해 주세요.');
 }
 
 document.addEventListener('click',e=>{
   const b=e.target.closest('button');if(!b)return;
-  if(b.dataset.view){const sameMap=state.view==='map'&&b.dataset.view==='map';state.view=b.dataset.view;if(!sameMap){render();if(state.view==='map')updateMap(true);}if(sameMap)$('#map-pane').scrollIntoView({behavior:'smooth',block:'start'});return;}
-  if(b.dataset.day){state.day=b.dataset.day;render();if(state.foodScope==='route')updateMap(true);return;}
+  if(b.dataset.view){const sameMap=state.view==='map'&&b.dataset.view==='map';state.view=b.dataset.view;if(state.view!=='map'){state.akibaRoute=null;clearMapPlace(false);}if(!sameMap){render();if(state.view==='map')updateMap(true);}if(sameMap)$('#map-pane').scrollIntoView({behavior:'smooth',block:'start'});return;}
+  if(b.dataset.day){clearMapPlace(false);state.akibaRoute=null;state.day=b.dataset.day;render();if(state.foodScope==='route')updateMap(true);return;}
+  if(b.dataset.akibaPin){focusMapPlace(b.dataset.akibaPin);return;}
   if(b.dataset.listTab){state.listTab=b.dataset.listTab;renderMapList();return;}
-  if(b.dataset.foodArea){const points=foodCandidates().filter(p=>p.coords&&purposeCategory(p)==='food'&&TripMap.area(p)===b.dataset.foodArea);if(points.length){map.fitBounds(L.latLngBounds(points.map(p=>p.coords)),{padding:[35,35],maxZoom:15,animate:false});$('#map-pane').scrollIntoView({block:'start'});}return;}
+  if(b.dataset.foodArea){clearMapPlace(false);updateMap(false);const points=foodCandidates().filter(p=>p.coords&&purposeCategory(p)==='food'&&TripMap.area(p)===b.dataset.foodArea);if(points.length){map.fitBounds(L.latLngBounds(points.map(p=>p.coords)),{padding:[35,35],maxZoom:15,animate:false});$('#map-pane').scrollIntoView({block:'start'});}return;}
   if(b.dataset.reviewPage!==undefined){state.reviewPage=Math.max(0,Number(b.dataset.reviewPage)||0);renderReviewResults();$('#review-results').scrollIntoView({block:'start'});return;}
   if(b.dataset.nearby){selectFocus(b.dataset.nearby);return;}
   if(b.dataset.interest){
@@ -493,7 +636,10 @@ document.addEventListener('click',e=>{
   switch(b.dataset.action){
     case 'close-dialog':closePlace();break;
     case 'map-fit':updateMap(true);break;
+    case 'clear-map-place':clearMapPlace();break;
     case 'route-overview':showRouteOverview();break;
+    case 'akiba-route':case 'akiba-north':showAkibaRoute('north');break;
+    case 'akiba-radio':showAkibaRoute('radio');break;
     case 'city-wanted':showCityWanted();break;
     case 'food-distribution':showCityWanted(true);break;
     case 'dining-guide':state.view='prepare';render();$('#dining-guide')?.scrollIntoView({block:'start'});break;
@@ -501,17 +647,22 @@ document.addEventListener('click',e=>{
     case 'my-location':getMyLocation();break;
     case 'list-jump':$('#left-pane').scrollIntoView({behavior:'smooth',block:'start'});break;
     case 'hotel-food-fit':state.foodScope='hotel30';state.anchorId=data.routePlan.hotelId;render();updateMap(true);break;
-    case 'hotel-bars':enableMapCategory('bar');state.view='map';state.showFood=true;state.listTab='food';state.foodScope='hotel30';state.anchorId=data.routePlan.hotelId;state.foodMeal='afterDinner';state.foodQuery='';state.reviewFilter='all';state.includeUnknownHours=false;state.categories=['picked','unreviewed','recommended'];render();updateMap(true);break;
+    case 'hotel-bars':state.akibaRoute=null;state.mapCategories=['bar','hotel'];state.view='map';state.showFood=true;state.listTab='food';state.foodScope='city';state.anchorId='city';state.foodMeal='afterDinner';state.foodQuery='';state.reviewFilter='all';state.includeUnknownHours=false;state.categories=['picked','unreviewed','recommended'];render();updateMap(true);break;
     case 'review-unreviewed':state.reviewStatus='미검토';state.reviewPage=0;state.reviewQuery='';renderReview();break;
     case 'review-map-wanted':showCityWanted();break;
     case 'review-map-must':showCityWanted(false,'must');break;
     case 'city-must':showCityWanted(false,'must');break;
-    case 'food-toggle':enableMapCategory('food');state.view='map';render();break;
+    case 'food-toggle':state.akibaRoute=null;enableMapCategory('food');state.view='map';render();break;
     case 'export':exportRecords();break;
     case 'import':$('#import-file').click();break;
   }
 });
 document.addEventListener('change',e=>{
+  if(e.target.id==='show-review-menu'){
+    try{localStorage.setItem(REVIEW_MENU_KEY,String(e.target.checked));}
+    catch{e.target.checked=showReviewMenu;message('메뉴 설정을 저장하지 못했습니다. 브라우저 저장 공간을 확인해 주세요.');return;}
+    showReviewMenu=e.target.checked;document.body.dataset.reviewMenu=showReviewMenu?'shown':'hidden';return;
+  }
   if(e.target.dataset.mustPlace||e.target.dataset.foodRole){
     const id=e.target.dataset.mustPlace||e.target.dataset.foodRole,p=places.get(id);
     if(!p||p.kind!=='food')return;
@@ -528,7 +679,7 @@ document.addEventListener('change',e=>{
     if(state.view==='map'){renderExplorerResults();updateMap(false);}
     return;
   }
-  if(e.target.dataset.mapCategory){state.mapCategories=[...document.querySelectorAll('[data-map-category]:checked')].map(x=>x.dataset.mapCategory);state.showFood=state.mapCategories.includes('food');renderExplorerResults();updateMap(e.target.checked);return;}
+  if(e.target.dataset.mapCategory){state.mapCategories=[...document.querySelectorAll('[data-map-category]:checked')].map(x=>x.dataset.mapCategory);state.showFood=state.mapCategories.includes('food');renderExplorerResults();updateMap(false);return;}
   if(e.target.id==='food-display'){state.foodDisplay=e.target.value;updateMap(false);return;}
   if(e.target.dataset.videoReview){setVideoReview(e.target.dataset.videoReview,{selection:e.target.value});renderReviewResults();return;}
   if(e.target.id==='review-status'){state.reviewStatus=e.target.value;state.reviewPage=0;renderReviewResults();return;}
@@ -538,7 +689,7 @@ document.addEventListener('change',e=>{
   if(e.target.id==='explore-radius'){state.radiusKm=Number(e.target.value);renderExplorerResults();updateMap(false);if(state.foodScope==='nearby')fitFocus();return;}
   if(e.target.id==='show-food'){state.showFood=e.target.checked;updateMap(false);return;}
   if(e.target.id==='show-fabric'){state.showFabric=e.target.checked;updateMap(false);return;}
-  if(e.target.id==='show-route'){state.showRoute=e.target.checked;if(state.showRoute)enableRouteCategories();renderExplorerResults();updateMap(state.showRoute);return;}
+  if(e.target.id==='show-route'){state.akibaRoute=null;state.showRoute=e.target.checked;if(state.showRoute)enableRouteCategories();renderMapList();updateMap(false);return;}
   if(e.target.id==='show-recommendations'){state.showRecommendations=e.target.checked;renderExplorerResults();updateMap(false);return;}
   if(e.target.id==='include-unknown-hours'){state.includeUnknownHours=e.target.checked;renderExplorerResults();updateMap(false);return;}
   if(e.target.dataset.foodCategory){state.categories=[...document.querySelectorAll('[data-food-category]:checked')].map(x=>x.dataset.foodCategory);renderExplorerResults();updateMap(false);return;}
@@ -561,6 +712,8 @@ $('#import-file').addEventListener('change',async e=>{
     const parsed=JSON.parse(await file.text());
     if(parsed.format!=='tokyo-trip-records'||![1,2].includes(parsed.version)||parsed.trip!=='2026-10-30')throw new Error('형식');
     const imported=validateRecords(parsed.records);
+    const importedPurchases=parsed.purchaseLog===undefined?null:TripPurchase.merge(purchaseLog,parsed.purchaseLog);
+    if(importedPurchases)persistPurchases(importedPurchases);
     for(const record of Object.values(imported))if(!record.preferenceUpdatedAt)record.preferenceUpdatedAt=parsed.exportedAt||new Date().toISOString();
     records={...records,...imported};
     if(parsed.version===2)videoReviews={...videoReviews,...TripReview.normalizeReviews(parsed.videoReviews,new Set(reviewVideoMap.keys()))};
@@ -569,11 +722,12 @@ $('#import-file').addEventListener('change',async e=>{
   e.target.value='';
 });
 async function start(){
-  const response=await fetch('./trip-data.json?v=20261027-donki-1',{cache:'no-cache'});if(!response.ok)throw new Error('데이터 불러오기');
+  try{showReviewMenu=localStorage.getItem(REVIEW_MENU_KEY)==='true';}catch{showReviewMenu=false;}
+  const response=await fetch('./trip-data.json?v=20261028-bars-1',{cache:'no-cache'});if(!response.ok)throw new Error('데이터 불러오기');
   data=await response.json();places=new Map(data.places.map(p=>[p.id,p]));
   reviewVideoMap=new Map((data.reviewVideos||[]).map(v=>[v.id,v]));
   reviewGroups=TripReview.groups(data.reviewVideos||[],data.places);
-  state.center=places.get(data.routePlan.hotelId).coords;loadRecords();records=TripExplore.mergePreferenceBaseline(data.reviewBaseline||{},records);records=TripExplore.mergePreferenceBaseline(data.manualPlacePreferences||{},records);loadVideoReviews();applyReviewSelections();initMap();render();renderProgress();updateMap(true);
+  state.center=places.get(data.routePlan.hotelId).coords;loadRecords();loadPurchases();records=TripExplore.mergePreferenceBaseline(data.reviewBaseline||{},records);records=TripExplore.mergePreferenceBaseline(data.manualPlacePreferences||{},records);loadVideoReviews();applyReviewSelections();initMap();render();renderProgress();updateMap(true);
   if(places.has(history.state?.[DIALOG_HISTORY_KEY]))openPlace(history.state[DIALOG_HISTORY_KEY],false);
 }
 start().catch(()=>message('여행 정보를 불러오지 못했습니다. 페이지를 새로고침해 주세요.'));

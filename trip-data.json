@@ -1,5 +1,5 @@
 {
-  "asOf": "2026-10-27",
+  "asOf": "2026-10-28",
   "version": 4,
   "trip": {
     "as_of": "2026-10-27",
@@ -209,22 +209,36 @@
     },
     {
       "id": "hareruya",
-      "name": "하레루야2 · 아키하바라",
+      "name": "하레루야2 · 아키하바라 타워점",
       "kind": "card",
       "area": "아키하바라",
       "coords": [
-        35.7005,
-        139.7708
+        35.69799,
+        139.770676
       ],
       "summary": "포켓몬카드 구경과 싱글 구매. 구매할 수 있는 박스가 있다면 함께 비교.",
-      "address": "ハレルヤ2 秋葉原タワー",
+      "address": "東京都千代田区外神田1-2-13 石丸3号館ビル",
       "url": "https://www.hareruya2.com/en/pages/store_tower-en",
       "status": "방문 희망",
       "day": "sat",
-      "coordinateNote": "권역 기준 참고 위치. 실제 입구는 Google 지도에서 확인.",
-      "detail": "박스의 정가 판매·수량·재고는 방문 전 최신 공지 확인이 필요합니다. 지도 핀은 아키하바라 권역 참고용입니다.",
-      "mapUrl": "https://www.google.com/maps/search/?api=1&query=%E3%83%8F%E3%83%AC%E3%83%AB%E3%83%A42%20%E7%A7%8B%E8%91%89%E5%8E%9F%E3%82%BF%E3%83%AF%E3%83%BC",
-      "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=%E3%83%8F%E3%83%AC%E3%83%AB%E3%83%A42%20%E7%A7%8B%E8%91%89%E5%8E%9F%E3%82%BF%E3%83%AF%E3%83%BC&travelmode=transit"
+      "coordinateNote": "운영사 공식 타워점 주소를 국토지리원 주소 검색으로 확인한 건물 위치. 기존 권역 참고 핀을 교정했고 장소 ID와 메모는 유지합니다.",
+      "detail": "포켓몬 전문점에서 싱글 카드를 구경하고 몇 장 구매할 후보. 전 층을 모두 볼 필요는 없습니다. 카드 상태·가격·박스 판매 여부는 현장에서 비교하세요. 22시 마감이라 다른 굿즈 매장 뒤에 배치할 수 있습니다.",
+      "destinationQuery": "晴れる屋2 秋葉原タワー店 東京都千代田区外神田1-2-13",
+      "mapPinned": true,
+      "buildingName": "이시마루 3호관 빌딩",
+      "floor": "B1–6F",
+      "openingNote": "매일 10:00–22:00 · 10.27 공식 확인",
+      "accessNote": "공식 타워점 주소로 핀을 바로잡았습니다. 외신다 1-2-5의 아넥스점과 구분하세요.",
+      "coordinateSource": "https://msearch.gsi.go.jp/address-search/AddressSearch?q=%E6%9D%B1%E4%BA%AC%E9%83%BD%E5%8D%83%E4%BB%A3%E7%94%B0%E5%8C%BA%E5%A4%96%E7%A5%9E%E7%94%B01-2-13",
+      "akiba": {
+        "shortName": "하레루야2",
+        "hours": "토 10:00–22:00",
+        "close": "22시 마감",
+        "stay": "30–45분 · 싱글 카드 중심",
+        "purpose": "포켓몬 싱글 카드·박스 판매 여부 확인"
+      },
+      "mapUrl": "https://www.google.com/maps/search/?api=1&query=%E6%99%B4%E3%82%8C%E3%82%8B%E5%B1%8B2%20%E7%A7%8B%E8%91%89%E5%8E%9F%E3%82%BF%E3%83%AF%E3%83%BC%E5%BA%97%20%E6%9D%B1%E4%BA%AC%E9%83%BD%E5%8D%83%E4%BB%A3%E7%94%B0%E5%8C%BA%E5%A4%96%E7%A5%9E%E7%94%B01-2-13",
+      "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=%E6%99%B4%E3%82%8C%E3%82%8B%E5%B1%8B2%20%E7%A7%8B%E8%91%89%E5%8E%9F%E3%82%BF%E3%83%AF%E3%83%BC%E5%BA%97%20%E6%9D%B1%E4%BA%AC%E9%83%BD%E5%8D%83%E4%BB%A3%E7%94%B0%E5%8C%BA%E5%A4%96%E7%A5%9E%E7%94%B01-2-13&travelmode=transit"
     },
     {
       "id": "pc-dx",
@@ -437,13 +451,51 @@
       "day": "sat",
       "coordinateNote": "공식 매장 페이지의 아키하바라역→매장 길찾기 링크에 지정된 목적지 좌표로 확인했습니다. 정확한 출입구나 3층 매장 내부 위치를 뜻하지 않습니다.",
       "buildingName": "아키하바라 라디오회관",
-      "floor": "3F",
+      "floor": "3F K-BOOKS / 4F·6F·8F 선택",
       "accessNote": "JR 아키하바라역 전기거리 출구에서 도보 1분 안내. 건물에 도착한 뒤 3층의 본관을 찾으세요. 개점 대기 시에는 공식 안내에 따라 건물 북측 계단에서 입장합니다.",
-      "openingNote": "토·일·공휴일 11:30–20:00 / 평일 12:00–20:00 · 10.25 공식 안내 확인",
+      "openingNote": "토요일 K-BOOKS 11:30–20:00 / 아미아미 11:00–20:00 / 6F·8F 10:00–20:00 · 10.27 확인",
       "floorGuideUrl": "https://akihabara-radiokaikan.co.jp/floor-guide/",
       "destinationQuery": "K-BOOKS 秋葉原本館 東京都千代田区外神田1-15-16 秋葉原ラジオ会館3F",
       "coordinateSource": "https://www.k-books.co.jp/shop/akihabara_honkan",
-      "detail": "하레루야2 뒤에 라디오회관을 묶는 토요일 참고 동선. 같은 건물 4층 아미아미는 여유가 있을 때만 구경하며 별도 방문 확정은 아닙니다. 공식 임시휴무 공지는 11월 2일로 이번 여행일 밖입니다. 신품·중고·재판매 가격과 상품 상태를 현장에서 비교하세요.",
+      "detail": "우마무스메는 3층 K-BOOKS 우선. 라디오회관의 다른 매장은 같은 핀 안의 층별 목록에서 선택합니다. 전 층 방문을 전제로 하지 않습니다. 원하는 캐릭터와 실제 경주마 인형, 포켓몬 카드 박스의 방문일 재고는 미확인입니다.",
+      "mapPinned": true,
+      "akiba": {
+        "shortName": "라디오회관",
+        "hours": "토 K-BOOKS 11:30–20:00",
+        "close": "20시 마감",
+        "stay": "45–75분 · 필요한 층만",
+        "purpose": "우마무스메 우선 · 굿즈·프라모델·카드"
+      },
+      "indoorShops": [
+        {
+          "floor": "3F",
+          "name": "K-BOOKS 아키하바라 본관",
+          "hours": "토 11:30–20:00",
+          "purpose": "우마무스메 중고 굿즈·마스코트 우선",
+          "url": "https://k-books.co.jp/shop/akihabara_honkan"
+        },
+        {
+          "floor": "4F",
+          "name": "아미아미",
+          "hours": "11:00–20:00",
+          "purpose": "캐릭터 굿즈·피규어·프라모델",
+          "url": "https://akihabara-radiokaikan.co.jp/shoplist/amiami/"
+        },
+        {
+          "floor": "6F",
+          "name": "옐로서브마린 ★MINT",
+          "hours": "10:00–20:00",
+          "purpose": "캐릭터 프라모델·포켓몬 싱글 카드",
+          "url": "https://akihabara-radiokaikan.co.jp/shoplist/yellow-submarine/"
+        },
+        {
+          "floor": "8F",
+          "name": "보크스 하비스퀘어",
+          "hours": "토 10:00–20:00",
+          "purpose": "스케일 모형·철도 모형·공구",
+          "url": "https://hobby.volks.co.jp/shop/hs_akihabara.html"
+        }
+      ],
       "mapUrl": "https://www.google.com/maps/search/?api=1&query=K-BOOKS%20%E7%A7%8B%E8%91%89%E5%8E%9F%E6%9C%AC%E9%A4%A8%20%E6%9D%B1%E4%BA%AC%E9%83%BD%E5%8D%83%E4%BB%A3%E7%94%B0%E5%8C%BA%E5%A4%96%E7%A5%9E%E7%94%B01-15-16%20%E7%A7%8B%E8%91%89%E5%8E%9F%E3%83%A9%E3%82%B8%E3%82%AA%E4%BC%9A%E9%A4%A83F",
       "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=K-BOOKS%20%E7%A7%8B%E8%91%89%E5%8E%9F%E6%9C%AC%E9%A4%A8%20%E6%9D%B1%E4%BA%AC%E9%83%BD%E5%8D%83%E4%BB%A3%E7%94%B0%E5%8C%BA%E5%A4%96%E7%A5%9E%E7%94%B01-15-16%20%E7%A7%8B%E8%91%89%E5%8E%9F%E3%83%A9%E3%82%B8%E3%82%AA%E4%BC%9A%E9%A4%A83F&travelmode=transit"
     },
@@ -9196,6 +9248,100 @@
       "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=%E6%9D%B1%E4%BA%AC%E9%83%BD%E6%96%87%E4%BA%AC%E5%8C%BA%E6%B9%AF%E5%B3%B63-38-10&travelmode=transit"
     },
     {
+      "id": "goods-surugaya-akiba",
+      "name": "스루가야 아키하바라 본관",
+      "kind": "shopping",
+      "mapCategory": "goods",
+      "area": "아키하바라",
+      "coords": [
+        35.700626,
+        139.770523
+      ],
+      "mapPinned": true,
+      "address": "東京都千代田区外神田3-11-3",
+      "url": "https://www.suruga-ya.com/en/shoplist",
+      "status": "선택 방문 · 중고 굿즈",
+      "summary": "중고 피규어·장난감·애니 굿즈를 탐색. 포켓몬 카드도 취급. 원하는 여섯 경주마의 인형 재고는 미확인.",
+      "buildingName": "스루가야 아키하바라 본관",
+      "floor": "층별 취급 품목 현장 확인",
+      "openingNote": "토·일·공휴일 10:00–21:00 / 평일 11:00–21:00 · 10.27 공식 확인",
+      "accessNote": "같은 아키하바라의 게임관·역전점·애니메이션&하비관과 구분하세요. 외신다 3-11-3의 본관입니다.",
+      "coordinateSource": "https://msearch.gsi.go.jp/address-search/AddressSearch?q=%E6%9D%B1%E4%BA%AC%E9%83%BD%E5%8D%83%E4%BB%A3%E7%94%B0%E5%8C%BA%E5%A4%96%E7%A5%9E%E7%94%B03-11-3",
+      "coordinateNote": "운영사 공식 주소를 국토지리원 주소 검색으로 확인한 건물 위치. 출입구·층별 재고는 현장에서 확인합니다.",
+      "akiba": {
+        "shortName": "스루가야 본관",
+        "hours": "토 10:00–21:00",
+        "close": "21시 마감",
+        "stay": "20–40분 · 선택 방문",
+        "purpose": "중고 굿즈·피규어·포켓몬 카드"
+      },
+      "mapUrl": "https://www.google.com/maps/search/?api=1&query=%E6%9D%B1%E4%BA%AC%E9%83%BD%E5%8D%83%E4%BB%A3%E7%94%B0%E5%8C%BA%E5%A4%96%E7%A5%9E%E7%94%B03-11-3",
+      "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=%E6%9D%B1%E4%BA%AC%E9%83%BD%E5%8D%83%E4%BB%A3%E7%94%B0%E5%8C%BA%E5%A4%96%E7%A5%9E%E7%94%B03-11-3&travelmode=transit"
+    },
+    {
+      "id": "goods-mandarake-akiba",
+      "name": "만다라케 컴플렉스",
+      "kind": "shopping",
+      "mapCategory": "goods",
+      "area": "아키하바라",
+      "coords": [
+        35.70031,
+        139.770599
+      ],
+      "mapPinned": true,
+      "address": "東京都千代田区外神田3-11-12",
+      "url": "https://www.mandarake.co.jp/dir/cmp/",
+      "status": "선택 방문 · 중고 완구",
+      "summary": "중고 완구·피규어·수집품 탐색. 전 층을 돌기보다 6–8층의 관심 품목만 선택하세요. 특정 우마무스메·경주마 인형 재고는 미확인.",
+      "buildingName": "만다라케 컴플렉스",
+      "floor": "완구 6–8F 중심",
+      "openingNote": "매일 12:00–20:00 · 10.27 공식 확인",
+      "accessNote": "검은 외관의 컴플렉스 본관입니다. 컴플렉스2·CoCoo와 구분하고, 관심 품목의 층은 입구 안내를 확인하세요.",
+      "floorGuideUrl": "https://www.mandarake.co.jp/dir/cmp/",
+      "coordinateSource": "https://msearch.gsi.go.jp/address-search/AddressSearch?q=%E6%9D%B1%E4%BA%AC%E9%83%BD%E5%8D%83%E4%BB%A3%E7%94%B0%E5%8C%BA%E5%A4%96%E7%A5%9E%E7%94%B03-11-12",
+      "coordinateNote": "운영사 공식 주소를 국토지리원 주소 검색으로 확인한 건물 위치. 실제 출입구와 다를 수 있습니다.",
+      "akiba": {
+        "shortName": "만다라케",
+        "hours": "토 12:00–20:00",
+        "close": "20시 마감",
+        "stay": "20–40분 · 관심 층만",
+        "purpose": "중고 완구·피규어·수집품"
+      },
+      "mapUrl": "https://www.google.com/maps/search/?api=1&query=%E6%9D%B1%E4%BA%AC%E9%83%BD%E5%8D%83%E4%BB%A3%E7%94%B0%E5%8C%BA%E5%A4%96%E7%A5%9E%E7%94%B03-11-12",
+      "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=%E6%9D%B1%E4%BA%AC%E9%83%BD%E5%8D%83%E4%BB%A3%E7%94%B0%E5%8C%BA%E5%A4%96%E7%A5%9E%E7%94%B03-11-12&travelmode=transit"
+    },
+    {
+      "id": "goods-lashinbang-akiba",
+      "name": "라신반 아키하바라 신관",
+      "kind": "shopping",
+      "mapCategory": "goods",
+      "area": "아키하바라",
+      "coords": [
+        35.699642,
+        139.770294
+      ],
+      "mapPinned": true,
+      "address": "東京都千代田区外神田1-7-6 AKIBAカルチャーズZONE 1F・2F",
+      "url": "https://www.lashinbang.com/news/386/",
+      "status": "선택 방문 · 중고 굿즈",
+      "summary": "중고 캐릭터 굿즈·피규어 탐색. K-BOOKS와 비교할 중고 매장 후보. 원하는 캐릭터·경주마 인형 재고는 미확인.",
+      "buildingName": "AKIBA CULTURES ZONE",
+      "floor": "1F·2F",
+      "openingNote": "매일 11:00–21:00 · 10.27 공식 안내 검색 수집본 확인 · 임시휴무 별도",
+      "accessNote": "외신다 1-7-6의 신관입니다. 라디오회관 내 라신반 지점과 다른 매장입니다.",
+      "coordinateSource": "https://msearch.gsi.go.jp/address-search/AddressSearch?q=%E6%9D%B1%E4%BA%AC%E9%83%BD%E5%8D%83%E4%BB%A3%E7%94%B0%E5%8C%BA%E5%A4%96%E7%A5%9E%E7%94%B01-7-6",
+      "coordinateNote": "운영사 공식 주소를 국토지리원 주소 검색으로 확인한 건물 위치. 실제 출입구와 다를 수 있습니다.",
+      "akiba": {
+        "shortName": "라신반 신관",
+        "hours": "토 11:00–21:00",
+        "close": "21시 마감",
+        "stay": "20–40분 · 선택 방문",
+        "purpose": "중고 캐릭터 굿즈·피규어"
+      },
+      "mapUrl": "https://www.google.com/maps/search/?api=1&query=%E6%9D%B1%E4%BA%AC%E9%83%BD%E5%8D%83%E4%BB%A3%E7%94%B0%E5%8C%BA%E5%A4%96%E7%A5%9E%E7%94%B01-7-6%20AKIBA%E3%82%AB%E3%83%AB%E3%83%81%E3%83%A3%E3%83%BC%E3%82%BAZONE%201F%E3%83%BB2F",
+      "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=%E6%9D%B1%E4%BA%AC%E9%83%BD%E5%8D%83%E4%BB%A3%E7%94%B0%E5%8C%BA%E5%A4%96%E7%A5%9E%E7%94%B01-7-6%20AKIBA%E3%82%AB%E3%83%AB%E3%83%81%E3%83%A3%E3%83%BC%E3%82%BAZONE%201F%E3%83%BB2F&travelmode=transit"
+    },
+    {
       "id": "food-hotel-coffeekan",
       "name": "珈琲館 · 코코네 우에노오카치마치점",
       "kind": "food",
@@ -9731,6 +9877,484 @@
       "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=%E6%9D%B1%E4%BA%AC%E9%83%BD%E6%96%87%E4%BA%AC%E5%8C%BA%E6%B9%AF%E5%B3%B63-45-3%20%E5%B0%8F%E6%9E%97%E5%B8%82%E3%83%93%E3%83%AB1F&travelmode=transit"
     },
     {
+      "id": "drinks-nihei-okachimachi",
+      "name": "니헤이 · 日本酒・焼酎ダイニング 二瓶",
+      "kind": "food",
+      "area": "우에노·오카치마치",
+      "coords": [
+        35.705208,
+        139.774979
+      ],
+      "summary": "호텔 도보 4분. 식사와 사케·쇼추를 함께 즐길 금요일 후보. 토요일 휴무.",
+      "address": "東京都台東区上野5-18-1",
+      "url": "https://www.hotpepper.jp/strJ001245279/",
+      "status": "술집 후보 · 금요일만",
+      "day": null,
+      "coordinateNote": "공식 주소를 국토지리원 주소 검색으로 표시. 입구는 길안내에서 확인.",
+      "selected": true,
+      "compilationMention": false,
+      "videoIds": [],
+      "videos": [],
+      "sourceType": "hotel-research",
+      "locationPrecision": "address",
+      "coordinateSource": "https://msearch.gsi.go.jp/address-search/AddressSearch?q=東京都台東区上野5-18-1",
+      "manualSelection": "가고 싶음",
+      "mapCategory": "bar",
+      "mapUrl": "https://www.google.com/maps/search/?api=1&query=日本酒+焼酎ダイニング+二瓶+御徒町",
+      "hotelFood": {
+        "group": "hotel-bars",
+        "groupLabel": "술집 후보",
+        "meals": [
+          "dinner",
+          "drinks",
+          "afterDinner"
+        ],
+        "mealsByDay": {
+          "fri": [
+            "dinner",
+            "drinks",
+            "afterDinner"
+          ],
+          "sat": [],
+          "sun": []
+        },
+        "menu": "사케·쇼추와 창작 일식. 훈제 사시미·소 힘줄 조림 등 식사와 함께 마실 후보.",
+        "hours": {
+          "fri": "17:00–23:00",
+          "sat": "휴무",
+          "sun": "휴무"
+        },
+        "hoursEvidence": "매장 등록 안내",
+        "checkedAt": "2026-10-28",
+        "note": "카운터 5석, 혼자 이용 가능 안내와 영어 메뉴 안내를 확인했습니다. 매장 등록 예산 약 6,000엔. 식후 한 잔보다 식사와 사케를 함께 즐기는 용도에 가깝습니다. 금요일 좌석·당일 임시휴무는 미확인입니다.",
+        "caution": "토·일·공휴일 휴무. 이번 여행에서는 금요일 후보입니다.",
+        "googleReview": {
+          "rating": 4.9,
+          "reviewCount": 134,
+          "checkedAt": "2026-10-28",
+          "url": "https://www.google.com/maps/search/?api=1&query=日本酒+焼酎ダイニング+二瓶+御徒町",
+          "summary": "확인한 후기에서는 음식과 친절한 응대, 훈제 사시미 등을 호평했습니다. 식사와 함께 마시기 좋은 곳이라는 인상입니다."
+        },
+        "travel": {
+          "minutes": 4,
+          "walkMinutes": 4,
+          "mode": "walk",
+          "within30": true,
+          "estimated": false,
+          "label": "도보 약 4분 · 300m",
+          "route": "APA 우에노 히로코지 → 니헤이",
+          "checkedAt": "2026-10-28",
+          "evidence": "Google 지도 도보 길찾기 UI 확인. 현장 신호·정차·대기는 제외됩니다."
+        },
+        "sources": [
+          {
+            "label": "매장 영업·메뉴·이용 안내",
+            "url": "https://www.hotpepper.jp/strJ001245279/"
+          }
+        ]
+      },
+      "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=%E6%9D%B1%E4%BA%AC%E9%83%BD%E5%8F%B0%E6%9D%B1%E5%8C%BA%E4%B8%8A%E9%87%8E5-18-1&travelmode=transit"
+    },
+    {
+      "id": "drinks-the-trad-yushima",
+      "name": "The TRAD · 유시마",
+      "kind": "food",
+      "area": "우에노·유시마",
+      "coords": [
+        35.708847,
+        139.77121
+      ],
+      "summary": "호텔 도보 8분. 칵테일·위스키. 좌석료 1,200엔 별도, 전석 흡연 가능.",
+      "address": "東京都文京区湯島3-43-9 深瀬ビル1F",
+      "url": "https://the-trad.net/",
+      "status": "술집 후보",
+      "day": null,
+      "coordinateNote": "공식 주소를 국토지리원 주소 검색으로 표시. 입구는 길안내에서 확인.",
+      "selected": true,
+      "compilationMention": false,
+      "videoIds": [],
+      "videos": [],
+      "sourceType": "hotel-research",
+      "locationPrecision": "address",
+      "coordinateSource": "https://msearch.gsi.go.jp/address-search/AddressSearch?q=東京都文京区湯島3-43-9",
+      "manualSelection": "가고 싶음",
+      "mapCategory": "bar",
+      "mapUrl": "https://www.google.com/maps/search/?api=1&query=The+TRAD+湯島",
+      "hotelFood": {
+        "group": "hotel-bars",
+        "groupLabel": "술집 후보",
+        "meals": [
+          "drinks",
+          "afterDinner"
+        ],
+        "mealsByDay": {
+          "fri": [
+            "drinks",
+            "afterDinner"
+          ],
+          "sat": [
+            "drinks",
+            "afterDinner"
+          ],
+          "sun": [
+            "drinks",
+            "afterDinner"
+          ]
+        },
+        "menu": "과일 칵테일·클래식 칵테일과 위스키. 차분한 카운터 바.",
+        "hours": {
+          "fri": "18:00–24:00 · LO 23:00 안내",
+          "sat": "18:00–24:00 · LO 23:00 안내",
+          "sun": "18:00–23:30 · LO 23:00"
+        },
+        "hoursEvidence": "공식 안내",
+        "checkedAt": "2026-10-28",
+        "note": "공식 카운터 10석, 혼자 이용 가능 안내. 공식 매장 안내의 평균 예산은 3,000–5,000엔이며 주문에 따라 달라집니다. 과일 칵테일 또는 위스키를 고르며 호텔 복귀 후 쉬어 갈 후보. 당일 공석·임시휴무는 미확인입니다.",
+        "caution": "좌석료 1인 1,200엔 별도(서비스료·기본 안주 포함). 전석 흡연 가능한 바입니다.",
+        "googleReview": {
+          "rating": 4.5,
+          "reviewCount": 105,
+          "checkedAt": "2026-10-28",
+          "url": "https://www.google.com/maps/search/?api=1&query=The+TRAD+湯島",
+          "summary": "확인한 후기에서는 술에 대한 설명과 위스키 종류, 조용하고 어두운 분위기를 호평했습니다. 차분함을 선호하는지와 흡연 여부를 함께 고려하세요."
+        },
+        "travel": {
+          "minutes": 8,
+          "walkMinutes": 8,
+          "mode": "walk",
+          "within30": true,
+          "estimated": false,
+          "label": "도보 약 8분 · 500m",
+          "route": "APA 우에노 히로코지 → 유시마 The TRAD",
+          "checkedAt": "2026-10-28",
+          "evidence": "Google 지도 도보 길찾기 UI 확인. 현장 신호·정차·대기는 제외됩니다."
+        },
+        "sources": [
+          {
+            "label": "공식 메뉴·좌석료·흡연 안내",
+            "url": "https://the-trad.net/"
+          },
+          {
+            "label": "공식 주소·영업시간",
+            "url": "https://the-trad.net/about"
+          }
+        ]
+      },
+      "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=%E6%9D%B1%E4%BA%AC%E9%83%BD%E6%96%87%E4%BA%AC%E5%8C%BA%E6%B9%AF%E5%B3%B63-43-9%20%E6%B7%B1%E7%80%AC%E3%83%93%E3%83%AB1F&travelmode=transit"
+    },
+    {
+      "id": "drinks-ibrew-akihabara",
+      "name": "IBREW 아키하바라",
+      "kind": "food",
+      "area": "아키하바라",
+      "coords": [
+        35.697765,
+        139.777145
+      ],
+      "summary": "아키하바라 동쪽의 크래프트 맥주 바. 호텔 도보 18분. 13–23시, LO 22:30.",
+      "address": "東京都千代田区神田佐久間町3-38 大陽ビル1F",
+      "url": "https://craftbeerbar-ibrew.com/",
+      "status": "술집 후보",
+      "day": null,
+      "coordinateNote": "공식 주소를 국토지리원 주소 검색으로 표시. 입구는 길안내에서 확인.",
+      "selected": true,
+      "compilationMention": false,
+      "videoIds": [],
+      "videos": [],
+      "sourceType": "hotel-research",
+      "locationPrecision": "address",
+      "coordinateSource": "https://msearch.gsi.go.jp/address-search/AddressSearch?q=東京都千代田区神田佐久間町3-38",
+      "manualSelection": "가고 싶음",
+      "mapCategory": "bar",
+      "mapUrl": "https://www.google.com/maps/search/?api=1&query=CRAFT+BEER+BAR+IBREW+AKIHABARA",
+      "hotelFood": {
+        "group": "hotel-bars",
+        "groupLabel": "술집 후보",
+        "meals": [
+          "lunch",
+          "dinner",
+          "drinks",
+          "afterDinner"
+        ],
+        "mealsByDay": {
+          "fri": [
+            "lunch",
+            "dinner",
+            "drinks",
+            "afterDinner"
+          ],
+          "sat": [
+            "lunch",
+            "dinner",
+            "drinks",
+            "afterDinner"
+          ],
+          "sun": [
+            "lunch",
+            "dinner",
+            "drinks",
+            "afterDinner"
+          ]
+        },
+        "menu": "크래프트 맥주와 피자 등 간단한 음식. 아키하바라 굿즈 쇼핑 뒤 맥주 한 잔 후보.",
+        "hours": {
+          "fri": "13:00–23:00 · LO 22:30",
+          "sat": "13:00–23:00 · LO 22:30",
+          "sun": "13:00–23:00 · LO 22:30"
+        },
+        "hoursEvidence": "공식 안내",
+        "checkedAt": "2026-10-28",
+        "note": "다양한 생맥주를 비교할 캐주얼한 바. 긴자점과 같은 체인이므로 그날 동선에 맞는 한 지점을 고르면 됩니다. Google 지도 이용자 제공 가격대는 1인 2,000–5,000엔으로 표시됐으며 실제 주문 견적이 아닙니다. 당일 탭 구성·좌석은 미확인입니다.",
+        "caution": "활기차고 붐빌 수 있는 분위기. 여행일 맥주 라인업은 당일 확인하세요.",
+        "googleReview": {
+          "rating": 4.4,
+          "reviewCount": 1336,
+          "checkedAt": "2026-10-28",
+          "url": "https://www.google.com/maps/search/?api=1&query=CRAFT+BEER+BAR+IBREW+AKIHABARA",
+          "summary": "확인한 후기에서는 탭 종류와 친절한 응대, 언어가 달라도 편한 주문을 호평했습니다. 가게가 붐빈다는 언급도 있습니다."
+        },
+        "travel": {
+          "minutes": 18,
+          "walkMinutes": 18,
+          "mode": "walk",
+          "within30": true,
+          "estimated": false,
+          "label": "도보 약 18분 · 1.2km",
+          "route": "APA 우에노 히로코지 → 아키하바라 동쪽 IBREW",
+          "checkedAt": "2026-10-28",
+          "evidence": "Google 지도 도보 길찾기 UI 확인. 현장 신호·정차·대기는 제외됩니다."
+        },
+        "sources": [
+          {
+            "label": "공식 지점 주소·영업시간·당일 탭",
+            "url": "https://craftbeerbar-ibrew.com/"
+          }
+        ]
+      },
+      "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=%E6%9D%B1%E4%BA%AC%E9%83%BD%E5%8D%83%E4%BB%A3%E7%94%B0%E5%8C%BA%E7%A5%9E%E7%94%B0%E4%BD%90%E4%B9%85%E9%96%93%E7%94%BA3-38%20%E5%A4%A7%E9%99%BD%E3%83%93%E3%83%AB1F&travelmode=transit"
+    },
+    {
+      "id": "drinks-ibrew-ginza",
+      "name": "IBREW 긴자 · 야에스",
+      "kind": "food",
+      "area": "긴자·야에스",
+      "coords": [
+        35.675663,
+        139.767517
+      ],
+      "summary": "긴자 북쪽·야에스의 크래프트 맥주 바. 긴자·도쿄역 구간에서 한잔. 13–23시.",
+      "address": "東京都中央区八重洲2-11-7 東栄ビル1F",
+      "url": "https://craftbeerbar-ibrew.com/",
+      "status": "술집 후보",
+      "day": null,
+      "coordinateNote": "공식 주소를 국토지리원 주소 검색으로 표시. 입구는 길안내에서 확인.",
+      "selected": true,
+      "compilationMention": false,
+      "videoIds": [],
+      "videos": [],
+      "sourceType": "hotel-research",
+      "locationPrecision": "address",
+      "coordinateSource": "https://msearch.gsi.go.jp/address-search/AddressSearch?q=東京都中央区八重洲2-11-7",
+      "manualSelection": "가고 싶음",
+      "mapCategory": "bar",
+      "mapUrl": "https://www.google.com/maps/search/?api=1&query=CRAFT+BEER+BAR+IBREW+GINZA",
+      "hotelFood": {
+        "group": "hotel-bars",
+        "groupLabel": "술집 후보",
+        "meals": [
+          "lunch",
+          "dinner",
+          "drinks",
+          "afterDinner"
+        ],
+        "mealsByDay": {
+          "fri": [
+            "lunch",
+            "dinner",
+            "drinks",
+            "afterDinner"
+          ],
+          "sat": [
+            "lunch",
+            "dinner",
+            "drinks",
+            "afterDinner"
+          ],
+          "sun": [
+            "lunch",
+            "dinner",
+            "drinks",
+            "afterDinner"
+          ]
+        },
+        "menu": "크래프트 맥주·테이스팅 구성과 간단한 음식. 긴자 북쪽·야에스의 캐주얼한 맥주 바.",
+        "hours": {
+          "fri": "13:00–23:00 · LO 22:30",
+          "sat": "13:00–23:00 · LO 22:30",
+          "sun": "13:00–23:00 · LO 22:30"
+        },
+        "hoursEvidence": "공식 안내",
+        "checkedAt": "2026-10-28",
+        "note": "이름은 긴자점이지만 실제 주소는 야에스2丁目입니다. 긴자에서 도쿄역으로 이어지는 구간에 들를 수 있습니다. 아키하바라점과 같은 체인이며 두 지점은 별도 핀으로 표시합니다. Google 지도 이용자 제공 가격대 1,000–5,000엔은 참고값이며 실제 주문 견적이 아닙니다. 호텔 출발 이동시간은 이번 조사에서 별도 조회하지 않았습니다.",
+        "caution": "여행일 탭 구성·좌석은 미확인입니다. 늦게 방문할 때는 LO 22:30을 고려하세요.",
+        "googleReview": {
+          "rating": 4.3,
+          "reviewCount": 1367,
+          "checkedAt": "2026-10-28",
+          "url": "https://www.google.com/maps/search/?api=1&query=CRAFT+BEER+BAR+IBREW+GINZA",
+          "summary": "확인한 후기에서는 다양한 맥주와 테이스팅 구성, 편하게 한잔할 수 있는 분위기를 호평했습니다."
+        },
+        "sources": [
+          {
+            "label": "공식 지점 주소·영업시간·당일 탭",
+            "url": "https://craftbeerbar-ibrew.com/"
+          }
+        ]
+      },
+      "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=%E6%9D%B1%E4%BA%AC%E9%83%BD%E4%B8%AD%E5%A4%AE%E5%8C%BA%E5%85%AB%E9%87%8D%E6%B4%B22-11-7%20%E6%9D%B1%E6%A0%84%E3%83%93%E3%83%AB1F&travelmode=transit"
+    },
+    {
+      "id": "drinks-kimijimaya-ginza",
+      "name": "긴자 키미지마야 · 銀座君嶋屋",
+      "kind": "food",
+      "area": "긴자1초메",
+      "coords": [
+        35.675804,
+        139.766449
+      ],
+      "summary": "사케 판매점의 스탠딩 바. 잔술·주말 비교 시음. 금·토 매장 마감 20시.",
+      "address": "東京都中央区銀座1-2-1 紺屋ビル1F",
+      "url": "https://kimijimaya.co.jp/shop/ginza",
+      "status": "술집 후보 · 입식",
+      "day": null,
+      "coordinateNote": "공식 주소를 국토지리원 주소 검색으로 표시. 입구는 길안내에서 확인.",
+      "selected": true,
+      "compilationMention": false,
+      "videoIds": [],
+      "videos": [],
+      "sourceType": "hotel-research",
+      "locationPrecision": "address",
+      "coordinateSource": "https://msearch.gsi.go.jp/address-search/AddressSearch?q=東京都中央区銀座1-2-1",
+      "manualSelection": "가고 싶음",
+      "mapCategory": "bar",
+      "mapUrl": "https://www.google.com/maps/search/?api=1&query=銀座君嶋屋",
+      "hotelFood": {
+        "group": "hotel-bars",
+        "groupLabel": "술집 후보",
+        "meals": [
+          "drinks",
+          "afterDinner"
+        ],
+        "mealsByDay": {
+          "fri": [
+            "drinks",
+            "afterDinner"
+          ],
+          "sat": [
+            "drinks",
+            "afterDinner"
+          ],
+          "sun": [
+            "drinks",
+            "afterDinner"
+          ]
+        },
+        "menu": "사케 잔술·주말 비교 시음. 술 판매점 안의 서서 마시는 바이며 병 구매도 가능.",
+        "hours": {
+          "fri": "10:30–20:00 · 시음바 LO 별도 확인",
+          "sat": "10:30–20:00 · 시음바 LO 별도 확인",
+          "sun": "10:30–19:00 · 시음바 LO 별도 확인"
+        },
+        "hoursEvidence": "공식 안내",
+        "checkedAt": "2026-10-28",
+        "note": "긴자1丁目·도쿄역 사이의 술 판매점. 공식 안내는 일본주 10종 이상과 주말 비교 시음을 소개합니다. 구글 후기에는 매장 내 음주뿐 아니라 병 구매 평가도 포함되어 있습니다. 호텔 출발 이동시간과 여행일 시음 메뉴·가격은 미확인입니다.",
+        "caution": "서서 마시는 곳입니다. 금·토 매장 마감 20:00으로 늦은 술자리보다 쇼핑 중간에 적합합니다. 시음바 주문 마감은 방문 전 확인하세요.",
+        "googleReview": {
+          "rating": 4.2,
+          "reviewCount": 412,
+          "checkedAt": "2026-10-28",
+          "url": "https://www.google.com/maps/search/?api=1&query=銀座君嶋屋",
+          "summary": "확인한 후기에서는 사케 선택을 도와주는 친절한 응대와 다양한 상품, 병 포장을 호평했습니다. 구매 관련 리뷰가 섞여 있으므로 바 이용 평가와 구분해서 보세요."
+        },
+        "sources": [
+          {
+            "label": "공식 지점·스탠딩 바·영업시간",
+            "url": "https://kimijimaya.co.jp/shop/ginza"
+          }
+        ]
+      },
+      "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=%E6%9D%B1%E4%BA%AC%E9%83%BD%E4%B8%AD%E5%A4%AE%E5%8C%BA%E9%8A%80%E5%BA%A71-2-1%20%E7%B4%BA%E5%B1%8B%E3%83%93%E3%83%AB1F&travelmode=transit"
+    },
+    {
+      "id": "drinks-opa-ginza",
+      "name": "BAR OPA · 긴자점",
+      "kind": "food",
+      "area": "긴자1초메",
+      "coords": [
+        35.674778,
+        139.766556
+      ],
+      "summary": "긴자1초메의 클래식·과일 칵테일 바. 금·토 17시–다음 날 01시. 일요일 휴무.",
+      "address": "東京都中央区銀座1-4-8 銀座ビッグウエストビル5号館 B1F",
+      "url": "https://bar-opa.jp/ginza/",
+      "status": "술집 후보",
+      "day": null,
+      "coordinateNote": "공식 주소를 국토지리원 주소 검색으로 표시. 입구는 길안내에서 확인.",
+      "selected": true,
+      "compilationMention": false,
+      "videoIds": [],
+      "videos": [],
+      "sourceType": "hotel-research",
+      "locationPrecision": "address",
+      "coordinateSource": "https://msearch.gsi.go.jp/address-search/AddressSearch?q=東京都中央区銀座1-4-8",
+      "manualSelection": "가고 싶음",
+      "mapCategory": "bar",
+      "mapUrl": "https://www.google.com/maps/search/?api=1&query=BAR+オーパ+銀座店+銀座1丁目4-8",
+      "hotelFood": {
+        "group": "hotel-bars",
+        "groupLabel": "술집 후보",
+        "meals": [
+          "drinks",
+          "afterDinner"
+        ],
+        "mealsByDay": {
+          "fri": [
+            "drinks",
+            "afterDinner"
+          ],
+          "sat": [
+            "drinks",
+            "afterDinner"
+          ],
+          "sun": []
+        },
+        "menu": "계절 과일·클래식 칵테일. 긴자1丁目의 차분한 카운터 바.",
+        "hours": {
+          "fri": "17:00–다음 날 01:00",
+          "sat": "17:00–다음 날 01:00",
+          "sun": "휴무"
+        },
+        "hoursEvidence": "공식 안내",
+        "checkedAt": "2026-10-28",
+        "note": "공식 카운터 11석·테이블 10석. 혼자 편하게 방문할 수 있는 바를 지향한다고 안내합니다. 금·토 영업시간은 공식 지점 페이지 기준이며 오래된 예약 사이트의 시간과 차이가 있습니다. Google 지도 이용자 제공 가격대 2,000–6,000엔은 참고값이며 실제 주문 견적이 아닙니다. 호텔 출발 이동시간·당일 공석은 미확인입니다.",
+        "caution": "긴자점(銀座1-4-8 B1F)입니다. 토요일 휴무인 OPA 나미키점과 구분하세요. 별도 좌석료·흡연 여부는 이번 조사에서 확정하지 못했습니다.",
+        "googleReview": {
+          "rating": 4.3,
+          "reviewCount": 206,
+          "checkedAt": "2026-10-28",
+          "url": "https://www.google.com/maps/search/?api=1&query=BAR+オーパ+銀座店+銀座1丁目4-8",
+          "summary": "확인한 후기에서는 전문적인 서비스와 아늑한 분위기, 계절 과일 칵테일과 맨해튼을 호평했습니다."
+        },
+        "sources": [
+          {
+            "label": "공식 긴자점·카운터·영업시간",
+            "url": "https://bar-opa.jp/ginza/"
+          }
+        ]
+      },
+      "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=%E6%9D%B1%E4%BA%AC%E9%83%BD%E4%B8%AD%E5%A4%AE%E5%8C%BA%E9%8A%80%E5%BA%A71-4-8%20%E9%8A%80%E5%BA%A7%E3%83%93%E3%83%83%E3%82%B0%E3%82%A6%E3%82%A8%E3%82%B9%E3%83%88%E3%83%93%E3%83%AB5%E5%8F%B7%E9%A4%A8%20B1F&travelmode=transit"
+    },
+    {
       "id": "food-cafe-lapin",
       "name": "카페 라팡 · Café Lapin",
       "kind": "food",
@@ -10089,7 +10713,7 @@
     }
   ],
   "hotelFood": {
-    "asOf": "2026-10-25",
+    "asOf": "2026-10-28",
     "hotelId": "hotel-apa",
     "departure": "2026-10-30T18:00:00+09:00",
     "scopeNote": "30분 이내 후보 중 이동·영업 정보를 우선 확인한 목록. 전수 조사나 30분 등시간선이 아닙니다. 이동시간은 대기·혼잡·엘리베이터·식당 대기시간에 따라 달라집니다."
@@ -10162,9 +10786,9 @@
     ]
   },
   "foodCoverage": {
-    "total": 186,
-    "mapped": 180,
-    "selected": 21
+    "total": 192,
+    "mapped": 186,
+    "selected": 27
   },
   "routePlan": {
     "asOf": "2026-10-27",
@@ -10172,6 +10796,47 @@
     "hotelId": "hotel-apa",
     "reservationConfirmed": true,
     "scope": "숙소와 방문 장소를 잇는 유동적인 참고 동선. 토요일 아침은 라팡·하치고를 우선하고 일요일 아침은 두 카페 중 한 곳 선택. 공항 이동선은 지도에서 생략."
+  },
+  "akihabara": {
+    "asOf": "2026-10-27",
+    "title": "아키하바라 굿즈 탐색",
+    "note": "토요일 오전 라팡·긴자 하치고 계획은 유지합니다. 아래는 방문을 강제하지 않는 별도 탐색 순서입니다. 중고 매장은 한 곳만 골라도 되고, 피곤하면 호텔로 돌아가세요. 점선은 매장 연결 순서이며 실제 보행 경로가 아닙니다.",
+    "contextIds": [
+      "hotel-apa",
+      "akioka-2k540"
+    ],
+    "horseTargets": [
+      "스마트 팔콘 / スマートファルコン",
+      "오구리 캡 / オグリキャップ",
+      "킹 헤일로 / キングヘイロー",
+      "사쿠라 로렐 / サクラローレル",
+      "정글 포켓 / ジャングルポケット",
+      "어드마이어 베가 / アドマイヤベガ"
+    ],
+    "routes": {
+      "north": {
+        "label": "호텔·2k540 쪽에서 출발",
+        "note": "북쪽에서 남쪽으로 내려가는 순서. 라디오회관은 19시까지 도착을 목표로 중고 매장 수를 조절하세요. 늦어지면 라디오회관 우선 보기로 바꾸세요.",
+        "ids": [
+          "goods-surugaya-akiba",
+          "goods-mandarake-akiba",
+          "goods-lashinbang-akiba",
+          "kbooks-akiba",
+          "hareruya"
+        ]
+      },
+      "radio": {
+        "label": "라디오회관 우선",
+        "note": "니혼바시·아키하바라역 쪽에서 오거나 늦게 도착할 때. K-BOOKS를 먼저 보고 중고 매장을 선택합니다. 만다라케는 20시 전, 카드숍은 22시 전 방문하세요. 자동 영업 판단이나 도착시간 예측은 하지 않습니다.",
+        "ids": [
+          "kbooks-akiba",
+          "goods-mandarake-akiba",
+          "goods-surugaya-akiba",
+          "goods-lashinbang-akiba",
+          "hareruya"
+        ]
+      }
+    }
   },
   "workbookSha256": "e30c678abf620cf1544376b5d0d8ac430bf2e9ab62ca3524ef326d9ed2ff0810",
   "selectedVideoIds": [
