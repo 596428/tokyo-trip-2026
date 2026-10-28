@@ -83,5 +83,15 @@
     const unique=new Map([selectedId,hotelId].flatMap(id=>{const p=places.get(id);return p&&valid(p.coords)?[[p.id,p]]:[];}));
     return {places:[...unique.values()],userCoords:valid(userPosition?.coords)?userPosition.coords:null};
   }
-  return {categories,category,area,areas,recommendations,routeStops,routeSegments,excursionStops,excursionSegments,focusTargets};
+  function browsePlaces(places,options={},records={}){
+    const q=String(options.query||'').trim().toLocaleLowerCase(),unique=new Map();
+    for(const p of places){
+      if(p.duplicateOf||unique.has(p.id)||options.categories&&!options.categories.includes(category(p,records[p.id])))continue;
+      if(options.interestedOnly&&!records[p.id]?.interested)continue;
+      if(q&&![p.name,p.area,p.summary,p.address,p.hotelFood?.menu,...(p.videoIds||[])].join(' ').toLocaleLowerCase().includes(q))continue;
+      unique.set(p.id,p);
+    }
+    return [...unique.values()];
+  }
+  return {categories,category,area,areas,recommendations,routeStops,routeSegments,excursionStops,excursionSegments,focusTargets,browsePlaces};
 });
