@@ -15285,6 +15285,21 @@
       "food-yang-ikebukuro": {
         "priority": "must",
         "mapCategory": "food"
+      },
+      "food-G074": {
+        "priority": "must",
+        "mapCategory": "food",
+        "preferenceUpdatedAt": "2026-10-28T10:46:22.984736+00:00"
+      }
+    },
+    "videoReviews": {
+      "T093": {
+        "selection": "가고 싶음",
+        "reviewedAt": "2026-10-28T10:46:22.984736+00:00"
+      },
+      "T107": {
+        "selection": "가고 싶음",
+        "reviewedAt": "2026-10-28T10:46:22.984736+00:00"
       }
     }
   },

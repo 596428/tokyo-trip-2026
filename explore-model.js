@@ -56,9 +56,10 @@
     return clean;
   }
   function mergePreferenceBaseline(baseline,local){
-    const merged={...local},stamp=baseline?.exportedAt;
-    if(!stamp||!Number.isFinite(Date.parse(stamp)))return merged;
+    const merged={...local},defaultStamp=baseline?.exportedAt;
+    if(!defaultStamp||!Number.isFinite(Date.parse(defaultStamp)))return merged;
     for(const [id,pref] of Object.entries(baseline.recordPreferences||{})){
+      const stamp=typeof pref.preferenceUpdatedAt==='string'&&Number.isFinite(Date.parse(pref.preferenceUpdatedAt))?pref.preferenceUpdatedAt:defaultStamp;
       const saved=local[id]||{};
       if((Date.parse(saved.preferenceUpdatedAt)||0)>=Date.parse(stamp))continue;
       const next={...saved,priority:pref.priority==='must'?'must':'normal',preferenceUpdatedAt:stamp};

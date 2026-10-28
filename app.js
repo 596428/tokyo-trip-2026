@@ -63,6 +63,10 @@ function loadVideoReviews(){
     const shared=TripReview.normalizeReviews(data.reviewBaseline.videoReviews,new Set(reviewVideoMap.keys()));
     videoReviews=TripReview.mergeBaseline(shared,videoReviews);
   }
+  if(data.manualPlacePreferences?.videoReviews){
+    const requested=TripReview.normalizeReviews(data.manualPlacePreferences.videoReviews,new Set(reviewVideoMap.keys()));
+    videoReviews=TripReview.mergeBaseline(requested,videoReviews);
+  }
   try{
     const saved=JSON.parse(localStorage.getItem(REVIEW_UI_KEY)||'{}');
     state.reviewStatus=TripReview.filters.includes(saved.status)?saved.status:'all';
@@ -767,7 +771,7 @@ $('#import-file').addEventListener('change',async e=>{
 });
 async function start(){
   try{showReviewMenu=localStorage.getItem(REVIEW_MENU_KEY)==='true';}catch{showReviewMenu=false;}
-  const response=await fetch('./trip-data.json?v=20261028-bars-1',{cache:'no-cache'});if(!response.ok)throw new Error('데이터 불러오기');
+  const response=await fetch('./trip-data.json?v=20261028-taniya-1',{cache:'no-cache'});if(!response.ok)throw new Error('데이터 불러오기');
   data=await response.json();places=new Map(data.places.map(p=>[p.id,p]));
   reviewVideoMap=new Map((data.reviewVideos||[]).map(v=>[v.id,v]));
   reviewGroups=TripReview.groups(data.reviewVideos||[],data.places);
