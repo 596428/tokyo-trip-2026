@@ -376,7 +376,7 @@ function renderExplorerResults(){
 function renderMapList(){
   if(state.akibaRoute){$('#left-pane').innerHTML=akibaGuideHtml();return;}
   const compilations=compilationHtml();
-  $('#left-pane').innerHTML=`<div class="section-heading"><div><span class="eyebrow">PLACES TO EXPLORE</span><h2>장소 목록</h2></div></div><p class="section-intro">장소 이름이나 ‘지도에서 보기’를 누르면 해당 장소·숙소·확인한 내 위치만 볼 수 있습니다. 동선 밖 후보는 위의 ‘분류·목록 필터 → 전체 장소’에서 찾으세요.</p><div id="food-results"></div>${compilations?`<details class="browser-compilations"><summary>모음 영상 보관함</summary>${compilations}</details>`:''}`;
+  $('#left-pane').innerHTML=`<div class="section-heading"><div><span class="eyebrow">PLACES TO EXPLORE</span><h2>장소 목록</h2></div></div><p class="section-intro">장소 이름은 상세 정보를 엽니다. ‘지도에서 보기’를 누르면 해당 장소·숙소·확인한 내 위치만 표시합니다. 지도 핀은 다른 핀을 유지한 채 설명을 엽니다. 동선 밖 후보는 위의 ‘분류·목록 필터 → 전체 장소’에서 찾으세요.</p><div id="food-results"></div>${compilations?`<details class="browser-compilations"><summary>모음 영상 보관함</summary>${compilations}</details>`:''}`;
   renderExplorerResults();
 }
 
@@ -512,7 +512,6 @@ function updateMap(fit=true,afterUpdate=null){
     const quick=p.kind==='food'?`<span class="popup-note">${esc(nearbyLabel(p))}<br>${esc(p.hotelFood?.menu||p.summary)}<br>${esc(p.diningResearch?p.diningResearch.hours:p.hotelFood?(state.day==='all'?hoursLabel(p)+' · 상세에서 확인':p.hotelFood.hours[state.day]):'영업 미확인 · 지도에서 재확인')}</span>${link(contextDirections(p),state.foodScope==='nearby'?'기준점에서 길찾기 ↗':'Google 길찾기 ↗','popup-link')}`:`${p.buildingName?arrivalHtml(p):`<span class="popup-note">${esc(p.exploreTip||p.summary)}</span>`}<button class="popup-link" data-nearby="${esc(p.id)}">이 장소 주변 맛집 →</button>`;
     const marker=L.marker(p.coords,{icon,title:p.name,keyboard:true,zIndexOffset:p.kind==='hotel'?500:route?300:0}).addTo(purpose==='food'?foodLayer:mapLayer).bindPopup(`<b>${p.akibaOrder?p.akibaOrder+'. ':''}${esc(p.name)}</b>${must?' · 꼭 가고 싶음':''}<br>${esc(design.label)} · ${esc(p.area)} · ${esc(p.status)}${p.akiba?`<span class="popup-note"><b>${esc(p.akiba.close)}</b> · ${esc(p.akiba.stay)}</span>${link(contextWalking(p),'Google 도보 길찾기 ↗','popup-link')}`:''}${quick}<button class="popup-link" data-place="${esc(p.id)}">${p.kind==='food'?'메뉴·시간·메모':p.buildingName?'상세·층수·메모':'상세·메모'} →</button> &nbsp;${interestButton(p)}`,p.buildingName?{minWidth:250,maxWidth:290,autoPanPaddingTopLeft:[12,52],autoPanPaddingBottomRight:[12,12]}:{});
     markers.set(p.id,marker);
-    marker.on('click',()=>{if(state.mapFocusId!==p.id&&!(state.mapFocusId&&p.id===data.routePlan.hotelId))focusMapPlace(p.id,{scroll:false});});
   }
   const userCoords=TripMap.focusTargets(places,null,null,state.userPosition).userCoords;
   if(userCoords){
@@ -572,7 +571,6 @@ $('#place-dialog').addEventListener('cancel',e=>{e.preventDefault();closePlace()
 
 function openPlace(id,syncHistory=true){
   const p=places.get(id);if(!p||dialogBackPending)return;
-  if(state.view==='map'&&p.coords&&state.mapFocusId!==id)focusMapPlace(id,{scroll:state.browseMode==='list',popup:false});
   dialogPlace=id;
   $('#dialog-content').innerHTML=`<span class="area-label">${esc(p.area)} / ${esc(kinds[p.kind])}</span><h2>${esc(p.name)}</h2>${badge(p.status,tone(p))}<p>${esc(p.summary)}</p><div class="detail-address">${esc(p.address||'주소 확인 필요')}</div><div class="detail-actions">${link(p.directionsUrl,'길안내 ↗','primary')}${link(p.mapUrl,'Google 지도 ↗')}${p.url?link(p.url,p.id==='food-G034'?'예약 페이지 ↗':'사이트 ↗'):''}${p.browse?link(p.browse,'상품 둘러보기 ↗'):''}${p.store?link(p.store,'매장 안내 ↗'):''}</div>${p.detail&&!p.hotelFood&&!p.diningResearch?`<p>${esc(p.detail)}</p>`:''}${p.hours&&!p.hotelFood&&!p.diningResearch?`<div class="detail-info">영상에 안내된 영업시간: ${esc(p.hours)}<br>방문일 영업시간은 다시 확인해 주세요.</div>`:''}${p.diningResearch?researchHtml(p,true):p.hotelFood?diningHtml(p,true):''}${p.exploreTip?`<div class="detail-info">${esc(p.exploreTip)}<br>${link(p.exploreTipUrl,'같은 층 공식 매장 안내 ↗')}</div>`:''}<div class="detail-info">${esc(p.coordinateNote)}</div>${p.kind==='food'?foodPreferences(p):''}${check(p)} ${interestButton(p)}${p.kind!=='food'?`<button class="button-link" data-nearby="${esc(p.id)}">이 장소 주변 맛집</button>`:''}<label class="note-label" for="place-note">나의 메모</label><textarea id="place-note" maxlength="4000" placeholder="사고 싶은 상품, 고를 메뉴, 현장에서 확인할 것…">${esc(records[id]?.note||'')}</textarea><div class="note-hint">자동 저장 · 현재 브라우저에만 보관</div>${p.videos?.length?`<details class="source-videos"><summary>관련 Shorts ${p.videos.length}개 · 원본 확인</summary>${p.videos.map(v=>link(v.url,v.id+' · '+v.title+(v.selection==='가고 싶음'?' ✓':''))).join('')}</details>`:''}`;
   if(p.buildingName)$('#dialog-content .detail-address').insertAdjacentHTML('afterend',arrivalHtml(p,true));
