@@ -10710,6 +10710,41 @@
       },
       "mapUrl": "https://www.google.com/maps/search/?api=1&query=%EC%95%84%EC%9C%A0%20%EB%9D%BC%EB%A9%98%20%ED%94%8C%EB%9F%AC%EC%8A%A4%20%C2%B7%20%E9%AE%8E%E3%83%A9%E3%83%BC%E3%83%A1%E3%83%B3%EF%BC%8B%20%EB%8F%84%EB%9D%BC%EB%85%B8%EB%AA%AC%203F%20%E6%9D%B1%E4%BA%AC%E9%83%BD%E6%B8%AF%E5%8C%BA%E8%99%8E%E3%83%8E%E9%96%801-17-1%20%E8%99%8E%E3%83%8E%E9%96%80%E3%83%92%E3%83%AB%E3%82%BA%20%E3%83%93%E3%82%B8%E3%83%8D%E3%82%B9%E3%82%BF%E3%83%AF%E3%83%BC3F%20%E8%99%8E%E3%83%8E%E9%96%80%E6%A8%AA%E4%B8%81",
       "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=%EC%95%84%EC%9C%A0%20%EB%9D%BC%EB%A9%98%20%ED%94%8C%EB%9F%AC%EC%8A%A4%20%C2%B7%20%E9%AE%8E%E3%83%A9%E3%83%BC%E3%83%A1%E3%83%B3%EF%BC%8B%20%EB%8F%84%EB%9D%BC%EB%85%B8%EB%AA%AC%203F%20%E6%9D%B1%E4%BA%AC%E9%83%BD%E6%B8%AF%E5%8C%BA%E8%99%8E%E3%83%8E%E9%96%801-17-1%20%E8%99%8E%E3%83%8E%E9%96%80%E3%83%92%E3%83%AB%E3%82%BA%20%E3%83%93%E3%82%B8%E3%83%8D%E3%82%B9%E3%82%BF%E3%83%AF%E3%83%BC3F%20%E8%99%8E%E3%83%8E%E9%96%80%E6%A8%AA%E4%B8%81&travelmode=transit"
+    },
+    {
+      "id": "kbooks-ikebukuro-game",
+      "name": "K-BOOKS 이케부쿠로 GAME관 · 1F",
+      "kind": "shopping",
+      "mapCategory": "goods",
+      "area": "이케부쿠로·히가시이케부쿠로",
+      "coords": [
+        35.730408,
+        139.717682
+      ],
+      "address": "東京都豊島区東池袋3-2-4 共永ビル1F",
+      "url": "https://k-books.co.jp/shop/game",
+      "store": "https://k-books.co.jp/shop/game",
+      "mapPinned": true,
+      "day": "fri",
+      "sourceType": "user-added",
+      "status": "방문 후보 · 우마무스메 굿즈",
+      "summary": "우마무스메 관련 중고 캐릭터 굿즈·피규어·인형을 찾을 이케부쿠로 K-BOOKS 지점. 선샤인시티 근처. 특정 캐릭터와 경주마 인형 재고는 미확인.",
+      "detail": "공식 취급 작품에 우마무스메 프리티 더비, 취급 상품에 피규어·인형·아크릴 키홀더 등이 명시되어 있습니다. 실제 경주마 인형의 취급과 원하는 말 6종의 재고는 확인되지 않았습니다. 같은 건물 2층 GAME관 플러스 및 별도 GAME관 알파와 구분하세요. 금요일 메가도쿄 방문 전후의 선택 후보이며 확정 일정 순서는 변경하지 않았습니다.",
+      "buildingName": "共永ビル · K-BOOKS 이케부쿠로 GAME관",
+      "floor": "1F",
+      "openingNote": "금요일 12:00–20:00 / 토·일·공휴일 11:30–20:00 · 2026.10.28 공식 안내 확인 · 임시휴무 별도",
+      "accessNote": "공영빌딩(共永ビル) 1층 GAME관입니다. 선샤인시티에서 도보 3분권으로 공식 안내. 2층 GAME관 플러스는 해외 게임 작품 중심이므로 우마무스메는 1층을 먼저 확인하세요.",
+      "coordinateSource": "https://msearch.gsi.go.jp/address-search/AddressSearch?q=%E6%9D%B1%E4%BA%AC%E9%83%BD%E8%B1%8A%E5%B3%B6%E5%8C%BA%E6%9D%B1%E6%B1%A0%E8%A2%8B3-2-4",
+      "coordinateNote": "운영사 공식 주소를 국토지리원 주소 검색으로 확인한 건물 대표 위치입니다. 실제 출입구·층별 위치는 현장에서 확인하세요.",
+      "locationPrecision": "address",
+      "checkedAt": "2026-10-28",
+      "selected": false,
+      "compilationMention": false,
+      "videoIds": [],
+      "videos": [],
+      "destinationQuery": "K-BOOKS 池袋GAME館 東京都豊島区東池袋3-2-4 共永ビル1F",
+      "mapUrl": "https://www.google.com/maps/search/?api=1&query=K-BOOKS%20%E6%B1%A0%E8%A2%8BGAME%E9%A4%A8%20%E6%9D%B1%E4%BA%AC%E9%83%BD%E8%B1%8A%E5%B3%B6%E5%8C%BA%E6%9D%B1%E6%B1%A0%E8%A2%8B3-2-4%20%E5%85%B1%E6%B0%B8%E3%83%93%E3%83%AB1F",
+      "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=K-BOOKS%20%E6%B1%A0%E8%A2%8BGAME%E9%A4%A8%20%E6%9D%B1%E4%BA%AC%E9%83%BD%E8%B1%8A%E5%B3%B6%E5%8C%BA%E6%9D%B1%E6%B1%A0%E8%A2%8B3-2-4%20%E5%85%B1%E6%B0%B8%E3%83%93%E3%83%AB1F&travelmode=transit"
     }
   ],
   "hotelFood": {
