@@ -769,7 +769,7 @@ $('#import-file').addEventListener('change',async e=>{
 });
 async function start(){
   try{showReviewMenu=localStorage.getItem(REVIEW_MENU_KEY)==='true';}catch{showReviewMenu=false;}
-  const response=await fetch('./trip-data.json?v=20261028-kbooks-ikebukuro-1',{cache:'no-cache'});if(!response.ok)throw new Error('데이터 불러오기');
+  const response=await fetch('./trip-data.json?v=20261029-hats-1',{cache:'no-cache'});if(!response.ok)throw new Error('데이터 불러오기');
   data=await response.json();places=new Map(data.places.map(p=>[p.id,p]));
   reviewVideoMap=new Map((data.reviewVideos||[]).map(v=>[v.id,v]));
   reviewGroups=TripReview.groups(data.reviewVideos||[],data.places);
