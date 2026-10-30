@@ -4,6 +4,7 @@ const REVIEW_KEY='tokyo-trip-20261030-video-reviews-v1';
 const REVIEW_UI_KEY='tokyo-trip-20261030-review-ui-v1';
 const REVIEW_PAGE_SIZE=20;
 const PURCHASE_KEY='tokyo-trip-20261030-purchases-v1';
+const MAP_FILTER_KEY='tokyo-trip-20261030-map-categories-v1';
 const REVIEW_MENU_KEY='tokyo-trip-20261030-show-review-menu-v1';
 let showReviewMenu=false;
 let purchaseLog=TripPurchase.empty(),purchaseDraft=null,purchaseUndo=null,purchaseLoadError=false;
@@ -228,7 +229,21 @@ function refreshPlaceBrowser(){
   if(state.akibaRoute){state.akibaRoute=null;renderMapList();}else renderExplorerResults();
   updateMap(false);
 }
+function loadMapCategories(){
+  try{
+    const saved=JSON.parse(localStorage.getItem(MAP_FILTER_KEY));
+    if(!Array.isArray(saved))return;
+    const valid=saved.filter(id=>typeof id==='string'&&Object.hasOwn(TripMap.categories,id));
+    if(saved.length&&valid.length===0)return;
+    state.mapCategories=[...new Set(valid)];
+    state.showFood=state.mapCategories.includes('food');
+  }catch{}
+}
+function saveMapCategories(){
+  try{localStorage.setItem(MAP_FILTER_KEY,JSON.stringify(state.mapCategories));}catch{}
+}
 function syncExploreControls(){
+  saveMapCategories();
   syncPlaceBrowser();
   $('#map-pane').classList.toggle('collection-wide',state.browseCollection!=='current');
   const selected=places.get(state.mapFocusId),focusBox=$('#map-place-focus');
@@ -768,6 +783,7 @@ $('#import-file').addEventListener('change',async e=>{
   e.target.value='';
 });
 async function start(){
+  loadMapCategories();
   try{showReviewMenu=localStorage.getItem(REVIEW_MENU_KEY)==='true';}catch{showReviewMenu=false;}
   const response=await fetch('./trip-data.json?v=20261029-gifts-1',{cache:'no-cache'});if(!response.ok)throw new Error('데이터 불러오기');
   data=await response.json();places=new Map(data.places.map(p=>[p.id,p]));
