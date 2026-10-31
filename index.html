@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="./vendor/leaflet.css">
   <link rel="stylesheet" href="./vendor/MarkerCluster.css">
   <link rel="stylesheet" href="./vendor/maplibre-gl.css">
-  <link rel="stylesheet" href="./style.css?v=20261028-place-browser-1">
+  <link rel="stylesheet" href="./style.css?v=20261031-mobile-map-1">
   <script defer src="./vendor/leaflet.js"></script>
   <script defer src="./vendor/leaflet.markercluster.js"></script>
   <script defer src="./vendor/maplibre-gl.js"></script>
@@ -19,7 +19,7 @@
   <script defer src="./review-model.js?v=20261027-morning-1"></script>
   <script defer src="./map-model.js?v=20261028-place-browser-1"></script>
   <script defer src="./purchase-model.js?v=20261028-purchases-1"></script>
-  <script defer src="./app.js?v=20261030-filter-memory-1"></script>
+  <script defer src="./app.js?v=20261031-mobile-map-1"></script>
 </head>
 <body data-view="map" data-review-menu="hidden">
   <a class="skip-link" href="#content">본문으로 이동</a>
@@ -57,11 +57,13 @@
         </details>
       </section>
       <div class="workspace">
+        <button class="mobile-sheet-close" data-browser-mode="map" aria-label="후보 목록 접고 지도 크게 보기">후보 목록 · 지도 크게 보기 ↓</button>
         <div id="left-pane" class="left-pane"></div>
         <aside id="map-pane" class="map-pane">
           <div class="map-heading"><div><span class="eyebrow">THE BIG PICTURE</span><h2 id="map-title">이번 여행의 장소들</h2></div><button class="icon-button" data-action="map-fit" aria-label="지도 전체 보기" title="지도 전체 보기">⛶</button></div>
           <section id="map-place-focus" class="map-place-focus" aria-label="선택한 장소만 보기" hidden><div role="status"><b id="map-focus-name"></b><small id="map-focus-status"></small></div><div class="map-focus-actions"><button class="button-link" data-action="map-fit">함께 보기</button><button class="button-link" data-action="clear-map-place">선택 해제 · 후보 다시 보기</button></div></section>
-          <div class="explore-controls">
+          <div class="explore-controls" id="mobile-explore-controls">
+            <button class="mobile-options-close small-link" data-action="mobile-map-options">탐색 옵션 닫기 ×</button>
             <div class="map-overview-actions"><button class="button-link" data-action="city-wanted">도쿄 전체 · 가고 싶음</button><button class="button-link" data-action="city-must">꼭 가고 싶음만</button><button class="button-link" data-action="food-distribution">맛집 분포만</button><button class="button-link" data-action="route-overview" disabled>참고 동선 보기</button><button class="button-link" data-action="dining-guide" disabled>토·일 아침 계획</button></div>
             <div class="akiba-entry"><button class="button-link" data-action="akiba-route">★ 아키하바라 굿즈 탐색</button></div>
             <div id="akiba-map-tools" class="akiba-map-tools" hidden></div>
@@ -82,6 +84,7 @@
             </details>
           </div>
           <div class="map-search-toolbar"><span>지도를 움직여 탐색 기준점을 바꿔보세요.</span><button class="map-search-here" data-action="search-map-center">⌖ 이 주변에서 찾기</button></div>
+          <div class="mobile-map-actions" aria-label="모바일 지도 도구"><button class="button-link" data-action="my-location">◎ 내 위치</button><button class="button-link" data-action="mobile-map-options" aria-expanded="false" aria-controls="mobile-explore-controls">탐색 옵션</button><button class="button-link" data-action="map-fit">전체 핀 보기</button></div>
           <div class="map-canvas"><div id="map" aria-label="도쿄 여행 장소 지도"></div></div>
           <div class="map-result-bar"><span id="food-map-count" role="status"></span><button class="small-link" data-action="list-jump">목록 보기 ↓</button></div>
           <div id="map-fallback" hidden>지도를 불러오지 못했습니다. 장소 목록의 Google 지도 버튼으로 위치를 확인할 수 있습니다.</div>

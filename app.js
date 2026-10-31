@@ -218,10 +218,14 @@ function syncPlaceBrowser(){
   $('#browse-filter-summary').textContent='분류·목록 필터 · '+(labels.length===6?'전체 종류':labels.length?labels.join(' / '):'선택한 종류 없음')+' · '+scope;
   $('#browse-collection-note').textContent=state.browseCollection==='current'?'선택한 맛집과 현재 동선·추가 후보를 표시합니다. 지도에서 정한 탐색 범위와 식사 필터를 따릅니다.':state.browseCollection==='all'?'동선·날짜·검토 상태와 관계없이 보관한 모든 장소를 검색합니다. 종류와 검색어는 그대로 적용됩니다.':'관심을 저장한 장소를 동선과 관계없이 표시합니다. 종류와 검색어는 그대로 적용됩니다.';
 }
+function setMobileMapOptions(open){
+  document.body.dataset.mapOptions=open?'open':'closed';
+  document.querySelectorAll('[data-action="mobile-map-options"]').forEach(button=>button.setAttribute('aria-expanded',String(open)));
+}
 function setBrowseMode(mode){
   if(!['map','list'].includes(mode))return;
   if(mode==='list'&&state.akibaRoute){state.akibaRoute=null;renderMapList();}
-  state.browseMode=mode;syncPlaceBrowser();
+  state.browseMode=mode;setMobileMapOptions(false);syncPlaceBrowser();
   if(mode==='map')updateMap(false);
   $('#place-browser').scrollIntoView({block:'start'});
 }
@@ -308,16 +312,21 @@ function selectFocus(id){
   closePlace();
   render();fitFocus();$('#map-pane').scrollIntoView({behavior:'smooth',block:'start'});
 }
-function fitFocus(){if(map&&state.center)map.fitBounds(L.latLng(state.center).toBounds(state.radiusKm*2000),{padding:[20,20],animate:false});}
+function mapOverlayPadding(){
+  if(!window.matchMedia('(max-width:760px)').matches)return {padding:[30,30]};
+  return {paddingTopLeft:[24,140],paddingBottomRight:[24,state.mapFocusId?240:112]};
+}
+function fitFocus(){if(map&&state.center)map.fitBounds(L.latLng(state.center).toBounds(state.radiusKm*2000),{...mapOverlayPadding(),animate:false});}
 function getMyLocation(){
+  setMobileMapOptions(true);
   const msg=$('#geo-message');msg.hidden=false;
   if(!window.isSecureContext){msg.textContent='내 위치는 HTTPS 페이지에서 이용할 수 있습니다. 지금은 방문 장소나 지도 중심을 선택해 주세요.';return;}
   if(!navigator.geolocation){msg.textContent='이 브라우저는 위치 확인을 지원하지 않습니다. 지도 중심으로 찾아 주세요.';return;}
-  const button=$('[data-action="my-location"]');button.disabled=true;msg.textContent='브라우저 위치 권한을 확인하고 있습니다. 위치는 저장하지 않습니다.';
+  const buttons=[...document.querySelectorAll('[data-action="my-location"]')];buttons.forEach(button=>button.disabled=true);msg.textContent='브라우저 위치 권한을 확인하고 있습니다. 위치는 저장하지 않습니다.';
   navigator.geolocation.getCurrentPosition(position=>{
-    button.disabled=false;state.userPosition={coords:[position.coords.latitude,position.coords.longitude],accuracy:position.coords.accuracy};
+    buttons.forEach(button=>button.disabled=false);state.userPosition={coords:[position.coords.latitude,position.coords.longitude],accuracy:position.coords.accuracy};
     if(state.mapFocusId)updateMap(false);else selectFocus('user');msg.textContent=`현재 위치 확인 · 위치 오차 약 ${Math.round(position.coords.accuracy)}m. 위치 기록은 저장하지 않습니다.`;
-  },()=>{button.disabled=false;msg.textContent='위치를 확인하지 못했습니다. 권한·GPS 상태를 확인하거나 장소를 골라 찾아 주세요.';},{enableHighAccuracy:true,timeout:12000,maximumAge:60000});
+  },()=>{buttons.forEach(button=>button.disabled=false);msg.textContent='위치를 확인하지 못했습니다. 권한·GPS 상태를 확인하거나 장소를 골라 찾아 주세요.';},{enableHighAccuracy:true,timeout:12000,maximumAge:60000});
 }
 
 function locationLabel(p){return {poi:'지도 검색 위치',address:'주소 기준 위치',block:'주소 블록 위치'}[p.locationPrecision]||'위치 미확인';}
@@ -525,7 +534,7 @@ function updateMap(fit=true,afterUpdate=null){
     const route=!!p.visits,purpose=purposeCategory(p),design=TripMap.categories[purpose],must=isMust(p);
     const icon=L.divIcon({className:'',html:`<span class="map-pin purpose-pin purpose-${purpose}${must?' priority-must':''}" style="--pin-color:${design.color}">${p.akibaOrder||design.icon}${must?'<small class="pin-priority">꼭</small>':''}${route&&state.showRoute&&p.kind!=='hotel'?`<small class="pin-order">${esc(p.routeOrder)}</small>`:''}</span>`,iconSize:[32,32],iconAnchor:[16,16]});
     const quick=p.kind==='food'?`<span class="popup-note">${esc(nearbyLabel(p))}<br>${esc(p.hotelFood?.menu||p.summary)}<br>${esc(p.diningResearch?p.diningResearch.hours:p.hotelFood?(state.day==='all'?hoursLabel(p)+' · 상세에서 확인':p.hotelFood.hours[state.day]):'영업 미확인 · 지도에서 재확인')}</span>${link(contextDirections(p),state.foodScope==='nearby'?'기준점에서 길찾기 ↗':'Google 길찾기 ↗','popup-link')}`:`${p.buildingName?arrivalHtml(p):`<span class="popup-note">${esc(p.exploreTip||p.summary)}</span>`}<button class="popup-link" data-nearby="${esc(p.id)}">이 장소 주변 맛집 →</button>`;
-    const marker=L.marker(p.coords,{icon,title:p.name,keyboard:true,zIndexOffset:p.kind==='hotel'?500:route?300:0}).addTo(purpose==='food'?foodLayer:mapLayer).bindPopup(`<b>${p.akibaOrder?p.akibaOrder+'. ':''}${esc(p.name)}</b>${must?' · 꼭 가고 싶음':''}<br>${esc(design.label)} · ${esc(p.area)} · ${esc(p.status)}${p.akiba?`<span class="popup-note"><b>${esc(p.akiba.close)}</b> · ${esc(p.akiba.stay)}</span>${link(contextWalking(p),'Google 도보 길찾기 ↗','popup-link')}`:''}${quick}<button class="popup-link" data-place="${esc(p.id)}">${p.kind==='food'?'메뉴·시간·메모':p.buildingName?'상세·층수·메모':'상세·메모'} →</button> &nbsp;${interestButton(p)}`,p.buildingName?{minWidth:250,maxWidth:290,autoPanPaddingTopLeft:[12,52],autoPanPaddingBottomRight:[12,12]}:{});
+    const marker=L.marker(p.coords,{icon,title:p.name,keyboard:true,zIndexOffset:p.kind==='hotel'?500:route?300:0}).addTo(purpose==='food'?foodLayer:mapLayer).bindPopup(`<b>${p.akibaOrder?p.akibaOrder+'. ':''}${esc(p.name)}</b>${must?' · 꼭 가고 싶음':''}<br>${esc(design.label)} · ${esc(p.area)} · ${esc(p.status)}${p.akiba?`<span class="popup-note"><b>${esc(p.akiba.close)}</b> · ${esc(p.akiba.stay)}</span>${link(contextWalking(p),'Google 도보 길찾기 ↗','popup-link')}`:''}${quick}<button class="popup-link" data-place="${esc(p.id)}">${p.kind==='food'?'메뉴·시간·메모':p.buildingName?'상세·층수·메모':'상세·메모'} →</button> &nbsp;${interestButton(p)}`,{...(p.buildingName?{minWidth:250,maxWidth:290}:{}),...(window.matchMedia('(max-width:760px)').matches?{autoPanPaddingTopLeft:[12,140],autoPanPaddingBottomRight:[12,112]}:{})});
     markers.set(p.id,marker);
   }
   const userCoords=TripMap.focusTargets(places,null,null,state.userPosition).userCoords;
@@ -543,12 +552,12 @@ function updateMap(fit=true,afterUpdate=null){
     $('#map-legend').innerHTML=[...new Set(visible.map(purposeCategory))].map(id=>{const c=TripMap.categories[id];return `<span><i class="purpose-legend" style="background:${c.color}">${c.icon}</i>${c.label}</span>`;}).join('')+(userCoords?'<span><i class="purpose-legend map-user-legend">◎</i>내 위치</span>':'');
     $('#map-scope-note').textContent='선택 해제로 기존 필터와 확대 상태로 돌아갑니다. 현재 위치는 마지막으로 확인한 좌표이며 자동 추적하지 않습니다.';
   }
-  requestAnimationFrame(()=>{if(revision!==mapUpdateRevision)return;const container=map.getContainer();if(!container.clientWidth||!container.clientHeight)return;map.invalidateSize();const fitPlaces=state.mapFocusId?visible:state.akibaRoute?akibaStops():state.browseCollection!=='current'||state.foodQuery.trim()?visible:hotelBars?[places.get(data.routePlan.hotelId),...list.filter(p=>p.coords)]:state.showRoute?mappedRoutePlaces():visible;const points=fitPlaces.map(p=>p.coords);if(state.mapFocusId&&userCoords)points.push(userCoords);if(fit&&points.length)map.fitBounds(L.latLngBounds(points),{padding:[30,30],maxZoom:state.mapFocusId?16:state.akibaRoute?17:hotelBars?16:14,animate:false});afterUpdate?.();});
+  requestAnimationFrame(()=>{if(revision!==mapUpdateRevision)return;const container=map.getContainer();if(!container.clientWidth||!container.clientHeight)return;map.invalidateSize();const fitPlaces=state.mapFocusId?visible:state.akibaRoute?akibaStops():state.browseCollection!=='current'||state.foodQuery.trim()?visible:hotelBars?[places.get(data.routePlan.hotelId),...list.filter(p=>p.coords)]:state.showRoute?mappedRoutePlaces():visible;const points=fitPlaces.map(p=>p.coords);if(state.mapFocusId&&userCoords)points.push(userCoords);if(fit&&points.length)map.fitBounds(L.latLngBounds(points),{...mapOverlayPadding(),maxZoom:state.mapFocusId?16:state.akibaRoute?17:hotelBars?16:14,animate:false});afterUpdate?.();});
 }
 function focusMapPlace(id,{fit=true,scroll=true,popup=true}={}){
   const p=places.get(id);if(!p?.coords)return;
   if(!state.mapFocusId&&map){const c=map.getCenter();state.mapFocusViewport={center:[c.lat,c.lng],zoom:map.getZoom()};}
-  state.mapFocusId=id;
+  state.mapFocusId=id;setMobileMapOptions(false);
   state.browseMode='map';syncPlaceBrowser();
   if(state.view!=='map'){state.view='map';render();}
   updateMap(fit,popup?()=>markers.get(id)?.openPopup():null);
@@ -693,6 +702,7 @@ document.addEventListener('click',e=>{
   if(b.dataset.place){openPlace(b.dataset.place);return;}
   switch(b.dataset.action){
     case 'close-dialog':closePlace();break;
+    case 'mobile-map-options':setMobileMapOptions(document.body.dataset.mapOptions!=='open');break;
     case 'map-fit':updateMap(true);break;
     case 'clear-map-place':clearMapPlace();break;
     case 'browse-all-categories':state.mapCategories=Object.keys(TripMap.categories);state.showFood=true;refreshPlaceBrowser();break;
